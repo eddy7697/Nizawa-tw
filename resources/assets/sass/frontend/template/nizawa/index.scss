@@ -17,7 +17,7 @@
 }
 %transparent-mask {
     content: '';
-    background-color: rgba($color: #174357, $alpha: 0.7);
+    background-color: rgba($color: #383735, $alpha: 0.7);
     display: block;
     position: absolute;
     top: 0;
@@ -59,7 +59,7 @@
                 padding: 0 8px;
 
                 a {
-                    color: #164358;
+                    color: #383735;
                     font-size: 14px;
                     font-weight: 600;
                     padding: 5px 5px;
@@ -68,7 +68,7 @@
                     transition: all .2s ease;
 
                     &.active, &:hover {
-                        background-color: #164358;
+                        background-color: #383735;
                         color: #fff;
                     }
                 }
@@ -85,7 +85,7 @@
                 padding: 0 15px;
                 
                 a {
-                    color: #164358;
+                    color: #383735;
                     font-size: 18px;
                     font-weight: 600;
                     padding: 5px 15px;
@@ -94,7 +94,7 @@
                     transition: all .2s ease;
 
                     &.active, &:hover {
-                        background-color: #164358;
+                        background-color: #383735;
                         color: #fff;
                     }
                 }
@@ -150,7 +150,7 @@
             a {
                 padding: 20px 15px;
                 border-bottom: #ccc solid thin;
-                color: #164358;
+                color: #383735;
                 width: 100%;
                 display: inline-block;
                 font-size: 18px;
@@ -159,7 +159,7 @@
                 transition: all .2s ease;
 
                 &.active {
-                    background-color: #164358;
+                    background-color: #383735;
                     color: #fff;
                 }
             }
@@ -217,7 +217,7 @@
                     padding: 40px;
                     position: absolute;
                     width: 40%;
-                    background-color: rgba(22, 67, 88, 0.65);
+                    background-color: rgba(#383735, 0.65);
                     border-radius: 10px;
                     max-width: 100%;
                     color: #FFF;
@@ -248,12 +248,13 @@
         }
     }
     .index-count-down {
-        background-color: #164358;
+        background-color: #f9b52c;
         min-height: 180px;
 
         .count-down-row {
             max-width: 1585px;
             margin: 0 auto;
+            color: #383735;
 
             .count-down-box {
                 display: -webkit-flex;
@@ -281,7 +282,7 @@
                     }
                 }
                 .flex-column {
-                    color: #fff;
+                    color: #383735;
                     text-align: center;
                     padding: 0 20px;
                     -webkit-flex: 1;
@@ -851,7 +852,7 @@
     
                                     input.sub-input {
                                         border: none;
-                                        background-color: #174357;
+                                        background-color: #383735;
                                         color: #ddd;
                                         font-size: 18px;
                                         padding: 7px 10px;
@@ -868,7 +869,7 @@
                                         background-color: $main-color;
                                         padding: 7px 45px;
                                         font-size: 18px;
-                                        color: #ddd;
+                                        color: #333;
                                         border-radius: 5px;
                                         cursor: pointer;
                                     }
