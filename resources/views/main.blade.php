@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="{{ app()->getLocale() }}">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    @yield('custom-meta')
+
+    @include('components.meta')
+
+    {{-- Custom stylesheet --}}
+    @yield('custom-style')
+
+</head>
+<body>
+
+    {{-- Loading --}}
+    <div class="loading-bar">
+        <img src="/img/icon/loading-spinner.svg">
+    </div>
+
+    {{-- Header --}}
+    @include('components.header')
+
+    {{-- Content --}}
+    <section class="site-content">
+        @yield('content')
+    </section>
+    
+
+    {{-- Footer --}}
+    @include('components.footer')
+
+    <!-- Scripts -->
+    <script src="/js/frontend.js"></script>
+
+    <script src="/js/plugins/popper/popper.min.js"></script>
+
+    <script src="/js/plugins/b4/js/bootstrap.min.js"></script>    
+
+    <script src="/js/cart-panel.js"></script>
+    
+    <script src="/js/plugins/jquery-ui/jquery-ui.min.js"></script>
+
+    <script src="/js/plugins/AOS/aos.js" charset="utf-8"></script>
+
+    <script type="text/javascript">
+        AOS.init();
+
+
+        var headerHeight = $('.site-header').height();
+        var footerHeight = $('.site-footer').height();
+        var windowHeight = $(window).height();
+
+        $('.site-content').css({'min-height': windowHeight - footerHeight - headerHeight});
+
+        function updateFooterLayout() {
+            if ($(window).width() <= 768) {
+                $('.site-footer .site-footer-content .footer-section .footer-logo').removeAttr('style');
+            } else {
+                $('.site-footer .site-footer-content .footer-section .footer-logo').css('left', $('.site-footer .site-footer-content .footer-section .footer-info .left-col ul.info').css("margin-left"))    
+            }
+            
+        };
+
+        function openCartPanel() {
+            $('.shopping-Cart-Icon').click()
+        }
+
+        updateFooterLayout();
+
+        $(window).resize(function (e) {
+            updateFooterLayout();
+        });
+        
+    </script>
+
+    {{-- Custom scripts --}}
+    @yield('custom-script')
+
+    @if(config('app.env') == 'local')
+        <script src="http://localhost:35729/livereload.js"></script>
+    @endif
+
+
+</body>
+</html>

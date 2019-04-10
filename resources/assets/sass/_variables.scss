@@ -1,0 +1,115 @@
+@import "../../../storage/app/scss-variables.scss";
+
+//-------------------------------------------------bootstrap-------------------------------------------------
+// Body
+$body-bg: #fff;
+
+// Borders
+$laravel-border-color: darken($body-bg, 10%);
+$list-group-border: $laravel-border-color;
+$navbar-default-border: $laravel-border-color;
+$panel-default-border: $laravel-border-color;
+$panel-inner-border: $laravel-border-color;
+
+// Brands
+$brand-primary: #0BA29B;
+$brand-primary-hover: #1DA4BB;
+$brand-primary-active: #178394;
+$brand-primary-disabled: #27DCFA;
+$brand-info: #17a2b8;
+$brand-success: #28a745;
+$brand-warning: #ffc107;
+$brand-danger: #dc3545;
+
+// Typography
+$icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
+// $font-family-sans-serif: "Raleway", sans-serif;
+$font-size-base: 14px;
+$line-height-base: 1.6;
+$text-color: #636b6f;
+
+// Navbar
+$navbar-default-bg: #fff;
+
+%middle-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+// Buttons
+$btn-default-color: $text-color;
+
+// element-ui stylesheets
+.el-button--primary {
+    background-color: $brand-primary !important;
+    border-color: $brand-primary !important;
+
+    &:hover {
+        background-color: $brand-primary-hover !important;
+        border-color: $brand-primary-hover !important;
+    }
+    &:active {
+        background-color: $brand-primary-active !important;
+        border-color: $brand-primary-active !important;
+    }
+    &.is-disabled {
+        opacity: 0.6;
+        background-color: $brand-primary-hover !important;
+        border-color: $brand-primary-hover !important;
+
+        &:hover {
+            background-color: $brand-primary-hover !important;
+            border-color: $brand-primary-hover !important;
+        }
+        &:active {
+            background-color: $brand-primary-hover !important;
+            border-color: $brand-primary-hover !important;
+        }
+    }
+}
+
+// Inputs
+$input-border: lighten($text-color, 40%);
+$input-border-focus: lighten($brand-primary, 25%);
+$input-color-placeholder: lighten($text-color, 30%);
+
+// Panels
+$panel-default-heading-bg: #fff;
+
+//-------------------------------------------------bootstrap-------------------------------------------------
+
+//colors
+$color-grey: #D6D6D6;
+$color-safe-final: #ADADAD;
+$color-grey-font-color: #616161;
+$color-white: #F5F5F5;
+$color-black: #292929;
+$color-topbar-icon: #B5B5B6;
+$color-hot-icon: #F1AB40;
+$color-footer-back: rgb(51,51,51);
+$color-hover-mask: rgba(94, 94, 94, 0.7);
+
+//$color-login: #0C6BB0;-------------------------------------------------Font-size-------------------------------------------------
+
+//img url
+
+
+//header
+$title-top-font-size: 15px;
+$titie-bottom-font-size-right: 14px;
+$title-bottom-font-size: 16px;
+$title-bottom-input-font-size: 12px;
+$title-pfirst-p: 1.8em;
+$title-boxin-p: 1.3em;
+$product_pirce: 28px;
+//count
+$font-size-number: 50px;
+$font-size-rwd: 13px;
+$font-size-p: 15px;
+$font-size-span: 18px;
+$font-size-footer-title: 28px;
+$font-color-focus: #F1AB40;
+
+

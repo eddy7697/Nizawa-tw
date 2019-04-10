@@ -1,0 +1,24 @@
+* {
+    position: relative;
+    font-family: Microsoft JhengHei;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+
+    li {
+        list-style: none;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1490px;
+    }
+}
+@media (max-width: 1200px) {
+    .container {
+        max-width: 100%;
+    }
+}

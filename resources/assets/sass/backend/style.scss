@@ -1,0 +1,275 @@
+body {
+    font-family: Microsoft JhengHei;
+}
+
+.btn {
+    margin-bottom: 0 !important;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.align-left {
+    text-align: left;
+}
+
+.align-center {
+    text-align: center;
+}
+
+.align-right {
+    text-align: right;
+}
+
+.alert {
+    margin-top: 10px;
+}
+
+.fa-toggle-on {
+    font-size: 20px !important;
+    color: $brand-success;
+}
+
+.fa-toggle-off {
+    font-size: 20px !important;
+    color: #999;
+}
+
+#menu_toggle {
+    display: none;
+}
+
+#center-btn {
+    position: absolute;
+    top: 50%;
+    background: #2A3F54;
+    border: none;
+    transform: translateY(-50%);
+    height: 50px;
+    right: -20px;
+    color: #ccc;
+
+    i.fa-angle-left {
+        transition: all .2s ease;
+    }
+}
+
+.pagination {
+
+    li {
+
+        a {
+            color: #999;
+        }
+        &.active {
+
+            a {
+                color: #FFF;
+            }
+        }
+    }
+}
+
+table.field-table {
+    width: 100%;
+    margin-bottom: 5px;
+    /*margin: 0 auto;*/
+
+    tr {
+        td, th {
+            padding: 5px;
+            vertical-align: middle;
+        }
+    }
+}
+
+table.product-detail-table {
+    tr {
+        td, th {
+            padding: 8px;
+            vertical-align: top;
+            border-bottom: 1px #ccc solid;
+        }
+    }
+
+    tbody {
+        tr {
+            td, th {
+                border-bottom: none;
+            }
+        }
+    }
+}
+
+.clearfix {
+    overflow : hidden;
+    text-overflow : ellipsis;
+    white-space : nowrap;
+}
+
+.bar-chart {
+
+    .bar {
+        background: #0887A7;
+        color: white;
+        padding: 2px 5px;
+    }
+}
+
+#admin-sidebar {
+
+    .panel-group {
+
+        .panel {
+
+            .panel-collapse {
+
+                .panel-body {
+                    padding: 0;
+
+                    ul {
+                		padding: 0;
+                		margin: 0;
+
+                        li {
+                    		list-style: none;
+
+                            a {
+                                padding: 10px;
+
+                                &:hover {
+                                    color: #FFF;
+                                    background: #35A6E5;
+                                    border-radius: 0;
+                                }
+                            }
+                    	}
+                	}
+                }
+            }
+        }
+    }
+}
+
+.col-md-12 {
+    width: 100% !important;
+}
+
+.ch-tab {
+    li {
+        a {
+            padding: 5px 10px;
+        }
+    }
+}
+.ch-tab-content {
+    .tab-pane {
+        padding: 10px 5px;
+    }
+}
+.arc text {
+  font: 10px sans-serif;
+  text-anchor: middle;
+}
+
+.pie-chart {
+    text-align: center;
+    position: relative;
+
+    svg {
+        transform: scale(0.8);
+    }
+}
+
+.arc path {
+  stroke: #fff;
+}
+.ch-left-panel-group {
+
+    .ch-panel {
+        margin-top: 0;
+
+        .panel-heading {
+            padding: 0;
+
+            .panel-title {
+                font-size: 14px;
+                width: 100%;
+                padding: 10px;
+                text-align: center;
+                display: inline-block;
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+.cms-tree {
+    padding: 20px;
+
+    ul.ui-fancytree {
+        border: none;
+        background-color: none;
+
+        li {
+
+            span.fancytree-node {
+                padding: 8px 5px;
+
+                &.fancytree-active {
+                    background-color: $brand-primary;
+
+                    span.fancytree-title {
+                        color: #fff;
+                    }
+                }
+            }
+        }
+    }
+    ul.fancytree-connectors.fancytree-container li {
+        background-position: 6px 0;
+    }
+}
+
+.nav-md .container.body .col-md-3.left_col {
+    .site_title {
+        img.mini {
+            display: none;
+        }
+    }
+}
+
+.nav-sm .container.body .col-md-3.left_col {
+    #center-btn {    
+        i.fa-angle-left {
+            transform: rotate(180deg);
+        }
+    }
+    .site_title {
+        img.default {
+            display: none;
+        }
+        img.mini {
+            width: 80%
+        }
+    }
+}
+
+.nav-md ul.nav.child_menu li.current-page:before {
+    background-color: #CCC;
+}
+
+.arc text {
+    font: 10px Microsoft JhengHei;
+}
+
+.el-button {
+    span {
+        line-height: inherit;
+    }
+}
+.page-title .title_left {
+    position: absolute;
+    top: 7px;
+}
