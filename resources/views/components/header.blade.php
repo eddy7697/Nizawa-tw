@@ -16,7 +16,7 @@
         <div class="row">
             <div class="col-md-12 site-header-container">
                 <div class="site-logo">
-                    <img src="/img/site-logo/logo_header.png" alt="">
+                    <a href="/"><img src="/img/site-logo/logo_header.png" alt=""></a>
                 </div>
                 <ul class="site-func">
                     <li>
