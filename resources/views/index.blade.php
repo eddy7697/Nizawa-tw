@@ -163,7 +163,7 @@
                             0
                         </div>
                         <div class="text">
-                            成立于
+                            成立於
                         </div>
                     </div>
                 </div>
@@ -176,7 +176,7 @@
                             0
                         </div>
                         <div class="text">
-                            产品数量
+                            產品數量
                         </div>
                     </div>
                 </div>
@@ -189,7 +189,7 @@
                             0
                         </div>
                         <div class="text">
-                            客户累积
+                            客戶累積
                         </div>
                     </div>
                 </div>
@@ -202,7 +202,7 @@
                             0
                         </div>
                         <div class="text">
-                            客户回单率
+                            客戶回單率
                         </div>
                     </div>
                 </div>
@@ -212,7 +212,7 @@
 
     {{-- Product --}}
     <div class="index-banner-divider product" data-aos="fade-in">
-        <h2>产品中心</h2>
+        <h2>產品中心</h2>
     </div>
     <div class="container product-list">
         <div class="row">
@@ -220,17 +220,17 @@
                 $dummyData = array(
                     [
                         'featureImage' => '/img/product-image.jpg',
-                        'title' => '污泥浓度MLSS监控仪',
+                        'title' => '汙泥濃度MLSS監控儀',
                         'type' => 'MC-700'
                     ],
                     [
                         'featureImage' => '/img/product-image-2.jpg',
-                        'title' => '化学药液浓度剂',
+                        'title' => '化學藥液濃度劑',
                         'type' => 'LQ-5z'
                     ],
                     [
                         'featureImage' => '/img/product-image.jpg',
-                        'title' => '携带型水质测定器',
+                        'title' => '攜帶型水質測定器',
                         'type' => '10-X'
                     ]
                 );
@@ -244,26 +244,26 @@
                             <div class="product-info">
                                 <h3 class="product-title">{{$item['title']}}</h3>
                                 <h4 class="product-type">型式：{{$item['type']}}</h4>
-                                <p>近红外线变频调光式，不受外部光线变化影响。</p> 
-                                <p>特殊耐污防水检测组件，确保长期使用稳定性。</p> 
-                                <p>4~20mA输出信号，上下限警报各a/b接点。</p> 
+                                <p>近紅外線變頻調光式，不受外部光線變化影響。</p> 
+                                <p>特殊耐汙防水檢測元件，確保長期使用穩定性。</p> 
+                                <p>4~20mA輸出訊號，上下限警報各a/b接點。</p> 
                                 <br>
-                                <p>测定范围： 0~20000 mg/l</p>
+                                <p>測定範圍： 0~20000 mg/l</p>
                             </div>
                         </a>
-                        <a class="product-link" href="">加入询价车</a>
+                        <a class="product-link" href="">加入詢價車</a>
                     </div>
                 </div>
             @endforeach
             <div class="col-md-12 btn-section">
-                <a href="" class="learn-more-btn">查看更多产品</a>
+                <a href="" class="learn-more-btn">檢視更多產品</a>
             </div>
         </div>
     </div>
 
     {{-- News --}}
     <div class="index-banner-divider news" data-aos="fade-in">
-        <h2>新闻中心</h2>
+        <h2>新聞中心</h2>
     </div>
     <div class="container new-tabs" data-aos="fade-in">
         <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -322,14 +322,14 @@
                 </div>
             </div>
             <div class="col-md-12 btn-section">
-                <a href="" class="learn-more-btn">查看更多历史消息</a>
+                <a href="" class="learn-more-btn">檢視更多歷史訊息</a>
             </div>
         </div>
     </div>
 
     {{-- Witness --}}
     <div class="index-banner-divider witness">
-        <h2>我们的客户</h2>
+        <h2>我們的客戶</h2>
     </div>
     <div class="container witness-list" data-aos="fade-up">
         <div class="row">
@@ -341,7 +341,7 @@
                             <img src="/img/partner1.jpg" alt="">
                         </div>
                         <div class="withess-info">
-                            统一企业股份有限公司
+                            統一企業股份有限公司
                             <br>
                             <span>Uni-President Enterprises Corporation</span>
                         </div>
@@ -352,7 +352,7 @@
                             <img src="/img/partner2.png" alt="">
                         </div>
                         <div class="withess-info">
-                            金车股份有限公司
+                            金車股份有限公司
                             <br>
                             <span>King Car Industrial Co., Ltd</span>
                         </div>
@@ -385,7 +385,7 @@
                             <img src="/img/partner5.png" alt="">
                         </div>
                         <div class="withess-info">
-                            鼎泰丰小吃店股份有限公司
+                            鼎泰豐小吃店股份有限公司
                             <br>
                             <span>Din Tai Fung</span>
                         </div>
@@ -396,7 +396,7 @@
                             <img src="/img/partner6.png" alt="">
                         </div>
                         <div class="withess-info">
-                            东京牛角股份有限公司
+                            東京牛角股份有限公司
                             <br>
                             <span>REINS International</span>
                         </div>

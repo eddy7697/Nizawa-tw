@@ -33,48 +33,48 @@
                 <div class="col-md-12">
                     <div class="left-col">
                         <ul class="info">
-                            <li>连络电话：+86-010-5869-3457</li>
-                            <li>传真电话：+86-010-5869-3457</li>
-                            <li>电子邮件：service@iontestkrk.com.cn</li>
-                            <li>地址：中国(上海)自由贸易试验区张扬路828-838号26楼</li>
-                            <li>邮政编码：100088</li>
-                            <li>办公时间：09:00 ~ 18:00 (Mon - Fri)</li>
+                            <li>連絡電話：+86-010-5869-3457</li>
+                            <li>傳真電話：+86-010-5869-3457</li>
+                            <li>電子郵件：service@iontestkrk.com.cn</li>
+                            <li>地址：中國(上海)自由貿易試驗區張揚路828-838號26樓</li>
+                            <li>郵政編碼：100088</li>
+                            <li>辦公時間：09:00 ~ 18:00 (Mon - Fri)</li>
                         </ul>
                     </div>
                     <div class="right-col">
                         <div class="row">
                             <div class="col-sm-6 col-md-3 site-map-container">
-                                <h3>关于科尔克</h3>
+                                <h3>關於日澤</h3>
                                 <ul class="site-map">
-                                    <li><a href="">公司介绍</a></li>
-                                    <li><a href="">全球认证</a></li>
-                                    <li><a href="">社会责任</a></li>
+                                    <li><a href="">公司介紹</a></li>
+                                    <li><a href="">全球認證</a></li>
+                                    <li><a href="">社會責任</a></li>
                                     <li><a href="">人才招募</a></li>
-                                    <li><a href="">联系我们</a></li>
+                                    <li><a href="">聯絡我們</a></li>
                                 </ul>
                             </div>
                             <div class="col-sm-6 col-md-3 site-map-container">
-                                <h3>服务支持</h3>
+                                <h3>服務支援</h3>
                                 <ul class="site-map">
-                                    <li><a href="">授权经销商</a></li>
-                                    <li><a href="">售后服务</a></li>
-                                    <li><a href="">常见问题</a></li>
-                                    <li><a href="">数据下载</a></li>
+                                    <li><a href="">授權經銷商</a></li>
+                                    <li><a href="">售後服務</a></li>
+                                    <li><a href="">常見問題</a></li>
+                                    <li><a href="">資料下載</a></li>
                                 </ul>
                             </div>
                             <div class="col-md-6 sub-form-container">
-                                <h3>订阅电子报</h3>
+                                <h3>訂閱電子報</h3>
                                 <form action="" method="POST">
                                     <table class="sub-form">
                                         <tbody>
                                             <tr>
                                                 <td>
-                                                    <input class="sub-input" type="name" placeholder="请输入姓名..." required>
+                                                    <input class="sub-input" type="name" placeholder="請輸入姓名..." required>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    <input class="sub-input" type="email" placeholder="请输入电子邮件..." required>
+                                                    <input class="sub-input" type="email" placeholder="請輸入電子郵件..." required>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -96,10 +96,10 @@
             {{-- copyright --}}
             <div class="row copyright">
                 <div class="col-md-4" style="text-align: center">
-                    <a href="">隐私权政策</a>&nbsp;|&nbsp;<a href="">使用条款</a>
+                    <a href="">隱私權政策</a>&nbsp;|&nbsp;<a href="">使用條款</a>
                 </div>
                 <div class="col-md-4" style="text-align: center">
-                    <img src="/img/gongan.png" alt="" style="display: inline-block"><p style="margin: 0 5px 0; display: inline-block;">ICP备12006504号-4</p>
+                    <img src="/img/gongan.png" alt="" style="display: inline-block"><p style="margin: 0 5px 0; display: inline-block;">ICP備12006504號-4</p>
                 </div>
                 <div class="col-md-4" style="text-align: center; color: rgba(255,255,255, 0.4)">
                     Copyright &copy; KRK Lab-pro Instrument Co., Ltd All Right Reserved.

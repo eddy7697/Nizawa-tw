@@ -8,7 +8,7 @@
 
 @section('content')
     <div class="sub-page-banner">
-        <h2>關於科爾克</h2>
+        <h2>關於日澤</h2>
     </div>
     <div class="container mg-site-thumbnail">
         <div class="col-md-12">

@@ -20,7 +20,7 @@
                 </div>
                 <ul class="site-func">
                     <li>
-                        <a style="cursor: pointer" onclick="openCartPanel()"><i class="fa fa-shopping-cart" aria-hidden="true"></i>&nbsp;我的询价车</a>
+                        <a style="cursor: pointer" onclick="openCartPanel()"><i class="fa fa-shopping-cart" aria-hidden="true"></i>&nbsp;我的詢價車</a>
                     </li>
                     <li>
                         <div class="dropdown">
@@ -38,12 +38,12 @@
                     </li>
                 </ul>
                 <ul class="site-menu">
-                    <li><a href="">关于科尔客</a></li>
-                    <li><a href="/product">产品中心</a></li>
-                    <li><a href="">产业应用</a></li>
-                    <li><a href="">新闻中心</a></li>
-                    <li><a href="">服务支持</a></li>
-                    <li><a href="" class="active">联系我们</a></li>
+                    <li><a href="">關於日澤</a></li>
+                    <li><a href="/product">產品中心</a></li>
+                    <li><a href="">產業應用</a></li>
+                    <li><a href="">新聞中心</a></li>
+                    <li><a href="">服務支援</a></li>
+                    <li><a href="" class="active">聯絡我們</a></li>
                 </ul>
             </div>
         </div>
@@ -57,11 +57,11 @@
 </section>
 <section class="mobile-site-menu hide">
     <ul class="menu-item">
-        <li><a href="">关于科尔客</a></li>
-        <li><a href="/product">产品中心</a></li>
-        <li><a href="">产业应用</a></li>
-        <li><a href="">新闻中心</a></li>
-        <li><a href="">服务支持</a></li>
-        <li><a href="" class="active">联系我们</a></li>
+        <li><a href="">關於日澤</a></li>
+        <li><a href="/product">產品中心</a></li>
+        <li><a href="">產業應用</a></li>
+        <li><a href="">新聞中心</a></li>
+        <li><a href="">服務支援</a></li>
+        <li><a href="" class="active">聯絡我們</a></li>
     </ul>
 </section>
