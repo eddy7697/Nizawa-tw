@@ -3,9 +3,9 @@
         <div class="col-md-12">
             <form v-on:submit.prevent="searchOrder">
                 <div class="input-group" style="width: 250px;">
-                  <input type="text" class="form-control" placeholder="訂單編號" v-model="merchantID">
+                  <input type="text" class="form-control" placeholder="詢價車編號" v-model="merchantID">
                   <span class="input-group-btn">
-                    <button class="btn btn-default" type="submit">搜尋訂單</button>
+                    <button class="btn btn-default" type="submit">搜尋詢價車</button>
                   </span>
                 </div><!-- /input-group -->
             </form>
@@ -13,42 +13,32 @@
         <div class="col-md-12">
             <ul class="order-cate-list">
                 <li v-bind:class="{ active: (orderStatus == 'all') }" @click="statusViewChange('all')">全部</li>
-                <li v-bind:class="{ active: (orderStatus == 'unpaid') }" @click="statusViewChange('unpaid')">未付款</li>
-                <li v-bind:class="{ active: (orderStatus == 'paid') }" @click="statusViewChange('paid')">已付款</li>
+                <li v-bind:class="{ active: (orderStatus == 'unpaid') }" @click="statusViewChange('unpaid')">未回覆</li>
+                <li v-bind:class="{ active: (orderStatus == 'paid') }" @click="statusViewChange('paid')">已回覆</li>
             </ul>
         </div>
         <div class="col-md-12">
             <table class="table field-table">
                 <thead>
                     <tr>
-                        <th>訂單編號</th>
-                        <th>購買日期時間</th>
-                        <th>會員帳號</th>
-                        <th>客戶名稱</th>
-                        <th>付款狀態</th>
-                        <th>付款方式</th>
-                        <th>訂單內容</th>
-                        <th>訂單狀態</th>
-                        <th style="text-align: center">訂單金額</th>
+                        <th>詢價單號(系統自動產生) </th>
+                        <th>公司名稱</th>
+                        <th>連絡電話</th>
+                        <th>詢價產品</th>
+                        <th>詢價車狀態</th>
+                        <th style="text-align: center">詢價車金額</th>
                         <th style="text-align: center">操作</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr v-for="(item, index) in orderList" v-bind:key="index">
                         <td>{{item.merchantID}}</td>
-                        <td>{{item.created_at}}</td>
-                        <td v-if="item.owner !== 'guest'">{{item.email}}</td>
-                        <td v-else><span style="color: brown; font-weight: bold">訪客</span></td>
                         <td>{{item.shippingTarget.ReceiverName}}</td>
+                        <td>{{item.shippingTarget.ReceiverCellPhone}}</td>
                         <td>
-                            <span style="color: brown; font-weight: bold" v-if="item.paymentStatus === 'uncheck'">未對帳</span>
-                            <span style="color: red; font-weight: bold" v-if="item.paymentStatus === 'unpaid'">未付款</span>
-                            <span style="color: green; font-weight: bold" v-if="item.paymentStatus === 'paid'">已付款</span>
-                        </td>
-                        <td>
-                            <span v-if="item.paymentMethod == 'Credit'">信用卡</span>
-                            <span v-else>轉帳付款</span>
-                            <!-- {{item.paymentMethod}} -->
+                            <span style="color: brown; font-weight: bold" v-if="item.paymentStatus === 'uncheck'">未確認</span>
+                            <span style="color: red; font-weight: bold" v-if="item.paymentStatus === 'unpaid'">未回覆</span>
+                            <span style="color: green; font-weight: bold" v-if="item.paymentStatus === 'paid'">已回覆</span>
                         </td>
                         <td>
                             <span v-if="item.content.length">{{item.content[0].Name}} x {{item.content[0].qty}} ...</span>                            
@@ -84,12 +74,12 @@
                     <div class="modal-content">
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title">訂單詳細資訊</h4>
+                            <h4 class="modal-title">詢價車詳細資訊</h4>
                         </div>
                         <div class="modal-body">
                             <table class="table product-detail-table">
                                 <tr>
-                                    <td>訂單編號</td>
+                                    <td>詢價車編號</td>
                                     <td>{{itemShowed.merchantID}}</td>
                                 </tr>
                                 <tr>
@@ -116,7 +106,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>訂單金額</td>
+                                    <td>詢價車金額</td>
                                     <td>NT$ {{itemShowed.amount}}</td>
                                 </tr>
                                 <!-- <tr>
@@ -164,19 +154,19 @@
                                     <td>
                                         <div v-if="itemShowed.patmentStatusModify">
                                             <select v-model="itemShowed.paymentStatus">
-                                                <option value="uncheck" v-if="itemShowed.orderStatus == 'uncheck'" selected>未對帳</option>
-                                                <option value="uncheck" v-else>未對帳</option>
-                                                <option value="unpaid" v-if="itemShowed.orderStatus == 'unpaid'" selected>未付款</option>
-                                                <option value="unpaid" v-else>未付款</option>
-                                                <option value="paid" v-if="itemShowed.orderStatus == 'paid'" selected>已付款</option>
-                                                <option value="paid" v-else>已付款</option>
+                                                <option value="uncheck" v-if="itemShowed.orderStatus == 'uncheck'" selected>未確認</option>
+                                                <option value="uncheck" v-else>未確認</option>
+                                                <option value="unpaid" v-if="itemShowed.orderStatus == 'unpaid'" selected>未回覆</option>
+                                                <option value="unpaid" v-else>未回覆</option>
+                                                <option value="paid" v-if="itemShowed.orderStatus == 'paid'" selected>已回覆</option>
+                                                <option value="paid" v-else>已回覆</option>
                                             </select>
                                             <button type="button" name="button" @click="modifyOrderStatus()"><i class="fa fa-check" aria-hidden="true"></i></button>
                                         </div>
                                         <div v-else>
-                                            <span style="color: brown; font-weight: bold" v-if="itemShowed.paymentStatus === 'uncheck'">未對帳</span>
-                                            <span style="color: red; font-weight: bold" v-if="itemShowed.paymentStatus === 'unpaid'">未付款</span>
-                                            <span style="color: green; font-weight: bold" v-if="itemShowed.paymentStatus === 'paid'">已付款</span>
+                                            <span style="color: brown; font-weight: bold" v-if="itemShowed.paymentStatus === 'uncheck'">未確認</span>
+                                            <span style="color: red; font-weight: bold" v-if="itemShowed.paymentStatus === 'unpaid'">未回覆</span>
+                                            <span style="color: green; font-weight: bold" v-if="itemShowed.paymentStatus === 'paid'">已回覆</span>
                                             <button class="btn btn-primary btn-sm" v-if="itemShowed.paymentMethod == 'Remit'" type="button" name="button" @click="togglePaymentStatusModify()">更改狀態</button>
                                         </div>
                                         
@@ -188,19 +178,19 @@
                                             style="margin-left: 10px;"
                                             class="btn btn-primary btn-xs"
                                             v-if="(itemShowed.paymentMethod !== 'cod') && (itemShowed.paymentStatus === 'paid') && (itemShowed.status === 'unpaid') && (itemShowed.shippingMethod === 'delivery')"
-                                            @click="generateCvs('0001')">已付款，產生常溫物流單</button>
+                                            @click="generateCvs('0001')">已回覆，產生常溫物流單</button>
                                         <button
                                             type="button"
                                             style="margin-left: 10px;"
                                             class="btn btn-primary btn-xs"
                                             v-if="(itemShowed.paymentMethod !== 'cod') && (itemShowed.paymentStatus === 'paid') && (itemShowed.status === 'unpaid') && (itemShowed.shippingMethod === 'delivery')"
-                                            @click="generateCvs('0002')">已付款，產生低溫物流單</button>
+                                            @click="generateCvs('0002')">已回覆，產生低溫物流單</button>
                                         <button
                                             type="button"
                                             style="margin-left: 10px;"
                                             class="btn btn-primary btn-xs"
                                             v-if="(itemShowed.paymentMethod !== 'cod') && (itemShowed.paymentStatus === 'paid') && (itemShowed.status === 'unpaid') && (itemShowed.shippingMethod === 'cvs')"
-                                            @click="generateCvs('0002')">已付款，產生超商物流單</button>
+                                            @click="generateCvs('0002')">已回覆，產生超商物流單</button>
                                         <button
                                             type="button"
                                             style="margin-left: 10px;"
@@ -215,7 +205,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>訂單狀態</td>
+                                    <td>詢價車狀態</td>
                                     <td>
                                         <div v-if="itemShowed.statusModify">
                                             <select v-model="itemShowed.orderStatus">
@@ -565,7 +555,7 @@
             modifyOrderStatus: function () {
                 var self = this;
                 var token = this.token;
-                var checkModify = self.itemShowed.orderStatus == 'canceled' ? confirm('訂單狀態變更後將無法再次改變，請確認。\n\n是否要繼續?') : true
+                var checkModify = self.itemShowed.orderStatus == 'canceled' ? confirm('詢價車狀態變更後將無法再次改變，請確認。\n\n是否要繼續?') : true
 
                 if (!checkModify) {
                     return

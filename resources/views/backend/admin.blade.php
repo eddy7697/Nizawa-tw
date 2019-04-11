@@ -64,17 +64,19 @@
 												@endif
 												<li><a href="/cyberholic-system/page/list">頁面列表</a></li>
 												<li><a href="/cyberholic-system/page/block">區塊列表</a></li>
-												<li><a href="/cyberholic-system/meta/notice">購物須知管理</a></li>
+												{{-- <li><a href="/cyberholic-system/meta/notice">購物須知管理</a></li> --}}
 												<li><a href="/cyberholic-system/meta/privacy">隱私權政策管理</a></li>
-												<li><a href="/cyberholic-system/meta/remind">安心購物宣言管理</a></li>
-												<li><a href="/cyberholic-system/meta/other">其他資訊管理</a></li>
+												{{-- <li><a href="/cyberholic-system/meta/remind">安心購物宣言管理</a></li> --}}
+												{{-- <li><a href="/cyberholic-system/meta/other">其他資訊管理</a></li> --}}
 											</ul>
 										</li>
+										@if (false)
 										<li class=""><a><i class="fa fa-users"></i> 會員管理系統 <span class="fa fa-chevron-down"></span></a>
 											<ul class="nav child_menu" style="display: none;">
 												<li><a href="/cyberholic-system/account/list">會員資料列表</a></li>
 											</ul>
-										</li>
+										</li>	
+										@endif
 										<li class=""><a><i class="fa fa-pencil-square-o"></i> 最新消息管理系統 <span class="fa fa-chevron-down"></span></a>
 											<ul class="nav child_menu" style="display: none;">
 												<li><a href="/cyberholic-system/post/add">新增最新消息</a></li>
@@ -87,11 +89,11 @@
 												<li><a href="/cyberholic-system/media/manager?type=Images">媒體庫</a></li>
 											</ul>
 										</li>
-										<li><a><i class="fa fa-shopping-cart"></i> 電商管理系統 <span class="fa fa-chevron-down"></span></a>
+										<li><a><i class="fa fa-shopping-cart"></i> 產品中心管理系統 <span class="fa fa-chevron-down"></span></a>
 											<ul class="nav child_menu" style="">
-												<li><a href="/cyberholic-system/product/add">新增銷售商品</a></li>
-												<li><a href="/cyberholic-system/product/list">商品列表</a></li>
-												<li><a href="/cyberholic-system/product/category">商品類別管理</a></li>
+												<li><a href="/cyberholic-system/product/add">新增產品</a></li>
+												<li><a href="/cyberholic-system/product/list">產品列表</a></li>
+												<li><a href="/cyberholic-system/product/category">產品類別管理</a></li>
 											</ul>
 										</li>
 										@if (false)
@@ -103,10 +105,10 @@
 												</ul>
 											</li>
 										@endif										
-										<li class=""><a><i class="fa fa-shopping-basket"></i> 訂單管理系統 <span class="fa fa-chevron-down"></span></a>
+										<li class=""><a><i class="fa fa-shopping-basket"></i> 詢價單管理系統 <span class="fa fa-chevron-down"></span></a>
 											<ul class="nav child_menu" style="display: none;">
-												<li><a href="/cyberholic-system/order/list">訂單資料查詢</a></li>
-												@if (true)
+												<li><a href="/cyberholic-system/order/list">詢價單資料查詢</a></li>
+												@if (false)
 													<li><a href="/cyberholic-system/order/shipping-method">運費規格設定</a></li>
 												@endif
 											</ul>

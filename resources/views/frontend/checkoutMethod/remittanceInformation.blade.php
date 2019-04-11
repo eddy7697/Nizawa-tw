@@ -21,7 +21,7 @@
         <div class="row">
             <div class="col-md-12 checkout-thumbnail">
                 <ul>
-                    <li>購物車</li>
+                    <li>詢價車</li>
                     <li><i class="fa fa-angle-right" aria-hidden="true"></i></li>
                     <li>結帳資訊</li>
                     <li><i class="fa fa-angle-right" aria-hidden="true"></i></li>

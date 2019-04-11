@@ -1,7 +1,7 @@
 <template>
     <div class="row" v-if="isCartEmpty && isLoaded">
         <div class="col-md-12">
-            <h3 class="center" style="padding: 250px 0; text-align: center">購物車裡面沒有商品，趕快去逛逛吧~</h3>
+            <h3 class="center" style="padding: 250px 0; text-align: center">詢價車裡面沒有商品，趕快去逛逛吧~</h3>
         </div>
     </div>
     <div class="row" v-else>
@@ -66,9 +66,9 @@
                 </tbody>
             </table>
             <br>
-            <button v-if="isDirty" class="btn btn-default" name="button" @click="updateCart">更新購物車</button>
-            <button v-else class="btn btn-default" name="button" disabled>更新購物車</button>
-            <button class="btn btn-default" name="button" @click="deleteAll">清空購物車</button>
+            <button v-if="isDirty" class="btn btn-default" name="button" @click="updateCart">更新詢價車</button>
+            <button v-else class="btn btn-default" name="button" disabled>更新詢價車</button>
+            <button class="btn btn-default" name="button" @click="deleteAll">清空詢價車</button>
         </div>
         <div class="col-md-4">
             <div class="cart-sidebar">
@@ -77,7 +77,7 @@
                     <table cellspacing="0" class="cart-list">
                         <thead>
                             <tr>
-                                <th class="product-name" colspan="2" style="border-width:3px;">購物車總計</th>
+                                <th class="product-name" colspan="2" style="border-width:3px;">詢價車總計</th>
                             </tr>
                         </thead>
                     </table>
@@ -301,7 +301,7 @@
                 })
                 .done(function(response) {
                     self.getCart();
-                    self.showMessage('success', '更新購物車成功');
+                    self.showMessage('success', '更新詢價車成功');
                     $('.loading-bar').fadeOut('100');
                     // console.log(response);
                 })

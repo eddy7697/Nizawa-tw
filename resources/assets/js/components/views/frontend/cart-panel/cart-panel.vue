@@ -5,7 +5,7 @@
             <span class="count" v-if="cartContent.length">{{cartContent.length}}</span>  
         </div>
         <div class="litext" @click="getCart(true)">
-            <p>&nbsp;&nbsp;購物車</p>
+            <p>&nbsp;&nbsp;詢價車</p>
         </div>
         <!--<button class="cart pull-right" @click="getCart(true)">-->
         <!--<img v-bind:src="(isCartEmpty ? '/img/icon/cart-empty.svg' : '/img/icon/cart-full.svg')" alt="" width="25" height="25">-->
@@ -48,10 +48,10 @@
 
                 <hr>
                 <h4 v-if="!isCartEmpty" style="text-align: center"><strong>小計 NT$ {{amount}}</strong></h4>
-                <h4 v-if="isCartEmpty" style="text-align: center"><strong>購物車還是空的唷!</strong></h4>
+                <h4 v-if="isCartEmpty" style="text-align: center"><strong>詢價車還是空的唷!</strong></h4>
                 <hr>
 
-                <button v-if="!isCartEmpty" type="button" class="btn btn-primary btn-block btn-lg" @click="goToCart()">查看購物車</button>
+                <button v-if="!isCartEmpty" type="button" class="btn btn-primary btn-block btn-lg" @click="goToCart()">查看詢價車</button>
                 <button type="button" class="btn btn-default btn-block btn-lg" @click="togglePanel()">繼續購物</button>
             </div>
         </transition>
@@ -200,9 +200,9 @@
 
                 axios.post(`/cart/add/single/${guid}`
                     ).then(res => {
-                        self.$message.success('成功加入購物車！')
+                        self.$message.success('成功加入詢價車！')
                     }).catch(err => {
-                        self.$message.error('加入購物車失敗...')
+                        self.$message.error('加入詢價車失敗...')
                     }).then(arg => {
                         self.getCart()
                     })

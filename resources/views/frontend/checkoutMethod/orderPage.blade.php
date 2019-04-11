@@ -18,12 +18,12 @@
                         <td>{{$order->merchantID}}</td>
                     </tr>
                     <tr>
-                        <td>商品內容</td>
+                        <td>產品內容</td>
                         <td>
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>商品</th>
+                                        <th>產品</th>
                                         <th>數量</th>
                                         <th>單價</th>
                                     </tr>

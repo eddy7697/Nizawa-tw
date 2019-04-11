@@ -16,7 +16,7 @@
         <div class="row">
             <div class="col-md-12 checkout-thumbnail">
                 <ul>
-                    <li class="active">購物車</li>
+                    <li class="active">詢價車</li>
                     <li><i class="fa fa-angle-right" aria-hidden="true"></i></li>
                     <li>結帳資訊</li>
                     <li><i class="fa fa-angle-right" aria-hidden="true"></i></li>
@@ -27,7 +27,7 @@
                 @if (count($cart))
                     <cart-page></cart-page>
                 @else
-                    <h3 class="center" style="padding: 250px 0;">購物車裡面沒有商品，趕快去逛逛吧~</h3>
+                    <h3 class="center" style="padding: 250px 0;">詢價車裡面沒有產品，趕快去逛逛吧~</h3>
                 @endif
             </div>
         </div>

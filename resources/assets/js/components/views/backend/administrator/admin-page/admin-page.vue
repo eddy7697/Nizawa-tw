@@ -1,6 +1,6 @@
 <template>
     <div class="row">
-        <div class="col-md-6 col-sm-6 col-xs-12">
+        <div class="col-md-6 col-sm-6 col-xs-12" v-if="false">
             <div class="x_panel tile fixed_height_600">
                 <div class="x_title">
                     <h2>庫存警示 (一般商品，庫存低於３) </h2>
@@ -30,7 +30,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-6 col-sm-6 col-xs-12">
+        <div class="col-md-6 col-sm-6 col-xs-12" v-if="false">
             <div class="x_panel tile fixed_height_600">
                 <div class="x_title">
                     <h2>庫存警示 (子商品，庫存低於３)</h2>
@@ -67,20 +67,20 @@
         <div class="col-md-6 col-sm-6 col-xs-12">
             <div class="x_panel tile fixed_height_600 overflow_hidden">
                 <div class="x_title">
-                    <h2>最新訂單</h2>
+                    <h2>最新詢價單</h2>
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
                     <div v-if="newestOrder.length == 0" class="alert alert-warning" style="background: #0C6BB0; border-color: #119AFC">
-                        <strong>目前沒有新訂單。</strong>
+                        <strong>目前沒有新詢價單。</strong>
                     </div>
                     <table v-else class="table field-table">
                         <thead>
                             <tr>
-                                <th>訂單編號</th>
+                                <th>詢價單編號</th>
                                 <th>訂購人</th>                                
                                 <th style="text-align: right">總金額</th>
-                                <th style="text-align: right">訂單狀態</th>
+                                <th style="text-align: right">詢價單狀態</th>
                                 <th style="text-align: right">下單日期</th>
                             </tr>
                         </thead>

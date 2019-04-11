@@ -535,7 +535,7 @@
                         if (this.isSubmit) {
                             this.showMessage('success', '商品儲存成功')
                             setTimeout(() => {
-                                // window.location.href="/cyberholic-system/product/list";
+                                window.location.href="/cyberholic-system/product/list";
                             }, 1500)
                         } else {
                             this.isEdit = true

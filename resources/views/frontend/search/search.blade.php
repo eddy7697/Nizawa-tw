@@ -41,9 +41,9 @@
                         <div class="add-to-cart">
                             <img class="add-loading" src="/img/icon/loading.svg" width="15" alt="">
                             @if ($item->productType == 'simple')
-                                <a class="add-btn" onclick="addSigleProduct('{{$item->productGuid}}')"><span>加入購物車</span></a>
+                                <a class="add-btn" onclick="addSigleProduct('{{$item->productGuid}}')"><span>加入詢價車</span></a>
                             @else
-                                <a class="add-btn" href="/product-detail/{{$item->customPath}}"><span>檢視商品</span></a>
+                                <a class="add-btn" href="/product-detail/{{$item->customPath}}"><span>檢視產品</span></a>
                             @endif    
                         </div>
                     </div>
@@ -82,7 +82,7 @@
                             </a>
                             <div class="add-to-cart">
                                 <img class="add-loading" src="/img/icon/loading.svg" width="15" alt="">
-                                <a class="add-btn" onclick="addSingleProduct('{{$item->guid}}')"><span>加入購物車</span></a>
+                                <a class="add-btn" onclick="addSingleProduct('{{$item->guid}}')"><span>加入詢價車</span></a>
                             </div>
                         </div>
                         <div class="product-title">

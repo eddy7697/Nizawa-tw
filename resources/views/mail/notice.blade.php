@@ -39,10 +39,10 @@
             <h2>感謝您的訂購</h2>
             <hr />
             <p>親愛的顧客您好。</p>
-            <p>您的訂單我們已經著手處理，感謝您訂購本公司的商品服務。<br />
-                以下是您的訂購商品清單資料，<br />
+            <p>您的訂單我們已經著手處理，感謝您訂購本公司的產品服務。<br />
+                以下是您的訂購產品清單資料，<br />
                 請於7日內匯款，超過時間麻煩請重新訂購，<br />
-                收到您的款項以後我們會盡速處理您的商品寄送事宜。
+                收到您的款項以後我們會盡速處理您的產品寄送事宜。
             </p>
             <h2>親愛的顧客 {{$shippingTarget['ReceiverName']}} 先生/小姐 您好：</h2>            
             <p>您的訂單編號：{{$merchantIdCache['MerchantTradeNo']}}</p>
@@ -62,7 +62,7 @@
     </tr>
     <tr>
       <td style="padding: 10px; background: #ccc">
-        商品名稱
+        產品名稱
       </td>
       <td style="padding: 10px; background: #ccc">
         數量

@@ -40,7 +40,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="row">
-                    {{--商品图片轮播--}}
+                    {{--產品图片轮播--}}
                     <div class="col-md-6 product-gallery">
                         <div class="product-img">
                             <div class="product-item">
@@ -74,7 +74,7 @@
                         
                     </div>
 
-                    {{--商品信息以及功能--}}
+                    {{--產品信息以及功能--}}
                     <div class="col-md-6 product-info">
                         <h3>{{$product->productTitle}}</h3>
                         @unless (count($comentList) == 0)
@@ -120,7 +120,7 @@
                         {{-- 需要协助吗? <a href="#" data-toggle="modal" data-target="#myModal-01">联系我们</a> --}}
                     </div>
 
-                    {{--商品叙述--}}
+                    {{--產品叙述--}}
                     <div class="col-md-12 product-description">
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                             <li class="nav-item">
@@ -149,7 +149,7 @@
                         </div>
                         {{-- <div class="center-hr">
                             <span>
-                                商品特色说明
+                                產品特色说明
                             </span>
                         </div>
                         <div class="description-detail">
@@ -257,7 +257,7 @@
             {{-- <div class="col-md-3">
                 <div class="center-hr">
                     <span>
-                        最新商品
+                        最新產品
                     </span>
                 </div>
                 <ul class="product-link-list">

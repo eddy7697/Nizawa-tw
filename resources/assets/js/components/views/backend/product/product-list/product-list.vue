@@ -15,7 +15,7 @@
                 :selectedCategoryKey="selectedCategoryKey"
                 @changeCategory="changeCategory($event)"/>
         </div>
-        <div class="col-md-12" style="margin-bottom: 5px;">
+        <div class="col-md-12" style="margin-bottom: 5px;" v-if="false">
             <el-radio-group v-model="productType" size="small">
                 <el-radio-button label="all">所有類型</el-radio-button>
                 <el-radio-button label="simple">一般商品</el-radio-button>
