@@ -38,7 +38,7 @@
 @endsection
 
 @section('content')
-<div class="sub-page-banner" style="background-image: url('/img/banner-2-1.jpg');">
+<div class="sub-page-banner" style="background-image: url('/img/sub-banner.jpg');">
     <div>
         <h2>联系我们</h2>
         <h4>Contact Us</h4>
@@ -50,7 +50,7 @@
     <div class="container">
         <div class="col-md-12">
             <a href="/">首页</a>
-            &nbsp;&nbsp;<i class="fa fa-chevron-right" aria-hidden="true"></i>&nbsp;&nbsp;
+            &nbsp;&nbsp;<a>></a>&nbsp;&nbsp;
             联系我们
         </div>
     </div>

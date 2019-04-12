@@ -60,7 +60,7 @@
 <div class="container mg-site-thumbnail">
     <div class="col-md-12">
         <a href="/">首頁</a>
-        &nbsp;&nbsp;>&nbsp;&nbsp;
+        &nbsp;&nbsp;<a>></a>&nbsp;&nbsp;
         最新消息
     </div>
 </div>

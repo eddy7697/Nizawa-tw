@@ -17,29 +17,29 @@
 @endsection
 
 @section('content')
-<div class="sub-page-banner" style="background-image: url('/img/banner-2-1.jpg');">
+<div class="sub-page-banner" style="background-image: url('/img/sub-banner.jpg');">
     <div>
-        <h2>产品中心</h2>
+        <h2>產品中心</h2>
         <h4>Product center</h4>
         <hr>
-        <h5>您可于此页面查找科尔客相关产品，并透过界面完成询价单填写</h5>
+        <h5>您可於此頁面查詢科爾客相關產品，並透過介面完成詢價單填寫</h5>
     </div>
 </div>
 <div class="mg-site-thumbnail">
     <div class="container">
         <div class="col-md-12">
-            <a href="/">首页</a>
-            &nbsp;&nbsp;<i class="fa fa-chevron-right" aria-hidden="true"></i>&nbsp;&nbsp;
-            产品中心
+            <a href="/">首頁</a>
+            &nbsp;&nbsp;<a>></a>&nbsp;&nbsp;
+            產品中心
         </div>
     </div>
 </div>
 <div class="container product-list">
     <div class="row main-category">
-        <div class="col-md-7 mx-auto">
+        <div class="col-md-10 mx-auto">
             <ul class="row nav nav-tabs">
                 @foreach ($root as $key => $item)
-                    <li class="col-md-4 category-btn-section nav-item">
+                    <li class="col-md-2 mx-auto category-btn-section nav-item">
                     <a class="nav-link category-btn {{$rootLayer->categoryGuid == $item->categoryGuid ? 'active' : ''}}" href="/product?main={{$item->categoryGuid}}">
                         {{-- <a class="nav-link category-btn {{$rootLayer->categoryGuid == $item->categoryGuid ? 'active' : ''}}" data-toggle="tab" href="#main-tab-{{$key}}"> --}}
                             @include('components.icon.type'.($key + 1))
@@ -97,17 +97,17 @@
             $dummyData = array(
                 [
                     'featureImage' => '/img/product-image.jpg',
-                    'title' => '污泥浓度MLSS监控仪',
+                    'title' => '汙泥濃度MLSS監控儀',
                     'type' => 'MC-700'
                 ],
                 [
                     'featureImage' => '/img/product-image-2.jpg',
-                    'title' => '化学药液浓度剂',
+                    'title' => '化學藥液濃度劑',
                     'type' => 'LQ-5z'
                 ],
                 [
                     'featureImage' => '/img/product-image.jpg',
-                    'title' => '携带型水质测定器',
+                    'title' => '攜帶型水質測定器',
                     'type' => '10-X'
                 ]
             );
@@ -127,7 +127,7 @@
                             
                         </div>
                     </a>
-                    <a class="product-link" href="">加入询价车</a>
+                    <a class="product-link" href="">加入詢價車</a>
                 </div>
             </div>
         @endforeach

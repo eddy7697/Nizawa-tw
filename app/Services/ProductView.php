@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use Illuminate\Support\Facades\App;
 use App\Product;
 
 class ProductView
@@ -40,18 +41,10 @@ class ProductView
                         ->inRandomOrder()->take(4)->get();
     }
     
-    public static function getPopularProductsByCount($int)
+    public static function getPopularProductsByCount($int = 3)
     {
         return Product::where('isPublish', '1')
-                        // ->where('quantity', '>', 0)
-                        ->where(function ($query) {
-                            $query->where('schedulePost', '>', time())
-                                ->orwhere('schedulePost','=',null);
-                        })
-                        ->where(function ($query) {
-                            $query->where('scheduleDelete','<',time())
-                                ->orwhere('scheduleDelete','=',null);
-                        })
+                        ->where('locale', App::getLocale())
                         ->leftJoin('categories', 'products.productCategory', '=', 'categories.categoryGuid')
                         ->select('products.*', 'categories.categoryTitle')
                         ->orderBy('schedulePost', 'desc')->inRandomOrder()->take($int)->get();

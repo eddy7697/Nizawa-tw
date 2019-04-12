@@ -397,7 +397,7 @@
                 text-align: center;
 
                 a.category-btn {
-                    width: 60%;
+                    width: 80%;
                     border: #ccc thin solid;
                     border-radius: 20px;
                     text-align: center;
@@ -411,10 +411,10 @@
                         border: $main-color thin solid;
 
                         .svg-icon {
-                            .cls-2 {
+                            .cls-2,.cls-4 {
                                 stroke:#fff
                             }
-                            .cls-2,.cls-3{
+                            .cls-2,.cls-3,.cls-4{
                                 fill:#FFF;
                             }
                         }
@@ -508,13 +508,13 @@
                                 width: 100%;
                                 padding: 10px 20px;
                                 color: #666;
-                                text-decoration: none;
 
                                 &:hover {
                                     color: $main-color;
                                 }
                                 &.active {
                                     color: $main-color;
+                                    text-decoration: underline;
                                 }
                             }
                         }
@@ -542,8 +542,9 @@
                     color: #333;
                     font-size: 1.25rem;
                     flex: 1;
+                    transition: all .2s ease;
 
-                    &.active {
+                    &.active, &:hover {
                         background-color: #fff;
                         padding: 15px 80px;
                     }
@@ -604,6 +605,25 @@
     }
     .witness-list {
 
+        .witness-arrow {
+            width: 40px;
+            height: 40px;
+            border: none;
+            border-radius: 50%;
+            color: #fff;
+            background-color: $main-color;
+            position: absolute;
+            display: block !important;
+            top: 50%;
+            transform: translate(-50%, -50%);
+
+            &#prev-arrow {
+                left: -10px;
+            }
+            &#next-arrow {
+                right: -50px;
+            }
+        }
         .witness-container {
             margin: 60px auto 40px;
 
@@ -872,6 +892,12 @@
                                         color: #333;
                                         border-radius: 5px;
                                         cursor: pointer;
+                                        transition: all .2s ease;
+
+                                        &:hover{
+                                            color: $main-color;
+                                            background-color: #EFEFEF;
+                                        }
                                     }
                                 }
                             }

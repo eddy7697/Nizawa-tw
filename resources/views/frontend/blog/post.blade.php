@@ -46,17 +46,17 @@
 <div class="container">
     <div class="col-md-12">
         <a href="/">首頁</a>
-        &nbsp;&nbsp;>&nbsp;&nbsp;
+        &nbsp;&nbsp;<a>></a>&nbsp;&nbsp;
         <a href="/blog">最新消息</a>
         {{-- {{$post->postCategory}} --}}
         @if ($post->postCategory)
-            &nbsp;&nbsp;>&nbsp;&nbsp;
+            &nbsp;&nbsp;<a>></a>&nbsp;&nbsp;
             <a href="/blog/category/{{$post->postCategory}}">{{CategoryView::get($post->postCategory)->categoryTitle}}</a>                
         @else
-            {{-- &nbsp;&nbsp;>&nbsp;&nbsp;
+            {{-- &nbsp;&nbsp;<a>></a>&nbsp;&nbsp;
             <a href="/blog">所有最新消息</a>                 --}}
         @endif
-        &nbsp;&nbsp;>&nbsp;&nbsp;{{$post->postTitle}}
+        &nbsp;&nbsp;<a>></a>&nbsp;&nbsp;{{$post->postTitle}}
     </div>
 </div>
 <div class="container mg-site-thumbnail">

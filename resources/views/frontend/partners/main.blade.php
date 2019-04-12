@@ -21,9 +21,9 @@
     <div class="container">
         <div class="col-md-12">
             <a href="/">首页</a>
-            &nbsp;&nbsp;<i class="fa fa-chevron-right" aria-hidden="true"></i>&nbsp;&nbsp;
+            &nbsp;&nbsp;<a>></a>&nbsp;&nbsp;
             <a href="/contact">联系我们</a> 
-            &nbsp;&nbsp;<i class="fa fa-chevron-right" aria-hidden="true"></i>&nbsp;&nbsp;
+            &nbsp;&nbsp;<a>></a>&nbsp;&nbsp;
             授權經銷商
         </div>
     </div>

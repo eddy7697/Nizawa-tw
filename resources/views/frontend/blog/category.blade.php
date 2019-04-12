@@ -59,9 +59,9 @@
 <div class="container mg-site-thumbnail">
     <div class="col-md-12">
         <a href="/">首頁</a>
-        &nbsp;&nbsp;>&nbsp;&nbsp;
+        &nbsp;&nbsp;<a>></a>&nbsp;&nbsp;
         <a href="/blog">最新消息</a>
-        &nbsp;&nbsp;>&nbsp;&nbsp;{{CategoryView::get($category)->categoryTitle}}
+        &nbsp;&nbsp;<a>></a>&nbsp;&nbsp;{{CategoryView::get($category)->categoryTitle}}
     </div>
 </div>
 <div class="container">

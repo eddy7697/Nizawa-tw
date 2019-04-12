@@ -1,6 +1,6 @@
 <svg class="svg-icon" id="cate-02-icon_1" data-name="cate-02-icon 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
     <defs>
-        <style>.cls-1{fill:#231815;}.cls-2,.cls-3{fill:#0BA29B;}.cls-3{font-size:37.41px;stroke:#fff;stroke-miterlimit:10;stroke-width:0.25px;font-family:MicrosoftJhengHeiRegular, Microsoft JhengHei;}</style>
+        <style>.cls-1{fill:#231815;}.cls-2,.cls-3{fill:#f9b52c;}.cls-3{font-size:37.41px;stroke:#fff;stroke-miterlimit:10;stroke-width:0.25px;font-family:MicrosoftJhengHeiRegular, Microsoft JhengHei;}</style>
     </defs>
     <title>icon-02</title>
     <path class="cls-2" d="M207.81,143.43c-3.89,1.67-5.62,1.35-8.75-1.64L173.32,117.2,172,115.94l-4.45,4.66-1.29-1.23q-20.41-19.5-40.78-39A15.45,15.45,0,0,1,122.39,76a8.24,8.24,0,0,1,.46-7.77c.12-.22.21-.46.32-.69l2.15-2.25c.32-.17.65-.34,1-.52,3.72-2.13,8-1.5,11.59,1.83,4.74,4.45,9.43,9,14.13,13.47q27.71,26.47,55.44,52.92c2.6,2.47,3.79,5.11,2.21,8.56Z"/>

@@ -4,7 +4,7 @@
     <meta property="og:url" content="{{(isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"}}"></meta>
     <meta property="og:title" content="{{$product->seoTitle}}" />
     <meta property="og:description" content="{{$product->seoDescription}}" />
-    <!--分享用图片在这，一样有保留-->
+    <!--分享用圖片在這，一樣有保留-->
     <meta property="og:image" content="https://www.meansgood.com.tw{{$product->featureImage}}"/>
     <meta property="fb:app_id" content="1758202757809745" />
     <!--**************************-->
@@ -25,13 +25,25 @@
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));</script>
 
+    @php
+        use App\Category; 
+        use App\Product;
 
+        $mainCate = Category::where('categoryGuid', $product->mainCategory)->first();
+        $subCate = Category::where('categoryGuid', $product->subCategory)->first();
+    @endphp
     <div class="mg-site-thumbnail">
         <div class="container">
             <div class="col-md-12">
-                <a href="/">首页</a>
-                &nbsp;&nbsp;<i class="fa fa-chevron-right" aria-hidden="true"></i>&nbsp;&nbsp;
-                产品中心
+                <a href="/">首頁</a>
+                &nbsp;&nbsp;<a>></a>&nbsp;&nbsp;
+                <a href="/product">產品中心</a>
+                &nbsp;&nbsp;<a>></a>&nbsp;&nbsp;
+                <a href="/product?main={{$mainCate->categoryGuid}}">{{$mainCate->categoryTitle}}</a>
+                &nbsp;&nbsp;<a>></a>&nbsp;&nbsp;
+                <a href="/product?sub={{$mainCate->categoryGuid}}">{{$subCate->categoryTitle}}</a>
+                &nbsp;&nbsp;<a>></a>&nbsp;&nbsp;
+                {{$product->productTitle}}
             </div>
         </div>
     </div>
@@ -40,7 +52,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="row">
-                    {{--產品图片轮播--}}
+                    {{--產品圖片輪播--}}
                     <div class="col-md-6 product-gallery">
                         <div class="product-img">
                             <div class="product-item">
@@ -74,7 +86,7 @@
                         
                     </div>
 
-                    {{--產品信息以及功能--}}
+                    {{--產品資訊以及功能--}}
                     <div class="col-md-6 product-info">
                         <h3>{{$product->productTitle}}</h3>
                         @unless (count($comentList) == 0)
@@ -86,27 +98,27 @@
                                 </select>
                             </div>
                             <div class="comment-box">
-                                <span>{{count($comentList)}} 则评价</span>
+                                <span>{{count($comentList)}} 則評價</span>
                             </div>
                         @endunless
                         <div class="clear-left"></div>
 
-                        {{--简短说明--}}
+                        {{--簡短說明--}}
                         <div class="short-description">
                             <h4>形式：{{$product->serialNumber}}</h4>
-                            <h4>货号：{{$product->rule}}</h4>
+                            <h4>貨號：{{$product->rule}}</h4>
                         </div>
 
                         <hr>
 
-                        {{--简短说明--}}
+                        {{--簡短說明--}}
                         <div class="short-description">
                             {!!$product->shortDescription!!}
                         </div>
 
                         <hr>
 
-                        {{--选择数量以及加入购物车--}}
+                        {{--選擇數量以及加入購物車--}}
                         <div class="product-function" id="product-methods">
                             <product-methods guid='{{$product->productGuid}}'></product-methods>
                         </div>
@@ -117,20 +129,20 @@
                             <img src="/img/icon/icon-03-01.svg" alt="">
                             <img src="/img/icon/icon-03-02.svg" alt="">
                         </div>
-                        {{-- 需要协助吗? <a href="#" data-toggle="modal" data-target="#myModal-01">联系我们</a> --}}
+                        {{-- 需要協助嗎? <a href="#" data-toggle="modal" data-target="#myModal-01">聯絡我們</a> --}}
                     </div>
 
-                    {{--產品叙述--}}
+                    {{--產品敘述--}}
                     <div class="col-md-12 product-description">
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                             <li class="nav-item">
-                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">检测步骤</a>
+                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">檢測步驟</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">检测项目</a>
+                                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">檢測項目</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">仪器规格</a>
+                                <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">儀器規格</a>
                             </li>
                         </ul>
                         <div class="tab-content" id="myTabContent">
@@ -149,7 +161,7 @@
                         </div>
                         {{-- <div class="center-hr">
                             <span>
-                                產品特色说明
+                                產品特色說明
                             </span>
                         </div>
                         <div class="description-detail">
@@ -157,14 +169,14 @@
                         </div> --}}
                     </div>
 
-                    {{-- 评论列表 --}}
+                    {{-- 評論列表 --}}
                     @if (false)
                     <div class="col-md-12">
                         <hr>
-                        <h3>评论列表</h3>
+                        <h3>評論列表</h3>
                         <hr>
                         @if (count($comentList) == 0)
-                            目前没有评论唷~赶快来添加一个吧!
+                            目前沒有評論唷~趕快來新增一個吧!
                         @else
                             @foreach ($comentList as $item)
                                 <table class="product-comment">
@@ -192,7 +204,7 @@
                                         @if (Auth::user()->role == 'ADMIN')
                                             <tr>
                                                 <td>
-                                                    <a href="/product/delete/comment/{{$item->guid}}" onclick="return confirm('确认删除此笔评论?')">删除</a>
+                                                    <a href="/product/delete/comment/{{$item->guid}}" onclick="return confirm('確認刪除此筆評論?')">刪除</a>
                                                 </td>
                                             </tr>
                                         @endif
@@ -207,10 +219,10 @@
                         <hr>
                         <form action="/product/send/comment/{{$guid}}" method="post">
                             {{ csrf_field() }}
-                            <h3>发表评论</h3>
+                            <h3>發表評論</h3>
                             <hr>
                             <div class="form-group">
-                                <label for="comment-name">暱称</label>
+                                <label for="comment-name">暱稱</label>
                                 @unless (Auth::guest())
                                     <div class="form-control" style="max-width: 150px">
                                         {{Auth::user()->name}}
@@ -221,12 +233,12 @@
                                     id="comment-name"
                                     name="comment-name"
                                     value="{{ Auth::guest() ? "" : Auth::user()->name }}"
-                                    placeholder="请输入暱称"
+                                    placeholder="請輸入暱稱"
                                     required>
 
                             </div>
                             <div class="form-group">
-                                <label>评分：</label>
+                                <label>評分：</label>
                                 <select class="rate-star" id="comment-rate" name="comment-rate">
                                     <option value="1">1</option>
                                     <option value="2">2</option>
@@ -236,18 +248,18 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="comment-content">请写下您的评语</label>
+                                <label for="comment-content">請寫下您的評語</label>
                                 <textarea class="form-control" id="comment-content" name="comment-content" style="width: 100%; min-height: 150px; resize: vertical" required></textarea>
                             </div>
                             {!! NoCaptcha::renderJs() !!}
                             {!! NoCaptcha::display() !!}
                             @if ($errors->has('g-recaptcha-response'))
                                 <span class="help-block">
-                                    <strong>登录必须通过验证</strong>
+                                    <strong>登入必須通過驗證</strong>
                                 </span>
                             @endif
                             <hr>
-                            <button class="btn btn-primary">发表评论</button>
+                            <button class="btn btn-primary">發表評論</button>
                         </form>
 
                     </div>
@@ -269,38 +281,38 @@
         </div>
     </div>
 
-    {{-- 客服信息 --}}
+    {{-- 客服資訊 --}}
     <div class="modal fade" id="myModal-01" tabindex="-1" role="dialog" aria-labelledby="myModal-01Label">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-body">
-                    <h3 style="text-align:center; margin: 10px;">客服信息</h3>
+                    <h3 style="text-align:center; margin: 10px;">客服資訊</h3>
 
                     <hr />
-                    <h4>Email查找</h4>
+                    <h4>Email查詢</h4>
 
-                    <p>将您的问题以电子邮件寄送至&nbsp;044555@gmail.com，我们将有客服为您解答。</p>
+                    <p>將您的問題以電子郵件寄送至&nbsp;044555@gmail.com，我們將有客服為您解答。</p>
                     <br>
-                    <h4>电话查找</h4>
+                    <h4>電話查詢</h4>
 
-                    <p>在工作日的9:00-16:30，欢迎拨打03-9590903与我们联系查找。</p>
+                    <p>在工作日的9:00-16:30，歡迎撥打03-9590903與我們聯絡查詢。</p>
 
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-dismiss="modal">关闭窗口</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">關閉視窗</button>
                 </div>
             </div>
         </div>
     </div>
 
-    {{-- 购买工具列 --}}
+    {{-- 購買工具列 --}}
     {{-- <div class="mobile-tool-bar">
         <ul>
             <li>
-                <a class="btn btn-primary btn-block" onclick="addSingleProduct('{{$guid}}')"><span class="glyphicon glyphicon-shopping-cart"></span>&nbsp;加入购物车</a>
+                <a class="btn btn-primary btn-block" onclick="addSingleProduct('{{$guid}}')"><span class="glyphicon glyphicon-shopping-cart"></span>&nbsp;加入購物車</a>
             </li>
             <li>
-                <a class="btn btn-primary btn-block" onclick="checkoutImmediately('{{$guid}}')"><span class="glyphicon glyphicon-gift"></span>&nbsp;立即购买</a>
+                <a class="btn btn-primary btn-block" onclick="checkoutImmediately('{{$guid}}')"><span class="glyphicon glyphicon-gift"></span>&nbsp;立即購買</a>
             </li>
         </ul>
     </div> --}}
@@ -309,52 +321,32 @@
     <div class="container product-list">
         <div class="row">
             <div class="col-md-12">
-                <h3 style="text-align: center">其他相关产品</h3>
+                <h3 style="text-align: center">其他相關產品</h3>
                 <hr>
             </div>
         </div>
         <div class="row">
-            @php
-                $dummyData = array(
-                    [
-                        'featureImage' => '/img/product-image.jpg',
-                        'title' => '污泥浓度MLSS监控仪',
-                        'type' => 'MC-700'
-                    ],
-                    [
-                        'featureImage' => '/img/product-image-2.jpg',
-                        'title' => '化学药液浓度剂',
-                        'type' => 'LQ-5z'
-                    ],
-                    [
-                        'featureImage' => '/img/product-image.jpg',
-                        'title' => '携带型水质测定器',
-                        'type' => '10-X'
-                    ]
-                );
-                
-            @endphp
-            @foreach ($dummyData as $item)
-                <div class="col-md-4 product-content">
+            @foreach (ProductView::getPopularProductsByCount(3) as $item)
+                <div class="col-md-4 product-content" data-aos="fade-up">
                     <div class="product-box">
-                        <a href="">
-                            <div class="product-feature-image" style="background-image: url('{{$item['featureImage']}}');"></div>
+                        <a href="/product-detail/{{$item->productGuid}}">
+                            <div class="product-feature-image" style="background-image: url('{{$item->featureImage}}');"></div>
                             <div class="product-info">
-                                <h3 class="product-title">{{$item['title']}}</h3>
-                                <h4 class="product-type">型式：{{$item['type']}}</h4>
-                                <p>近红外线变频调光式，不受外部光线变化影响。</p> 
-                                <p>特殊耐污防水检测组件，确保长期使用稳定性。</p> 
-                                <p>4~20mA输出信号，上下限警报各a/b接点。</p> 
+                                <h3 class="product-title">{{$item->productTitle}}</h3>
+                                <h4 class="product-type">型式：{{$item->serialNumber}}</h4>
+                                <p>近紅外線變頻調光式，不受外部光線變化影響。</p> 
+                                <p>特殊耐汙防水檢測元件，確保長期使用穩定性。</p> 
+                                <p>4~20mA輸出訊號，上下限警報各a/b接點。</p> 
                                 <br>
-                                <p>测定范围： 0~20000 mg/l</p>
+                                <p>測定範圍： 0~20000 mg/l</p>
                             </div>
                         </a>
-                        <a class="product-link" href="">加入询价车</a>
+                        <a class="product-link" style="cursor: pointer" onclick="addSigleProduct('{{$item->productGuid}}')">加入詢價車</a>
                     </div>
                 </div>
             @endforeach
             <div class="col-md-12 btn-section">
-                <a href="" class="learn-more-btn">查看更多产品</a>
+                <a href="" class="learn-more-btn">檢視更多產品</a>
             </div>
         </div>
     </div>

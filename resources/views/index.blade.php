@@ -80,23 +80,33 @@
         }
     </script>
     <script>
-    var swiper = new Swiper('.swiper-container', {
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-        renderBullet: function (index, className) {
-          return '<span class="' + className + '"></span>';
-        },
-      },
-    });
+        var swiper = new Swiper('.swiper-container', {
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+                renderBullet: function (index, className) {
+                return '<span class="' + className + '"></span>';
+                },
+            },
+        });
+
+        $('.scrollDown').on('click', function () {
+            $("html, body").animate({
+                scrollTop: $('.swiper-wrapper').height() + 1 
+            }, 2000);
+        });
 
         $('.witness-container').slick({
             dots: false,
             infinite: true,
             speed: 300,
             arrow: true,
+            prevArrow: $('#prev-arrow'),
+            nextArrow: $('#next-arrow'),
             slidesToShow: 6,
             slidesToScroll: 1,
+            autoplay: true,
+            autoplaySpeed: 2000,
             responsive: [
                 {
                     breakpoint: 1024,
@@ -149,7 +159,13 @@
             @endforeach
         </div>
         <!-- Add Pagination -->
-        <div class="swiper-pagination"></div>
+        {{-- <div class="swiper-pagination"></div> --}}
+        <div class="scrollDown">
+            <div class="chevron"></div>
+            <div class="chevron"></div>
+            <div class="chevron"></div>
+            <span class="text">Scroll down</span>
+        </div>
     </div>
 
     {{-- Count down --}}
@@ -216,34 +232,14 @@
     </div>
     <div class="container product-list">
         <div class="row">
-            @php
-                $dummyData = array(
-                    [
-                        'featureImage' => '/img/product-image.jpg',
-                        'title' => '汙泥濃度MLSS監控儀',
-                        'type' => 'MC-700'
-                    ],
-                    [
-                        'featureImage' => '/img/product-image-2.jpg',
-                        'title' => '化學藥液濃度劑',
-                        'type' => 'LQ-5z'
-                    ],
-                    [
-                        'featureImage' => '/img/product-image.jpg',
-                        'title' => '攜帶型水質測定器',
-                        'type' => '10-X'
-                    ]
-                );
-                
-            @endphp
-            @foreach ($dummyData as $item)
-                <div class="col-md-4 product-content">
+            @foreach (ProductView::getPopularProductsByCount(3) as $item)
+                <div class="col-md-4 product-content" data-aos="fade-up">
                     <div class="product-box">
-                        <a href="">
-                            <div class="product-feature-image" style="background-image: url('{{$item['featureImage']}}');"></div>
+                        <a href="/product-detail/{{$item->productGuid}}">
+                            <div class="product-feature-image" style="background-image: url('{{$item->featureImage}}');"></div>
                             <div class="product-info">
-                                <h3 class="product-title">{{$item['title']}}</h3>
-                                <h4 class="product-type">型式：{{$item['type']}}</h4>
+                                <h3 class="product-title">{{$item->productTitle}}</h3>
+                                <h4 class="product-type">型式：{{$item->serialNumber}}</h4>
                                 <p>近紅外線變頻調光式，不受外部光線變化影響。</p> 
                                 <p>特殊耐汙防水檢測元件，確保長期使用穩定性。</p> 
                                 <p>4~20mA輸出訊號，上下限警報各a/b接點。</p> 
@@ -251,12 +247,12 @@
                                 <p>測定範圍： 0~20000 mg/l</p>
                             </div>
                         </a>
-                        <a class="product-link" href="">加入詢價車</a>
+                        <a class="product-link" style="cursor: pointer" onclick="addSigleProduct('{{$item->productGuid}}')">加入詢價車</a>
                     </div>
                 </div>
             @endforeach
             <div class="col-md-12 btn-section">
-                <a href="" class="learn-more-btn">檢視更多產品</a>
+                <a href="/product" class="learn-more-btn">檢視更多產品</a>
             </div>
         </div>
     </div>
@@ -333,7 +329,13 @@
     </div>
     <div class="container witness-list" data-aos="fade-up">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-11 mx-auto">
+                <button class="witness-arrow" id="prev-arrow">
+                    <i class="fa fa-caret-left" aria-hidden="true"></i>
+                </button>
+                <button class="witness-arrow" id="next-arrow">
+                    <i class="fa fa-caret-right" aria-hidden="true"></i>
+                </button>
                 <div class="witness-container">
 
                     <div class="witness-item">

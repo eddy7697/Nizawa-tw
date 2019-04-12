@@ -21,7 +21,7 @@
     <div class="container mg-site-thumbnail">
         <div class="col-md-12">
             <a href="/">首頁</a>
-            &nbsp;&nbsp;>&nbsp;&nbsp;搜尋結果
+            &nbsp;&nbsp;<a>></a>&nbsp;&nbsp;搜尋結果
         </div>
     </div>
     <div class="container mg-product list">

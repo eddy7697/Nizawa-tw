@@ -33,12 +33,12 @@
                 <div class="col-md-12">
                     <div class="left-col">
                         <ul class="info">
-                            <li>連絡電話：+86-010-5869-3457</li>
-                            <li>傳真電話：+86-010-5869-3457</li>
-                            <li>電子郵件：service@iontestkrk.com.cn</li>
-                            <li>地址：中國(上海)自由貿易試驗區張揚路828-838號26樓</li>
-                            <li>郵政編碼：100088</li>
-                            <li>辦公時間：09:00 ~ 18:00 (Mon - Fri)</li>
+                            <li>聯絡電話：+886-3-4935921 / +886-3-4935900</li>
+                            <li>傳真電話：+886-3-4928654</li>
+                            <li>電子郵件：info@nizawa-int.com.tw</li>
+                            <li>地址：台灣桃園市中壢區三光路60號3F之1</li>
+                            <li>郵遞區號：32047</li>
+                            <li>服務時間：09:00 ~ 18:00 (Mon - Fri)</li>
                         </ul>
                     </div>
                     <div class="right-col">
@@ -56,7 +56,6 @@
                             <div class="col-sm-6 col-md-3 site-map-container">
                                 <h3>服務支援</h3>
                                 <ul class="site-map">
-                                    <li><a href="">授權經銷商</a></li>
                                     <li><a href="">售後服務</a></li>
                                     <li><a href="">常見問題</a></li>
                                     <li><a href="">資料下載</a></li>
@@ -99,10 +98,10 @@
                     <a href="">隱私權政策</a>&nbsp;|&nbsp;<a href="">使用條款</a>
                 </div>
                 <div class="col-md-4" style="text-align: center">
-                    <img src="/img/gongan.png" alt="" style="display: inline-block"><p style="margin: 0 5px 0; display: inline-block;">ICP備12006504號-4</p>
+                    
                 </div>
                 <div class="col-md-4" style="text-align: center; color: rgba(255,255,255, 0.4)">
-                    Copyright &copy; KRK Lab-pro Instrument Co., Ltd All Right Reserved.
+                    Copyright &copy; NIZAWA INTERNATIONAL HI-TECH CORP. All Right Reserved.
                 </div>
             </div>
         </div> 
