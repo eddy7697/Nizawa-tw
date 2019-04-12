@@ -22,9 +22,9 @@
                 <thead>
                     <tr>
                         <th>詢價單號(系統自動產生) </th>
+                        <th>詢價產品</th>
                         <th>公司名稱</th>
                         <th>連絡電話</th>
-                        <th>詢價產品</th>
                         <th>詢價單狀態</th>
                         <th style="text-align: center">詢價單金額</th>
                         <th style="text-align: center">操作</th>
@@ -33,15 +33,15 @@
                 <tbody>
                     <tr v-for="(item, index) in orderList" v-bind:key="index">
                         <td>{{item.merchantID}}</td>
+                        <td>
+                            <span v-if="item.content.length">{{item.content[0].Name}} x {{item.content[0].qty}} ...</span>                            
+                        </td>
                         <td>{{item.shippingTarget.ReceiverName}}</td>
                         <td>{{item.shippingTarget.ReceiverCellPhone}}</td>
                         <td>
                             <span style="color: brown; font-weight: bold" v-if="item.paymentStatus === 'uncheck'">未確認</span>
                             <span style="color: red; font-weight: bold" v-if="item.paymentStatus === 'unpaid'">未回覆</span>
                             <span style="color: green; font-weight: bold" v-if="item.paymentStatus === 'paid'">已回覆</span>
-                        </td>
-                        <td>
-                            <span v-if="item.content.length">{{item.content[0].Name}} x {{item.content[0].qty}} ...</span>                            
                         </td>
                         <td>
                             <span style="color: brown; font-weight: bold" v-if="item.orderStatus == 'undisposed'">未處理</span>

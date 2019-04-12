@@ -33,21 +33,21 @@
                             <strong>{{item.title}} x {{item.qty}}</strong>
                         </td>
                     </tr>
-                    <tr v-if="!isCartEmpty">
+                    <!-- <tr v-if="!isCartEmpty">
                         <td align="right">
                             <strong>NT$ {{item.total}}</strong>
                         </td>
-                    </tr>
+                    </tr> -->
                     <tr v-if="!isCartEmpty">
                         <td align="right">
-                            <a href="#" @click="removeProduct(item)">刪除商品</a>
+                            <a href="#" @click="removeProduct(item)">刪除產品</a>
                             <!-- <button type="button" name="button" @click="removeProduct(item)">x</button> -->
                         </td>
                     </tr>
                 </table>
 
                 <hr>
-                <h4 v-if="!isCartEmpty" style="text-align: center"><strong>小計 NT$ {{amount}}</strong></h4>
+                <!-- <h4 v-if="!isCartEmpty" style="text-align: center"><strong>小計 NT$ {{amount}}</strong></h4> -->
                 <h4 v-if="isCartEmpty" style="text-align: center"><strong>詢價車還是空的唷!</strong></h4>
                 <hr>
 
@@ -135,7 +135,7 @@
 
                 // return;
                 var removePromise = new Promise(function (resolve, reject) {
-                    var checkDelete = confirm("確認要移除此商品");
+                    var checkDelete = confirm("確認要移除此產品");
 
                     if (checkDelete) {
                         $.ajax({
@@ -151,7 +151,7 @@
                         })
                         .fail(function(error) {
                             reject(error);
-                            toastr["error"]("移除商品失敗");
+                            toastr["error"]("移除產品失敗");
                         });
                     }
                 });
