@@ -6,9 +6,7 @@
     use Illuminate\Support\Facades\Log;
 
     $root = Category::where('type', 'product')->whereNull('parentId')->get();
-    $rootFirst = new stdClass();
-
-    $rootFirst->categoryGuid = '';
+    $rootFirst = Category::where('type', 'product')->whereNull('parentId')->first();
 
     if (isset($_GET['main'])) {
         Log::info($_GET['main']);
