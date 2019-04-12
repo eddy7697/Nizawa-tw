@@ -4,16 +4,16 @@
     </div>
     <div v-else>
         <div v-if="false">
-            <strong v-if="choosedSubItem">货号：{{choosedSubItem.subSerialNumber}}</strong>
+            <strong v-if="choosedSubItem">貨號：{{choosedSubItem.subSerialNumber}}</strong>
             <br v-if="choosedSubItem">
-            <strong v-if="choosedSubItem" :class="{ 'del-line': choosedSubItem.subDiscountPrice }">建议售价：<span style="color: red">{{choosedSubItem.subPrice}}元</span></strong>
-            <strong v-if="choosedSubItem && choosedSubItem.subDiscountPrice" style="font-size: 20px;">特价：<span style="color: red">{{choosedSubItem.subDiscountPrice}}元</span></strong>
+            <strong v-if="choosedSubItem" :class="{ 'del-line': choosedSubItem.subDiscountPrice }">建議售價：<span style="color: red">{{choosedSubItem.subPrice}}元</span></strong>
+            <strong v-if="choosedSubItem && choosedSubItem.subDiscountPrice" style="font-size: 20px;">特價：<span style="color: red">{{choosedSubItem.subDiscountPrice}}元</span></strong>
         </div>
         <div v-if="false">
-            <strong v-if="serialNumber">货号：{{serialNumber}}</strong>
+            <strong v-if="serialNumber">貨號：{{serialNumber}}</strong>
             <br>
-            <strong v-if="price" :class="{ 'del-line': discountedPrice }">建议售价：<span style="color: red">{{price}}元</span></strong>
-            <strong v-if="discountedPrice && discountedPrice" style="font-size: 20px;">特价：<span style="color: red">{{discountedPrice}}元</span></strong>
+            <strong v-if="price" :class="{ 'del-line': discountedPrice }">建議售價：<span style="color: red">{{price}}元</span></strong>
+            <strong v-if="discountedPrice && discountedPrice" style="font-size: 20px;">特價：<span style="color: red">{{discountedPrice}}元</span></strong>
         </div>
         <!-- <br> -->
         <el-radio-group 
@@ -30,42 +30,42 @@
         <table class="counter-table">
             <tr>
                 <td>
-                    数量
+                    數量
                 </td>
                 <td>
                     <el-input-number 
                         v-if="productType == 'simple' && maxQty > 0" 
                         v-model="qty" size="small" 
                         :min="minQty" :max="maxQty" 
-                        label="请选择数量"></el-input-number>
+                        label="請選擇數量"></el-input-number>
                 </td>
             </tr>
         </table>
         
-        <strong v-if="productType == 'simple' && maxQty < 1" ><span style="color: red">缺货中</span></strong>
+        <strong v-if="productType == 'simple' && maxQty < 1" ><span style="color: red">缺貨中</span></strong>
         <el-input-number 
             v-if="productType == 'variable' && choosedSubItem && parseInt(choosedSubItem.subQuantity) > 0" 
             v-model="subQuantity" 
             size="small" 
             :min="1" :max="parseInt(choosedSubItem.subQuantity)" 
-            label="请选择数量"></el-input-number>
-        <strong v-if="productType == 'variable' && choosedSubItem && parseInt(choosedSubItem.subQuantity) < 1" ><span style="color: red">缺货中</span></strong>
+            label="請選擇數量"></el-input-number>
+        <strong v-if="productType == 'variable' && choosedSubItem && parseInt(choosedSubItem.subQuantity) < 1" ><span style="color: red">缺貨中</span></strong>
         <div class="row" style="margin-top: 20px">
             <div class="col-md-6">
                 <button
                     v-if="productType == 'variable' && choosedSubItem && parseInt(choosedSubItem.subQuantity) > 0" 
                     class="btn btn-default btn-block btn-lg method-btn add-cart" @click="addToCart()">
-                    加入询价车
+                    加入詢價車
                 </button>
                 <button v-if="productType == 'simple' && maxQty > 0" 
                     class="btn btn-default btn-block btn-lg method-btn add-cart" @click="addToCart()">
-                    加入询价车
+                    加入詢價車
                 </button>
             </div>
             <div class="col-md-6">
                 <button
                     class="btn btn-default btn-block btn-lg method-btn ask-for-more">
-                    询问更多产品细节
+                    詢問更多產品細節
                 </button>
             </div>
         </div>
@@ -167,9 +167,9 @@
                 axios.post(`/cart/add/${this.guid}`, {
                     quantity: self.qty
                 }).then(res => {
-                    self.$message.success('成功加入购物车！')
+                    self.$message.success('成功加入購物車！')
                 }).catch(err => {
-                    self.$message.error('加入购物车失败...')
+                    self.$message.error('加入購物車失敗...')
                 }).then(arg => {
                     window.updateCount()
                 })
@@ -188,9 +188,9 @@
                 axios.post(`/cart/add/sub/${this.guid}`, choosed)
                     .then(res => {
                         console.log(res.data)
-                        self.$message.success('成功加入购物车！')
+                        self.$message.success('成功加入購物車！')
                     }).catch(err => {
-                        self.$message.error('加入购物车失败...')
+                        self.$message.error('加入購物車失敗...')
                     }).then(arg => {
                         window.updateCount()
                     })

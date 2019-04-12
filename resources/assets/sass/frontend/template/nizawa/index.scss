@@ -417,11 +417,17 @@
                         border: $main-color thin solid;
 
                         .svg-icon {
+                            &#cate-01-icon_1 {
+                                .cls-3 {
+                                    stroke: #f9b52c;
+                                }
+                                
+                            }
                             .cls-2,.cls-4 {
-                                stroke:#fff
+                                stroke:#383735;
                             }
                             .cls-2,.cls-3,.cls-4{
-                                fill:#FFF;
+                                fill:#383735;
                             }
                         }
                         #cate-03-icon_1 {

@@ -112,7 +112,7 @@
 
                         <hr>
 
-                        {{--简短说明--}}
+                        {{--簡短說明--}}
                         <h4 style="color: #000; font-weight: bolder">產品特色</h4>
                         <div class="short-description">
                             {!!$product->shortDescription!!}
@@ -120,7 +120,7 @@
 
                         <hr>
 
-                        {{--简短说明--}}
+                        {{--簡短說明--}}
                         <h4 style="color: #000; font-weight: bolder">產業應用</h4>
                         <div class="short-description">
                             {!!$content->industry!!}
@@ -347,11 +347,9 @@
                             <div class="product-info">
                                 <h3 class="product-title">{{$item->productTitle}}</h3>
                                 <h4 class="product-type">型式：{{$item->serialNumber}}</h4>
-                                <p>近紅外線變頻調光式，不受外部光線變化影響。</p> 
-                                <p>特殊耐汙防水檢測元件，確保長期使用穩定性。</p> 
-                                <p>4~20mA輸出訊號，上下限警報各a/b接點。</p> 
-                                <br>
-                                <p>測定範圍： 0~20000 mg/l</p>
+                                <div>
+                                    {!!$item->shortDescription!!}
+                                </div>
                             </div>
                         </a>
                         <a class="product-link" style="cursor: pointer" onclick="addSigleProduct('{{$item->productGuid}}')">加入詢價車</a>
