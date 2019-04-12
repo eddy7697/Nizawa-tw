@@ -137,12 +137,51 @@
             },
             removeProduct: function (item) {
                 var self = this;
+                var checkDelete = confirm("確認要移除此產品");
+
+                if (checkDelete) {
+                    axios.post(`/cart/delete/single/${item.rowId}`)
+                        .then(res => {
+                            
+                            axios.get('/cart/get')
+                                .then(result => {
+                                    self.amount = result.data.amount;
+                                    self.cartContent = [];
+
+                                    result.data.cart.forEach(function (item) {
+                                        self.cartContent.push({
+                                            title: item.id.title,
+                                            guid: item.id.guid,
+                                            featureImage: item.id.featureImage,
+                                            qty: item.qty,
+                                            price: item.price,
+                                            total: item.total,
+                                            rowId: item.rowId
+                                        });
+                                    });
+
+                                    if (result.data.cart.length === 0) {
+                                        self.isCartEmpty = true;
+                                        $('button.cart').removeClass('full');
+                                    } else {
+                                        self.isCartEmpty = false;
+                                    }
+                                })
+                        }).catch(err => {
+                            toastr["error"]("移除產品失敗");
+                        })
+                }
+
+                
+
+                return 
 
                 // return;
                 var removePromise = new Promise(function (resolve, reject) {
                     var checkDelete = confirm("確認要移除此產品");
 
                     if (checkDelete) {
+                        
                         $.ajax({
                             url: '/cart/delete/single/' + item.rowId,
                             type: 'POST',
@@ -203,6 +242,11 @@
             addSigle(guid) {
                 let self = this
 
+                if (this.cartContent.length >= 3) {
+                    toastr["info"]("詢價車內產品數量已達上限");
+                    return
+                }
+
                 axios.post(`/cart/add/single/${guid}`
                     ).then(res => {
                         self.$message.success('成功加入詢價車！')
@@ -225,7 +269,9 @@
                 return newUrl;
             },
             togglePanel: function () {
-                this.displayPanel = this.displayPanel ? false : true;
+                if (this.displayPanel) {
+                    this.displayPanel = this.displayPanel ? false : true;
+                }
             }
         }
     }

@@ -15,6 +15,15 @@ input::-webkit-inner-spin-button {
     margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
 }
 
+a {
+    color: #164358;  
+}
+
+.btn.btn-primary {
+    background-color: #164358;
+    border-color: #164358;
+}
+
 .hide-overflow {
     overflow: hidden;
 }

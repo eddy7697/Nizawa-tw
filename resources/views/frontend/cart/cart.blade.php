@@ -2,12 +2,6 @@
 
 @section('custom-script')
     <script src="/js/cart-page.js" charset="utf-8"></script>
-    <script type="text/javascript">
-        function removeSingleProduct(rowid) {
-            CH.removeSingleProduct(rowid);
-            return;
-        }
-    </script>
 @endsection
 
 @section('content')
