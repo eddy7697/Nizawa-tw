@@ -39,10 +39,10 @@
                 &nbsp;&nbsp;<a>></a>&nbsp;&nbsp;
                 <a href="/product">產品中心</a>
                 &nbsp;&nbsp;<a>></a>&nbsp;&nbsp;
-                <a href="/product?main={{$mainCate->categoryGuid}}">{{$mainCate->categoryTitle}}</a>
+                {{-- <a href="/product?main={{$mainCate->categoryGuid}}">{{$mainCate->categoryTitle}}</a>
                 &nbsp;&nbsp;<a>></a>&nbsp;&nbsp;
                 <a href="/product?sub={{$mainCate->categoryGuid}}">{{$subCate->categoryTitle}}</a>
-                &nbsp;&nbsp;<a>></a>&nbsp;&nbsp;
+                &nbsp;&nbsp;<a>></a>&nbsp;&nbsp; --}}
                 {{$product->productTitle}}
             </div>
         </div>

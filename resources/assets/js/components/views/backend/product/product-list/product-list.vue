@@ -9,6 +9,7 @@
         </div>
         <div class="col-md-3">
             <categoryList 
+                v-if="false"
                 :btnTitle="'變更產品類別'"
                 :selectedCategoryName="selectedCategoryName"
                 :data="categories"
