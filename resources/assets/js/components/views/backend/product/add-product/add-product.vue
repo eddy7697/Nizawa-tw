@@ -2,11 +2,21 @@
     <div class="row" v-if="isLoaded">
         <form v-on:submit.prevent="saveProduct()">
             <div class="col-md-9">
-                <el-radio-group v-model="selectedLocale" size="medium" style="margin-bottom: 10px;">
-                    <el-radio-button label="zh-TW">繁體中文</el-radio-button>
-                    <el-radio-button label="zh-CN">简体中文</el-radio-button>
-                    <el-radio-button label="en">英文</el-radio-button>
-                </el-radio-group>
+                <div class="row">
+                    <div class="col-md-8">
+                        <el-radio-group v-model="selectedLocale" size="medium" style="margin-bottom: 10px;">
+                            <el-radio-button label="zh-TW">繁體中文</el-radio-button>
+                            <el-radio-button label="zh-CN">简体中文</el-radio-button>
+                            <el-radio-button label="en">英文</el-radio-button>
+                        </el-radio-group>
+                    </div>
+                    <div class="col-md-4" style="text-align: right">
+                        <el-button size="medium" type="primary" @click="duplicateContent">
+                            複製內容
+                        </el-button>
+                    </div>
+                </div>
+                
                 <input type="text" class="form-control ch-product-title" name="title" value="" placeholder="產品名稱" v-model="productContent[selectedLocale].productTitle" required>
                 <!-- <div class="form-group">
                     <label for="">{{currentPath}}/product-detail/</label>
@@ -511,6 +521,32 @@
                 newUrl = newUrl + '/thumbs/' + urlArray[urlArray.length - 1];
 
                 return newUrl;
+            },
+            duplicateContent() {
+                this.$confirm('確認要將此語系內容複製到其他語系?', '複製內容', {
+                    confirmButtonText: '確定',
+                    cancelButtonText: '取消',
+                    type: 'info'
+                }).then(() => {
+                    let contentEn = JSON.parse(JSON.stringify(this.productContent['zh-TW'])),
+                        contentCn = JSON.parse(JSON.stringify(this.productContent['zh-TW']))
+
+                    contentEn.locale = 'en'
+                    this.productContent['en'] = contentEn
+
+                    contentCn.locale = 'zh-CN'
+                    this.productContent['zh-CN'] = contentCn
+
+                    this.$message({
+                        type: 'success',
+                        message: '複製成功!'
+                    });
+                }).catch(() => {
+                    this.$message({
+                        type: 'info',
+                        message: '已取消複製'
+                    });          
+                });                
             },
             selectFeatureImg() {
                 var self = this;

@@ -121,7 +121,7 @@
                         <hr>
 
                         {{--简短说明--}}
-                        <h4 style="color: #000; font-weight: bolder">產品特色</h4>
+                        <h4 style="color: #000; font-weight: bolder">產業應用</h4>
                         <div class="short-description">
                             {!!$content->industry!!}
                         </div>
