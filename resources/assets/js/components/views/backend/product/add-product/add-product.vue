@@ -7,7 +7,7 @@
                     <el-radio-button label="zh-CN">简体中文</el-radio-button>
                     <el-radio-button label="en">英文</el-radio-button>
                 </el-radio-group>
-                <input type="text" class="form-control ch-product-title" name="title" value="" placeholder="商品名稱" v-model="productContent[selectedLocale].productTitle" required>
+                <input type="text" class="form-control ch-product-title" name="title" value="" placeholder="產品名稱" v-model="productContent[selectedLocale].productTitle" required>
                 <!-- <div class="form-group">
                     <label for="">{{currentPath}}/product-detail/</label>
                     <input type="text" class="form-control" placeholder="" v-model="productContent[selectedLocale].customPath" style="width: fit-content; display:inline-block">
@@ -45,13 +45,13 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h3 class="panel-title">
-                            商品資訊 
+                            產品資訊 
                             <select v-if="false" class="form-control product-type-field" v-model="productContent[selectedLocale].productType" @change="switchType()">
-                                <option value="simple">一般商品</option>
-                                <option value="variable">多規格商品</option>
+                                <option value="simple">一般產品</option>
+                                <option value="variable">多規格產品</option>
                             </select>
-                            <el-dialog title="新增商品規格" :visible.sync="showSwitchTips">
-                                <div>建立多規格商品時，將會預先儲存商品。</div>
+                            <el-dialog title="新增產品規格" :visible.sync="showSwitchTips">
+                                <div>建立多規格產品時，將會預先儲存產品。</div>
                                 <br>
                                 <el-checkbox label="以後不再顯示" name="type" v-model="noShow"></el-checkbox>
                                 <div slot="footer" class="dialog-footer">
@@ -99,7 +99,7 @@
                                                 
                                             </el-collapse-item>
                                         </el-collapse>
-                                        <el-dialog title="新增商品規格" :visible.sync="subproductFormVisible">
+                                        <el-dialog title="新增產品規格" :visible.sync="subproductFormVisible">
                                             <el-form :model="subProductForm" ref="subProductForm">
                                                 <el-form-item label="規格名稱" :label-width="'120px'">
                                                     <el-input v-model="subProductForm.subTitle" autocomplete="on"></el-input>
@@ -122,7 +122,7 @@
                                                 <el-button type="primary" @click="addSubProduct()">確定</el-button>
                                             </div>
                                         </el-dialog>
-                                        <button class="btn btn-default btn-block" type="submit" @click="isSubmit = false">新增商品規格&nbsp;<i class="el-icon-plus"></i></button>
+                                        <button class="btn btn-default btn-block" type="submit" @click="isSubmit = false">新增產品規格&nbsp;<i class="el-icon-plus"></i></button>
                                     </div>
                                     <table class="table field-table" v-if="productContent[selectedLocale].productType == 'simple'">
                                         <tr>
@@ -185,7 +185,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h3 class="panel-title">
-                            商品簡述
+                            產品簡述
                         </h3>
                     </div>
                     <div class="panel-body">
@@ -218,12 +218,12 @@
                         </div>
                         <div class="panel-footer">
                             <button v-if="isDirty" type="submit" class="btn btn-primary btn-sm btn-block" @click="isSubmit = true">
-                                <span v-if="isEdit">編輯商品</span>
-                                <span v-else>發布商品</span>
+                                <span v-if="isEdit">編輯產品</span>
+                                <span v-else>發布產品</span>
                             </button>
                             <button v-else type="button" class="btn btn-primary btn-sm btn-block" name="button" disabled>
-                                <span v-if="isEdit">編輯商品</span>
-                                <span v-else>發布商品</span>
+                                <span v-if="isEdit">編輯產品</span>
+                                <span v-else>發布產品</span>
                             </button>
                         </div>
                     </div>
@@ -279,7 +279,7 @@
                                         <el-date-picker
                                             v-model="productContent[selectedLocale].schedulePost"
                                             type="datetime"
-                                            placeholder="選擇商品上架時間">
+                                            placeholder="選擇產品上架時間">
                                         </el-date-picker>
                                     </td>
                                 </tr>
@@ -297,7 +297,7 @@
                                         <el-date-picker
                                             v-model="productContent[selectedLocale].scheduleDelete"
                                             type="datetime"
-                                            placeholder="選擇商品下架時間">
+                                            placeholder="選擇產品下架時間">
                                         </el-date-picker>
                                     </td>
                                 </tr>
@@ -357,22 +357,22 @@
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <h3 class="panel-title">
-                                商品圖片
+                                產品圖片
                             </h3>
                         </div>
                         <div class="panel-body">
-                            <a v-if="productContent[selectedLocale].featureImage === null" @click="selectFeatureImg()">設定商品圖片</a>
+                            <a v-if="productContent[selectedLocale].featureImage === null" @click="selectFeatureImg()">設定產品圖片</a>
                             <div v-else class="">
                                 <img id="featurePreview" style="width: 100%" v-bind:src="thumb(productContent[selectedLocale].featureImage)" @click="selectFeatureImg()">
                                 <p>點選圖片以編輯或更新</p>
-                                <a @click="deleteFeatureImg()">刪除商品圖片</a>
+                                <a @click="deleteFeatureImg()">刪除產品圖片</a>
                             </div>
                         </div>
                     </div>
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <h3 class="panel-title">
-                                商品圖庫
+                                產品圖庫
                             </h3>
                         </div>
                         <div class="panel-body">
@@ -387,7 +387,7 @@
                                     </button>
                                 </div>
                                 <div class="col-md-12">
-                                    <a @click="addImage()">新增商品圖庫圖片</a>
+                                    <a @click="addImage()">新增產品圖庫圖片</a>
                                 </div>
                             </div>
                         </div>
@@ -533,7 +533,7 @@
                 axios.post(this.isEdit ? '/admin/product/edit/' + this.guid : '/admin/product/add', this.productContent)
                     .then(res => {
                         if (this.isSubmit) {
-                            this.showMessage('success', '商品儲存成功')
+                            this.showMessage('success', '產品儲存成功')
                             setTimeout(() => {
                                 window.location.href="/cyberholic-system/product/list";
                             }, 1500)
@@ -590,7 +590,7 @@
                                 })
                                 .done(function(result) {
                                     if (self.isSubmit) {
-                                        self.showMessage('success', '商品儲存成功')
+                                        self.showMessage('success', '產品儲存成功')
                                         setTimeout(() => {
                                             window.location.href="/cyberholic-system/product/list";
                                         }, 1500)
@@ -700,9 +700,9 @@
                 $('.loading-bar').show()
                 axios.post(`/admin/product/sub/update/${model.subProductGuid}`, model)
                     .then(res => {
-                        self.$message.success('編輯子商品成功')
+                        self.$message.success('編輯子產品成功')
                     }).catch(err => {
-                        self.$message.error('編輯子商品失敗')
+                        self.$message.error('編輯子產品失敗')
                     }).then(arg => {
                         self.getSubProduct()
                         $('.loading-bar').hide()
@@ -711,7 +711,7 @@
             deleteSubProduct(guid) {
                 let self = this
 
-                this.$confirm('此操作將會永久刪除子商品, 是否繼續?', '提示', {
+                this.$confirm('此操作將會永久刪除子產品, 是否繼續?', '提示', {
                     confirmButtonText: '確定',
                     cancelButtonText: '取消',
                     type: 'warning',
@@ -720,9 +720,9 @@
                     $('.loading-bar').show()
                     axios.post(`/admin/product/sub/delete/${guid}`)
                         .then(res => {
-                            self.$message.success('刪除子商品成功')
+                            self.$message.success('刪除子產品成功')
                         }).catch(err => {
-                            self.$message.error('刪除子商品失敗')
+                            self.$message.error('刪除子產品失敗')
                         }).then(arg => {
                             self.getSubProduct()
                             $('.loading-bar').hide()
@@ -742,12 +742,12 @@
                     .then(res => {
                         self.$message
                         self.$message({
-                            message: '建立子商品成功',
+                            message: '建立子產品成功',
                             type: 'success'
                         });
                         self.getSubProduct()
                     }).catch(err => {
-                        self.$message.error('建立子商品失敗');
+                        self.$message.error('建立子產品失敗');
                     }).then(arg => {
                         self.subproductFormVisible = false
                     })

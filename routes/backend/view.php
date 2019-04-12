@@ -91,26 +91,26 @@ Route::get('/post/categoryOrder', function () {
 *****************/
 Route::get('/product/add', function () {
     return view('backend.product.addProduct', [
-        'panelTitle' => '新增商品',
+        'panelTitle' => '新增產品',
         'mode' => 'add',
     ]);
 });
 
 Route::get('/product/category', function () {
     return view('backend.product.productCategory', [
-        'panelTitle' => '商品類別管理'
+        'panelTitle' => '產品類別管理'
     ]);
 });
 
 Route::get('/product/list', function () {
     return view('backend.product.productList', [
-        'panelTitle' => '商品列表'
+        'panelTitle' => '產品列表'
     ]);
 });
 
 Route::get('/product/edit/{guid}', function ($guid) {
     return view('backend.product.addProduct', [
-        'panelTitle' => '編輯商品',
+        'panelTitle' => '編輯產品',
         'mode' => 'edit',
         'guid' => $guid
     ]);
