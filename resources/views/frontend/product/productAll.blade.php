@@ -75,7 +75,7 @@
                                 if (isset($_GET['sub'])) {
                                     $active = $_GET['sub'] == $item->categoryGuid;
                                 } else {
-                                    $active = false;
+                                    $active = $key == 0;
                                 }
                             @endphp
                             <a class="nav-link {{ $active ? 'active' : ''}}" href="/product?sub={{$item->categoryGuid}}">
@@ -95,7 +95,7 @@
                             if (isset($_GET['sub'])) {
                                 $active = $_GET['sub'] == $item->categoryGuid;
                             } else {
-                                $active = false;
+                                $active = $key == 0;
                             }
                         @endphp
                         <div class="tab-pane container sub-category-panel {{ $active ? 'active' : 'fade'}}" id="tab-{{$index}}-{{$key}}">
