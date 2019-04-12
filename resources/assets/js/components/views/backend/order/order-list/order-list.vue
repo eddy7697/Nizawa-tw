@@ -3,9 +3,9 @@
         <div class="col-md-12">
             <form v-on:submit.prevent="searchOrder">
                 <div class="input-group" style="width: 250px;">
-                  <input type="text" class="form-control" placeholder="詢價車編號" v-model="merchantID">
+                  <input type="text" class="form-control" placeholder="詢價單編號" v-model="merchantID">
                   <span class="input-group-btn">
-                    <button class="btn btn-default" type="submit">搜尋詢價車</button>
+                    <button class="btn btn-default" type="submit">搜尋詢價單</button>
                   </span>
                 </div><!-- /input-group -->
             </form>
@@ -25,8 +25,8 @@
                         <th>公司名稱</th>
                         <th>連絡電話</th>
                         <th>詢價產品</th>
-                        <th>詢價車狀態</th>
-                        <th style="text-align: center">詢價車金額</th>
+                        <th>詢價單狀態</th>
+                        <th style="text-align: center">詢價單金額</th>
                         <th style="text-align: center">操作</th>
                     </tr>
                 </thead>
@@ -74,21 +74,21 @@
                     <div class="modal-content">
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title">詢價車詳細資訊</h4>
+                            <h4 class="modal-title">詢價單詳細資訊</h4>
                         </div>
                         <div class="modal-body">
                             <table class="table product-detail-table">
                                 <tr>
-                                    <td>詢價車編號</td>
+                                    <td>詢價單編號</td>
                                     <td>{{itemShowed.merchantID}}</td>
                                 </tr>
                                 <tr>
-                                    <td>商品內容</td>
+                                    <td>產品內容</td>
                                     <td>
                                         <table class="table">
                                             <thead>
                                                 <tr>
-                                                    <th>商品</th>
+                                                    <th>產品</th>
                                                     <th>貨號</th>
                                                     <th>數量</th>
                                                     <th>單價</th>
@@ -106,7 +106,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>詢價車金額</td>
+                                    <td>詢價單金額</td>
                                     <td>NT$ {{itemShowed.amount}}</td>
                                 </tr>
                                 <!-- <tr>
@@ -205,7 +205,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>詢價車狀態</td>
+                                    <td>詢價單狀態</td>
                                     <td>
                                         <div v-if="itemShowed.statusModify">
                                             <select v-model="itemShowed.orderStatus">
@@ -555,7 +555,7 @@
             modifyOrderStatus: function () {
                 var self = this;
                 var token = this.token;
-                var checkModify = self.itemShowed.orderStatus == 'canceled' ? confirm('詢價車狀態變更後將無法再次改變，請確認。\n\n是否要繼續?') : true
+                var checkModify = self.itemShowed.orderStatus == 'canceled' ? confirm('詢價單狀態變更後將無法再次改變，請確認。\n\n是否要繼續?') : true
 
                 if (!checkModify) {
                     return
