@@ -94,13 +94,13 @@
 
             {{-- copyright --}}
             <div class="row copyright">
-                <div class="col-md-4" style="text-align: center">
+                <div class="col-md-4" style="text-align: left; padding-left: 50px;">
                     <a href="">隱私權政策</a>&nbsp;|&nbsp;<a href="">使用條款</a>
                 </div>
                 <div class="col-md-4" style="text-align: center">
                     
                 </div>
-                <div class="col-md-4" style="text-align: center; color: rgba(255,255,255, 0.4)">
+                <div class="col-md-4" style="text-align: right; color: rgba(255,255,255, 0.4); padding-right: 50px;">
                     Copyright &copy; NIZAWA INTERNATIONAL HI-TECH CORP. All Right Reserved.
                 </div>
             </div>
