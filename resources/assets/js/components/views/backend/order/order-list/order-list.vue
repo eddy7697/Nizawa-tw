@@ -26,7 +26,6 @@
                         <th>公司名稱</th>
                         <th>連絡電話</th>
                         <th>詢價單狀態</th>
-                        <th style="text-align: center">詢價單金額</th>
                         <th style="text-align: center">操作</th>
                     </tr>
                 </thead>
@@ -51,7 +50,6 @@
                             <span style="color: red; font-weight: bold" v-if="item.orderStatus == 'canceled'">已取消</span>
                             <span style="color: blue; font-weight: bold" v-if="item.orderStatus == 'success'">完成</span>
                         </td>
-                        <td style="text-align: center">{{item.amount}}</td>
                         <td align="center">
                             <button class="btn btn-default btn-sm" @click="openModal(item)">查看</button>
                         </td>
@@ -91,7 +89,7 @@
                                                     <th>產品</th>
                                                     <th>貨號</th>
                                                     <th>數量</th>
-                                                    <th>單價</th>
+                                                    <!-- <th>單價</th> -->
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -99,16 +97,16 @@
                                                     <td>{{item.Name}}</td>
                                                     <td>{{item.id.serialNumber}}</td>
                                                     <td>{{item.qty}}</td>
-                                                    <td>{{item.price}}</td>
+                                                    <!-- <td>{{item.price}}</td> -->
                                                 </tr>
                                             </tbody>
                                         </table>
                                     </td>
                                 </tr>
-                                <tr>
+                                <!-- <tr>
                                     <td>詢價單金額</td>
                                     <td>NT$ {{itemShowed.amount}}</td>
-                                </tr>
+                                </tr> -->
                                 <!-- <tr>
                                     <td>點數使用</td>
                                     <td>NT$ {{itemShowed.pointUsage}}</td>
@@ -138,7 +136,7 @@
                                         </table>
                                     </td>
                                 </tr> -->
-                                <tr>
+                                <!-- <tr>
                                     <td>付款方式</td>
                                     <td>
                                         <span v-if="itemShowed.paymentMethod === 'ATM'">ATM轉帳</span>
@@ -146,8 +144,8 @@
                                         <span v-if="itemShowed.paymentMethod === 'cod'">貨到付款</span>
                                         <span v-if="itemShowed.paymentMethod === 'Remit'">轉帳付款</span>
                                     </td>
-                                </tr>
-                                <tr>
+                                </tr> -->
+                                <!-- <tr>
                                     <td>
                                         付款狀態
                                     </td>
@@ -170,10 +168,7 @@
                                             <button class="btn btn-primary btn-sm" v-if="itemShowed.paymentMethod == 'Remit'" type="button" name="button" @click="togglePaymentStatusModify()">更改狀態</button>
                                         </div>
                                         
-
-                                        
-                                        
-                                        <!-- <button
+                                        <button
                                             type="button"
                                             style="margin-left: 10px;"
                                             class="btn btn-primary btn-xs"
@@ -201,9 +196,9 @@
                                             style="margin-left: 10px;"
                                             v-if="itemShowed.paymentMethod === 'cod'"
                                             class="btn btn-primary btn-xs"
-                                            @click="generateSheet()">已產生貨到付款物流單，點我列印繳費單</button> -->
+                                            @click="generateSheet()">已產生貨到付款物流單，點我列印繳費單</button>
                                     </td>
-                                </tr>
+                                </tr> -->
                                 <tr>
                                     <td>詢價單狀態</td>
                                     <td>
@@ -238,13 +233,13 @@
                                         </div>
                                     </td>
                                 </tr>
-                                <tr>
+                                <!-- <tr>
                                     <td>運送方式</td>
                                     <td>
                                         <span v-if="itemShowed.shippingMethod === 'delivery'">國內宅配</span>
                                         <span v-if="itemShowed.shippingMethod === 'cvs'">超商取貨</span>
                                     </td>
-                                </tr>
+                                </tr> -->
                                 <tr>
                                     <td>客戶資訊</td>
                                     <td>
@@ -278,7 +273,7 @@
                                         </table>
                                     </td>
                                 </tr>
-                                <tr>
+                                <!-- <tr>
                                     <td>運送標的</td>
                                     <td>
                                         <table class="table" v-if="itemShowed.shippingMethod === 'cvs'">
@@ -291,12 +286,10 @@
                                                 <td>{{itemShowed.shippingTarget.CVSAddress}}</td>
                                             </tr>
                                         </table>                                        
-                                        <!-- <span v-if="itemShowed.shippingMethod === 'delivery'">
+                                        <span v-if="itemShowed.shippingMethod === 'delivery'">
                                             {{itemShowed.shippingTarget.ReceiverPort + itemShowed.shippingTarget.ReceiverCity + itemShowed.shippingTarget.ReceiverAddress}}
-                                        </span> -->                                        
+                                        </span>                                        
                                         <div v-if="itemShowed.shippingMethod === 'delivery'" id="ready-to-print" style="border: 1px #ccc dashed; padding: 10px; width: max-content ">
-                                            <!-- <span style="font-size: 12px;">269宜蘭縣冬山鄉香城路15巷6號 (易耕事業有限公司 03-9590903)</span>
-                                            <br> -->
                                             <span style="font-size: 16px;">
                                                 {{`${itemShowed.shippingTarget.ReceiverPort}  ${itemShowed.shippingTarget.ReceiverAddress}`}}
                                             </span>
@@ -305,9 +298,9 @@
                                                 {{itemShowed.shippingTarget.ReceiverName}} 收 ({{itemShowed.shippingTarget.ReceiverCellPhone}})
                                             </span>                                      
                                         </div>
-                                        <!-- <button v-if="itemShowed.shippingMethod === 'delivery'" class="btn btn-primary btn-sm" style="margin-top: 10px;" @click="printAddress()">列印</button> -->
+                                        <button v-if="itemShowed.shippingMethod === 'delivery'" class="btn btn-primary btn-sm" style="margin-top: 10px;" @click="printAddress()">列印</button>
                                     </td>
-                                </tr>
+                                </tr> -->
                                 <tr>
                                     <td>備註</td>
                                     <td>

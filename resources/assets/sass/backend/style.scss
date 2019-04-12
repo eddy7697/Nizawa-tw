@@ -26,6 +26,20 @@ body {
     margin-top: 10px;
 }
 
+.el-radio-button {
+
+    span.el-radio-button__inner {
+        
+    }
+    &.is-active {
+        span.el-radio-button__inner {
+            color: #fff;
+            background-color: #2A3F54;
+            border-color: #2A3F54;
+        }
+    }
+}
+
 .fa-toggle-on {
     font-size: 20px !important;
     color: $brand-success;

@@ -93,8 +93,8 @@
                                     </td>
                                 </tr>
 
-
-                                <tr class="shipping">
+                                <input type="hidden" name="shipping_method" value="1">
+                                <!-- <tr class="shipping">
                                     <th>運送方式</th>
                                     <td data-title="運送方式 1">
                                         <ul id="shipping_method">
@@ -112,7 +112,7 @@
                                             </li>
                                         </ul>
                                     </td>
-                                </tr>
+                                </tr> -->
 
                                 <tr class="order-total">
                                     <th>總計</th>
@@ -140,7 +140,7 @@
                 token: $('meta[name="csrf-token"]').attr('content'),
                 cart: [],
                 isLoaded: false,
-                choosedShipping: null,
+                choosedShipping: 1,
                 shippingMethods: [],
                 amount: null,
                 isDirty: false,
