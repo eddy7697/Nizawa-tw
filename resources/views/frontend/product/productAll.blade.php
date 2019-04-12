@@ -116,7 +116,7 @@
     </div>
     <div class="row">
         @php
-            $pageCount = 3;
+            $pageCount = 9;
             $products = Product::show()->paginate($pageCount);
 
             if (isset($_GET['main'])) {
@@ -125,25 +125,6 @@
             if (isset($_GET['sub'])) {
                 $products = Product::show()->where('mainCategory', $_GET['sub'])->paginate($pageCount);
             }
-
-            $dummyData = array(
-                [
-                    'featureImage' => '/img/product-image.jpg',
-                    'title' => '汙泥濃度MLSS監控儀',
-                    'type' => 'MC-700'
-                ],
-                [
-                    'featureImage' => '/img/product-image-2.jpg',
-                    'title' => '化學藥液濃度劑',
-                    'type' => 'LQ-5z'
-                ],
-                [
-                    'featureImage' => '/img/product-image.jpg',
-                    'title' => '攜帶型水質測定器',
-                    'type' => '10-X'
-                ]
-            );
-            
         @endphp
         @foreach ($products as $item)
             <div class="col-md-4 product-content">
@@ -164,7 +145,7 @@
             </div>
         @endforeach
         <div class="col-md-12 pagination-section">
-            {{-- {{$products}} --}}
+            {{$products}}
         </div>
     </div>
 </div>
