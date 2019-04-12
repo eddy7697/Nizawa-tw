@@ -408,6 +408,7 @@ class ProductController extends Controller
         try {
             foreach ($localtArr as $key => $value) {
                 $data[$value]['album'] = json_encode($data[$value]['album']);
+                $data[$value]['productDescription'] = json_encode($data[$value]['productDescription']);
                 $data[$value]['productInformation'] = json_encode($data[$value]['productInformation']);
                 Product::where('productGuid', $guid)->where('locale', $value)->update($data[$value]);
             }

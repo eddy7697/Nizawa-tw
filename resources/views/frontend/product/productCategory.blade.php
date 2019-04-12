@@ -116,7 +116,7 @@
         @foreach ($products as $item)
             <div class="col-md-4 product-content">
                 <div class="product-box">
-                    <a href="/product-detail/{{$item->customPath}}">
+                    <a href="/product-detail/{{$item->productGuid}}">
                         <div class="product-feature-image" style="background-image: url('{{$item->featureImage}}');"></div>
                         <div class="product-info">
                             <h3 class="product-title">{{$item->productTitle}}</h3>
