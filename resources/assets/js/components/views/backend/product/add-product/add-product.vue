@@ -12,35 +12,37 @@
                     <label for="">{{currentPath}}/product-detail/</label>
                     <input type="text" class="form-control" placeholder="" v-model="productContent[selectedLocale].customPath" style="width: fit-content; display:inline-block">
                 </div> -->
-                <div v-if="editorShow">
-                    <ul class="nav nav-tabs">
-                        <li class="active"><a data-toggle="tab" href="#home">檢測步驟</a></li>
-                        <li><a data-toggle="tab" href="#menu1">檢測項目</a></li>
-                        <li><a data-toggle="tab" href="#menu2">儀器規格</a></li>
-                    </ul>
-                    <div class="tab-content">
-                        <div id="home" class="tab-pane fade in active">
+                <div v-if="editorShow" style="padding-bottom: 10px;">
+                    <el-tabs v-model="activeSheet" type="card">
+                        <el-tab-pane label="產品介紹" name="first">
+                            <ckeditor
+                                class="ch-product-description-intro"
+                                :config="ckConfig"
+                                v-model="productContent[selectedLocale].productDescription.intro">
+                            </ckeditor>
+                        </el-tab-pane>
+                        <el-tab-pane label="檢測步驟" name="second">
                             <ckeditor
                                 class="ch-product-description-step"
                                 :config="ckConfig"
                                 v-model="productContent[selectedLocale].productDescription.step">
                             </ckeditor>
-                        </div>
-                        <div id="menu1" class="tab-pane fade">
+                        </el-tab-pane>
+                        <el-tab-pane label="檢測項目" name="third">
                             <ckeditor
                                 class="ch-product-description-option"
                                 :config="ckConfig"
                                 v-model="productContent[selectedLocale].productDescription.option">
                             </ckeditor>
-                        </div>
-                        <div id="menu2" class="tab-pane fade">
+                        </el-tab-pane>
+                        <el-tab-pane label="儀器規格" name="fourth">
                             <ckeditor
                                 class="ch-product-description-spec"
                                 :config="ckConfig"
                                 v-model="productContent[selectedLocale].productDescription.spec">
                             </ckeditor>
-                        </div>
-                    </div>
+                        </el-tab-pane>
+                    </el-tabs>
                 </div>
                 <div class="panel panel-default">
                     <div class="panel-heading">
@@ -182,21 +184,43 @@
                         </div>
                     </div>
                 </div>
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">
-                            產品簡述
-                        </h3>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">
+                                    產品特色
+                                </h3>
+                            </div>
+                            <div class="panel-body">
+                                <ckeditor
+                                    v-if="editorShow"
+                                    class="ch-product-description"
+                                    :config="ckConfig"
+                                    v-model="productContent[selectedLocale].shortDescription">
+                                </ckeditor>
+                            </div>
+                        </div>
                     </div>
-                    <div class="panel-body">
-                        <ckeditor
-                            v-if="editorShow"
-                            class="ch-product-description"
-                            :config="ckConfig"
-                            v-model="productContent[selectedLocale].shortDescription">
-                        </ckeditor>
+                    <div class="col-md-6">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">
+                                    應用產業
+                                </h3>
+                            </div>
+                            <div class="panel-body">
+                                <ckeditor
+                                    v-if="editorShow"
+                                    class="ch-product-description-step"
+                                    :config="ckConfig"
+                                    v-model="productContent[selectedLocale].productDescription.industry">
+                                </ckeditor>
+                            </div>
+                        </div>
                     </div>
                 </div>
+                
             </div>
 
             <div class="col-md-3">

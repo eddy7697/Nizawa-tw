@@ -1,6 +1,7 @@
 export default {
     data() {
         return {
+            activeSheet: 'first',
             currentPath: window.location.origin,
             mainCate: null,
             secondCate: null,
@@ -12,9 +13,11 @@ export default {
                     productTitle: null,
                     serialNumber: null,
                     productDescription: {
+                        intro: null,
                         step: null,
                         option: null,
-                        spec: null
+                        spec: null,
+                        industry: null
                     },
                     shortDescription: null,
                     price: 1,
@@ -53,9 +56,11 @@ export default {
                     productTitle: null,
                     serialNumber: null,
                     productDescription: {
+                        intro: null,
                         step: null,
                         option: null,
-                        spec: null
+                        spec: null,
+                        industry: null
                     },
                     shortDescription: null,
                     price: 1,
@@ -94,9 +99,11 @@ export default {
                     productTitle: null,
                     serialNumber: null,
                     productDescription: {
+                        intro: null,
                         step: null,
                         option: null,
-                        spec: null
+                        spec: null,
+                        industry: null
                     },
                     shortDescription: null,
                     price: 1,

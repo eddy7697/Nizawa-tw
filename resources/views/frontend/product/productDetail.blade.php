@@ -31,6 +31,7 @@
 
         $mainCate = Category::where('categoryGuid', $product->mainCategory)->first();
         $subCate = Category::where('categoryGuid', $product->subCategory)->first();
+        $content = json_decode($product->productDescription);
     @endphp
     <div class="mg-site-thumbnail">
         <div class="container">
@@ -105,15 +106,24 @@
 
                         {{--簡短說明--}}
                         <div class="short-description">
-                            <h4>形式：{{$product->serialNumber}}</h4>
+                            <h4>型號：{{$product->serialNumber}}</h4>
                             <h4>貨號：{{$product->rule}}</h4>
                         </div>
 
                         <hr>
 
-                        {{--簡短說明--}}
+                        {{--简短说明--}}
+                        <h4 style="color: #000; font-weight: bolder">產品特色</h4>
                         <div class="short-description">
                             {!!$product->shortDescription!!}
+                        </div>
+
+                        <hr>
+
+                        {{--简短说明--}}
+                        <h4 style="color: #000; font-weight: bolder">產品特色</h4>
+                        <div class="short-description">
+                            {!!$content->industry!!}
                         </div>
 
                         <hr>
@@ -136,7 +146,10 @@
                     <div class="col-md-12 product-description">
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                             <li class="nav-item">
-                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">檢測步驟</a>
+                                <a class="nav-link active" id="intro-tab" data-toggle="tab" href="#intro" role="tab" aria-controls="intro" aria-selected="true">產品介紹</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">檢測步驟</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">檢測項目</a>
@@ -146,10 +159,10 @@
                             </li>
                         </ul>
                         <div class="tab-content" id="myTabContent">
-                            @php
-                                $content = json_decode($product->productDescription);
-                            @endphp
-                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                            <div class="tab-pane fade show active" id="intro" role="tabpanel" aria-labelledby="intro-tab">
+                                {!!$content->intro!!}
+                            </div>
+                            <div class="tab-pane fade" id="home" role="tabpanel" aria-labelledby="home-tab">
                                 {!!$content->step!!}
                             </div>
                             <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
