@@ -348,6 +348,12 @@
                     p {
                         margin-bottom: 0.2rem;
                     }
+                    ul {
+                        li {
+                            list-style: inherit;
+                            margin-left: 30px;
+                        }
+                    }
                 }
                 .product-link {
                     border-top: #ddd solid thin;
