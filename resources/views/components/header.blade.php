@@ -8,9 +8,6 @@
     }
 @endphp
 
-<div id="cart-panel" style="position:absolute">
-    <cart-panel />
-</div>
 <section class="site-header">
     <div class="container">
         <div class="row">
@@ -19,8 +16,8 @@
                     <a href="/"><img src="/img/site-logo/logo_header.png" alt=""></a>
                 </div>
                 <ul class="site-func">
-                    <li>
-                        <a style="cursor: pointer" onclick="openCartPanel()"><i class="fa fa-shopping-cart" aria-hidden="true"></i>&nbsp;我的詢價車</a>
+                    <li id="cart-panel">
+                        <cart-panel />
                     </li>
                     <li>
                         <div class="dropdown">

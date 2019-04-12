@@ -1,12 +1,14 @@
 <template>
     <div>
-        <div class="shopping-Cart-Icon" @click="getCart(true)">
-            <img src="/img/shopping car-black.svg" alt="">
-            <span class="count" v-if="cartContent.length">{{cartContent.length}}</span>  
-        </div>
-        <div class="litext" @click="getCart(true)">
+        <a style="cursor: pointer" @click="getCart(true)">
+            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+            &nbsp;我的詢價車
+            <span class="count" v-if="cartContent.length">{{cartContent.length}}</span>
+        </a>
+
+        <!-- <div class="litext" @click="getCart(true)">
             <p>&nbsp;&nbsp;詢價車</p>
-        </div>
+        </div> -->
         <!--<button class="cart pull-right" @click="getCart(true)">-->
         <!--<img v-bind:src="(isCartEmpty ? '/img/icon/cart-empty.svg' : '/img/icon/cart-full.svg')" alt="" width="25" height="25">-->
         <!--&lt;!&ndash; <i class="fa fa-shopping-cart" aria-hidden="true"></i> &ndash;&gt;-->
@@ -30,7 +32,8 @@
                             <img class="cart-item-img" v-bind:src="thumb(item.featureImage)" alt="">
                         </td>
                         <td align="right">
-                            <strong>{{item.title}} x {{item.qty}}</strong>
+                            <strong>{{item.title}} x {{item.qty}}</strong><br>
+                            <strong>型號：{{item.serialNumber}}</strong>
                         </td>
                     </tr>
                     <!-- <tr v-if="!isCartEmpty">
@@ -51,7 +54,7 @@
                 <h4 v-if="isCartEmpty" style="text-align: center"><strong>詢價車還是空的唷!</strong></h4>
                 <hr>
 
-                <button v-if="!isCartEmpty" type="button" class="btn btn-primary btn-block btn-lg" @click="goToCart()">查看詢價車</button>
+                <button v-if="!isCartEmpty" type="button" class="btn btn-primary btn-block btn-lg" @click="goToCart()">檢視詢價車</button>
                 <button type="button" class="btn btn-default btn-block btn-lg" @click="togglePanel()">繼續購物</button>
             </div>
         </transition>
@@ -103,6 +106,8 @@
                             title: item.id.title,
                             guid: item.id.guid,
                             featureImage: item.id.featureImage,
+                            serialNumber: item.id.serialNumber,
+                            role: item.id.role,
                             qty: item.qty,
                             price: item.price,
                             total: item.total,
@@ -255,15 +260,15 @@
     .shopping-Cart-Icon, .litext{
         display: inline-block;
     }
-    .shopping-Cart-Icon span.count{
-        position: absolute;
+    .count{
+        /* position: absolute; */
         font-size: 12px;
         background-color: red;
         color: white;
         padding: 0 6px 0 6px;
         border-radius: 50%;
-        bottom: 0;
-        right: -10px;
+        /* bottom: 0;
+        right: -10px; */
         box-shadow: 2px 2px 12px -2px #666;
     }
 </style>

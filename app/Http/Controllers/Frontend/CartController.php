@@ -68,6 +68,7 @@ class CartController extends Controller
                 'featureImage' => $product->featureImage,
                 'Temperature' => $product->Temperature,
                 'serialNumber' => $product->serialNumber,
+                'role' => $product->role,
             );
 
             $cart = Cart::add(json_encode($productMeta), json_encode($productMeta), $data['quantity'], $price);
