@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Product;
 use Cart;
+use Log;
 
 class CartController extends Controller
 {
@@ -30,6 +31,7 @@ class CartController extends Controller
                 'featureImage' => $product->featureImage,
                 'Temperature' => $product->Temperature,
                 'serialNumber' => $product->serialNumber,
+                'rule' => $product->rule,
             );
 
             $cart = Cart::add(json_encode($productMeta), json_encode($productMeta), 1, $price);
@@ -68,7 +70,7 @@ class CartController extends Controller
                 'featureImage' => $product->featureImage,
                 'Temperature' => $product->Temperature,
                 'serialNumber' => $product->serialNumber,
-                'role' => $product->role,
+                'rule' => $product->rule,
             );
 
             $cart = Cart::add(json_encode($productMeta), json_encode($productMeta), $data['quantity'], $price);

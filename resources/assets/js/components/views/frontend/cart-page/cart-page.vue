@@ -5,33 +5,37 @@
         </div>
     </div>
     <div class="row" v-else>
-        <div class="col-md-8">
+        <div class="col-md-11 mx-auto">
             <table class="cart-list">
                 <thead>
                     <tr>
-                        <th colspan="3">
-                            商品
-                        </th>
-                        <th>
-                            價格
+                        <th></th>
+                        <th style="text-align: center" colspan="2">
+                            產品名稱
                         </th>
                         <th style="text-align: center">
                             數量
                         </th>
+                        <th style="text-align: center">
+                            型號
+                        </th>
+                        <th style="text-align: center">
+                            貨號
+                        </th>
                         <th style="text-align: right">
-                            總計
+                           
                         </th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr v-for="(item, index) in cart" v-bind:key="index">
                         <td class="product-remove">
-                            <a href="#" class="remove" aria-label="移除這項商品" style="text-decoration: none;" @click="deleteProduct(item)">×</a>
+                            {{paddingLeft(index + 1, 2)}}
                         </td>
 
                         <td class="product-thumbnail">
                             <a v-bind:href="productLink(item.id.guid)">
-                                <img width="50" v-bind:src="item.id.featureImage" >
+                                <img width="100" v-bind:src="item.id.featureImage" >
                             </a>
                         </td>
 
@@ -39,38 +43,41 @@
                             <a v-bind:href="productLink(item.id.guid)">{{item.id.title}}</a>
                         </td>
 
-                        <td class="product-price" data-title="價格">
-                            <span><span>NT$</span> {{item.price}}</span>
+                        <td class="product-quantity" width="125" data-title="數量" style="text-align: center">
+                            <el-input-number size="mini" v-model="item.qty"></el-input-number>
                         </td>
 
-                        <td class="product-quantity" width="125" data-title="數量" style="text-align: center">
-                            <div class="form-group" style="width:122px; float: right; margin-top: 15px;">
-                                <div class="input-group">
-                                    <span class="input-group-btn">
-                                        <button class="btn btn-default" type="button" @click="changeQty('down', item)"><i class="fa fa-minus" aria-hidden="true"></i></button>
-                                    </span>
-                                    <input type="number" id="point-input" class="form-control" style="text-align: center; padding: 0px 10px;"
-                                        v-model="item.qty"
-                                        min="0">
-                                    <span class="input-group-btn">
-                                        <button class="btn btn-default" type="button" @click="changeQty('up', item)"><i class="fa fa-plus" aria-hidden="true"></i></button>
-                                    </span>
-                                </div>
-                            </div>
+                        <td class="product-price" data-title="型號" style="text-align: center">
+                            <span>{{item.id.serialNumber}}</span>
+                        </td>
+
+                        <td class="product-price" data-title="貨號" style="text-align: center">
+                            <span>{{item.id.rule}}</span>
                         </td>
 
                         <td class="product-subtotal" data-title="總計" align="right">
-                            <span><span>NT$</span> {{item.total}}</span>
+                            <!-- <button>
+                                <i class="fa fa-trash-o" aria-hidden="true"></i>
+                            </button> -->
+                            <a href="#" class="remove" aria-label="移除這項商品" style="text-decoration: none;" @click="deleteProduct(item)">
+                                <i class="fa fa-trash-o" aria-hidden="true"></i>
+                            </a>
                         </td>
                     </tr>
                 </tbody>
             </table>
             <br>
-            <button v-if="isDirty" class="btn btn-default" name="button" @click="updateCart">更新詢價車</button>
-            <button v-else class="btn btn-default" name="button" disabled>更新詢價車</button>
-            <button class="btn btn-default" name="button" @click="deleteAll">清空詢價車</button>
+            <button v-if="isDirty" class="btn btn-custom" name="button" @click="updateCart">更新詢價車</button>
+            <button v-else class="btn btn-custom" name="button" disabled>更新詢價車</button>
+            <button class="btn btn-custom" name="button" @click="deleteAll">清空詢價車</button>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-12" style="text-align: center;">
+            <form class="" action="/checkout/billing" method="post">
+                <input type="hidden" name="_token" v-bind:value="token">
+                <button type="submit" class="btn btn-custom btn-xl">送出，前往下一步</button>
+            </form>
+        </div>
+        <div class="col-md-4" v-if="false">
             <div class="cart-sidebar">
                 <div class="cart_totals calculated_shipping">
 
@@ -121,7 +128,7 @@
 
                             </tbody>
                         </table>
-                        <div>
+                        <div style="text-align: center;">
                             <button type="submit" class="btn btn-primary btn-block check-btn">前往結帳</button>
                         </div>
                     </form>
@@ -133,6 +140,14 @@
 </template>
 
 <script>
+    import ElementUI from 'element-ui';
+    import 'element-ui/lib/theme-chalk/index.css';
+    import lang from 'element-ui/lib/locale/lang/zh-TW'
+    import locale from 'element-ui/lib/locale'
+
+    Vue.use(ElementUI);
+    locale.use(lang)
+    
     $('.loading-bar').fadeOut('100');
     export default {
         data() {
@@ -357,24 +372,15 @@
 
                 if (check) {
                     $('.loading-bar').fadeIn('100');
-                    $.ajax({
-                        url: '/cart/delete/single/' + item.rowId,
-                        type: 'POST',
-                        dataType: 'json',
-                        beforeSend: function(xhr) {
-                            xhr.setRequestHeader('X-CSRF-TOKEN', token);
-                        }
-                    })
-                    .done(function(response) {
-                        self.getCart();
-                    })
-                    .fail(function() {
-                        // console.log("error");
-                    })
-                    .always(function() {
-                        $('.loading-bar').fadeOut('100');
-                        // console.log("complete");
-                    });
+                    axios.post(`/cart/delete/single/${item.rowId}`)
+                        .then(res => {
+                            this.getCart()
+                            updateCount()
+                        }).catch(err => {
+
+                        }).then(arg => {
+                            $('.loading-bar').fadeOut('100');
+                        })
 
                 } else {
                     return;
@@ -420,9 +426,33 @@
             productLink: function (guid) {
                 return "/product-detail/" + guid;
             },
+            paddingLeft(str,lenght){
+                if(str.length >= lenght)
+                return str;
+                else
+                return this.paddingLeft("0" +str,lenght);
+            },
             showMessage: function (type, string) {
                 toastr[type](string);
             }
         }
     }
 </script>
+
+<style lang="scss">
+@import "../../../../../../../storage/app/scss-variables.scss";
+.btn-custom {
+    background-color: $second-color;
+    border-color: $second-color;
+    color: #fff;
+    opacity: 1;
+
+    &.btn-xl {
+        padding: 20px 50px;
+    }
+    &:hover {
+        color: #fff;
+        opacity: 0.9;
+    }
+}
+</style>

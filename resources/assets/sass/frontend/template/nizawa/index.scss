@@ -685,6 +685,9 @@
         height: 520px;
         text-align: center;
 
+        &.cart {
+            height: 250px;
+        }
         h2 {
             padding: 5px;
             font-weight: 500;

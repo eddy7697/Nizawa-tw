@@ -8,11 +8,27 @@
         <div class="row">
             <div class="col-md-12 checkout-thumbnail">
                 <ul>
-                    <li>詢價車</li>
-                    <li><i class="fa fa-angle-right" aria-hidden="true"></i></li>
-                    <li>結帳資訊</li>
-                    <li><i class="fa fa-angle-right" aria-hidden="true"></i></li>
-                    <li class="active">購買完成</li>
+                    <li>
+                        <img src="/img/icon/cart-01.svg" alt="">
+                        &nbsp;&nbsp;
+                        <i class="fa fa-caret-down arrow-icon" aria-hidden="true"></i>
+                        &nbsp;&nbsp;
+                        詢價車
+                    </li>
+                    <li>
+                        <img src="/img/icon/cart-02.svg" alt="">
+                        &nbsp;&nbsp;
+                        <i class="fa fa-caret-down arrow-icon" aria-hidden="true"></i>
+                        &nbsp;&nbsp;
+                        結帳資訊
+                    </li>
+                    <li class="active">
+                        <img src="/img/icon/cart-03.svg" alt="">
+                        &nbsp;&nbsp;
+                        <i class="fa fa-caret-down arrow-icon" aria-hidden="true"></i>
+                        &nbsp;&nbsp;
+                        購買完成
+                    </li>
                 </ul>
             </div>
             <div class="col-md-12" style="text-align: center">

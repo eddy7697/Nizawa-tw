@@ -40,18 +40,18 @@
 @section('content')
 <div class="sub-page-banner" style="background-image: url('/img/sub-banner.jpg');">
     <div>
-        <h2>联系我们</h2>
+        <h2>聯絡我們</h2>
         <h4>Contact Us</h4>
         <hr>
-        <h5>欢迎您透过连络表单填写与我们联系，我们将尽速回复给您</h5>
+        <h5>歡迎您透過連絡表單填寫與我們聯絡，我們將盡速回復給您</h5>
     </div>
 </div>
 <div class="mg-site-thumbnail">
     <div class="container">
         <div class="col-md-12">
-            <a href="/">首页</a>
+            <a href="/">首頁</a>
             &nbsp;&nbsp;<a>></a>&nbsp;&nbsp;
-            联系我们
+            聯絡我們
         </div>
     </div>
 </div>
@@ -61,9 +61,9 @@
         <div class="col-md-9 mx-auto site-contact-container">
             <form action="">
                 <div class="col-md-11 mx-auto contact-form-header">
-                    <h1>联系我们</h1>
+                    <h1>聯絡我們</h1>
                     <hr>
-                    <p>请详细填写您的信息及疑问，以便我们精准为您回复，非常感谢您。</p>
+                    <p>請詳細填寫您的資訊及疑問，以便我們精準為您回覆，非常感謝您。</p>
                 </div>
                 <div class="col-md-10 mx-auto contact-form-body">
                     <div class="row">
@@ -76,7 +76,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-4 column important">
-                            <p>性别</p>
+                            <p>性別</p>
                         </div>
                         <div class="col-md-8 column">
                             <div class="form-check-inline">
@@ -93,7 +93,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-4 column important">
-                            <p>电子邮箱</p>
+                            <p>電子郵箱</p>
                         </div>
                         <div class="col-md-8 column">
                             <input class="form-control" type="email" name="email" required>
@@ -101,7 +101,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-4 column important">
-                            <p>连络电话</p>
+                            <p>連絡電話</p>
                         </div>
                         <div class="col-md-8 column">
                             <input class="form-control" type="phone" name="phone" required>
@@ -109,20 +109,20 @@
                     </div>
                     <div class="row">
                         <div class="col-md-4 column">
-                            <p>问题类型</p>
+                            <p>問題類型</p>
                         </div>
                         <div class="col-md-8 column">
                             <select name="type" class="form-control">
-                                <option value="问题类型 1">问题类型 1</option>
-                                <option value="问题类型 2">问题类型 2</option>
-                                <option value="问题类型 3">问题类型 3</option>
+                                <option value="問題類型 1">問題類型 1</option>
+                                <option value="問題類型 2">問題類型 2</option>
+                                <option value="問題類型 3">問題類型 3</option>
                             </select>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-4 column important">
-                            <p>询问内容</p>
-                            <p class="text">提醒您，若您填写得越精准，越有利我们及时回复给您信息。</p>
+                            <p>詢問內容</p>
+                            <p class="text">提醒您，若您填寫得越精準，越有利我們及時回覆給您資訊。</p>
                         </div>
                         <div class="col-md-8 column">
                             <textarea name="content" class="form-control content" required></textarea>
@@ -130,14 +130,14 @@
                     </div>
                 </div>
                 <div class="col-md-10 mx-auto contact-form-footer">
-                    <p class="info">我们不会将您输入的任何个人信息用于回答查找以外的目的，您亦可<a href="">点击这里</a>查看更多关于天壬提供的隐私权保护政策。</p>
-                    <p class="info">* 请您务必将天壬的电子邮箱地址或域名设置为可接收的电子邮箱，以免错过我们的回复，您亦可直接与我们联系，<a href="">(点击这里查看联系信息)</a>。</p>
+                    <p class="info">我們不會將您輸入的任何個人資訊用於回答查詢以外的目的，您亦可<a href="">點選這裡</a>檢視更多關於天壬提供的隱私權保護政策。</p>
+                    <p class="info">* 請您務必將天壬的電子郵箱地址或域名設定為可接收的電子郵箱，以免錯過我們的回覆，您亦可直接與我們聯絡，<a href="">(點選這裡檢視聯絡資訊)</a>。</p>
                     <div class="captcha-section">
                         <strong>確認碼</strong>
                         <img src="/captcha" id="captcha" alt="">
-                        <a href="#" id="refresh-captcha">更新确认码</a>
+                        <a href="#" id="refresh-captcha">更新確認碼</a>
                         <input type="text" class="form-control captcha" name="captcha" placeholder="請輸入上方的確認碼..." required title="請輸入驗證碼">
-                        <button class="submit-btn" type="submit">提交信息</button>
+                        <button class="submit-btn" type="submit">提交資訊</button>
                     </div>
                 </div>
             </form>
