@@ -115,6 +115,33 @@
         }
     }
 
+    .check-success {
+        text-align: center;
+        margin-bottom: 50px;
+
+        h2 {
+            margin: 50px 0;
+            font-size: 2.5rem;
+            color: $second-color;
+            font-weight: 800;
+        }
+        .text {
+            a {
+                color: $main-color;
+            }
+        }
+        .find-more {
+            max-width: 100%;
+        }
+        .find-more-btn {
+            display: inline-block;
+            font-size: 1.2rem;
+            background-color: $second-color;
+            color: #fff;
+            padding: 20px 80px;
+        }
+    }
+
     ul.shipping-method-list {
         margin: 0;
         padding: 0;

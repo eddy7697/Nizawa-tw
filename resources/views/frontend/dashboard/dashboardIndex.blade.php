@@ -203,7 +203,7 @@
                                                                     已付款
                                                                 @endif
                                                             @elseif($item->paymentMethod == 'Remit')
-                                                                <a class="btn btn-xs btn-primary" href="/remittance-information" target="_blank">點我查看匯款資訊</a>
+                                                                <a class="btn btn-xs btn-primary" href="/checkout-success" target="_blank">點我查看匯款資訊</a>
                                                             @else
                                                                 @if ($item->paymentStatus == 'unpaid')
                                                                     @if ($item->BankCode)

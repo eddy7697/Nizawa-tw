@@ -156,6 +156,60 @@ class HomeController extends Controller
     }
 
     /**
+     * checkoutCaptchaCheck
+     */
+    public function checkoutCaptchaCheck($code)
+    {
+        session_start();
+        
+        if ($_SESSION['checkout_captcha'] == $code) {
+            return 'success';
+        } else {
+            abort(460, 'invalidate');
+        }
+        
+    }
+
+    /**
+     * checkoutCaptcha
+     */
+    public function checkoutCaptcha()
+    {
+        session_start();
+
+        if(isset($_SESSION['checkout_captcha']))
+        {
+            unset($_SESSION['checkout_captcha']);
+        }
+
+        //getting the required random 5 characters
+        $captcha_text = (string)rand(100000, 999999);
+
+        $_SESSION['checkout_captcha'] = $captcha_text;
+
+        header("Content-type: image/png");// setting the content type as png
+        $captcha_image=imagecreatetruecolor(120,40);
+
+        $captcha_background=imagecolorallocate($captcha_image, 255, 255, 255);//setting captcha background colour
+        $captcha_text_colour=imagecolorallocate($captcha_image, 255, 148, 77);//setting cpatcha text colour
+
+        $glitch_colour = imagecolorallocate($captcha_image, 100, 100, 100);
+
+        imagefilledrectangle($captcha_image,0,0,120,40,$captcha_background);//creating the rectangle
+
+        $font = storage_path('arial.ttf');//setting the font path
+
+        imagettftext($captcha_image,20,0,16,30,$captcha_text_colour,$font,$captcha_text);
+
+        for ($i = 0; $i < 200 ; $i++) { 
+            imagettftext($captcha_image,10,0,rand(1, 140),rand(1, 40),$glitch_colour,$font,'.');
+        }
+        
+        imagepng($captcha_image);
+        imagedestroy($captcha_image);
+    }
+
+    /**
      * Captcha
      */
     public function captcha()

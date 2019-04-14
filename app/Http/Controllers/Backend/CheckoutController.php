@@ -368,7 +368,7 @@ class CheckoutController extends Controller
             // echo Ecpay::instance()->CheckOutString();
 
             if ($data['ChoosePayment'] == 'Remit') {
-                return redirect('/remittance-information');
+                return redirect('/checkout-success');
             } else {
                 // return Hppe::send([
                 //     'order' => str_random(6),

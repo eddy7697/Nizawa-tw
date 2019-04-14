@@ -110,9 +110,9 @@ Route::get('/check-order', function ()
         'thumb' => null
     ]);
 });
-Route::get('/remittance-information', function ()
+Route::get('/checkout-success', function ()
 {
-    return view('frontend.checkoutMethod.remittanceInformation', [
+    return view('frontend.checkoutMethod.checkoutSuccess', [
         'isThumbShow' => false,
         'thumb' => null
     ]);
@@ -133,6 +133,8 @@ Route::get('/importScout', 'Frontend\SearchController@importScout');
  * Captcha
  */
 Route::get('/captcha', 'HomeController@captcha');
+Route::get('/captcha/checkout', 'HomeController@checkoutCaptcha');
+Route::get('/captcha/checkout/check/{code}', 'HomeController@checkoutCaptchaCheck');
 Route::get('/cap_str', 'HomeController@getString');
 
 /**

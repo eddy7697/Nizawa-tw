@@ -5,6 +5,12 @@
 @endsection
 
 @section('content')
+    <div class="sub-page-banner cart" style="background-image: url('/img/sub-banner.jpg');">
+        <div>
+            <h2>詢價車</h2>
+            <h4>Inquery car</h4>
+        </div>
+    </div>
     <div class="container mg-business">
         <div class="row">
             <div class="col-md-12 checkout-thumbnail">
@@ -32,7 +38,9 @@
                     </li>
                 </ul>
             </div>
-            <div class="col-md-12" id="checkout">
+        </div>
+        <div class="row">
+            <div class="col-md-10 mx-auto" id="checkout">
                 <input type="hidden" id="shipping_method" value="{{$shippingMethod}}">
                 <checkout></checkout>
             </div>

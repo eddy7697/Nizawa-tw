@@ -74,6 +74,7 @@
         <div class="col-md-12" style="text-align: center;">
             <form class="" action="/checkout/billing" method="post">
                 <input type="hidden" name="_token" v-bind:value="token">
+                <input type="hidden" name="shipping_method" value="1">
                 <button type="submit" class="btn btn-custom btn-xl">送出，前往下一步</button>
             </form>
         </div>

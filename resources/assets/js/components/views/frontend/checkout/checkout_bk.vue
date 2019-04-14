@@ -1,206 +1,311 @@
 <template>
-    <div class="row checkout-form">
-        <form v-on:submit.prevent="createOrder" style="width: 100%">
-            <!-- start -->
-            <div class="col-md-6">
-                <div class="row">
-                    <div class="col-md-4 form-item">
-                        <span class="important">公司名稱</span>
-                    </div>
-                    <div class="col-md-8 form-item">
-                        <input class="form-control" type="text" required>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6"></div>
-            <!-- end -->
-            <!-- start -->
-            <div class="col-md-6">
-                <div class="row">
-                    <div class="col-md-4 form-item">
-                        <span class="important">聯絡人</span>
-                    </div>
-                    <div class="col-md-8 form-item">
-                        <input class="form-control" name="name" type="text" v-model="customerParametor.ReceiverName" required>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6"></div>
-            <!-- end -->
-            <!-- start -->
-            <div class="col-md-6">
-                <div class="row">
-                    <div class="col-md-4 form-item">
-                        <span class="important">連絡電話</span>
-                    </div>
-                    <div class="col-md-8 form-item">
-                        <input class="form-control" type="text" v-model="customerParametor.ReceiverCellPhone" required>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6"></div>
-            <!-- end -->
-            <!-- start -->
-            <div class="col-md-6">
-                <div class="row">
-                    <div class="col-md-4 form-item">
-                        <span class="important">郵箱</span>
-                    </div>
-                    <div class="col-md-8 form-item">
-                        <input class="form-control" name="email" type="email" v-model="customerParametor.ReceiverEmail" required>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6"></div>
-            <!-- end -->
-            <!-- start -->
-            <div class="col-md-6">
-                <div class="row">
-                    <div class="col-md-4 form-item">
-                        <span class="important">地址</span>
-                    </div>
-                    <div class="col-md-8 form-item">
-                        <select class="form-control" v-model="customerParametor.ReceiverCity" required>
-                            <option :value="null">省份/城鎮/城市/區</option>
-                            <option :value="'地址option1'">選項1</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6"></div>
-            <!-- end -->
-            <!-- start -->
-            <div class="col-md-12">
-                <div class="row">
-                    <div class="col-md-2 form-item">
-                        <span class="important">詳細地址</span>
-                    </div>
-                    <div class="col-md-8 form-item">
-                        <input class="form-control" type="text" v-model="customerParametor.ReceiverAddress" placeholder="請輸入詳細地址信息，如道路、門牌號、小區、棟樓號、單元等信息" required>
-                    </div>
-                </div>
-            </div>
-            <!-- end -->
-            <!-- start -->
-            <div class="col-md-6">
-                <div class="row">
-                    <div class="col-md-4 form-item">
-                        <span>購買需求/應用範疇</span>
-                    </div>
-                    <div class="col-md-8 form-item">
-                        <input class="form-control" v-model="customerParametor.ReceiverUseage" type="text">
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6"></div>
-            <!-- end -->
-            <!-- start -->
-            <div class="col-md-6">
-                <div class="row">
-                    <div class="col-md-4 form-item">
-                        <span class="important">預算情況</span>
-                    </div>
-                    <div class="col-md-8 form-item">
-                        <select class="form-control" v-model="customerParametor.ReceiverBudget" required>
-                            <option :value="null" disabled>請選擇情況與您最相符的預算情況</option>
-                            <option :value="'預算情況option1'">選項1</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6"></div>
-            <!-- end -->
-            <!-- start -->
-            <div class="col-md-6">
-                <div class="row">
-                    <div class="col-md-4 form-item">
-                        <span class="important">預計購買時間</span>
-                    </div>
-                    <div class="col-md-8 form-item">
-                        <select class="form-control" v-model="customerParametor.ReceiverTime" required>
-                            <option :value="null">請選擇您預計購買的時間</option>
-                            <option :value="'預計購買時間option1'">選項1</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6"></div>
-            <!-- end -->
-            <!-- start -->
-            <div class="col-md-6">
-                <div class="row">
-                    <div class="col-md-4 form-item">
-                        <span class="important">所屬行業別</span>
-                    </div>
-                    <div class="col-md-8 form-item">
-                        <select class="form-control" v-model="customerParametor.ReceiverJob" required>
-                            <option :value="null">請選擇您的的行業別</option>
-                            <option :value="'所屬行業別option1'">選項1</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6"></div>
-            <!-- end -->
-            <!-- start -->
-            <div class="col-md-6">
-                <div class="row">
-                    <div class="col-md-4 form-item">
-                        <span class="important">部門</span>
-                    </div>
-                    <div class="col-md-8 form-item">
-                        <input class="form-control" v-model="customerParametor.ReceiverDepart" type="text" required>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6"></div>
-            <!-- end -->
-            <!-- start -->
-            <div class="col-md-6">
-                <div class="row">
-                    <div class="col-md-4 form-item">
-                        <span class="important">職務</span>
-                    </div>
-                    <div class="col-md-8 form-item">
-                        <input class="form-control" v-model="customerParametor.ReceiverJobTitle" type="text" required>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6"></div>
-            <!-- end -->
-            <!-- start -->
-            <div class="col-md-12">
-                <div class="row">
-                    <div class="col-md-2 form-item">
-                        <span>備註</span>
-                    </div>
-                    <div class="col-md-10 form-item">
-                        <textarea class="form-control" v-model="customerParametor.remarks" name="" id="" cols="30" rows="10"></textarea>
-                    </div>
-                </div>
-            </div>
-            <!-- end -->
+    <div class="row">
+        <form v-on:submit.prevent="createOrder">
+            <div class="col-md-7">
+                <div class="shipping-form">
+                    <h4>商品寄送資訊</h4>
+                    <hr>
+                    <div class="row" v-if="useUserInfo">
+                        <div class="col-md-6">
+                            <div class="form-row">
+                                <label for="shipping-name">收件人姓名 *</label>
+                                <strong v-if="!formValidation.ReceiverName" style="color: #600000">&nbsp;&nbsp;此欄位為必填 *</strong>
+                                <input class="form-control" type="text" id="shipping-name" placeholder="" v-model="customerParametor.ReceiverName" required>
 
-            <!--  -->
-            <div class="col-md-9 mx-auto contact-form-footer">
-                <p class="info">我們不會將您輸入的任何個人資訊用於回答查詢以外的目的，您亦可<a href="">點選這裡</a>檢視更多關於天壬提供的隱私權保護政策。</p>
-                <p class="info">* 請您務必將天壬的電子郵箱地址或域名設定為可接收的電子郵箱，以免錯過我們的回覆，您亦可直接與我們聯絡，<a href="">(點選這裡檢視聯絡資訊)</a>。</p>
-                <div class="captcha-section">
-                    <strong>確認碼</strong>
-                    <img :src="captchaUrl" id="captcha" alt="">
-                    <a @click="refreshCaptcha" style="cursor: pointer">更新確認碼</a>
-                    <input type="text" class="form-control captcha" name="captcha" v-model="captchaCode" placeholder="請輸入上方的確認碼..." required title="請輸入驗證碼">                    
-                </div>
-                <div class="captcha-section submit">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <a class="submit-btn" href="/cart">返回</a>
+                            </div>
                         </div>
                         <div class="col-md-6">
-                            <button class="submit-btn" type="submit">提交，完成詢價程序</button>
+                            <div class="form-group">
+                                <label for="shipping-phone">收件人行動電話 *</label>
+                                <strong v-if="!formValidation.ReceiverCellPhone" style="color: #600000">&nbsp;&nbsp;此欄位為必填 *</strong>
+                                <input class="form-control" type="text" id="shipping-phone" placeholder="" v-model="customerParametor.ReceiverCellPhone" required>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="shipping-email">收件人電子郵件 *</label>
+                                <strong v-if="!formValidation.ReceiverEmail" style="color: #600000">&nbsp;&nbsp;此欄位為必填 *</strong>
+                                <input class="form-control" type="email" id="shipping-email" placeholder="" v-model="customerParametor.ReceiverEmail" required>
+                            </div>
                         </div>
                     </div>
+                    <div class="row" v-else>
+                        <div class="col-md-6">
+                            <div class="form-row">
+                                <label for="shipping-name">收件人姓名 *</label>
+                                <strong v-if="!formValidation.ReceiverName" style="color: #600000">&nbsp;&nbsp;此欄位為必填 *</strong>
+                                <input class="form-control" type="text" id="shipping-name" placeholder="" v-model="customerParametorForShipping.ReceiverName" required>
+
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="shipping-phone">收件人行動電話 *</label>
+                                <strong v-if="!formValidation.ReceiverCellPhone" style="color: #600000">&nbsp;&nbsp;此欄位為必填 *</strong>
+                                <input class="form-control" type="text" id="shipping-phone" placeholder="" v-model="customerParametorForShipping.ReceiverCellPhone" required>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="shipping-email">收件人電子郵件 *</label>
+                                <strong v-if="!formValidation.ReceiverEmail" style="color: #600000">&nbsp;&nbsp;此欄位為必填 *</strong>
+                                <input class="form-control" type="email" id="shipping-email" placeholder="" v-model="customerParametorForShipping.ReceiverEmail" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row" v-if="shippingMethod == 'delivery' && useUserInfo">
+                        <hr>
+                        <!-- <div class="col-md-6">
+                            <div class="form-row">
+                                <label for="shipping-city">縣市 *</label>
+                                <strong v-if="!formValidation.ReceiverCity" style="color: #600000">&nbsp;&nbsp;此欄位為必填 *</strong>
+                                <input class="form-control" type="text" id="shipping-city" placeholder="" v-model="customerParametor.ReceiverCity" required>
+                            </div>
+                        </div> -->
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="shipping-port">郵遞區號 *</label>&nbsp;&nbsp;
+                                <a target="_blank" href="https://www.post.gov.tw/post/internet/SearchZone/index.jsp?ID=130107">郵遞區號查詢</a>
+                                <strong v-if="!formValidation.ReceiverPort" style="color: #600000">&nbsp;&nbsp;此欄位為必填 *</strong>
+                                <input class="form-control" type="text" id="shipping-port" placeholder="" v-model="customerParametor.ReceiverPort" required>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="shipping-address">地址 *</label>
+                                <strong v-if="!formValidation.ReceiverAddress" style="color: #600000">&nbsp;&nbsp;此欄位為必填 *</strong>
+                                <input class="form-control" type="text" id="shipping-address" placeholder="" v-model="customerParametor.ReceiverAddress" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" v-if="shippingMethod == 'delivery' && !useUserInfo">
+                        <hr>
+                        <!-- <div class="col-md-6">
+                            <div class="form-row">
+                                <label for="shipping-city">縣市 *</label>
+                                <strong v-if="!formValidation.ReceiverCity" style="color: #600000">&nbsp;&nbsp;此欄位為必填 *</strong>
+                                <input class="form-control" type="text" id="shipping-city" placeholder="" v-model="customerParametorForShipping.ReceiverCity" required>
+                            </div>
+                        </div> -->
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="shipping-port">郵遞區號 *</label>&nbsp;&nbsp;
+                                <a target="_blank" href="https://www.post.gov.tw/post/internet/SearchZone/index.jsp?ID=130107">郵遞區號查詢</a>
+                                <strong v-if="!formValidation.ReceiverPort" style="color: #600000">&nbsp;&nbsp;此欄位為必填 *</strong>
+                                <input class="form-control" type="text" id="shipping-port" placeholder="" v-model="customerParametorForShipping.ReceiverPort" required>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="shipping-address">地址 *</label>
+                                <strong v-if="!formValidation.ReceiverAddress" style="color: #600000">&nbsp;&nbsp;此欄位為必填 *</strong>
+                                <input class="form-control" type="text" id="shipping-address" placeholder="" v-model="customerParametorForShipping.ReceiverAddress" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group" v-if="isAuth">
+                        <input v-if="dontUseUserInfo" type="checkbox" id="use-user-info" v-model="useUserInfo">
+                        <label v-if="dontUseUserInfo" for="use-user-info">代入會員資料</label>
+                        <input v-if="useUserInfo" type="checkbox" id="dont-use-user-info" v-model="dontUseUserInfo">
+                        <label v-if="useUserInfo" for="dont-use-user-info">這不是我的收件資訊</label>
+                    </div>
+                    <hr>
+                    <div class="form-group" v-if="paymentMethod == 'Remit'">
+                        <!-- <label for="shipping-city">匯款帳號末五碼</label>
+                        <input class="form-control" type="text" id="shipping-city" placeholder="" v-model="customerParametor.ReceiverCity" required> -->
+                        <label for="last-five-char">匯款帳號末五碼</label>
+                        <el-popover
+                            placement="top-start"
+                            title="匯款帳號末五碼"
+                            width="200"
+                            trigger="hover"
+                            content="預先填入此欄位，可加速您選用轉帳付款的後續驗證流程。">
+                            <el-button slot="reference" class="tooltip-btn">
+                                <i class="fa fa-question-circle-o" aria-hidden="true"></i>
+                            </el-button>
+                        </el-popover>
+                        <input class="form-control" type="text" id="last-five-char" placeholder="" v-model="LastFiveChar">
+                    </div>
+                    <div class="form-group">
+                        <label for="shipping-note">訂單備註</label>
+                        <textarea style="resize: vertical; min-height: 100px" class="form-control" name="name" id="shipping-note" v-model="customerParametor.remarks"></textarea>
+                    </div>
+                    <hr>
+                    <div v-if="!isAuth" class="form-group">
+                        <input type="checkbox" id="check-add-user" placeholder="" v-model="addNewMember">
+                        <label for="check-add-user">非會員申請加入會員</label>
+                    </div>
+                    <div v-if="!isAuth && addNewMember" class="form-group">
+                        <p>您輸入的Email即為帳號名稱，請在下方設定密碼，立即完成您的帳號建立。如果您已經建立過帳號，可直接在網頁上方登入。</p>
+                        <label for="new-member-password">設定密碼 *</label>
+                        <input class="form-control" type="password" id="new-member-password" placeholder="" v-model="customerParametor.newMemberPassword" required>
+                    </div>
                 </div>
+                <br>
+                <h4>三聯式發票資訊</h4>
+                <p>您的發票會與訂單一併寄出，若您需要索取三聯式發票，請於下方欄位輸入即可。</p>
+                <hr>
+                <div class="form-group">
+                    <label for="shipping-receipt">發票抬頭</label>
+                    <input class="form-control" type="text" id="shipping-receipt" placeholder="" v-model="customerParametor.receipt">
+                </div>
+                <div class="form-group">
+                    <label for="shipping-taxid">統一編號</label>
+                    <input class="form-control" type="text" id="shipping-taxid" placeholder="" v-model="customerParametor.taxId">
+                </div>
+            </div>
+            <div class="col-md-5 checkout-method">
+                <h4>訂單資訊</h4>
+                <hr>
+                <div class="payment-gateway">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>商品</th>
+                                <th style="text-align: right; min-width:50px;">價格</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for="(item, index) in cart" v-bind:key="index">
+                                <td>{{item.id.title}} x {{item.qty}}</td>
+                                <td style="text-align: right; min-width:50px;">NT$ {{item.total}}</td>
+                            </tr>
+                            <tr>
+                                <td>小計</td>
+                                <td style="text-align: right; min-width:50px;">NT$ {{amountString}}</td>
+                            </tr>
+                            <tr>
+                                <td>運送方式</td>
+                                <td>
+                                    <ul class="shipping-method-list">
+                                        <li v-for="(item, index) in methodsTranslate" v-bind:key="index">
+                                            <input style="width: initial" type="radio" name="shipping-method" v-bind:id="item.shippingType + item.shippingTemperature + item.id" v-bind:value="item.id" v-model="shippingTag">
+
+                                            <label
+                                                v-if="item.freeShipping && (amount >= item.freeShippingMininum)"
+                                                v-bind:for="item.shippingType + item.shippingTemperature + item.id">{{item.shippingTitle}} 滿額免運</label>
+                                            <label
+                                                v-else
+                                                v-bind:for="item.shippingType + item.shippingTemperature + item.id">{{item.shippingTitle}} NT$ {{item.shippingPrice}}</label>
+                                            <div v-if="amount < item.freeShippingMininum && shippingTag === item.id">
+                                                購物滿 {{item.freeShippingMininum}} 元即可享有免運費的優惠唷！
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <!-- <tr v-if="owner !== 'guest'">
+                                <td>購物金使用：剩餘 {{point}}元</td>
+                                <td align="right">
+                                    <div class="form-group" style="width:125px">
+                                        <div class="input-group">
+                                            <span class="input-group-btn">
+                                                <button class="btn btn-default" type="button" @click="changePointUse('down')"><i class="fa fa-minus" aria-hidden="true"></i></button>
+                                            </span>
+                                            <input type="number" id="point-input" class="form-control" style="text-align: center; padding: 0px 10px;"
+                                                v-model="pointUsage"
+                                                v-bind:class="{ 'has-error': (pointUsage > point) }"
+                                                :blur="pointInputValid()"
+                                                min="0">
+                                            <span class="input-group-btn">
+                                                <button class="btn btn-default" type="button" @click="changePointUse('up')"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr> -->
+                            <tr v-if="shippingMethod == 'cvs'">
+                                <td colspan="2">
+                                    <div class="form-group">
+                                        <strong>配送門市選擇 *</strong>
+                                        <br>
+                                        <span class="cvs-btn mg-icon mg-icon-cvs-7-11" @click="chooseCvs('UNIMARTC2C')"></span>
+                                        <span class="cvs-btn mg-icon mg-icon-cvs-familymart" @click="chooseCvs('FAMIC2C')"></span>
+                                        <span class="cvs-btn mg-icon mg-icon-cvs-hilife" @click="chooseCvs('HILIFEC2C')"></span>
+                                        <span class="form-control">{{cvsParametor.CVSStoreName}}</span>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td><strong>總計</strong></td>
+                                <td style="text-align: right; min-width:50px;">NT$ {{(finalAmount - pointUsage) + parseInt(shippingCosts)}}</td>
+                            </tr>
+                            <!-- <tr v-if="owner == 'guest'">
+                                <td colspan="2">
+                                    <br>
+                                    <strong><a href="/register">加入會員即可獲得購物金50元，並享有購物金額10%紅利累積回饋</a></strong>
+                                </td>
+                            </tr>
+                            <tr v-else>
+                                <td>
+                                    <strong>可累計購物金</strong>
+                                </td>
+                                <td style="text-align: right; min-width:50px;">
+                                    {{Math.ceil(((parseInt(finalAmount) - parseInt(pointUsage))) * (parseInt(percentage) / 100)) }} 元
+                                </td>
+                            </tr> -->
+                            <!-- <tr>
+                                <td colspan="2">有優惠券嗎? <a @click="typeCoupon()" style="cursor: pointer">點我輸入優惠碼</a></td>
+                            </tr> -->
+                            <tr v-if="isCouponFieldShow">
+                                <td colspan="2">
+                                    <input style="margin-bottom: 10px;" type="text" class="form-control" id="coupon-field" v-model="couponNumber" placeholder="優惠券號碼">
+                                    <a class="btn btn-primary btn-block" @click="useCoupon()">使用優惠券</a>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+
+                <div class="col-md-12" v-if="shippingMethod == 'cvs'">
+
+                </div>
+                <h4>付款方式</h4>
+                <hr>
+                <div class="payment-methods">
+                    <div class="form-group" v-if="shippingMethod == 'cvs'">
+                        <label for="payment-cod">
+                            <input type="radio" id="payment-cod" name="payment-method-option" value="cod" v-model="paymentMethod">
+                            <strong>貨到付款</strong>
+                            <div v-if="paymentMethod == 'cod'">
+                                <p>貨到付款，若運送方式為超商取貨的話，付款方式即為到店取貨付款。</p>
+                            </div>
+                        </label>
+                    </div>
+                    <!-- <div class="form-group">
+                        <label for="payment-ATM">
+                            <input type="radio" id="payment-ATM" name="payment-method-option" value="ATM" v-model="paymentMethod">
+                            <strong>ATM轉帳付款</strong>
+                            <div v-if="paymentMethod == 'ATM'">
+                                <p>提供線上或者實體ATM轉帳付款的服務，確認付款完成後將會進行後續出貨的動作。</p>
+                            </div>
+                        </label>
+                    </div> -->
+                    <div class="form-group">
+                        <label for="payment-Credit">
+                            <input type="radio" id="payment-Credit" name="payment-method-option" value="Credit" v-model="paymentMethod" style="width: initial">
+                            <strong>信用卡付款</strong>
+                            <div v-if="paymentMethod == 'Credit'">
+                                <p>提供線上刷卡的服務，確認付款完成後將會進行後續出貨的動作。</p>
+                            </div>
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label for="payment-Remit">
+                            <input type="radio" id="payment-Remit" name="payment-method-option" value="Remit" v-model="paymentMethod" style="width: initial">
+                            <strong>轉帳付款</strong>
+                            <div v-if="paymentMethod == 'Remit'">
+                                <p>提供轉帳付款的服務，確認付款完成後將會進行後續出貨的動作。</p>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+                <button type="submit" v-if="(paymentMethod == 'cod') && (shippingMethod == 'cvs')" class="btn btn-primary btn-lg btn-block" name="button">超商取貨付款</button>
+                <button type="submit" v-if="(shippingMethod == 'cvs') && (paymentMethod !== 'cod')" class="btn btn-primary btn-lg btn-block" name="button">超商取貨</button>
+                <button type="submit" v-if="shippingMethod !== 'cvs'" class="btn btn-primary btn-lg btn-block" name="button">確認購買</button>
             </div>
         </form>
         <el-dialog
@@ -210,6 +315,7 @@
             center>
             <div id="anti-fraud-notice" ref="antiFraudNotice" v-html="antiFraudNoticeInfo">
             </div>
+            
             <span slot="footer" class="dialog-footer">
                 <el-button @click="closeAntiFraudNotice()">取 消</el-button>
                 <el-button type="primary" @click="checkAntiFraudNotice()">確 認</el-button>
@@ -239,9 +345,8 @@
                 amount: null,
                 // amountString: null,
                 shippingTag: $('#shipping_method').val(),
-                paymentMethod: 'Remit',
+                paymentMethod: 'Credit',
                 point: null,
-                captchaUrl: '/captcha/checkout',
                 useUserInfo: true,
                 dontUseUserInfo: false,
                 percentage: 0,
@@ -256,25 +361,18 @@
                 LastFiveChar: '',
                 antiFraudNoticeVisible: false,
                 couponNumber: '',
-                captchaCode: null,
                 shippingMethods: [],
                 customerParametor: {
                     ReceiverName: '',
                     ReceiverCellPhone: '',
                     ReceiverEmail: '',
-                    ReceiverCity: null,
+                    ReceiverCity: '',
                     ReceiverPort: '',
                     ReceiverAddress: '',
                     remarks: '',
                     newMemberPassword: '',
                     receipt: '',
                     taxId: '',
-                    ReceiverUseage: null,
-                    ReceiverBudget: null,
-                    ReceiverTime: null,
-                    ReceiverJob: null,
-                    ReceiverDepart: null,
-                    ReceiverJobTitle: null,
                 },
                 customerParametorForShipping: {
                     ReceiverName: '',
@@ -669,56 +767,38 @@
                     return;
                 }
 
-                axios.get(`/captcha/checkout/check/${this.captchaCode}`)
-                    .then(res => {
-                        switch (method) {
-                            case 'cvsCod':      // 超商取貨付款
-                                this.cvsCod();
-                                break;
-                            case 'cvs':         // 超商純取貨
-                                this.aoiMethod();
-                                break;
-                            case 'aoi':         //All in one
-                                this.aoiMethod();
-                                break;
-                            default:
-                        }
-                    }).catch(err => {
-                        this.$message.error('驗證碼輸入錯誤。')
-                    })
+                if (!this.antiFraudCheck) {
+                    this.antiFraudNoticeVisible = true
 
-                // if (!this.antiFraudCheck) {
-                //     this.antiFraudNoticeVisible = true
+                    setTimeout(() => {
+                        const notice = self.$refs.antiFraudNotice
 
-                //     setTimeout(() => {
-                //         const notice = self.$refs.antiFraudNotice
-
-                //         notice.scrollTop = 0
-                //         self.antiFraudCheck = true
-                //         // notice.addEventListener('scroll', () => {
-                //         //     if ((notice.scrollTop + 400) > notice.scrollHeight) {
-                //         //         self.antiFraudCheck = true
-                //         //     }
-                //         // })
-                //     }, 200)
-                //     return
-                // }
+                        notice.scrollTop = 0
+                        self.antiFraudCheck = true
+                        // notice.addEventListener('scroll', () => {
+                        //     if ((notice.scrollTop + 400) > notice.scrollHeight) {
+                        //         self.antiFraudCheck = true
+                        //     }
+                        // })
+                    }, 200)
+                    return
+                }
 
                 // this.antiFraudNoticeVisible = true
 
-                // switch (method) {
-                //     case 'cvsCod':      // 超商取貨付款
-                //         this.cvsCod();
-                //         break;
-                //     case 'cvs':         // 超商純取貨
-                //         this.aoiMethod();
-                //         break;
-                //     case 'aoi':         //All in one
-                //         this.aoiMethod();
-                //         break;
-                //     default:
+                switch (method) {
+                    case 'cvsCod':      // 超商取貨付款
+                        this.cvsCod();
+                        break;
+                    case 'cvs':         // 超商純取貨
+                        this.aoiMethod();
+                        break;
+                    case 'aoi':         //All in one
+                        this.aoiMethod();
+                        break;
+                    default:
 
-                // }
+                }
             },
             aoiMethod: function () {
                 if ((this.paymentMethod === 'cod') || (this.paymentMethod === null)) {
@@ -750,6 +830,7 @@
                 // 目前累計點數的倍率
                 var pointMag = parseInt(this.percentage) / 100;
                 var amountLessPoint = parseInt(this.amount) - parseInt(this.pointUsage);
+
 
                 // form.id = "checkout-form";
 
@@ -862,13 +943,7 @@
                             ReceiverCity: this.customerParametor.ReceiverCity,
                             ReceiverPort: this.customerParametor.ReceiverPort,
                             ReceiverAddress: this.customerParametor.ReceiverAddress,
-                            ReceiverEmail: this.customerParametor.ReceiverEmail,
-                            ReceiverUseage: this.customerParametor.ReceiverUseage,
-                            ReceiverBudget: this.customerParametor.ReceiverBudget,
-                            ReceiverTime: this.customerParametor.ReceiverTime,
-                            ReceiverJob: this.customerParametor.ReceiverJob,
-                            ReceiverDepart: this.customerParametor.ReceiverDepart,
-                            ReceiverJobTitle: this.customerParametor.ReceiverJobTitle
+                            ReceiverEmail: this.customerParametor.ReceiverEmail
                         }
                     } else {
                         shippingObject = {
@@ -886,9 +961,6 @@
                 if (this.paymentMethod == 'Remit') {
                     shippingObject.LastFiveChar = this.LastFiveChar
                 }
-
-                // console.log(shippingObject)
-                // return
 
                 shippingTarget.value = JSON.stringify(shippingObject)
                 shippingTarget.name = "shippingTarget"
@@ -1236,12 +1308,6 @@
                 });
 
             },
-            refreshCaptcha() {
-                axios.get('/cap_str')
-                    .then(res => {
-                        this.captchaUrl = `/captcha/checkout?q=${res.data}`
-                    });
-            },
             showMessage: function (type, string) {
                 toastr[type](string);
             }
@@ -1249,8 +1315,7 @@
     }
 </script>
 
-<style lang="scss">
-@import "../../../../../../../storage/app/scss-variables.scss";
+<style lang="scss" scoped>
 .tooltip-btn {
     border: none;
     padding: 0;
@@ -1263,59 +1328,5 @@
     border: #eee thin solid;
     background-color: #eee;
     overflow: auto;
-}
-.checkout-form {
-    .form-item {
-        padding: 10px;
-        display: -webkit-flex;
-        display:         flex;
-        -webkit-align-items: center;
-                align-items: center;
-        -webkit-justify-content: flex-start;
-                justify-content: flex-start;
-    }
-}
-.important {
-    &::after {
-        content: ' *';
-        color: red;
-    }
-}
-.contact-form-footer {
-    padding-top: 10px;
-
-    .info {
-        font-size: 0.85rem;
-        color: #999;
-        font-weight: bolder;
-    }
-    .captcha-section {
-        margin: 50px auto;
-        text-align: center;
-        max-width: 300px;
-
-        input.captcha {
-            margin: 20px 0 40px;
-        }
-        .submit-btn {
-            padding: 25px 50px;
-            color: #FFF;
-            font-size: 1.05rem;
-            background-color: $second-color;
-            border: none;
-            font-weight: bolder;
-            cursor: pointer;
-            display: inline-block;
-            width: 100%;
-            margin: 10px 0;
-        }
-        &.submit {
-            width: 600px;
-            max-width: 100%;
-        }
-    }
-}
-select[disabled] { 
-    color: #ccc; 
 }
 </style>
