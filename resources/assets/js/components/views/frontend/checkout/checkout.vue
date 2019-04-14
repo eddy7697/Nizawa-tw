@@ -8,7 +8,7 @@
                         <span class="important">公司名稱</span>
                     </div>
                     <div class="col-md-8 form-item">
-                        <input class="form-control" type="text" required>
+                        <input class="form-control" type="text" v-model="customerParametor.ReceiverCompany" required>
                     </div>
                 </div>
             </div>
@@ -275,6 +275,7 @@
                     ReceiverJob: null,
                     ReceiverDepart: null,
                     ReceiverJobTitle: null,
+                    ReceiverCompany: null
                 },
                 customerParametorForShipping: {
                     ReceiverName: '',
@@ -868,7 +869,8 @@
                             ReceiverTime: this.customerParametor.ReceiverTime,
                             ReceiverJob: this.customerParametor.ReceiverJob,
                             ReceiverDepart: this.customerParametor.ReceiverDepart,
-                            ReceiverJobTitle: this.customerParametor.ReceiverJobTitle
+                            ReceiverJobTitle: this.customerParametor.ReceiverJobTitle,
+                            ReceiverCompany: this.customerParametor.ReceiverCompany
                         }
                     } else {
                         shippingObject = {

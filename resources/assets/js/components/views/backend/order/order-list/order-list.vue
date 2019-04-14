@@ -247,26 +247,62 @@
                                         <!-- {{itemShowed.shippingTarget.ReceiverName}} -->
                                         <table v-if="itemShowed.shippingTarget" class="table">
                                             <tr>
-                                                <td>客戶名稱</td>
+                                                <td>公司名稱</td>
+                                                <td>{{itemShowed.shippingTarget.ReceiverCompany}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>聯絡人</td>
                                                 <td>{{itemShowed.shippingTarget.ReceiverName}}</td>
                                             </tr>
                                             <tr>
-                                                <td>客戶電話</td>
+                                                <td>連絡電話</td>
                                                 <td>{{itemShowed.shippingTarget.ReceiverCellPhone}}</td>
                                             </tr>
                                             <tr>
                                                 <td>電子郵件</td>
                                                 <td>{{itemShowed.shippingTarget.ReceiverEmail}}</td>
                                             </tr>
-                                            <tr v-if="itemShowed.paymentMethod == 'Remit'">
+                                            <tr>
+                                                <td>地址</td>
+                                                <td>{{itemShowed.shippingTarget.ReceiverCity}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>詳細地址</td>
+                                                <td>{{itemShowed.shippingTarget.ReceiverAddress}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>購買需求/應用範疇</td>
+                                                <td>{{itemShowed.shippingTarget.ReceiverUseage}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>預算情況</td>
+                                                <td>{{itemShowed.shippingTarget.ReceiverBudget}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>預計購買時間</td>
+                                                <td>{{itemShowed.shippingTarget.ReceiverTime}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>所屬行業別</td>
+                                                <td>{{itemShowed.shippingTarget.ReceiverJob}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>部門</td>
+                                                <td>{{itemShowed.shippingTarget.ReceiverDepart}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>職務</td>
+                                                <td>{{itemShowed.shippingTarget.ReceiverJobTitle}}</td>
+                                            </tr>
+                                            <tr v-if="itemShowed.paymentMethod == 'Remit' && false">
                                                 <td>帳號末五碼</td>
                                                 <td>{{itemShowed.shippingTarget.LastFiveChar}}</td>
                                             </tr>
-                                            <tr v-if="itemShowed.receipt">
+                                            <tr v-if="itemShowed.receipt && false">
                                                 <td>發票抬頭</td>
                                                 <td>{{itemShowed.receipt}}</td>
                                             </tr>
-                                            <tr v-if="itemShowed.taxId">
+                                            <tr v-if="itemShowed.taxId && false">
                                                 <td>統一編號</td>
                                                 <td>{{itemShowed.taxId}}</td>
                                             </tr>
