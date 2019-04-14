@@ -171,10 +171,10 @@ class CheckoutController extends Controller
         //基本參數(可依系統規劃自行調整)
         Ecpay::instance()->Send['ReturnURL']             = $actual_link."/ecpay-return" ;        //交易結果回報的網址
         Ecpay::instance()->Send['ClientBackURL']         = $actual_link."/order-success" ;       //交易結束，讓user導回的網址
-        Ecpay::instance()->Send['MerchantTradeNo']       = $merchantIdCache['MerchantTradeNo'] ; //訂單編號
+        Ecpay::instance()->Send['MerchantTradeNo']       = $merchantIdCache['MerchantTradeNo'] ; //詢價單編號
         Ecpay::instance()->Send['MerchantTradeDate']     = date('Y/m/d H:i:s');                  //交易時間
         Ecpay::instance()->Send['TotalAmount']           = $totalAmount;                         //交易金額
-        Ecpay::instance()->Send['TradeDesc']             = env('APP_NAME')." - 商品交易" ;        //交易描述
+        Ecpay::instance()->Send['TradeDesc']             = env('APP_NAME')." - 產品交易" ;        //交易描述
         Ecpay::instance()->Send['EncryptType']           = '1' ;
         Ecpay::instance()->Send['ChoosePayment']         = $data['ChoosePayment'] ;              //付款方式
         Ecpay::instance()->Send['PaymentType']           = 'aio' ;
@@ -187,7 +187,7 @@ class CheckoutController extends Controller
             // Ecpay::instance()->SendExtend['ClientRedirectURL'] = $actual_link."/payment_info";
         }
 
-        //訂單的商品資料
+        //詢價單的產品資料
         foreach ($cartInfo as $item) {
             array_push(Ecpay::instance()->Send['Items'],
                     array('Name' => $item->Name,
@@ -249,7 +249,7 @@ class CheckoutController extends Controller
 
                     if ($checkOrderStockAndQty) {
                         DB::rollback();
-                        return "<h1 style='text-align: center; margin-top: 100px;'>商品數量有誤，請重新建立訂單。1</h1>";
+                        return "<h1 style='text-align: center; margin-top: 100px;'>產品數量有誤，請重新建立詢價單。1</h1>";
                     } else {
                         try {
                             SubProduct::where('id', $item->id->subProductId)->update([
@@ -258,7 +258,7 @@ class CheckoutController extends Controller
                         } catch(\Exception $e) {
                             Log::error($e);
                             DB::rollback();
-                            return "<h1 style='text-align: center; margin-top: 100px;'>商品數量有誤，請重新建立訂單。2</h1>";
+                            return "<h1 style='text-align: center; margin-top: 100px;'>產品數量有誤，請重新建立詢價單。2</h1>";
                         }
                     }
                 } else {
@@ -271,10 +271,10 @@ class CheckoutController extends Controller
 
                         if ($checkDataStockAndQty) {
                             DB::rollback();
-                            return "<h1 style='text-align: center; margin-top: 100px;'>商品數量有誤，請重新建立訂單。3</h1>";
+                            return "<h1 style='text-align: center; margin-top: 100px;'>產品數量有誤，請重新建立詢價單。3</h1>";
                         } else {
                             if ($checkOrderStockAndQty) {
-                                return "<h1 style='text-align: center; margin-top: 100px;'>商品數量有誤，請重新建立訂單。4</h1>";
+                                return "<h1 style='text-align: center; margin-top: 100px;'>產品數量有誤，請重新建立詢價單。4</h1>";
                                 DB::rollback();
                             } else {
                                 try {
@@ -284,7 +284,7 @@ class CheckoutController extends Controller
                                 } catch (\Exception $e) {
                                     Log::error($e);
                                     DB::rollback();
-                                    return "<h1 style='text-align: center; margin-top: 100px;'>商品數量有誤，請重新建立訂單。5</h1>";
+                                    return "<h1 style='text-align: center; margin-top: 100px;'>產品數量有誤，請重新建立詢價單。5</h1>";
                                 }
                             }
                         }
@@ -296,7 +296,7 @@ class CheckoutController extends Controller
                         } catch (\Exception $e) {
                             Log::error($e);
                             DB::rollback();
-                            return "<h1 style='text-align: center; margin-top: 100px;'>商品數量有誤，請重新建立訂單。6</h1>";
+                            return "<h1 style='text-align: center; margin-top: 100px;'>產品數量有誤，請重新建立詢價單。6</h1>";
                         }
                     }
                 }               
@@ -331,7 +331,7 @@ class CheckoutController extends Controller
                 Log::error($e);
                 Log::info('rollback 6');
                 DB::rollback();
-                return "<h1 style='text-align: center; margin-top: 100px;'>訂單建立失敗，請聯繫商家。</h1>";
+                return "<h1 style='text-align: center; margin-top: 100px;'>詢價單建立失敗，請聯繫商家。</h1>";
             }
 
             //Go to EcPay
@@ -347,7 +347,7 @@ class CheckoutController extends Controller
                     $message->to([
                         env('MAIL_USERNAME'),
                         '044555@gmail.com'
-                    ])->subject('訂單成立通知 - 來自 '.$shippingTarget['ReceiverName'].' 的訂購');
+                    ])->subject('詢價單成立通知 - 來自 '.$shippingTarget['ReceiverName'].' 的訂購');
                     $message->from($sender, $name = env('APP_NAME'));
                 });
 
@@ -360,7 +360,7 @@ class CheckoutController extends Controller
                     $message->to([
                         $shippingTarget['ReceiverEmail'],
                         $sender,
-                    ])->subject('[易耕事業 線上商城] 訂單成立通知信');
+                    ])->subject(env('APP_NAME').' 詢價單成立通知信');
                     $message->from($sender, $name = env('APP_NAME'));
                 });
             }
@@ -462,10 +462,10 @@ class CheckoutController extends Controller
 
                     if ($checkDataStockAndQty) {
                         DB::rollback();
-                        return "<h1 style='text-align: center; margin-top: 100px;'>商品數量有誤，請重新建立訂單。</h1>";
+                        return "<h1 style='text-align: center; margin-top: 100px;'>產品數量有誤，請重新建立詢價單。</h1>";
                     } else {
                         if ($checkOrderStockAndQty) {
-                            return "<h1 style='text-align: center; margin-top: 100px;'>商品數量有誤，請重新建立訂單。</h1>";
+                            return "<h1 style='text-align: center; margin-top: 100px;'>產品數量有誤，請重新建立詢價單。</h1>";
                             DB::rollback();
                         } else {
                             try {
@@ -475,7 +475,7 @@ class CheckoutController extends Controller
                             } catch (\Exception $e) {
                                 Log::error($e);
                                 DB::rollback();
-                                return "<h1 style='text-align: center; margin-top: 100px;'>商品數量有誤，請重新建立訂單。</h1>";
+                                return "<h1 style='text-align: center; margin-top: 100px;'>產品數量有誤，請重新建立詢價單。</h1>";
                             }
                         }
                     }
@@ -487,7 +487,7 @@ class CheckoutController extends Controller
                     } catch (\Exception $e) {
                         Log::error($e);
                         DB::rollback();
-                        return "<h1 style='text-align: center; margin-top: 100px;'>商品數量有誤，請重新建立訂單。</h1>";
+                        return "<h1 style='text-align: center; margin-top: 100px;'>產品數量有誤，請重新建立詢價單。</h1>";
                     }
                 }
             }
@@ -506,7 +506,7 @@ class CheckoutController extends Controller
                     'GoodsAmount'           => $totalAmount,
                     'CollectionAmount'      => $totalAmount,
                     'IsCollection'          => $data['IsCollection'],    //是否代收貨款
-                    'GoodsName'             => env('APP_NAME').' - 商品訂單',
+                    'GoodsName'             => env('APP_NAME').' - 產品詢價單',
                     'SenderName'            => env('APP_NAME'),
                     'SenderPhone'           => '035679463',
                     'SenderCellPhone'       => '0976059292',
@@ -548,7 +548,7 @@ class CheckoutController extends Controller
                     ], function($message) use ($sender, $shippingTarget) {
                         $message->to([
                             env('MAIL_USERNAME'),
-                        ])->subject('訂單成立通知 - 來自 '.$shippingTarget['ReceiverName'].' 的訂購');
+                        ])->subject('詢價單成立通知 - 來自 '.$shippingTarget['ReceiverName'].' 的訂購');
                         $message->from($sender, $name = env('APP_NAME'));
                     });
 
@@ -561,7 +561,7 @@ class CheckoutController extends Controller
                         $message->to([
                             $shippingTarget['ReceiverEmail'],
                             $sender,
-                        ])->subject('[易耕事業 線上商城] 訂單成立通知信');
+                        ])->subject(env('APP_NAME').' 詢價單成立通知信');
                         $message->from($sender, $name = env('APP_NAME'));
                     });
                 }
@@ -592,7 +592,7 @@ class CheckoutController extends Controller
                 Log::info(json_encode($Result));
 
                 if ($owner == 'guest') {
-                    return PublicServiceProvider::exception('感謝您的選購，請至信箱查詢您的訂單明細。');
+                    return PublicServiceProvider::exception('感謝您的選購，請至信箱查詢您的詢價單明細。');
                 } else {
                     return redirect('/order-success');
                 }
@@ -651,13 +651,13 @@ class CheckoutController extends Controller
         // Ecpay::instance()->Send['MerchantTradeNo']   = "MG".time();
         // Ecpay::instance()->Send['MerchantTradeDate'] = date('Y/m/d H:i:s');
         // Ecpay::instance()->Send['TotalAmount']       = (int)$orderParametor['amount'];
-        // Ecpay::instance()->Send['TradeDesc']         = "明谷生機 - 商品交易";
+        // Ecpay::instance()->Send['TradeDesc']         = "明谷生機 - 產品交易";
         // Ecpay::instance()->Send['EncryptType']       = '1';
         // Ecpay::instance()->Send['ChoosePayment']     = $orderParametor['paymentMethod'] ;
         // Ecpay::instance()->Send['PaymentType']       = 'aio';
         // Ecpay::instance()->Send['CustomField1']      = $orderParametor['merchantID'];
 
-        // //訂單的商品資料
+        // //詢價單的產品資料
         // foreach ($orderParametor['cartInfo'] as $item) {
         //     array_push(Ecpay::instance()->Send['Items'],
         //             array(
@@ -675,7 +675,7 @@ class CheckoutController extends Controller
     }
 
     /**
-     * 後台已產生ATM訂單，但沒有選擇銀行，所以沒有虛擬帳號，此為重新產生帳號的流程
+     * 後台已產生ATM詢價單，但沒有選擇銀行，所以沒有虛擬帳號，此為重新產生帳號的流程
      */
     public function reGenerateVAccount($guid)
     {
@@ -693,7 +693,7 @@ class CheckoutController extends Controller
         Ecpay::instance()->Send['MerchantTradeNo']       = "MG".time();
         Ecpay::instance()->Send['MerchantTradeDate']     = date('Y/m/d H:i:s');
         Ecpay::instance()->Send['TotalAmount']           = (int)$order[0]['amount'] - (int)$order[0]['pointUsage'];
-        Ecpay::instance()->Send['TradeDesc']             = env('APP_NAME')." - 商品交易";
+        Ecpay::instance()->Send['TradeDesc']             = env('APP_NAME')." - 產品交易";
         Ecpay::instance()->Send['EncryptType']           = '1';
         Ecpay::instance()->Send['ChoosePayment']         = $order[0]['paymentMethod'] ;
         Ecpay::instance()->Send['PaymentType']           = 'aio';
@@ -701,7 +701,7 @@ class CheckoutController extends Controller
         Ecpay::instance()->SendExtend['ExpireDate']      = 7;
         Ecpay::instance()->SendExtend['PaymentInfoURL']  = $actual_link."/payment_info";
 
-        //訂單的商品資料
+        //詢價單的產品資料
         foreach ($cartInfo as $item) {
             array_push(Ecpay::instance()->Send['Items'],
                 array(
@@ -719,7 +719,7 @@ class CheckoutController extends Controller
     }
 
     /**
-     * 後台手動產生物流訂單
+     * 後台手動產生物流詢價單
      * Parameter:
      *
      * IsCollection,        是否代收貨款
@@ -752,7 +752,7 @@ class CheckoutController extends Controller
                 'GoodsAmount'           => (int)$data['TotalAmount'],
                 'CollectionAmount'      => (int)$data['TotalAmount'],
                 'IsCollection'          => 'N',
-                'GoodsName'             => env('APP_NAME').' - 商品訂單',
+                'GoodsName'             => env('APP_NAME').' - 產品詢價單',
                 'SenderName'            => env('APP_NAME'),
                 'SenderPhone'           => '035679463',
                 'SenderCellPhone'       => '0976059292',
