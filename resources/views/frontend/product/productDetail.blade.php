@@ -347,7 +347,7 @@
                             <div class="product-info">
                                 <h3 class="product-title">{{$item->productTitle}}</h3>
                                 <h4 class="product-type">型式：{{$item->serialNumber}}</h4>
-                                <div>
+                                <div class="product-text">
                                     {!!$item->shortDescription!!}
                                 </div>
                             </div>

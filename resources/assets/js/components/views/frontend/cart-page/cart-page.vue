@@ -300,34 +300,18 @@
         methods: {
             updateCart: function () {
                 var self = this;
+                let vo = {
+                    cart: JSON.stringify(this.cart)
+                }
 
                 $('.loading-bar').fadeIn('100');
 
-                $.ajax({
-                    url: '/cart/update',
-                    type: 'POST',
-                    dataType: 'json',
-                    data: {
-                        cart: JSON.stringify(self.cart)
-                    },
-                    beforeSend: function(xhr) {
-                        xhr.setRequestHeader('X-CSRF-TOKEN', token);
-                    }
-
-                })
-                .done(function(response) {
-                    self.getCart();
-                    self.showMessage('success', '更新詢價車成功');
-                    $('.loading-bar').fadeOut('100');
-                    // console.log(response);
-                })
-                .fail(function() {
-                    // console.log("error");
-                })
-                .always(function() {
-                    // console.log("complete");
-                });
-
+                axios.post('/cart/update', vo)
+                    .then(res => {
+                        this.getCart();
+                        this.showMessage('success', '更新詢價車成功');
+                        $('.loading-bar').fadeOut('100');
+                    })
             },
             getCart: function () {
                 var self = this;

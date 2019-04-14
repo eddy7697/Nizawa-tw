@@ -242,11 +242,6 @@
             addSigle(guid) {
                 let self = this
 
-                if (this.cartContent.length >= 3) {
-                    toastr["info"]("詢價車內產品數量已達上限");
-                    return
-                }
-
                 axios.post(`/cart/add/single/${guid}`
                     ).then(res => {
                         self.$message.success('成功加入詢價車！')
