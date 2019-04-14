@@ -138,7 +138,7 @@
                             
                         </div>
                     </a>
-                    <a class="product-link" href="">加入詢價車</a>
+                    <a class="product-link" style="cursor: pointer" onclick="addSigleProduct('{{$item->productGuid}}')">加入詢價車</a>
                 </div>
             </div>
         @endforeach

@@ -49,13 +49,13 @@
                     </tr>
                 </table>
 
-                <hr>
+                <hr style="margin-top: 35px;">
                 <!-- <h4 v-if="!isCartEmpty" style="text-align: center"><strong>小計 NT$ {{amount}}</strong></h4> -->
                 <h4 v-if="isCartEmpty" style="text-align: center"><strong>詢價車還是空的唷!</strong></h4>
                 <hr>
 
                 <button v-if="!isCartEmpty" type="button" class="btn btn-primary btn-block btn-lg" @click="goToCart()">檢視詢價車</button>
-                <button type="button" class="btn btn-default btn-block btn-lg" @click="togglePanel()">繼續購物</button>
+                <button type="button" class="btn btn-default btn-block btn-lg" @click="togglePanel()">回到產品中心</button>
             </div>
         </transition>
     </div>

@@ -136,8 +136,8 @@
                         <hr>
                         <div class="share-section">
                             <span>share this products</span>
-                            <img src="/img/icon/icon-03-01.svg" alt="">
-                            <img src="/img/icon/icon-03-02.svg" alt="">
+                            <img src="/img/icon/fb.svg" alt="">
+                            <img src="/img/icon/line.svg" alt="">
                         </div>
                         {{-- 需要協助嗎? <a href="#" data-toggle="modal" data-target="#myModal-01">聯絡我們</a> --}}
                     </div>
