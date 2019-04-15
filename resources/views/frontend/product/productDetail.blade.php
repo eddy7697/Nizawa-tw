@@ -27,7 +27,7 @@
                 slidesToScroll: 1,
                 asNavFor: '.product-img',
                 dots: true,
-                // centerMode: true,
+                centerMode: true,
                 focusOnSelect: true
             });
         });
