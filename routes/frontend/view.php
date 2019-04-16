@@ -18,6 +18,7 @@ Route::get('/maintenance', function ()
  Route::group(['prefix' => 'about'], function()
  {
     Route::get('/', 'Frontend\PageController@about')->name('about');
+    Route::get('/responsibility', 'Frontend\PageController@responsibility')->name('responsibility');
     Route::get('/privacy', 'Frontend\PageController@privacy')->name('privacy');
     Route::get('/remind', 'Frontend\PageController@remind')->name('remind');
     Route::get('/notice', 'Frontend\PageController@notice')->name('notice');

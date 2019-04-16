@@ -77,6 +77,14 @@ class PageController extends Controller
         ]);
     }
 
+    public function responsibility()
+    {
+        return view('frontend.about.responsibility', [
+            'isThumbShow' => true,
+            'thumb' => '<a href="/">首頁</a>&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;隱私權政策'
+        ]);
+    }
+
     public function remind()
     {
         return view('frontend.privacy.remind', [

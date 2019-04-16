@@ -340,66 +340,66 @@
                         <div class="witness-image">
                             <img src="/img/partner1.jpg" alt="">
                         </div>
-                        <div class="withess-info">
+                        {{-- <div class="withess-info">
                             統一企業股份有限公司
                             <br>
                             <span>Uni-President Enterprises Corporation</span>
-                        </div>
+                        </div> --}}
                     </div>
                     
                     <div class="witness-item">
                         <div class="witness-image">
                             <img src="/img/partner2.png" alt="">
                         </div>
-                        <div class="withess-info">
+                        {{-- <div class="withess-info">
                             金車股份有限公司
                             <br>
                             <span>King Car Industrial Co., Ltd</span>
-                        </div>
+                        </div> --}}
                     </div>
                         
                     <div class="witness-item">
                         <div class="witness-image">
                             <img src="/img/partner3.jpg" alt="">
                         </div>
-                        <div class="withess-info">
+                        {{-- <div class="withess-info">
                             黑松股份有限公司
                             <br>
                             <span>HeySong Corporation</span>
-                        </div>
+                        </div> --}}
                     </div>
                         
                     <div class="witness-item">
                         <div class="witness-image">
                             <img src="/img/partner4.jpg" alt="">
                         </div>
-                        <div class="withess-info">
+                        {{-- <div class="withess-info">
                             好市多股份有限公司
                             <br>
                             <span>Costco Wholesale Corporation</span>
-                        </div>
+                        </div> --}}
                     </div>
                         
                     <div class="witness-item">
                         <div class="witness-image">
                             <img src="/img/partner5.png" alt="">
                         </div>
-                        <div class="withess-info">
+                        {{-- <div class="withess-info">
                             鼎泰豐小吃店股份有限公司
                             <br>
                             <span>Din Tai Fung</span>
-                        </div>
+                        </div> --}}
                     </div>
                         
                     <div class="witness-item">
                         <div class="witness-image">
                             <img src="/img/partner6.png" alt="">
                         </div>
-                        <div class="withess-info">
+                        {{-- <div class="withess-info">
                             東京牛角股份有限公司
                             <br>
                             <span>REINS International</span>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>

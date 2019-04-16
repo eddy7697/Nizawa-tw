@@ -257,3 +257,11 @@ Route::get('/meta/other', function ()
         'panelTitle' => '其他資訊管理'
     ]);
 });
+
+/**
+ * Job
+ */
+Route::group(['prefix' => 'job'], function ()
+{
+    Route::get('/add');
+});

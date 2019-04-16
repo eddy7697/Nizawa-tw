@@ -22,7 +22,7 @@
         <h2>產品中心</h2>
         <h4>Product center</h4>
         <hr>
-        <h5>您可於此頁面查詢科爾客相關產品，並透過介面完成詢價單填寫</h5>
+        <h5>您可於此頁面查詢日澤相關產品，並透過介面完成詢價單填寫</h5>
     </div>
 </div>
 <div class="mg-site-thumbnail">
