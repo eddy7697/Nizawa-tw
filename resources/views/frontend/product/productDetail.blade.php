@@ -13,6 +13,25 @@
 
 @section('custom-script')
     <script src="/js/product-methods.js"></script>
+    <script>
+        $(function() {
+            $('.product-img').slick({
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                arrows: false,
+                fade: true,
+                asNavFor: '.product-thumb'
+            });
+            $('.product-thumb').slick({
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                asNavFor: '.product-img',
+                dots: true,
+                centerMode: true,
+                focusOnSelect: true
+            });
+        });
+    </script>
 @endsection
 
 @section('content')
@@ -66,7 +85,7 @@
                             @endforeach
                         </div>
                         <div class="row">
-                            <div class="col-md-10 col-md-offset-1">
+                            <div class="col-md-10 mx-auto">
                                 <ul class="product-thumb">
                                     <li>
                                         <div class="thumb-item">

@@ -26,6 +26,9 @@
             margin: 0;
             padding: 0;
 
+            .slick-current .thumb-item {
+                border: #666 thin solid;
+            }
             li {
                 list-style: none;
                 display: inline-block;
