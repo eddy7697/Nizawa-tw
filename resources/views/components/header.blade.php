@@ -35,7 +35,7 @@
                     </li>
                 </ul>
                 <ul class="site-menu">
-                    <li><a href="">關於日澤</a></li>
+                    <li><a class="mega-btn" data-menu-target="about">關於日澤&nbsp;&nbsp;<i class="fa fa-caret-down mega-arrow" aria-hidden="true"></i></a></li>
                     <li><a href="/product">產品中心</a></li>
                     <li><a href="">產業應用</a></li>
                     <li><a href="">新聞中心</a></li>
@@ -46,6 +46,45 @@
         </div>
     </div>    
 </section>
+
+{{-- Mega menu --}}
+<div class="mega-menu-overlay"></div>
+<section class="mega-menu">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2 left-col">
+                <div class="menu-header">
+                    <h3>關於日澤</h3>
+                    <hr>
+                    <p>About Nizawa</p>
+                </div>
+            </div>
+            <div class="col-md-10 right-col">
+                <ul class="mega-menu-container">
+                    <li class="mega-menu-item">
+                        <a href="/about" class="mega-menu-link">
+                            <img src="/img/menu/about.jpg" alt="關於日澤">
+                            <p class="header-job-txt">關於日澤</p>
+                        </a>
+                    </li>
+                    <li class="mega-menu-item">
+                        <a href="/about/responsibility" class="mega-menu-link">
+                            <img src="/img/menu/res.jpg" alt="企業社會責任">
+                            <p class="header-job-txt">企業社會責任</p>
+                        </a>
+                    </li>
+                    <li class="mega-menu-item">
+                        <a href="/about/recruiting" class="mega-menu-link">
+                            <img src="/img/menu/hr.jpg" alt="人才招募">
+                            <p class="header-job-txt">人才招募</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
 <section class="mobile-site-header">
     <div id="menu-btn" class="menu-btn"></div>
     <img class="header-logo" src="/img/site-logo/logo_footer.png" alt="">

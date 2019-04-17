@@ -20,6 +20,7 @@
     "webpack-livereload-plugin": "^0.11.0"
   },
   "dependencies": {
+    "animate.css": "^3.7.0",
     "aos": "^2.2.0",
     "chart.js": "^2.7.2",
     "countup.js": "^2.0.4",
