@@ -37,7 +37,7 @@
                 <ul class="site-menu">
                     <li><a class="mega-btn" data-menu-target="about">關於日澤&nbsp;&nbsp;<i class="fa fa-caret-down mega-arrow" aria-hidden="true"></i></a></li>
                     <li><a href="/product">產品中心</a></li>
-                    <li><a href="">產業應用</a></li>
+                    <li><a class="mega-btn" data-menu-target="industry">產業應用&nbsp;&nbsp;<i class="fa fa-caret-down mega-arrow" aria-hidden="true"></i></a></li>
                     <li><a href="">新聞中心</a></li>
                     <li><a href="">服務支援</a></li>
                     <li><a href="" class="active">聯絡我們</a></li>
@@ -48,10 +48,12 @@
 </section>
 
 {{-- Mega menu --}}
-<div class="mega-menu-overlay"></div>
-<section class="mega-menu">
-    <div class="container">
-        <div class="row">
+<div class="site-mega-menu-overlay"></div>
+<section class="site-mega-menu" id="site-mega-menu">
+    <div class="container mega-nav">
+
+        {{-- about --}}
+        <div class="row mega-nav-item" id="about">
             <div class="col-md-2 left-col">
                 <div class="menu-header">
                     <h3>關於日澤</h3>
@@ -60,23 +62,86 @@
                 </div>
             </div>
             <div class="col-md-10 right-col">
-                <ul class="mega-menu-container">
-                    <li class="mega-menu-item">
-                        <a href="/about" class="mega-menu-link">
+                <ul class="site-mega-menu-container">
+                    <li class="site-mega-menu-item">
+                        <a href="/about" class="site-mega-menu-link">
                             <img src="/img/menu/about.jpg" alt="關於日澤">
                             <p class="header-job-txt">關於日澤</p>
                         </a>
                     </li>
-                    <li class="mega-menu-item">
-                        <a href="/about/responsibility" class="mega-menu-link">
+                    <li class="site-mega-menu-item">
+                        <a href="/about/responsibility" class="site-mega-menu-link">
                             <img src="/img/menu/res.jpg" alt="企業社會責任">
                             <p class="header-job-txt">企業社會責任</p>
                         </a>
                     </li>
-                    <li class="mega-menu-item">
-                        <a href="/about/recruiting" class="mega-menu-link">
+                    <li class="site-mega-menu-item">
+                        <a href="/about/recruiting" class="site-mega-menu-link">
                             <img src="/img/menu/hr.jpg" alt="人才招募">
                             <p class="header-job-txt">人才招募</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        {{-- 產業應用 --}}
+        <div class="row mega-nav-item" id="industry">
+            <div class="col-md-2 left-col">
+                <div class="menu-header">
+                    <h3>產業應用</h3>
+                    <hr>
+                    <p>Industrial application</p>
+                </div>
+            </div>
+            <div class="col-md-10 right-col">
+                <ul class="site-mega-menu-container">
+                    <li class="site-mega-menu-item">
+                        <a href="/about" class="site-mega-menu-link">
+                            <img src="/img/about/album/about-1.jpg" alt="自來水業">
+                            <p class="header-job-txt">自來水業</p>
+                        </a>
+                    </li>
+                    <li class="site-mega-menu-item">
+                        <a href="/about/responsibility" class="site-mega-menu-link">
+                            <img src="/img/about/album/about-2.jpg" alt="電子行業">
+                            <p class="header-job-txt">電子行業</p>
+                        </a>
+                    </li>
+                    <li class="site-mega-menu-item">
+                        <a href="/about/recruiting" class="site-mega-menu-link">
+                            <img src="/img/about/album/about-3.jpg" alt="生活污水">
+                            <p class="header-job-txt">生活污水</p>
+                        </a>
+                    </li>
+                    <li class="site-mega-menu-item">
+                        <a href="/about" class="site-mega-menu-link">
+                            <img src="/img/about/album/about-4.jpg" alt="工業污水">
+                            <p class="header-job-txt">工業污水</p>
+                        </a>
+                    </li>
+                    <li class="site-mega-menu-item">
+                        <a href="/about/responsibility" class="site-mega-menu-link">
+                            <img src="/img/about/album/about-5.jpg" alt="養殖漁業">
+                            <p class="header-job-txt">養殖漁業</p>
+                        </a>
+                    </li>
+                    <li class="site-mega-menu-item">
+                        <a href="/about/recruiting" class="site-mega-menu-link">
+                            <img src="/img/about/album/about-6.jpg" alt="食品行業">
+                            <p class="header-job-txt">食品行業</p>
+                        </a>
+                    </li>
+                    <li class="site-mega-menu-item">
+                        <a href="/about/responsibility" class="site-mega-menu-link">
+                            <img src="/img/about/album/about-7.jpg" alt="藥妝行業">
+                            <p class="header-job-txt">藥妝行業</p>
+                        </a>
+                    </li>
+                    <li class="site-mega-menu-item">
+                        <a href="/about/recruiting" class="site-mega-menu-link">
+                            <img src="/img/about/album/about-8.jpg" alt="工業工程">
+                            <p class="header-job-txt">工業工程</p>
                         </a>
                     </li>
                 </ul>
