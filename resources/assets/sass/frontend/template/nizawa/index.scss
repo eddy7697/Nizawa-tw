@@ -204,7 +204,11 @@
                         padding: 0;
                         vertical-align: middle;
                         background-color: #fff;
+                        transition: all .2s ease-out;
         
+                        &:hover {
+                            box-shadow: 5px 5px 12px -2px rgba($color: #000000, $alpha: 0.5);
+                        }
                         a.site-mega-menu-link {
                             display: block;
                             color: #292c32;
@@ -978,6 +982,8 @@
         .about-logo {
             margin: 50px auto;
             display: inherit;
+            width: 100%;
+            max-width: 300px;
         }
         h3.about-section-title {
             font-size: 1.5rem;
