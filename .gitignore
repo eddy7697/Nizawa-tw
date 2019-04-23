@@ -20,3 +20,5 @@ yarn-error.log
 .env
 /public/mix-manifest.json
 /public/js/f2e-app.js
+/public/js/partner.js
+/public/js/post-list.js
