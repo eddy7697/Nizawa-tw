@@ -341,7 +341,7 @@
 
         h2 {
             font-weight: 500;
-            font-size: 2.8rem;
+            font-size: 30px;
             color: #fff;
 
             &::after {
@@ -384,13 +384,14 @@
 
                     h2 {
                         font-weight: 700;
-                        font-size: 2.6rem;
+                        font-size: 30px;
                         margin-bottom: 12px;
                         text-shadow: 7px 7px 12px rgba($color: #000000, $alpha: 0.6);
                     }
                     .slide-info {
                         line-height: 48px;
                         opacity: 0.8;
+                        font-size: 15px;
                     }
                     a.slide-btn {
                         display: inline-block;
@@ -400,6 +401,7 @@
                         border-radius: 5px;
                         color: #FFF;
                         opacity: 0.8;
+                        font-size: 15px;
                     }
                 }
             }
@@ -407,7 +409,7 @@
     }
     .index-count-down {
         background-color: #f9b52c;
-        min-height: 180px;
+        min-height: 150px;
 
         &.about {
             background-color: #fff;
@@ -430,7 +432,7 @@
             }  
         }
         .count-down-row {
-            max-width: 1585px;
+            max-width: 1200px;
             margin: 0 auto;
             color: #383735;
 
@@ -460,16 +462,16 @@
                     }
                 }
                 .flex-column {
-                    color: #383735;
+                    color: #fff;
                     text-align: center;
                     padding: 0 20px;
                     -webkit-flex: 1;
                             flex: 1;
                     .number {
-                        font-size: 3.2rem;
+                        font-size: 40px;
                     }
                     .text {
-                        font-size: 1.3rem;
+                        font-size: 20px;
                     }
                 }
             }
@@ -517,11 +519,20 @@
 
                     .product-title {
                         font-weight: 700;
+                        font-size: 24px;
+                        display : inline-block;
+                        overflow : hidden;
+                        text-overflow : ellipsis;
+                        white-space : nowrap;
+
+                        h3 {
+                            margin: 0;
+                        }
                     }
                     .product-type {
                         color: $main-color;
-                        margin: 20px 0;
-                        font-size: 1.2rem
+                        margin: 10px 0;
+                        font-size: 15px;
                     }
                     p {
                         margin-bottom: 0.2rem;
@@ -539,7 +550,7 @@
                     width: 100%;
                     text-align: center;
                     color: $main-color;
-                    font-size: 1.3rem;
+                    font-size: 15px;
                     padding: 20px 0;
                     transition: all .2s ease;
 
@@ -550,7 +561,8 @@
                     }
                 }
                 .product-text {
-                    height: 75px;
+                    height: 65px;
+                    font-size: 15px;
                     overflow: hidden;
                 }
             }            
@@ -564,7 +576,7 @@
                 display: inline-block;
                 color: #FFF;
                 border-radius: 5px;
-                font-size: 1.2rem;
+                font-size: 18px;
                 background-color: $main-color;
                 padding: 15px 50px;
                 box-shadow: 2px 2px 12px -2px rgba($color: #000000, $alpha: .8);
@@ -718,7 +730,7 @@
         }
     }
     .new-tabs {
-        margin-top: -62px;
+        margin-top: -53px;
 
         ul.nav-tabs {
             border-bottom: none;
@@ -734,7 +746,7 @@
                     border-top-left-radius: 10px;
                     border-top-right-radius: 10px; 
                     color: #333;
-                    font-size: 1.25rem;
+                    font-size: 15px;
                     flex: 1;
                     transition: all .2s ease;
 
@@ -760,14 +772,19 @@
 
                 .card-img-top {
                     padding: 20px;
+                    padding-bottom: 0;
                 }
                 .card-body {
                     .fa {
                         color: $main-color;
                     }
+                    .card-title {
+                        font-size: 24px;
+                    }
                 }
                 .card-info {
                     color: #999;
+                    font-size: 15px;
                 }
 
                 &:hover {
@@ -1167,7 +1184,7 @@
                         width: fit-content;
 
                         li {
-                            font-size: 17px;
+                            font-size: 15px;
                             line-height: 42px;
                         }
                     }
@@ -1207,13 +1224,13 @@
                                         border: none;
                                         background-color: #383735;
                                         color: #ddd;
-                                        font-size: 18px;
+                                        font-size: 15px;
                                         padding: 7px 10px;
                                         width: 100%;
                                         border-radius: 5px;
     
                                         &::placeholder {
-                                            font-size: 18px;
+                                            font-size: 15px;
                                             color: #ddd;
                                         }
                                     }
