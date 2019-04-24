@@ -1,70 +1,34 @@
 @extends('main')
 
 @section('custom-script')
-    <script src="{{ asset('js/plugins/jquery.fancytree/dist/jquery.fancytree-all.min.js') }}"></script>
-    <script type="text/javascript">
-        $(function () {
-            $("#tree").fancytree({
-                icon: false,
-                click: function (event, data) {
-                },
-                activate: function (event, data) {
-                    console.log(data.node.key)
-                    window.location.href = '/blog/category/' + data.node.key
-                }
-            });
-            $('.title_blog').css('border-bottom','solid 3px #616161')
-        });
-    </script>
+<script src="/js/post-list.js"></script>
 @endsection
 
 @section('custom-style')
-    <link rel="stylesheet" href="{{ asset('js/plugins/jquery.fancytree/dist/skin-themeroller/ui.fancytree.min.css') }}">
-    <style>
-        ul.fancytree-container {
-            border: none;
-            outline: 0;
-        }
-        .fancytree-active {
-            background-color: #0BA29B;
-            border-radius: 5px;
-            overflow: hidden;
-        }
-        .fancytree-active .fancytree-title {
-            color: #fff;
-        }
-        .fancytree-node:hover {
-            font-weight: bold;
-        }
-    </style>
-    @foreach (PostView::all(10) as $key => $value)
-    <style>
-        #blog-{{$value->postGuid}} {
-            background-image: url('{{$value->featureImage}}');
-        }
-    </style>
-    @endforeach
-    <style media="screen">
-       
-            
-       
-        .blog-feature-image {
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
-    </style>
 @endsection
 
 @section('content')
-<div class="container mg-site-thumbnail">
-    <div class="col-md-12">
-        <a href="/">首頁</a>
-        &nbsp;&nbsp;<a>></a>&nbsp;&nbsp;
-        最新消息
+<div class="sub-page-banner" style="background-image: url('/img/sub-banner.jpg');">
+    <div>
+        <h2>新聞中心</h2>
+        <h4>News & Informationa</h4>
+        <hr>
+        <h5>我們將不定時更新關於日澤各種最新動態，歡迎您隨時關注我們</h5>
     </div>
 </div>
-<div class="container">
+<div class="mg-site-thumbnail">
+    <div class="container">
+        <div class="col-md-12">
+            <a href="/">首页</a>
+            &nbsp;&nbsp;<a>></a>&nbsp;&nbsp;
+            新聞中心
+        </div>
+    </div>
+</div>
+<div id="post-list">
+<post-list></post-list>
+</div>
+{{-- <div class="container">
     <div class="row">
         <div class="col-md-3" id="tree">   
             <ul id="treeData" style="display: none;">
@@ -104,5 +68,5 @@
             @endforeach
         </div>
     </div>
-</div>
+</div> --}}
 @endsection

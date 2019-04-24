@@ -64,4 +64,24 @@ class PostView
                     ->orderBy('id', 'desc')
                     ->where('postCategory', $category)->paginate($int);
     }
+
+    public static function previous($id)
+    {
+        try {
+            $postId = Post::where('isPublish', 1)->where('id', '<', $id)->max('id');
+            return Post::where('id', $postId)->first();
+        } catch (\Throwable $th) {
+            return null;
+        }
+    }
+
+    public static function next($id)
+    {
+        try {
+            $postId = Post::where('isPublish', 1)->where('id', '>', $id)->min('id');
+            return Post::where('id', $postId)->first();
+        } catch (\Throwable $th) {
+            return null;
+        }
+    }
 }

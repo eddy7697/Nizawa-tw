@@ -38,7 +38,7 @@
                     <li><a class="mega-btn" data-menu-target="about">關於日澤&nbsp;&nbsp;<i class="fa fa-caret-down mega-arrow" aria-hidden="true"></i></a></li>
                     <li><a href="/product">產品中心</a></li>
                     <li><a class="mega-btn" data-menu-target="industry">產業應用&nbsp;&nbsp;<i class="fa fa-caret-down mega-arrow" aria-hidden="true"></i></a></li>
-                    <li><a href="">新聞中心</a></li>
+                    <li><a href="/blog">新聞中心</a></li>
                     <li><a href="">服務支援</a></li>
                     <li><a href="" class="active">聯絡我們</a></li>
                 </ul>
@@ -161,7 +161,7 @@
         <li><a href="">關於日澤</a></li>
         <li><a href="/product">產品中心</a></li>
         <li><a href="">產業應用</a></li>
-        <li><a href="">新聞中心</a></li>
+        <li><a href="/blog">新聞中心</a></li>
         <li><a href="">服務支援</a></li>
         <li><a href="" class="active">聯絡我們</a></li>
     </ul>

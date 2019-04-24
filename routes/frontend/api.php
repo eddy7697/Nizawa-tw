@@ -24,7 +24,7 @@ Route::get('/products/category', 'Frontend\CategoryController@getProductCategory
 /**
  * post
  */
-Route::get('/posts', 'Frontend\PostController@getAllPosts');
+Route::post('/posts', 'Frontend\PostController@getAllPosts');
 Route::get('/posts/get/{guid}', 'Frontend\PostController@getByGuid');
 Route::get('/posts/byCategory/{guid}', 'Frontend\PostController@getByCategory');
 Route::get('/posts/category', 'Frontend\CategoryController@getPostCategory');

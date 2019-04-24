@@ -21,13 +21,23 @@ class PostController extends Controller
         return $posts;
     }
 
-    public function getAllPosts()
+    public function getAllPosts(Request $request)
     {
-        $data = DB::table('posts')
-                ->where('isPublish', 1)
-                ->where('schedulePost', '<', date('Y-m-d H:i:s'))
-                ->where('scheduleDelete', '>', date('Y-m-d H:i:s'))
-                ->paginate(15);
+        return $data = Post::where(function ($q) use ($request)
+                        {
+                            $q->where('isPublish', 1)
+                              ->where('schedulePost', '<=', date('Y-m-d H:i:s'))
+                              ->where('scheduleDelete', '>=', date('Y-m-d H:i:s'));
+
+                            if ($request->keyword !== null) {
+                                $q->where('postTitle', 'like', '%'.$request->keyword.'%');
+                            }
+
+                            if ($request->cate !== null) {
+                                $q->where('postCategory', $request->cate);
+                            }
+                        })
+                        ->paginate(6);
 
         if ($data) {
             $status = 200;
