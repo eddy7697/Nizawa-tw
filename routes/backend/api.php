@@ -188,3 +188,22 @@ Route::post('/admin/remind/update', 'Backend\MetaController@updateRemind');
 Route::get('/admin/other/get', 'Backend\MetaController@getOther');
 Route::post('/admin/other/create', 'Backend\MetaController@createOther');
 Route::post('/admin/other/update', 'Backend\MetaController@updateOther');
+
+/**
+ * Career
+ */
+Route::group(['prefix' => 'admin'], function ()
+{
+    Route::group(['prefix' => 'career'], function ()
+    {
+        Route::post('/add', 'Backend\CareerController@addCareer');
+        Route::post('/update/{id}', 'Backend\CareerController@editCareer');
+        Route::post('/get', 'Backend\CareerController@getCareers');
+        Route::get('/get/{id}', 'Backend\CareerController@getCareer');
+        Route::post('/delete/{id}', 'Backend\CareerController@deleteCareer');
+    });
+    Route::group(['prefix' => 'resume'], function ()
+    {
+        
+    });
+});

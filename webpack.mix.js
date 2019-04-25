@@ -72,6 +72,10 @@ var LiveReloadPlugin = require('webpack-livereload-plugin');
  mix.js('resources/assets/js/components/views/backend/order/order-list/order-list.js', 'public/js/backend')
     .js('resources/assets/js/components/views/backend/order/shipping-method/shipping-method.js', 'public/js/backend');
 
+ // career view
+ mix.js('resources/assets/js/components/views/backend/career/add-career/add-career.js', 'public/js/backend')
+    .js('resources/assets/js/components/views/backend/career/career-list/career-list.js', 'public/js/backend');
+
  // Page view
  mix.js('resources/assets/js/components/views/backend/page/page-managment/page-managment.js', 'public/js/backend')
     .js('resources/assets/js/components/views/backend/page/banner-managment/banner-managment.js', 'public/js/backend')

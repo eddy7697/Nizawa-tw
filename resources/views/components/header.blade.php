@@ -76,7 +76,7 @@
                         </a>
                     </li>
                     <li class="site-mega-menu-item">
-                        <a href="/about/recruiting" class="site-mega-menu-link">
+                        <a href="/about/career" class="site-mega-menu-link">
                             <img src="/img/menu/hr.jpg" alt="人才招募">
                             <p class="header-job-txt">人才招募</p>
                         </a>

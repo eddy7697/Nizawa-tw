@@ -113,7 +113,12 @@
 												@endif
 											</ul>
 										</li>
-										
+										<li class=""><a><i class="fa fa-shopping-basket"></i> 人才招募管理系統 <span class="fa fa-chevron-down"></span></a>
+											<ul class="nav child_menu" style="display: none;">
+												<li><a href="/cyberholic-system/career/add">新增職缺</a></li>
+												<li><a href="/cyberholic-system/career/list">職缺列表</a></li>
+											</ul>
+										</li>
 									</ul>
 								</div>
 			

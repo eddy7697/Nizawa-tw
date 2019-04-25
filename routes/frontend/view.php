@@ -22,6 +22,7 @@ Route::get('/maintenance', function ()
     Route::get('/privacy', 'Frontend\PageController@privacy')->name('privacy');
     Route::get('/remind', 'Frontend\PageController@remind')->name('remind');
     Route::get('/notice', 'Frontend\PageController@notice')->name('notice');
+    Route::get('/career', 'Frontend\PageController@career')->name('career');
  });
 
 /**

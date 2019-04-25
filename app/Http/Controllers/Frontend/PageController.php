@@ -93,6 +93,14 @@ class PageController extends Controller
         ]);
     }
 
+    public function career()
+    {
+        return view('frontend.about.career', [
+            'isThumbShow' => true,
+            'thumb' => '<a href="/">首頁</a>&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;安心購物宣言'
+        ]);
+    }
+
     public function notice()
     {
         return view('frontend.privacy.notice', [

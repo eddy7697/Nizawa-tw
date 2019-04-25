@@ -49,7 +49,7 @@
                                     <li><a href="">公司介紹</a></li>
                                     <li><a href="">全球認證</a></li>
                                     <li><a href="">社會責任</a></li>
-                                    <li><a href="">人才招募</a></li>
+                                    <li><a href="/about/career">人才招募</a></li>
                                     <li><a href="">聯絡我們</a></li>
                                 </ul>
                             </div>

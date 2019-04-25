@@ -220,6 +220,37 @@ Route::get('/order/shipping-method', function()
     ]);
 });
 
+/*****************
+    career
+*****************/
+Route::group(['prefix' => 'career'], function ()
+{
+    Route::get('/add', function ()
+    {
+        return view('backend.career.addCareer', [
+            'mode' => 'add',
+            'panelTitle' => '新增職缺',
+            'mode' => 'add'
+        ]);
+    });
+
+    Route::get('/list', function ()
+    {
+        return view('backend.career.careerList', [
+            'panelTitle' => '職缺列表',
+            'mode' => 'add'
+        ]);
+    });
+
+    Route::get('/edit/{id}', function ($id)
+    {
+        return view('backend.career.addCareer', [
+            'panelTitle' => '編輯職缺',
+            'id' => $id,
+            'mode' => 'edit'
+        ]);
+    });
+});
 
 /**
  * MEDIA
