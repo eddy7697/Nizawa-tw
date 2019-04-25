@@ -39,7 +39,7 @@
                 @foreach ($careers as $item)
                     <div class="career-item">
                         <div class="row">
-                            <div class="col-md-10" class="career-info">
+                            <div class="col-md-10 career-info">
                                 <h5>{{$item->title}}</h5>
                                 <ul class="career-department">
                                     <li>職缺單位：{{$item->department}}</li>
@@ -68,14 +68,14 @@
                                 </div>
                             </div>
                             <div class="col-md-2 action-group">
-                                <div>
+                                <div class="action-group-content">
                                     @if ($item->status)
-                                        <button class="btn btn-resume">我要應徵</button>
+                                        <button class="btn btn-block btn-resume">我要應徵</button>
                                     @else
-                                        <button class="btn btn-resume off">暫不開放</button>
+                                        <button class="btn btn-block btn-resume off">暫不開放</button>
                                     @endif
                                     @if ($item->isTop)
-                                        <span>最火職缺</span>    
+                                        <span class="hot-tag">最火職缺</span>    
                                     @endif
                                 </div>
                             </div>
@@ -84,6 +84,10 @@
                 @endforeach
                 
             </div>
+        </div>
+
+        <div class="col-md-12">
+            {{$careers}}
         </div>
     </div>
 </div>
