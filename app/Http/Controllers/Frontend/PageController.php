@@ -130,4 +130,16 @@ class PageController extends Controller
         return view('frontend.partners.index', [
         ]);
     }
+
+    public function qna()
+    {
+        return view('frontend.qna.qna', [
+        ]);
+    }
+
+    public function qnaSearch()
+    {
+        return view('frontend.qna.qnaSearch', [
+        ]);
+    }
 }

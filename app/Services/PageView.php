@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Page;
+use App\Qna;
 
 class PageView
 {
@@ -17,5 +18,34 @@ class PageView
     public static function title($id)
     {
         return Page::where('id', $id)->first()['title'];
+    }
+
+    static function getTagByType($type)
+    {
+        return CustomField::where('type', $type.'_tag')->get();
+    }
+
+    static function qna($type)
+    {
+        return Qna::where('qatype', $type)->get();
+    }
+
+    static function qnaTop()
+    {
+        return Qna::where('isTop', 1)->get();
+    }
+
+    static function qnaCount($keyword)
+    {
+        return Qna::orWhere('qatitle', 'like', '%'.$keyword.'%')->orWhere('qacontent', 'like', '%'.$keyword.'%')->count();
+    }
+
+    static function qnaSearch($keyword, $type = "")
+    {
+        return Qna::where(function ($q) use ($keyword)
+                    {
+                        $q->where('qatitle', 'like', '%'.$keyword.'%');
+                    })
+                    ->get();
     }
 }

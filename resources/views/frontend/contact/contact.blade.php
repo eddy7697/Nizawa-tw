@@ -1,7 +1,6 @@
 @extends('main')
 
 @section('custom-script')
-    <script src="{{ asset('js/plugins/jquery.fancytree/dist/jquery.fancytree-all.min.js') }}"></script>
     <script type="text/javascript">
         $(function () {
             $('#refresh-captcha').on('click', function (e) {

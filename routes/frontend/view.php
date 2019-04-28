@@ -145,6 +145,12 @@ Route::get('/cap_str', 'HomeController@getString');
 Route::get('/partners', 'Frontend\PageController@partners');
 
 /**
+ * qna
+ */
+Route::get('/qna', 'Frontend\PageController@qna');
+Route::get('/qna/search', 'Frontend\PageController@qnaSearch');
+
+/**
  * test area
  */
 // Route::get('/ga-test', 'HomeController@gaTest');

@@ -39,7 +39,7 @@
                     <li><a href="/product">產品中心</a></li>
                     <li><a class="mega-btn" data-menu-target="industry">產業應用&nbsp;&nbsp;<i class="fa fa-caret-down mega-arrow" aria-hidden="true"></i></a></li>
                     <li><a href="/blog">新聞中心</a></li>
-                    <li><a href="">服務支援</a></li>
+                    <li><a class="mega-btn" data-menu-target="support">服務支援&nbsp;&nbsp;<i class="fa fa-caret-down mega-arrow" aria-hidden="true"></i></a></li>
                     <li><a href="/contact" class="active">聯絡我們</a></li>
                 </ul>
             </div>
@@ -79,6 +79,45 @@
                         <a href="/about/career" class="site-mega-menu-link">
                             <img src="/img/menu/hr.jpg" alt="人才招募">
                             <p class="header-job-txt">人才招募</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        {{-- 服務支援 --}}
+        <div class="row mega-nav-item" id="support">
+            <div class="col-md-2 left-col">
+                <div class="menu-header">
+                    <h3>服務支援</h3>
+                    <hr>
+                    <p>Support</p>
+                </div>
+            </div>
+            <div class="col-md-10 right-col">
+                <ul class="site-mega-menu-container">
+                    <li class="site-mega-menu-item">
+                        <a href="/about" class="site-mega-menu-link">
+                            <img src="/img/menu/location.jpg" alt="服務據點">
+                            <p class="header-job-txt">服務據點</p>
+                        </a>
+                    </li>
+                    <li class="site-mega-menu-item">
+                        <a href="/about/responsibility" class="site-mega-menu-link">
+                            <img src="/img/menu/service.jpg" alt="售後服務">
+                            <p class="header-job-txt">售後服務</p>
+                        </a>
+                    </li>
+                    <li class="site-mega-menu-item">
+                        <a href="/qna" class="site-mega-menu-link">
+                            <img src="/img/menu/qna.jpg" alt="常見問題">
+                            <p class="header-job-txt">常見問題</p>
+                        </a>
+                    </li>
+                    <li class="site-mega-menu-item">
+                        <a href="/about/career" class="site-mega-menu-link">
+                            <img src="/img/menu/download.jpg" alt="資料下載">
+                            <p class="header-job-txt">資料下載</p>
                         </a>
                     </li>
                 </ul>
