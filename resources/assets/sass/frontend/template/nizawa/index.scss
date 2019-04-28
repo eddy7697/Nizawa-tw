@@ -371,6 +371,9 @@
     .swiper-container {
         .swiper-wrapper {
             .swiper-slide {
+                background-repeat: no-repeat;
+                background-size: cover;
+                
                 .slide-item {
                     padding: 40px;
                     position: absolute;
@@ -492,7 +495,7 @@
                 .product-feature-image {
                     background-position: center;
                     background-repeat: no-repeat;
-                    background-size: contain;
+                    background-size: cover;
                     padding-bottom: 80%;
 
                     &::after {
@@ -1287,6 +1290,7 @@
 
                 img {
                     width: 100%;
+                    max-width: 400px;
                 }
     
                 &::after {
@@ -1310,7 +1314,7 @@
 
                 .left-col, .right-col {
                     float: left;
-                    margin: 110px 0 20px 0;
+                    margin: 90px 0 20px 0;
                 }
                 .left-col {
                     width: 42.5%;

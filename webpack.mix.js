@@ -66,6 +66,10 @@ var LiveReloadPlugin = require('webpack-livereload-plugin');
     .js('resources/assets/js/components/views/backend/business/coupon-setup/coupon-setup.js', 'public/js/backend')
     .js('resources/assets/js/components/views/backend/business/gift-order/gift-order.js', 'public/js/backend');
 
+ // qa view
+ mix.js('resources/assets/js/components/views/backend/qa/add-qa/add-qa.js', 'public/js/backend')
+    .js('resources/assets/js/components/views/backend/qa/qa-list/qa-list.js', 'public/js/backend');
+
  /**
   * Order view
   */

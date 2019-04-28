@@ -253,6 +253,34 @@ Route::group(['prefix' => 'career'], function ()
 });
 
 /**
+ * qna
+ */
+Route::group(['prefix' => 'qa'], function ()
+{
+    Route::get('/add', function ()
+    {
+        return view('backend.qa.addQa', [
+            'panelTitle' => '新增常見問題',
+            'mode' => 'add'
+        ]);
+    });
+    Route::get('/list', function ()
+    {
+        return view('backend.qa.qaList', [
+            'panelTitle' => '常見問題列表'
+        ]);
+    });
+    Route::get('/edit/{id}', function ($id)
+    {
+        return view('backend.qa.addQa', [
+            'panelTitle' => '編輯常見問題',
+            'mode' => 'edit',
+            'id' => $id
+        ]);
+    });
+});
+
+/**
  * MEDIA
  */
 Route::get('/media/manager', function () {

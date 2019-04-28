@@ -119,6 +119,12 @@
 												<li><a href="/cyberholic-system/career/list">職缺列表</a></li>
 											</ul>
 										</li>
+										<li class=""><a><i class="fa fa-question"></i> 常見問題管理系統 <span class="fa fa-chevron-down"></span></a>
+											<ul class="nav child_menu" style="display: none;">
+												<li><a href="/cyberholic-system/qa/add">新增常見問題</a></li>
+												<li><a href="/cyberholic-system/qa/list">常見問題列表</a></li>
+											</ul>
+										</li>	
 									</ul>
 								</div>
 			

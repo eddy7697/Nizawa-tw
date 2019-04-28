@@ -189,11 +189,12 @@ Route::get('/admin/other/get', 'Backend\MetaController@getOther');
 Route::post('/admin/other/create', 'Backend\MetaController@createOther');
 Route::post('/admin/other/update', 'Backend\MetaController@updateOther');
 
-/**
- * Career
- */
+
 Route::group(['prefix' => 'admin'], function ()
 {
+    /**
+     * Career
+     */
     Route::group(['prefix' => 'career'], function ()
     {
         Route::post('/add', 'Backend\CareerController@addCareer');
@@ -205,5 +206,16 @@ Route::group(['prefix' => 'admin'], function ()
     Route::group(['prefix' => 'resume'], function ()
     {
         
+    });
+
+    /**
+     * Qna
+     */
+    Route::group(['prefix' => 'qa'], function ()
+    {
+        Route::post('/get', 'Backend\QnaController@getQnas');
+        Route::post('/get/{id}', 'Backend\QnaController@getQna');
+        Route::post('/add', 'Backend\QnaController@addQna');
+        Route::post('/edit/{id}', 'Backend\QnaController@editQna');
     });
 });
