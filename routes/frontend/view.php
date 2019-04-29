@@ -23,6 +23,7 @@ Route::get('/maintenance', function ()
     Route::get('/remind', 'Frontend\PageController@remind')->name('remind');
     Route::get('/notice', 'Frontend\PageController@notice')->name('notice');
     Route::get('/career', 'Frontend\PageController@career')->name('career');
+    Route::get('/job/{id}', 'Frontend\PageController@job')->name('job');
  });
 
 /**

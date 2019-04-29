@@ -70,7 +70,9 @@
                             <div class="col-md-2 action-group">
                                 <div class="action-group-content">
                                     @if ($item->status)
-                                        <button class="btn btn-block btn-resume">我要應徵</button>
+                                        <a href="/about/job/{{$item->id}}">
+                                            <button class="btn btn-block btn-resume">我要應徵</button>
+                                        </a>
                                     @else
                                         <button class="btn btn-block btn-resume off">暫不開放</button>
                                     @endif

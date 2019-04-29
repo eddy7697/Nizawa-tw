@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\SiteMeta;
 use App\Product;
+use App\Career;
 
 class PageController extends Controller
 {
@@ -140,6 +141,15 @@ class PageController extends Controller
     public function qnaSearch()
     {
         return view('frontend.qna.qnaSearch', [
+        ]);
+    }
+
+    public function job($id)
+    {
+        return view('frontend.about.resume', [
+            'job' => Career::where('id', $id)->first(),
+            'isThumbShow' => true,
+            'thumb' => '<a href="/">首頁</a>&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;安心購物宣言'
         ]);
     }
 }

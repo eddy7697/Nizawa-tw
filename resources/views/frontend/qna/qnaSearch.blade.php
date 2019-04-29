@@ -8,18 +8,12 @@
 @section('custom-script')
     <script type="text/javascript">
         $(function () {
-            $('#refresh-captcha').on('click', function (e) {
-                e.preventDefault();
-
-                refreshCaptcha();
-            })
+            $('.card').each(function (e) {
+                if (!$(this).find('.collapse').hasClass('show')) {
+                    $(this).find('.btn-link').addClass('collapsed')
+                }
+            });
         });
-        function refreshCaptcha() {
-            axios.get('/cap_str')
-                .then(res => {
-                    $('#captcha').attr('src', '/captcha?q=' + res.data);
-                });
-        }
     </script>
     <script type="text/javascript">
 		$(document).ready(function () {
