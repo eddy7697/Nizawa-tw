@@ -78,3 +78,9 @@ Route::post('/send-form', 'MailController@sendForm')->name('sendForm');
  */
 Route::post('/hppe-callback', 'Backend\OrderController@hppeOrder');
 Route::get('/esun_callback', 'Backend\OrderController@esunCheckOrder');
+
+/**
+ * Career
+ */
+Route::get('/career/get/{id}', 'Frontend\CareerController@getCareer');
+Route::post('/resume/new/{id}', 'Frontend\CareerController@newResume');

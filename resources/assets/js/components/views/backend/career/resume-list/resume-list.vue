@@ -14,66 +14,46 @@
                 :data="pageData.data"
                 style="width: 100%">
                 <el-table-column
-                    prop="title"
-                    label="職缺標題">
+                    prop="fullName"
+                    label="姓名">
                 </el-table-column>
                 <el-table-column
-                    prop="location"
-                    label="上班地點">
+                    prop="email"
+                    label="電子郵件">
                 </el-table-column>
                 <el-table-column
-                    label="工作經驗">
+                    prop="mobile"
+                    label="行動電話">
+                </el-table-column>
+                <el-table-column
+                    prop="address"
+                    label="居住地址">
+                </el-table-column>
+                <el-table-column
+                    prop="postalCode"
+                    label="郵遞區號">
+                </el-table-column>
+                <el-table-column
+                    prop="website"
+                    label="個人網站">
                     <template slot-scope="scope">
-                        <div v-if="scope.row.experience">
-                            {{scope.row.experience}}
-                        </div>
-                        <div v-else>
-                            不拘
+                        <div>
+                            <a :href="scope.row.website">{{scope.row.website}}</a>
                         </div>
                     </template>
                 </el-table-column>
                 <el-table-column
-                    label="教育程度">
+                    label="履歷檔案">
                     <template slot-scope="scope">
-                        <div v-if="scope.row.education">
-                            {{scope.row.education}}
-                        </div>
-                        <div v-else>
-                            不拘
-                        </div>
-                    </template>
-                </el-table-column>
-                <el-table-column
-                    label="薪資範圍">
-                    <template slot-scope="scope">
-                        <div v-if="scope.row.paymentRange">
-                            {{scope.row.paymentRange}}
-                        </div>
-                        <div v-else>
-                            面議
+                        <div>
+                            <a :href="scope.row.resumeFile">{{scope.row.resumeFile}}</a>
                         </div>
                     </template>
                 </el-table-column>
                 <el-table-column
                     prop="created_at"
-                    label="建立時間"
+                    label="投遞時間"
                     width="180">
-                </el-table-column>
-                <el-table-column
-                    label="操作"
-                    width="70">
-                    <template slot-scope="scope">
-                        <el-dropdown @command="handleCommand" trigger="click">
-                            <span class="el-dropdown-link">
-                                操作<i class="el-icon-arrow-down el-icon--right"></i>
-                            </span>
-                            <el-dropdown-menu slot="dropdown">
-                                <el-dropdown-item :command="`${scope.row.id}.edit`">編輯</el-dropdown-item>
-                                <el-dropdown-item :command="`${scope.row.id}.resume`">應徵紀錄</el-dropdown-item>
-                                <el-dropdown-item :command="`${scope.row.id}.delete`">刪除</el-dropdown-item>
-                            </el-dropdown-menu>
-                        </el-dropdown>
-                    </template>
                 </el-table-column>
             </el-table>
             <el-pagination
@@ -102,7 +82,9 @@
             $('.loading-bar').hide()
             console.log('Component mounted.')
         },
+        props: ['careerid'],
         data () {
+            let urlPath = `/admin/resume/get/${this.careerid}`
             return {
                 currentPage: 1,
                 tableData: [],
@@ -111,7 +93,7 @@
                     keyword: null
                 },
                 pageData: {},
-                urlPath: '/admin/career/get'
+                urlPath: urlPath
             }
         },
         created() {
@@ -155,9 +137,6 @@
                         break;
                     case 'delete': 
                         this.deleteData(id)
-                        break;
-                    case 'resume':
-                        window.location.href = `/cyberholic-system/career/resume/${id}`                    
                         break;
                     default:
                         break;

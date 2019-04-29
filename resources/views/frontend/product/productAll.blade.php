@@ -121,10 +121,13 @@
                 $products = Product::show()->where('mainCategory', $_GET['main'])->paginate($pageCount);
             }
             if (isset($_GET['sub'])) {
-                $products = Product::show()->where('mainCategory', $_GET['sub'])->paginate($pageCount);
+                $products = Product::show()->where('subCategory', $_GET['sub'])->paginate($pageCount);
             }
         @endphp
         @foreach ($products as $item)
+            @php
+                $content = json_decode($item->productDescription);
+            @endphp
             <div class="col-md-4 product-content">
                 <div class="product-box">
                     <a href="/product-detail/{{$item->productGuid}}">
@@ -133,7 +136,7 @@
                             <h3 class="product-title">{{$item->productTitle}}</h3>
                             <h4 class="product-type">型式：{{$item->serialNumber}}</h4>
                             <div class="product-text">
-                                {!!$item->shortDescription!!}
+                                {{mb_strimwidth(preg_replace('#<[^>]+>#', ' ', $content->intro), 0, 100, "...")}}
                             </div>
                         </div>
                     </a>

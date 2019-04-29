@@ -359,6 +359,9 @@
         </div>
         <div class="row">
             @foreach (ProductView::getPopularProductsByCount(3) as $item)
+                @php
+                    $content = json_decode($item->productDescription);
+                @endphp
                 <div class="col-md-4 product-content" data-aos="fade-up">
                     <div class="product-box">
                         <a href="/product-detail/{{$item->productGuid}}">
@@ -367,7 +370,7 @@
                                 <h3 class="product-title">{{$item->productTitle}}</h3>
                                 <h4 class="product-type">型式：{{$item->serialNumber}}</h4>
                                 <div class="product-text">
-                                    {!!$item->shortDescription!!}
+                                    {{mb_strimwidth(preg_replace('#<[^>]+>#', ' ', $content->intro), 0, 100, "...")}}
                                 </div>
                             </div>
                         </a>

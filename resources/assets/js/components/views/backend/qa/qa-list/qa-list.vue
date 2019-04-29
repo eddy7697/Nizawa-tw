@@ -101,6 +101,11 @@
             },
             handleChange(val) {
                 console.log(val)
+                axios.post(`/admin/qa/udpate/status/${val.id}`)
+                    .then(res => {
+                        this.getData()
+                        this.$message.success('變更狀態成功')
+                    })
             }
         }
     }

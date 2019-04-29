@@ -78,7 +78,8 @@ var LiveReloadPlugin = require('webpack-livereload-plugin');
 
  // career view
  mix.js('resources/assets/js/components/views/backend/career/add-career/add-career.js', 'public/js/backend')
-    .js('resources/assets/js/components/views/backend/career/career-list/career-list.js', 'public/js/backend');
+    .js('resources/assets/js/components/views/backend/career/career-list/career-list.js', 'public/js/backend')
+    .js('resources/assets/js/components/views/backend/career/resume-list/resume-list.js', 'public/js/backend');
 
  // Page view
  mix.js('resources/assets/js/components/views/backend/page/page-managment/page-managment.js', 'public/js/backend')

@@ -205,7 +205,7 @@ Route::group(['prefix' => 'admin'], function ()
     });
     Route::group(['prefix' => 'resume'], function ()
     {
-        
+        Route::post('/get/{id}', 'Backend\CareerController@getResumes');
     });
 
     /**
@@ -217,5 +217,6 @@ Route::group(['prefix' => 'admin'], function ()
         Route::post('/get/{id}', 'Backend\QnaController@getQna');
         Route::post('/add', 'Backend\QnaController@addQna');
         Route::post('/edit/{id}', 'Backend\QnaController@editQna');
+        Route::post('/udpate/status/{id}', 'Backend\QnaController@updateStatus');
     });
 });

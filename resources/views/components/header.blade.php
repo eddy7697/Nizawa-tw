@@ -97,12 +97,6 @@
             <div class="col-md-10 right-col">
                 <ul class="site-mega-menu-container">
                     <li class="site-mega-menu-item">
-                        <a href="/about" class="site-mega-menu-link">
-                            <img src="/img/menu/location.jpg" alt="服務據點">
-                            <p class="header-job-txt">服務據點</p>
-                        </a>
-                    </li>
-                    <li class="site-mega-menu-item">
                         <a href="/about/responsibility" class="site-mega-menu-link">
                             <img src="/img/menu/service.jpg" alt="售後服務">
                             <p class="header-job-txt">售後服務</p>

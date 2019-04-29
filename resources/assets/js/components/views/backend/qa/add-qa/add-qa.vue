@@ -22,12 +22,7 @@
                     </el-radio-group>
                 </el-form-item>
                 <el-form-item label="問題內容" prop="qacontent">
-                    <ckeditor
-                        v-if="isSwitching"
-                        class="ch-product-description"
-                        :config="ckConfig"
-                        v-model="qnaContent.qacontent[locale]">
-                    </ckeditor>
+                    <textarea rows="8" style="resize: vertical;" class="form-control" v-model="qnaContent.qacontent[locale]"></textarea>
                 </el-form-item>
                 <el-form-item style="margin-top: 10px;">
                     <el-button type="primary" @click="submitForm('qnaContent')">儲存</el-button>

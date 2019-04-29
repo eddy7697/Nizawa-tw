@@ -20,7 +20,7 @@ class CreateResumesTable extends Migration
             $table->string('mobile');
             $table->string('address');
             $table->string('postalCode');
-            $table->string('website');
+            $table->string('website')->nullable();
             $table->string('resumeFile');
             $table->string('belong');
             $table->timestamps();

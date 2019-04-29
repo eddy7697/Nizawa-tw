@@ -250,6 +250,14 @@ Route::group(['prefix' => 'career'], function ()
             'mode' => 'edit'
         ]);
     });
+
+    Route::get('/resume/{id}', function ($id)
+    {
+        return view('backend.career.resume', [
+            'panelTitle' => '應徵紀錄',
+            'id' => $id,
+        ]);
+    });
 });
 
 /**

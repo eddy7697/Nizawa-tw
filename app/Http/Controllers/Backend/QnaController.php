@@ -39,4 +39,15 @@ class QnaController extends Controller
     {
         return Qna::where('id', $id)->update($request->all());
     }
+
+    /**
+     * updateStatus
+     */
+    public function updateStatus($id)
+    {
+        $qa = Qna::where('id', $id)->first();
+        return Qna::where('id', $id)->update([
+            'isTop' => $qa->isTop == 1 ? 0 : 1
+        ]);
+    }
 }

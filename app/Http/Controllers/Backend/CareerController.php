@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Career;
+use App\Resume;
 
 class CareerController extends Controller
 {
@@ -46,5 +47,13 @@ class CareerController extends Controller
     public function deleteCareer($id)
     {
         return Career::where('id', $id)->delete();
+    }
+
+    /**
+     * get resume by career id
+     */
+    public function getResumes($id)
+    {
+        return Resume::where('belong', (string)$id)->paginate(12);
     }
 }

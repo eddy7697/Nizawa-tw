@@ -6,6 +6,41 @@
 @endphp
 
 @section('custom-script')
+<script>
+    $('#resume-form').submit(function (e) {
+        event.preventDefault();
+        var data = new FormData();
+        data.append('fullName', document.getElementsByName("fullName")[0].value);
+        data.append('email', document.getElementsByName("email")[0].value);
+        data.append('mobile', document.getElementsByName("mobile")[0].value);
+        data.append('address', document.getElementsByName("address")[0].value);
+        data.append('postalCode', document.getElementsByName("postalCode")[0].value);
+        data.append('website', document.getElementsByName("website")[0].value);
+        data.append('resumeFile', document.getElementById('resume-file').files[0]);
+
+        axios.post('/resume/new/' + window.careerId, data)
+            .then(function () {
+                toastr.success('履歷投遞成功');
+                $('#resumeModal').modal('hide');
+            });
+
+    });
+
+    function openResumeModal(id) {
+        window.careerId = id
+
+        $('.loading-bar').show();
+        axios.get('/career/get/' + id)
+            .then(function (res) {
+                console.log(res)
+                $('#resumeModal').modal();
+            }).catch(function (error) {
+                
+            }).then(function () {
+                $('.loading-bar').hide();
+            });
+    }
+</script>
 @endsection
 
 @section('custom-style')
@@ -70,7 +105,7 @@
                             <div class="col-md-2 action-group">
                                 <div class="action-group-content">
                                     @if ($item->status)
-                                        <a href="/about/job/{{$item->id}}">
+                                        <a onclick="openResumeModal('{{$item->id}}')">
                                             <button class="btn btn-block btn-resume">我要應徵</button>
                                         </a>
                                     @else
@@ -90,6 +125,86 @@
 
         <div class="col-md-12">
             {{$careers}}
+        </div>
+        <div class="modal fade" id="resumeModal" data-backdrop="static">
+            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">履歷投遞</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <form id="resume-form">
+                        <div class="modal-body site-contact-container resume">       
+                            <div class="container-fluid contact-form-body"> 
+                                <div class="row">
+                                    <div class="col-md-4 column important">
+                                        <p>姓名</p>
+                                    </div>
+                                    <div class="col-md-8 column">
+                                        <input class="form-control" type="text" name="fullName" required>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4 column important">
+                                        <p>電子信箱</p>
+                                    </div>
+                                    <div class="col-md-8 column">
+                                        <input class="form-control" type="email" name="email" required>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4 column important">
+                                        <p>行動電話</p>
+                                    </div>
+                                    <div class="col-md-8 column">
+                                        <input class="form-control" type="text" name="mobile" required>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4 column important">
+                                        <p>地址</p>
+                                    </div>
+                                    <div class="col-md-8 column">
+                                        <input class="form-control" type="text" name="address" required>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4 column important">
+                                        <p>郵遞區號</p>
+                                    </div>
+                                    <div class="col-md-8 column">
+                                        <input class="form-control" type="text" name="postalCode" required>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4 column ">
+                                        <p>個人網址</p>
+                                    </div>
+                                    <div class="col-md-8 column">
+                                        <input class="form-control" type="text" name="website" >
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4 column important">
+                                        <p>個人簡歷檔案</p>
+                                    </div>
+                                    <div class="col-md-8 column">
+                                        <input type="file" name="resumeFile" id="resume-file" accept=".doc,.docx,.xls,.xlsx,.pdf" required>
+                                    </div>
+                                </div>
+                            </div>                     
+                            
+                            
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn" data-dismiss="modal">關閉視窗</button>
+                            <button type="submit" class="btn btn-custom">投遞履歷</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 </div>
