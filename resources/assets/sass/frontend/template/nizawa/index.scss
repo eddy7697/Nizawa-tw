@@ -331,7 +331,6 @@
 .site-content {
     margin-top: 157px;
     min-height: 157px;
-
     .news-search-form {
         margin: 10px 0 50px;
 
@@ -365,7 +364,7 @@
         border: $main-color solid thin;
         color: #fff;
         padding: 8px 35px; 
-        margin: 0 15px;
+        margin: 12px 15px;
         border-radius: 10px;
 
         &.active, &:hover {
@@ -1243,6 +1242,13 @@
             line-height: 30px;
         }
         .about-album {
+
+            &.bottom {
+                .album-item {
+                    width: 100%;
+                    float: none;
+                }
+            }
             .album-item {
                 width: 25%;
                 float: left;
@@ -1269,6 +1275,7 @@
 
                         img.icon {
                             width: 50px;
+                            margin: 0 auto;
                         }
                         .read-more {
                             text-transform: uppercase;
@@ -1286,7 +1293,7 @@
                     }
                 }
                 .album-title {
-                    font-size: 1.2rem;
+                    font-size: 15px;
                     text-align: center;
                     padding: 20px 0;
                 }
@@ -1414,7 +1421,7 @@
                 display: inline-block;
                 color: #FFF;
                 border-radius: 5px;
-                font-size: 1.2rem;
+                font-size: 15px;
                 background-color: $main-color;
                 padding: 15px 50px;
                 box-shadow: 2px 2px 12px -2px rgba($color: #000000, $alpha: .8);
@@ -1422,6 +1429,18 @@
 
                 &:hover {
                     box-shadow: 2px 2px 12px 4px rgba($color: #000000, $alpha: .4);
+                }
+            }
+            &.industry {
+                padding: 100px 0;
+                margin: 0 auto;
+                display: table;
+
+                .learn-more-btn {
+                    color: #FFF;
+                    border-radius: 0;
+                    font-size: 15px;
+                    background-color: $second-color;
                 }
             }
         }
@@ -1461,6 +1480,129 @@
 
         img {
             width: 100%;
+        }
+    }
+    ul.industry-tabs {
+        margin-top: 50px;
+        border: none;
+
+        .nav-link {
+            padding: 5px;
+            border: none;
+
+            
+            .industry-tab-item {
+                padding-left: 30px;
+    
+                h3 {
+                    font-weight: 700;
+                    font-size: 24px;
+                    color: #999;
+                }
+                p {
+                    font-size: 15px;
+                    color: #999;
+                    margin-bottom: 0;
+                }
+                .fa {
+                    position: absolute;
+                    color: #999;
+                    top: 39%;
+                    left: 7px;
+                    transform: rotate(-90deg);
+                }
+            }
+
+            &.active {
+                .industry-tab-item {
+        
+                    h3 {
+                        color: $second-color;
+                    }
+                    p {
+                        color: $main-color;
+                    }
+                    .fa {
+                        color: $second-color;
+                    }
+                }
+            }
+        }
+    }
+    .industry-container {
+        margin-bottom: 30px;
+
+        .flow-image {
+            width: 100%;
+        }
+    }
+    .industry-map {
+        background-color: #EFEFEF;
+        padding-top: 40px;
+        padding-bottom: 50px;
+
+        h3 {
+            color: $main-color;
+            font-size: 24px;
+        }
+        hr {
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        .collapse-container {
+        
+            &.top {
+                .card {
+                    margin-bottom: 20px;
+                    background-color: #eee;    
+                }
+            }
+            .card {
+                border: none;
+                background-color: transparent;
+                
+                .card-header {
+                    padding: 8px;
+                    border: none;
+                    background-color: transparent;
+    
+                    a.card-link {
+                        padding: 0;
+                        font-size: 15px;
+                        color: $main-color;
+
+                        // .fa {
+                            
+                        // }
+                        &.collapsed {
+                            color: #666;
+
+                            .fa {
+                                transform: rotate(-90deg);
+                            }
+                        }
+                    }
+                }
+                .card-body {
+                    padding: 0 0 0 30px;
+                    color: #999;
+
+                    ul.map-item {
+                        li {
+                            a {
+                                font-size: 15px;
+
+                                .fa {
+                                    transform: rotate(-90deg);
+                                }
+                                &:hover {
+                                    color: $main-color;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }

@@ -141,4 +141,49 @@ class PageController extends Controller
     {
         return view('frontend.about.service');
     }
+
+    public function industry()
+    {
+        return view('frontend.industry.index');
+    }
+
+    public function water()
+    {
+        return view('frontend.industry.water');
+    }
+
+    public function life()
+    {
+        return view('frontend.industry.life');
+    }
+
+    public function industrial()
+    {
+        return view('frontend.industry.industrial');
+    }
+
+    public function electronics()
+    {
+        return view('frontend.industry.electronics');
+    }
+
+    public function fishery()
+    {
+        return view('frontend.industry.fishery');
+    }
+
+    public function food()
+    {
+        return view('frontend.industry.food');
+    }
+
+    public function cosmeceutical()
+    {
+        return view('frontend.industry.cosmeceutical');
+    }
+
+    public function industrialEngineering()
+    {
+        return view('frontend.industry.industrialEngineering');
+    }
 }

@@ -132,35 +132,35 @@
                     [
                         'image' => '/img/about/album/about-1.jpg',
                         'title' => '自來水業',
-                        'link' => ''
+                        'link' => '/industry/water'
                     ],[
                         'image' => '/img/about/album/about-2.jpg',
                         'title' => '電子行業',
-                        'link' => ''
+                        'link' => '/industry/electronics'
                     ],[
                         'image' => '/img/about/album/about-3.jpg',
                         'title' => '生活汙水',
-                        'link' => ''
+                        'link' => '/industry/life'
                     ],[
                         'image' => '/img/about/album/about-4.jpg',
                         'title' => '工業汙水',
-                        'link' => ''
+                        'link' => '/industry/industrial'
                     ],[
                         'image' => '/img/about/album/about-5.jpg',
                         'title' => '養殖漁業',
-                        'link' => ''
+                        'link' => '/industry/fishery'
                     ],[
                         'image' => '/img/about/album/about-6.jpg',
                         'title' => '食品行業',
-                        'link' => ''
+                        'link' => '/industry/food'
                     ],[
                         'image' => '/img/about/album/about-7.jpg',
                         'title' => '藥妝行業',
-                        'link' => ''
+                        'link' => '/industry/cosmeceutical'
                     ],[
                         'image' => '/img/about/album/about-8.jpg',
                         'title' => '工業工程',
-                        'link' => ''
+                        'link' => '/industry/industrialEngineering'
                     ]
                 );
             @endphp

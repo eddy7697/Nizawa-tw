@@ -90,9 +90,9 @@
         </div>
         <div class="col-md-11 mx-auto qna-container">
             <!-- Nav tabs -->
-            <ul class="nav nav-tabs qna-tabs">
+            <ul class="nav nav-tabs qna-tabs" style="margin-bottom: 10px;">
                 <li class="nav-item">
-                    <a class="nav-link btn site-btn active" data-toggle="tab" href="#home">產品問題</a>
+                    <a class="nav-link btn site-btn active" data-toggle="tab" href="#home">一般產品問題</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link btn site-btn" data-toggle="tab" href="#menu1">詢價問題</a>
@@ -107,12 +107,26 @@
                     <a class="nav-link btn site-btn" data-toggle="tab" href="#menu4">支付相關</a>
                 </li>
             </ul>
+            <ul class="nav nav-tabs qna-tabs">
+                <li class="nav-item">
+                    <a class="nav-link btn site-btn" data-toggle="tab" href="#menu5">水質檢測相關產品</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn site-btn" data-toggle="tab" href="#menu5">食品安全相關產品</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn site-btn" data-toggle="tab" href="#menu6">生技藥妝相關產品</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn site-btn" data-toggle="tab" href="#menu7">試劑相關產品</a>
+                </li>
+            </ul>
             
             <!-- Tab panes -->
             <div class="tab-content">
                 <div class="tab-pane container active" id="home">
                     <div class="collapse-container" id="accordion">
-                        @foreach (PageView::qna('產品問題') as $key => $item)
+                        @foreach (PageView::qna('一般產品問題') as $key => $item)
                             <div class="card">
                                 <div class="card-header" id="heading_1_{{$key}}">
                                     <h5 class="mb-0">
@@ -208,6 +222,90 @@
                                 </div>
                             
                                 <div id="collapse_5_{{$key}}" class="collapse" aria-labelledby="heading_5_{{$key}}" data-parent="#accordion_4">
+                                <div class="card-body">
+                                    {!!nl2br(json_decode($item->qacontent, true)[App::getLocale()])!!}
+                                </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+                <div class="tab-pane container fade" id="menu5">
+                    <div class="collapse-container" id="accordion_5">
+                        @foreach (PageView::qna('水質檢測相關產品') as $key => $item)
+                            <div class="card">
+                                <div class="card-header" id="heading_6_{{$key}}">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link" data-toggle="collapse" data-target="#collapse_6_{{$key}}" aria-expanded="true" aria-controls="collapse_6_{{$key}}">
+                                        {{json_decode($item->qatitle, true)[App::getLocale()]}}
+                                        </button>
+                                    </h5>
+                                </div>
+                            
+                                <div id="collapse_6_{{$key}}" class="collapse" aria-labelledby="heading_6_{{$key}}" data-parent="#accordion_5">
+                                <div class="card-body">
+                                    {!!nl2br(json_decode($item->qacontent, true)[App::getLocale()])!!}
+                                </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+                <div class="tab-pane container fade" id="menu6">
+                    <div class="collapse-container" id="accordion_6">
+                        @foreach (PageView::qna('食品安全相關產品') as $key => $item)
+                            <div class="card">
+                                <div class="card-header" id="heading_7_{{$key}}">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link" data-toggle="collapse" data-target="#collapse_7_{{$key}}" aria-expanded="true" aria-controls="collapse_7_{{$key}}">
+                                        {{json_decode($item->qatitle, true)[App::getLocale()]}}
+                                        </button>
+                                    </h5>
+                                </div>
+                            
+                                <div id="collapse_7_{{$key}}" class="collapse" aria-labelledby="heading_7_{{$key}}" data-parent="#accordion_6">
+                                <div class="card-body">
+                                    {!!nl2br(json_decode($item->qacontent, true)[App::getLocale()])!!}
+                                </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+                <div class="tab-pane container fade" id="menu7">
+                    <div class="collapse-container" id="accordion_7">
+                        @foreach (PageView::qna('生技藥妝相關產品') as $key => $item)
+                            <div class="card">
+                                <div class="card-header" id="heading_8_{{$key}}">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link" data-toggle="collapse" data-target="#collapse_8_{{$key}}" aria-expanded="true" aria-controls="collapse_8_{{$key}}">
+                                        {{json_decode($item->qatitle, true)[App::getLocale()]}}
+                                        </button>
+                                    </h5>
+                                </div>
+                            
+                                <div id="collapse_8_{{$key}}" class="collapse" aria-labelledby="heading_8_{{$key}}" data-parent="#accordion_7">
+                                <div class="card-body">
+                                    {!!nl2br(json_decode($item->qacontent, true)[App::getLocale()])!!}
+                                </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+                <div class="tab-pane container fade" id="menu8">
+                    <div class="collapse-container" id="accordion_8">
+                        @foreach (PageView::qna('試劑相關產品') as $key => $item)
+                            <div class="card">
+                                <div class="card-header" id="heading_9_{{$key}}">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link" data-toggle="collapse" data-target="#collapse_9_{{$key}}" aria-expanded="true" aria-controls="collapse_9_{{$key}}">
+                                        {{json_decode($item->qatitle, true)[App::getLocale()]}}
+                                        </button>
+                                    </h5>
+                                </div>
+                            
+                                <div id="collapse_9_{{$key}}" class="collapse" aria-labelledby="heading_9_{{$key}}" data-parent="#accordion_8">
                                 <div class="card-body">
                                     {!!nl2br(json_decode($item->qacontent, true)[App::getLocale()])!!}
                                 </div>

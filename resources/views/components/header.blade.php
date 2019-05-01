@@ -125,54 +125,55 @@
                     <h3>產業應用</h3>
                     <hr>
                     <p>Industrial application</p>
+                    <a href="/industry" class="link-mask"></a>
                 </div>
             </div>
             <div class="col-md-10 right-col">
                 <ul class="site-mega-menu-container">
                     <li class="site-mega-menu-item">
-                        <a href="/about" class="site-mega-menu-link">
+                        <a href="/industry/water" class="site-mega-menu-link">
                             <img src="/img/about/album/about-1.jpg" alt="自來水業">
                             <p class="header-job-txt">自來水業</p>
                         </a>
                     </li>
                     <li class="site-mega-menu-item">
-                        <a href="/about/responsibility" class="site-mega-menu-link">
+                        <a href="/industry/electronics" class="site-mega-menu-link">
                             <img src="/img/about/album/about-2.jpg" alt="電子行業">
                             <p class="header-job-txt">電子行業</p>
                         </a>
                     </li>
                     <li class="site-mega-menu-item">
-                        <a href="/about/recruiting" class="site-mega-menu-link">
+                        <a href="/industry/life" class="site-mega-menu-link">
                             <img src="/img/about/album/about-3.jpg" alt="生活污水">
                             <p class="header-job-txt">生活污水</p>
                         </a>
                     </li>
                     <li class="site-mega-menu-item">
-                        <a href="/about" class="site-mega-menu-link">
+                        <a href="/industry/industrial" class="site-mega-menu-link">
                             <img src="/img/about/album/about-4.jpg" alt="工業污水">
                             <p class="header-job-txt">工業污水</p>
                         </a>
                     </li>
                     <li class="site-mega-menu-item">
-                        <a href="/about/responsibility" class="site-mega-menu-link">
+                        <a href="/industry/fishery" class="site-mega-menu-link">
                             <img src="/img/about/album/about-5.jpg" alt="養殖漁業">
                             <p class="header-job-txt">養殖漁業</p>
                         </a>
                     </li>
                     <li class="site-mega-menu-item">
-                        <a href="/about/recruiting" class="site-mega-menu-link">
+                        <a href="/industry/food" class="site-mega-menu-link">
                             <img src="/img/about/album/about-6.jpg" alt="食品行業">
                             <p class="header-job-txt">食品行業</p>
                         </a>
                     </li>
                     <li class="site-mega-menu-item">
-                        <a href="/about/responsibility" class="site-mega-menu-link">
+                        <a href="/industry/cosmeceutical" class="site-mega-menu-link">
                             <img src="/img/about/album/about-7.jpg" alt="藥妝行業">
                             <p class="header-job-txt">藥妝行業</p>
                         </a>
                     </li>
                     <li class="site-mega-menu-item">
-                        <a href="/about/recruiting" class="site-mega-menu-link">
+                        <a href="/industry/industrialEngineering" class="site-mega-menu-link">
                             <img src="/img/about/album/about-8.jpg" alt="工業工程">
                             <p class="header-job-txt">工業工程</p>
                         </a>

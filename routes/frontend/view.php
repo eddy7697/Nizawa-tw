@@ -161,7 +161,21 @@ Route::get('/download', 'Frontend\PageController@download');
  */
 Route::get('/service', 'Frontend\PageController@service');
 
-
+/**
+ * industry
+ */
+Route::group(['prefix' => 'industry'], function ()
+{
+    Route::get('/', 'Frontend\PageController@industry');
+    Route::get('/water', 'Frontend\PageController@water');
+    Route::get('/life', 'Frontend\PageController@life');
+    Route::get('/industrial', 'Frontend\PageController@industrial');
+    Route::get('/electronics', 'Frontend\PageController@electronics');
+    Route::get('/fishery', 'Frontend\PageController@fishery');
+    Route::get('/food', 'Frontend\PageController@food');
+    Route::get('/cosmeceutical', 'Frontend\PageController@cosmeceutical');
+    Route::get('/industrialEngineering', 'Frontend\PageController@industrialEngineering');
+});
 
 
 

@@ -8,7 +8,7 @@
     }
 @endphp
 
-<section class="site-footer" data-aos="fade-up">
+<section class="site-footer">
     <div class="container-fluid site-footer-content">
         {{-- footer-section --}}
         <div class="col-md-12 footer-section">
