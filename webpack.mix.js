@@ -70,6 +70,10 @@ var LiveReloadPlugin = require('webpack-livereload-plugin');
  mix.js('resources/assets/js/components/views/backend/qa/add-qa/add-qa.js', 'public/js/backend')
     .js('resources/assets/js/components/views/backend/qa/qa-list/qa-list.js', 'public/js/backend');
 
+ // qa download
+ mix.js('resources/assets/js/components/views/backend/download/add-download/add-download.js', 'public/js/backend')
+    .js('resources/assets/js/components/views/backend/download/download-list/download-list.js', 'public/js/backend');
+
  /**
   * Order view
   */

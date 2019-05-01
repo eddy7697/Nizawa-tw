@@ -40,7 +40,7 @@
                     <li><a class="mega-btn" data-menu-target="industry">產業應用&nbsp;&nbsp;<i class="fa fa-caret-down mega-arrow" aria-hidden="true"></i></a></li>
                     <li><a href="/blog">新聞中心</a></li>
                     <li><a class="mega-btn" data-menu-target="support">服務支援&nbsp;&nbsp;<i class="fa fa-caret-down mega-arrow" aria-hidden="true"></i></a></li>
-                    <li><a href="/contact" class="active">聯絡我們</a></li>
+                    <li><a href="/contact">聯絡我們</a></li>
                 </ul>
             </div>
         </div>
@@ -97,7 +97,7 @@
             <div class="col-md-10 right-col">
                 <ul class="site-mega-menu-container">
                     <li class="site-mega-menu-item">
-                        <a href="/about/responsibility" class="site-mega-menu-link">
+                        <a href="/service" class="site-mega-menu-link">
                             <img src="/img/menu/service.jpg" alt="售後服務">
                             <p class="header-job-txt">售後服務</p>
                         </a>
@@ -109,7 +109,7 @@
                         </a>
                     </li>
                     <li class="site-mega-menu-item">
-                        <a href="/about/career" class="site-mega-menu-link">
+                        <a href="/download" class="site-mega-menu-link">
                             <img src="/img/menu/download.jpg" alt="資料下載">
                             <p class="header-job-txt">資料下載</p>
                         </a>

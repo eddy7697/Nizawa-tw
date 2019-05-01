@@ -30,7 +30,6 @@ class PageController extends Controller
     public function productDetail()
     {
         return view('frontend.product.productDetail', [
-            'isThumbShow' => true,
             'thumb' => '<a href="/">首頁</a>&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;<a href="/product">系列商品</a>'
         ]);
     }
@@ -41,7 +40,6 @@ class PageController extends Controller
 
         return view('frontend.product.productAll', [
             'productAll' => $productAll,
-            'isThumbShow' => true,
             'thumb' => '<a href="/">首頁</a>&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;系列商品'
         ]);
     }
@@ -65,7 +63,6 @@ class PageController extends Controller
     public function about()
     {
         return view('frontend.about.index', [
-            'isThumbShow' => true,
             'thumb' => '<a href="/">首頁</a>&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;品牌故事'
         ]);
     }
@@ -73,7 +70,6 @@ class PageController extends Controller
     public function privacy()
     {
         return view('frontend.privacy.privacy', [
-            'isThumbShow' => true,
             'thumb' => '<a href="/">首頁</a>&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;隱私權政策'
         ]);
     }
@@ -81,7 +77,6 @@ class PageController extends Controller
     public function responsibility()
     {
         return view('frontend.about.responsibility', [
-            'isThumbShow' => true,
             'thumb' => '<a href="/">首頁</a>&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;隱私權政策'
         ]);
     }
@@ -89,7 +84,6 @@ class PageController extends Controller
     public function remind()
     {
         return view('frontend.privacy.remind', [
-            'isThumbShow' => true,
             'thumb' => '<a href="/">首頁</a>&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;安心購物宣言'
         ]);
     }
@@ -97,59 +91,54 @@ class PageController extends Controller
     public function career()
     {
         return view('frontend.about.career', [
-            'isThumbShow' => true,
             'thumb' => '<a href="/">首頁</a>&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;安心購物宣言'
         ]);
     }
 
     public function notice()
     {
-        return view('frontend.privacy.notice', [
-            'isThumbShow' => true,
-            'thumb' => '<a href="/">首頁</a>&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;購物須知'
-        ]);
+        return view('frontend.privacy.notice');
     }
 
     public function store()
     {
-        return view('frontend.about.store', [
-            'isThumbShow' => true,
-            'thumb' => '<a href="/">首頁</a>&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;銷售據點'
-        ]);
+        return view('frontend.about.store');
     }
 
     public function contact()
     {
-        return view('frontend.contact.contact', [
-            'isThumbShow' => true,
-            'thumb' => '<a href="/">首頁</a>&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;銷售據點'
-        ]);
+        return view('frontend.contact.contact');
     }
 
     public function partners()
     {
-        return view('frontend.partners.index', [
-        ]);
+        return view('frontend.partners.index');
     }
 
     public function qna()
     {
-        return view('frontend.qna.qna', [
-        ]);
+        return view('frontend.qna.qna');
     }
 
     public function qnaSearch()
     {
-        return view('frontend.qna.qnaSearch', [
-        ]);
+        return view('frontend.qna.qnaSearch');
     }
 
     public function job($id)
     {
         return view('frontend.about.resume', [
-            'job' => Career::where('id', $id)->first(),
-            'isThumbShow' => true,
-            'thumb' => '<a href="/">首頁</a>&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;安心購物宣言'
+            'job' => Career::where('id', $id)->first()
         ]);
+    }
+
+    public function download()
+    {
+        return view('frontend.about.download');
+    }
+
+    public function service()
+    {
+        return view('frontend.about.service');
     }
 }

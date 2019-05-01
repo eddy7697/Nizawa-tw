@@ -289,6 +289,34 @@ Route::group(['prefix' => 'qa'], function ()
 });
 
 /**
+ * download
+ */
+Route::group(['prefix' => 'download'], function ()
+{
+    Route::get('/add', function ()
+    {
+        return view('backend.download.addDownload', [
+            'panelTitle' => '新增檔案下載',
+            'mode' => 'add'
+        ]);
+    });
+    Route::get('/list', function ()
+    {
+        return view('backend.download.downloadList', [
+            'panelTitle' => '檔案下載列表'
+        ]);
+    });
+    Route::get('/edit/{id}', function ($id)
+    {
+        return view('backend.download.addDownload', [
+            'panelTitle' => '編輯檔案下載',
+            'mode' => 'edit',
+            'id' => $id
+        ]);
+    });
+});
+
+/**
  * MEDIA
  */
 Route::get('/media/manager', function () {

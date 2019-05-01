@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Page;
 use App\Qna;
+use App\Download;
 
 class PageView
 {
@@ -28,6 +29,16 @@ class PageView
     static function qna($type)
     {
         return Qna::where('qatype', $type)->get();
+    }
+
+    static function download($type)
+    {
+        return Download::where('type', $type)->get();
+    }
+    
+    static function downloadAll()
+    {
+        return Download::all();
     }
 
     static function qnaTop()

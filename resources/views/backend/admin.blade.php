@@ -113,7 +113,7 @@
 												@endif
 											</ul>
 										</li>
-										<li class=""><a><i class="fa fa-shopping-basket"></i> 人才招募管理系統 <span class="fa fa-chevron-down"></span></a>
+										<li class=""><a><i class="fa fa-users" aria-hidden="true"></i> 人才招募管理系統 <span class="fa fa-chevron-down"></span></a>
 											<ul class="nav child_menu" style="display: none;">
 												<li><a href="/cyberholic-system/career/add">新增職缺</a></li>
 												<li><a href="/cyberholic-system/career/list">職缺列表</a></li>
@@ -123,6 +123,12 @@
 											<ul class="nav child_menu" style="display: none;">
 												<li><a href="/cyberholic-system/qa/add">新增常見問題</a></li>
 												<li><a href="/cyberholic-system/qa/list">常見問題列表</a></li>
+											</ul>
+										</li>	
+										<li class=""><a><i class="fa fa-download"></i> 檔案下載管理系統 <span class="fa fa-chevron-down"></span></a>
+											<ul class="nav child_menu" style="display: none;">
+												<li><a href="/cyberholic-system/download/add">新增檔案下載</a></li>
+												<li><a href="/cyberholic-system/download/list">檔案下載列表</a></li>
 											</ul>
 										</li>	
 									</ul>

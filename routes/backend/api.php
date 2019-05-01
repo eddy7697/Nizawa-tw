@@ -219,4 +219,16 @@ Route::group(['prefix' => 'admin'], function ()
         Route::post('/edit/{id}', 'Backend\QnaController@editQna');
         Route::post('/udpate/status/{id}', 'Backend\QnaController@updateStatus');
     });
+
+    /**
+     * download
+     */
+    Route::group(['prefix' => 'download'], function ()
+    {
+        Route::post('/get', 'Backend\DownloadController@getDownloads');
+        Route::post('/get/{id}', 'Backend\DownloadController@getDownload');
+        Route::post('/add', 'Backend\DownloadController@addDownload');
+        Route::post('/edit/{id}', 'Backend\DownloadController@editDownload');
+        Route::post('/udpate/status/{id}', 'Backend\DownloadController@updateStatus');
+    });
 });

@@ -152,6 +152,21 @@ Route::get('/qna', 'Frontend\PageController@qna');
 Route::get('/qna/search', 'Frontend\PageController@qnaSearch');
 
 /**
+ * download
+ */
+Route::get('/download', 'Frontend\PageController@download');
+
+/**
+ * Support
+ */
+Route::get('/service', 'Frontend\PageController@service');
+
+
+
+
+
+
+/**
  * test area
  */
 // Route::get('/ga-test', 'HomeController@gaTest');
