@@ -33,52 +33,51 @@
                 <div class="col-md-12">
                     <div class="left-col">
                         <ul class="info">
-                            <li>聯絡電話：+886-3-4935921 / +886-3-4935900</li>
-                            <li>傳真電話：+886-3-4928654</li>
-                            <li>電子郵件：info@nizawa-int.com.tw</li>
-                            <li>地址：台灣桃園市中壢區三光路60號3F之1</li>
-                            <li>郵遞區號：32047</li>
-                            <li>服務時間：09:00 ~ 18:00 (Mon - Fri)</li>
+                            <li>{{ trans('string.phone') }}：+886-3-4935921 / +886-3-4935900</li>
+                            <li>{{ trans('string.fax') }}：+886-3-4928654</li>
+                            <li>{{ trans('string.email') }}：info@nizawa-int.com.tw</li>
+                            <li>{{ trans('string.address') }}：{{ trans('string.fullAddress') }}</li>
+                            <li>{{ trans('string.postcode') }}：32047</li>
+                            <li>{{ trans('string.working') }}：09:00 ~ 18:00 (Mon - Fri)</li>
                         </ul>
                     </div>
                     <div class="right-col">
                         <div class="row">
                             <div class="col-sm-6 col-md-3 site-map-container">
-                                <h3>關於日澤</h3>
+                                <h3>{{ trans('string.about') }}</h3>
                                 <ul class="site-map">
-                                    <li><a href="">公司介紹</a></li>
-                                    <li><a href="">全球認證</a></li>
-                                    <li><a href="">社會責任</a></li>
-                                    <li><a href="/about/career">人才招募</a></li>
-                                    <li><a href="">聯絡我們</a></li>
+                                    <li><a href="/about">{{ trans('string.about2') }}</a></li>
+                                    <li><a href="">{{ trans('string.responsibility') }}</a></li>
+                                    <li><a href="/about/career">{{ trans('string.recruiting') }}</a></li>
+                                    <li><a href="">{{ trans('string.about4') }}</a></li>
                                 </ul>
                             </div>
                             <div class="col-sm-6 col-md-3 site-map-container">
-                                <h3>服務支援</h3>
+                                <h3>{{ trans('string.support') }}</h3>
                                 <ul class="site-map">
-                                    <li><a href="">售後服務</a></li>
-                                    <li><a href="">常見問題</a></li>
-                                    <li><a href="">資料下載</a></li>
+                                    <li><a href="">{{ trans('string.service') }}</a></li>
+                                    <li><a href="">{{ trans('string.faq') }}</a></li>
+                                    <li><a href="">{{ trans('string.download') }}</a></li>
                                 </ul>
                             </div>
                             <div class="col-md-6 sub-form-container">
-                                <h3>訂閱電子報</h3>
+                                <h3>{{ trans('string.subscription') }}</h3>
                                 <form action="" method="POST">
                                     <table class="sub-form">
                                         <tbody>
                                             <tr>
                                                 <td>
-                                                    <input class="sub-input" type="name" placeholder="請輸入姓名..." required>
+                                                    <input class="sub-input" type="name" placeholder="{{trans('string.placeholder_sub1')}}" required>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    <input class="sub-input" type="email" placeholder="請輸入電子郵件..." required>
+                                                    <input class="sub-input" type="email" placeholder="{{trans('string.placeholder_sub2')}}" required>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    <button class="sub-btn" type="submit">送出</button>
+                                                    <button class="sub-btn" type="submit">{{ trans('string.submit') }}</button>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -95,7 +94,7 @@
             {{-- copyright --}}
             <div class="row copyright">
                 <div class="col-md-4" style="text-align: left; padding-left: 50px;">
-                    <a href="">隱私權政策</a>&nbsp;|&nbsp;<a href="">使用條款</a>
+                    <a href="">{{ trans('string.privacy') }}</a>&nbsp;|&nbsp;<a href="">{{ trans('string.notice') }}</a>
                 </div>
                 <div class="col-md-4" style="text-align: center">
                     
