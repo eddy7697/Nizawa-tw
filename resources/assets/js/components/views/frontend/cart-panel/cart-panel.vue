@@ -2,7 +2,7 @@
     <div>
         <a style="cursor: pointer" @click="getCart(true)">
             <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-            &nbsp;我的詢價車
+            &nbsp;{{i18n.my_cart}}
             <span class="count" v-if="cartContent.length">{{cartContent.length}}</span>
         </a>
 
@@ -33,7 +33,7 @@
                         </td>
                         <td align="right">
                             <strong>{{item.title}} x {{item.qty}}</strong><br>
-                            <strong>型號：{{item.serialNumber}}</strong>
+                            <strong>{{i18n.serial_number}}：{{item.serialNumber}}</strong>
                         </td>
                     </tr>
                     <!-- <tr v-if="!isCartEmpty">
@@ -43,7 +43,7 @@
                     </tr> -->
                     <tr v-if="!isCartEmpty">
                         <td align="right">
-                            <a href="#" @click="removeProduct(item)">刪除產品</a>
+                            <a href="#" @click="removeProduct(item)">{{i18n.delete_product}}</a>
                             <!-- <button type="button" name="button" @click="removeProduct(item)">x</button> -->
                         </td>
                     </tr>
@@ -51,11 +51,11 @@
 
                 <hr style="margin-top: 35px;">
                 <!-- <h4 v-if="!isCartEmpty" style="text-align: center"><strong>小計 NT$ {{amount}}</strong></h4> -->
-                <h4 v-if="isCartEmpty" style="text-align: center"><strong>詢價車還是空的唷!</strong></h4>
+                <h4 v-if="isCartEmpty" style="text-align: center"><strong>{{i18n.cart_panel_empty}}</strong></h4>
                 <hr>
 
-                <button v-if="!isCartEmpty" type="button" class="btn btn-primary btn-block btn-lg" @click="goToCart()">檢視詢價車</button>
-                <button type="button" class="btn btn-default btn-block btn-lg" @click="togglePanel()">回到產品中心</button>
+                <button v-if="!isCartEmpty" type="button" class="btn btn-primary btn-block btn-lg" @click="goToCart()">{{i18n.view_cart}}</button>
+                <button type="button" class="btn btn-default btn-block btn-lg" @click="togglePanel()">{{i18n.back_to_list}}</button>
             </div>
         </transition>
     </div>
@@ -74,7 +74,9 @@
     $('.loading-bar').fadeOut('100');
     export default {
         data() {
+            let i18n = JSON.parse(document.getElementById('i18n-text').value)
             return {
+                i18n: i18n,
                 displayPanel: false,
                 amount: null,
                 cartContent: [],
@@ -137,7 +139,7 @@
             },
             removeProduct: function (item) {
                 var self = this;
-                var checkDelete = confirm("確認要移除此產品");
+                var checkDelete = confirm(this.i18n.confirm_delete);
 
                 if (checkDelete) {
                     axios.post(`/cart/delete/single/${item.rowId}`)
@@ -168,7 +170,7 @@
                                     }
                                 })
                         }).catch(err => {
-                            toastr["error"]("移除產品失敗");
+                            toastr["error"](this.i18n.delete_fail);
                         })
                 }
 
@@ -244,9 +246,9 @@
 
                 axios.post(`/cart/add/single/${guid}`
                     ).then(res => {
-                        self.$message.success('成功加入詢價車！')
+                        self.$message.success(this.i18n.add_success)
                     }).catch(err => {
-                        self.$message.error('加入詢價車失敗...')
+                        self.$message.error(this.i18n.add_fail)
                     }).then(arg => {
                         self.getCart()
                     })

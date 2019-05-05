@@ -13,6 +13,7 @@
 
 </head>
 <body>
+    <textarea id="i18n-text" cols="30" rows="10">{{ json_encode(trans('cart')) }}</textarea>
 
     {{-- Loading --}}
     <div class="loading-bar">
@@ -81,7 +82,6 @@
     @if(config('app.env') == 'local')
         <script src="http://localhost:35729/livereload.js"></script>
     @endif
-
 
 </body>
 </html>
