@@ -1,7 +1,7 @@
 <template>
     <div class="row" v-if="isCartEmpty && isLoaded">
         <div class="col-md-12">
-            <h3 class="center" style="padding: 250px 0; text-align: center">詢價車裡面沒有商品，趕快去逛逛吧~</h3>
+            <h3 class="center" style="padding: 250px 0; text-align: center">{{i18n.cart_is_empty}}</h3>
         </div>
     </div>
     <div class="row" v-else>
@@ -11,16 +11,16 @@
                     <tr>
                         <th></th>
                         <th style="text-align: center" colspan="2">
-                            產品名稱
+                            {{i18n.producy_title}}
                         </th>
                         <th style="text-align: center">
-                            數量
+                            {{i18n.quantity}}
                         </th>
                         <th style="text-align: center">
-                            型號
+                            {{i18n.model}}
                         </th>
                         <th style="text-align: center">
-                            貨號
+                            {{i18n.serial_number}}
                         </th>
                         <th style="text-align: right">
                            
@@ -39,27 +39,27 @@
                             </a>
                         </td>
 
-                        <td class="product-name" data-title="商品">
+                        <td class="product-name" :data-title="i18n.product_title">
                             <a v-bind:href="productLink(item.id.guid)">{{item.id.title}}</a>
                         </td>
 
-                        <td class="product-quantity" width="125" data-title="數量" style="text-align: center">
+                        <td class="product-quantity" width="125" :data-title="i18n.quantity" style="text-align: center">
                             <el-input-number size="mini" v-model="item.qty"></el-input-number>
                         </td>
 
-                        <td class="product-price" data-title="型號" style="text-align: center">
+                        <td class="product-price" :data-title="i18n.model" style="text-align: center">
                             <span>{{item.id.serialNumber}}</span>
                         </td>
 
-                        <td class="product-price" data-title="貨號" style="text-align: center">
+                        <td class="product-price" :data-title="i18n.serial_number" style="text-align: center">
                             <span>{{item.id.rule}}</span>
                         </td>
 
-                        <td class="product-subtotal" data-title="總計" align="right">
+                        <td class="product-subtotal" :data-title="i18n.total" align="right">
                             <!-- <button>
                                 <i class="fa fa-trash-o" aria-hidden="true"></i>
                             </button> -->
-                            <a href="#" class="remove" aria-label="移除這項商品" style="text-decoration: none;" @click="deleteProduct(item)">
+                            <a href="#" class="remove" :aria-label="i18n.remove_product" style="text-decoration: none;" @click="deleteProduct(item)">
                                 <i class="fa fa-trash-o" aria-hidden="true"></i>
                             </a>
                         </td>
@@ -67,15 +67,15 @@
                 </tbody>
             </table>
             <br>
-            <button v-if="isDirty" class="btn btn-custom" name="button" @click="updateCart">更新詢價車</button>
-            <button v-else class="btn btn-custom" name="button" disabled>更新詢價車</button>
-            <button class="btn btn-custom" name="button" @click="deleteAll">清空詢價車</button>
+            <button v-if="isDirty" class="btn btn-custom" name="button" @click="updateCart">{{i18n.update_cart}}</button>
+            <button v-else class="btn btn-custom" name="button" disabled>{{i18n.update_cart}}</button>
+            <button class="btn btn-custom" name="button" @click="deleteAll">{{i18n.empty_cart}}</button>
         </div>
         <div class="col-md-12" style="text-align: center;">
             <form class="" action="/checkout/billing" method="post">
                 <input type="hidden" name="_token" v-bind:value="token">
                 <input type="hidden" name="shipping_method" value="1">
-                <button type="submit" class="btn btn-custom btn-xl">送出，前往下一步</button>
+                <button type="submit" class="btn btn-custom btn-xl">{{i18n.next_step}}</button>
             </form>
         </div>
         <div class="col-md-4" v-if="false">
@@ -85,7 +85,7 @@
                     <table cellspacing="0" class="cart-list">
                         <thead>
                             <tr>
-                                <th class="product-name" colspan="2" style="border-width:3px;">詢價車總計</th>
+                                <th class="product-name" colspan="2" style="border-width:3px;">{{i18n.cart_total}}</th>
                             </tr>
                         </thead>
                     </table>
@@ -123,7 +123,7 @@
                                 </tr> -->
 
                                 <tr class="order-total">
-                                    <th>總計</th>
+                                    <th>{{i18n.total}}</th>
                                     <td data-title="總計"><strong><span><span>NT$</span> </span></strong> {{totalAmount}}</td>
                                 </tr>
 
@@ -152,7 +152,9 @@
     $('.loading-bar').fadeOut('100');
     export default {
         data() {
+            let i18n = JSON.parse(document.getElementById('i18n-text').value)
             return {
+                i18n: i18n,
                 token: $('meta[name="csrf-token"]').attr('content'),
                 cart: [],
                 isLoaded: false,
@@ -309,7 +311,7 @@
                 axios.post('/cart/update', vo)
                     .then(res => {
                         this.getCart();
-                        this.showMessage('success', '更新詢價車成功');
+                        this.showMessage('success', this.i18n.update_cart_success);
                         $('.loading-bar').fadeOut('100');
                     })
             },
@@ -352,7 +354,7 @@
 
             },
             deleteProduct: function (item) {
-                var check = confirm('確認要刪除此商品?');
+                var check = confirm(this.i18n.confirm_delete);
                 var self = this;
 
                 if (check) {
@@ -372,7 +374,7 @@
                 }
             },
             deleteAll: function () {
-                var check = confirm('確認要刪除所有商品?');
+                var check = confirm(this.i18n.confirm_delete_all);
                 var self = this;
 
                 if (check) {

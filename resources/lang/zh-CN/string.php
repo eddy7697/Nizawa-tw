@@ -46,4 +46,6 @@ return [
     'indu6' => '食品行业',
     'indu7' => '药妆行业',
     'indu8' => '工业工程',
+
+    'content_construction' => '内容建置中',
 ];

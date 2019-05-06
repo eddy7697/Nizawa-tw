@@ -46,4 +46,6 @@ return [
     'indu6' => 'Food industry',
     'indu7' => 'Cosmeceutical industry',
     'indu8' => 'Industrial Engineering',
+
+    'content_construction' => 'Content construction',
 ];

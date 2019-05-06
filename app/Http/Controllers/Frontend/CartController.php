@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Product;
+use App;
 use Cart;
 use Log;
 
@@ -141,8 +142,22 @@ class CartController extends Controller
         $cartArray = array();
 
         foreach(Cart::content() as $row) {
+            $prod = json_decode($row->name, true);
+            $product = Product::where('productGuid', $prod['guid'])
+                                ->where('locale', App::getLocale())                    
+                                ->first();
+            $content = [
+                'title' => $product->productTitle,
+                'guid' => $product->productGuid,
+                'type' => $product->type,
+                'featureImage' => $product->featureImage,
+                'Temperature' => $product->Temperature,
+                'serialNumber' => $product->serialNumber,
+                'rule' => $product->rule,
+            ];
+
             array_push($cartArray, [
-                'id' => json_decode($row->name),
+                'id' => $content,
                 'rowId' => $row->rowId,
                 'qty' => $row->qty,
                 'price' => $row->price,
