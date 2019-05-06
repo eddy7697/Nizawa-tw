@@ -59,15 +59,15 @@ Route::get('/test_prod', function ()
     // }
 });
 
-// Route::get('/test_update', function ()
-// {
-//     foreach (Category::all() as $key => $value) {
-//         Category::where('id', $value->id)
-//                 ->update([
-//                     'categoryGuid' => str_random(6)
-//                 ]);
-//     }
-// });
+Route::get('/test_update', function ()
+{
+    foreach (Category::all() as $key => $value) {
+        Category::where('id', $value->id)
+                ->update([
+                    'categoryTitle' => '{"en": null,"zh-TW": "'.$value->categoryTitle.'","zh-CN": null}'
+                ]);
+    }
+});
 
 Route::get('/create_admin', 'HomeController@createAdmin');
 // Route::get('/esun', 'Backend\OrderController@esun');

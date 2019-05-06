@@ -105,6 +105,35 @@ $(function () {
             }
         }
     }
+
+    function showMenu(btn) {
+        $('body').css('overflow', 'hidden');
+        btn.addClass('active');
+        $('.mobile-site-menu').removeClass('hide').addClass('fadeInLeft animated');
+    }
+
+    function closeMenu(btn) {
+        $('body').css('overflow', 'initial');
+        btn.removeClass('active');
+        $('.mobile-site-menu').removeClass('fadeInLeft animated')
+                          .addClass('fadeOutLeft animated')
+                          .fadeOut(500, function () {
+                            $('.mobile-site-menu').removeClass('fadeOutLeft animated')
+                            .addClass('hide')
+                            .removeAttr('style');
+                          });
+
+        btn.css('margin-left', '0px');
+    }
+
+    $('#menu-btn').on('click', function() {
+        // showMenu($(this));
+        if ($(this).hasClass('active')) {
+            closeMenu($(this));
+        } else {
+            showMenu($(this));
+        }
+    })
 });
 
 

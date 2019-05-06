@@ -25,15 +25,28 @@
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                         <h4 class="modal-title">編輯類別</h4>
+                        <button class="btn btn-primary" @click="translateTitle">一鍵翻譯</button>
                     </div>
                     <div class="modal-body">
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">
-                                        類別名稱
+                                        類別名稱 (繁體中文)
                                     </label>
-                                    <input type="text" class="form-control" ref="categoryInput" v-model="editCategoryForm.categoryName"/>
+                                    <input type="text" class="form-control" ref="categoryInput" v-model="editCategoryForm.categoryName['zh-TW']"/>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">
+                                        類別名稱 (簡體中文)
+                                    </label>
+                                    <input type="text" class="form-control" ref="categoryInput" v-model="editCategoryForm.categoryName['zh-CN']"/>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">
+                                        類別名稱 (英文)
+                                    </label>
+                                    <input type="text" class="form-control" ref="categoryInput" v-model="editCategoryForm.categoryName.en"/>
                                 </div>
                             </div>
                         </div>
@@ -65,7 +78,11 @@
             return {
                 editCategoryForm: {
                     guid: null,
-                    categoryName: null,
+                    categoryName: {
+                        en: null,
+                        'zh-TW': null,
+                        'zh-CN': null
+                    },
                     categoryParent: null,
                     type: null,
                     description: null,
@@ -82,6 +99,7 @@
                 dragEnter: false,
                 activatedNode: null,
                 categories: [],
+                originCate: [],
                 editMode: false,
                 token: $('meta[name="csrf-token"]').attr('content'),
             }
@@ -147,24 +165,24 @@
                 if (this.editMode) {
                     var vo = {
                         category: item.guid,
-                        name: item.categoryName,
+                        name: JSON.stringify(item.categoryName),
                         type: this.type,
                         parentId: item.categoryParent,
                         description: item.description
                     }
                 } else {
                     var vo = {
-                        name: item.categoryName,
+                        name: JSON.stringify(item.categoryName),
                         type: this.type,
                         parentId: this.activatedNode == 'ALL' ? null : this.activatedNode,
                         description: item.description
                     }
                 }
 
-                if (item.categoryName.trim() === '') {
-                    this.showMessage('warning', '欄位名稱不可為空白');
-                    return;
-                }
+                // if (item.categoryName.trim() === '') {
+                //     this.showMessage('warning', '欄位名稱不可為空白');
+                //     return;
+                // }
 
                 $('.loading-bar').fadeIn('100');
 
@@ -229,10 +247,13 @@
             },
             openEditModal: function (mode) {
                 var node = $('#tree').fancytree('getActiveNode')
+                let category = _.find(this.originCate, ['categoryGuid', node.data.guid])
+
+                console.log(category)
 
                 this.editMode = mode;
 
-                this.editCategoryForm.categoryName = mode ? node.data.name : null;
+                this.editCategoryForm.categoryName = mode ? JSON.parse(category.categoryTitle) : null;
                 this.editCategoryForm.categoryParent = mode ? node.data.parentId : null;
                 // this.editCategoryForm.description = item.description;
                 this.editCategoryForm.guid = mode ? node.key : null;
@@ -259,10 +280,13 @@
                 })
                 .done(function(result) {
                     self.categories = [];
+                    self.originCate = result
                     result.forEach(function(item) {
+                        let title = JSON.parse(item.categoryTitle)
+
                         self.categories.push({
                             'categoryParent': item.parentId,
-                            'name': item.categoryTitle,
+                            'name': `${title['zh-TW']} | ${title['zh-CN']} | ${title['en']}`,
                             'guid': item.categoryGuid,
                             'parentId': item.parentId,
                             'isEdit': false,
@@ -336,6 +360,11 @@
                         $('.loading-bar').fadeOut('100');
                     }, 200)
                 });
+            },
+            translateTitle() {
+                console.log(this.editCategoryForm)
+                axios.get(`https://translation.googleapis.com/language/translate/v2?target=en&key=AIzaSyDS-llQqhTGnPLh36N-ZfyJIi4jfEBmohQ&q=${this.editCategoryForm.categoryName['zh-TW']}`, { 'headers': { 'Content-Type': 'application/x-www-form-urlencoded' } })
+                
             },
             generateTree(data) {
                 var self = this
