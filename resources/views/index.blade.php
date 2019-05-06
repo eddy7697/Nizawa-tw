@@ -12,10 +12,10 @@
             padding-bottom: 41.5%;
             /* z-index: -1; */
         }
-        .swiper-wrapper {
+        .swiper-container .swiper-wrapper {
             position: absolute;
         }
-        .swiper-slide {
+        .swiper-container .swiper-wrapper .swiper-slide {
             text-align: center;
             font-size: 18px;
             width: 100%;
@@ -138,6 +138,49 @@
                 // instead of a settings object
             ]
         });
+
+        $('.product-list-container').slick({
+            dots: false,
+            infinite: true,
+            speed: 300,
+            arrow: true,
+            prevArrow: $('#product-prev-arrow'),
+            nextArrow: $('#product-next-arrow'),
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            autoplay: true,
+            autoplaySpeed: 2000,
+            responsive: [
+                {
+                    breakpoint: 916,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 1,
+                        arrow: true,
+                        infinite: true
+                    }
+                },
+                {
+                    breakpoint: 916,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 1,
+                        arrow: true
+                    }
+                },
+                {
+                    breakpoint: 512,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                        arrow: true
+                    }
+                }
+                // You can unslick at a given breakpoint now by adding:
+                // settings: "unslick"
+                // instead of a settings object
+            ]
+        });
     </script>
 @endsection
 
@@ -230,6 +273,41 @@
     <div class="index-banner-divider product" data-aos="fade-in">
         <h2>產品中心</h2>
     </div>
+    <div class="container product-list mobile">
+        <button class="product-arrow" id="product-prev-arrow">
+            <i class="fa fa-caret-left" aria-hidden="true"></i>
+        </button>
+        <button class="product-arrow" id="product-next-arrow">
+            <i class="fa fa-caret-right" aria-hidden="true"></i>
+        </button>
+        <div class="row product-list-container">
+            @foreach (ProductView::getPopularProductsByCount(3) as $item)
+                @php
+                    $content = json_decode($item->productDescription);
+                @endphp
+                <div class="col-md-4 product-content" data-aos="fade-up">
+                    <div class="product-box">
+                        <a href="/product-detail/{{$item->productGuid}}">
+                            <div class="product-feature-image" style="background-image: url('{{$item->featureImage}}');"></div>
+                            <div class="product-info">
+                                <h3 class="product-title">{{$item->productTitle}}</h3>
+                                <h4 class="product-type">型式：{{$item->serialNumber}}</h4>
+                                <div class="product-text">
+                                    {{mb_strimwidth(preg_replace('#<[^>]+>#', ' ', $content->intro), 0, 100, "...")}}
+                                </div>
+                            </div>
+                        </a>
+                        <a class="product-link" style="cursor: pointer" onclick="addSigleProduct('{{$item->productGuid}}')">加入詢價車</a>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+        <div class="row">
+            <div class="col-md-12 btn-section">
+                <a href="/product" class="learn-more-btn">檢視更多產品</a>
+            </div>
+        </div>
+    </div>
     <div class="container product-list">
         <div class="row">
             @foreach (ProductView::getPopularProductsByCount(3) as $item)
@@ -252,6 +330,8 @@
                     </div>
                 </div>
             @endforeach
+        </div>
+        <div class="row">
             <div class="col-md-12 btn-section">
                 <a href="/product" class="learn-more-btn">檢視更多產品</a>
             </div>
@@ -283,7 +363,8 @@
                             @foreach (PostView::allasc(15) as $item)
                                 <a href="" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
                                     <div class="card">
-                                        <img class="card-img-top" src="{{$item->featureImage}}" alt="{{$item->postTitle}}">
+                                        <div class="featureImage" style="background-image: url('{{$item->featureImage}}');"></div>
+                                        {{-- <img class="card-img-top" src="{{$item->featureImage}}" alt="{{$item->postTitle}}"> --}}
                                         <div class="card-body">
                                             <h4 class="card-title">{{$item->postTitle}}</h4>
                                             <p><i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;&nbsp;{{Carbon::parse($item->created_at)->format('Y.m.d')}}</p>
@@ -302,7 +383,8 @@
                                 @foreach (PostView::getByCategory($value->categoryGuid, 15) as $item)
                                     <a href="" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
                                         <div class="card">
-                                            <img class="card-img-top" src="{{$item->featureImage}}" alt="{{$item->postTitle}}">
+                                            <div class="featureImage" style="background-image: url('{{$item->featureImage}}');"></div>
+                                            {{-- <img class="card-img-top" src="{{$item->featureImage}}" alt="{{$item->postTitle}}"> --}}
                                             <div class="card-body">
                                                 <h4 class="card-title">{{$item->postTitle}}</h4>
                                                 <p><i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;&nbsp;{{Carbon::parse($item->created_at)->format('Y.m.d')}}</p>
@@ -328,85 +410,88 @@
     <div class="index-banner-divider witness">
         <h2>我們的客戶</h2>
     </div>
-    <div class="container witness-list" data-aos="fade-up">
-        <div class="row">
-            <div class="col-md-11 mx-auto">
-                <button class="witness-arrow" id="prev-arrow">
-                    <i class="fa fa-caret-left" aria-hidden="true"></i>
-                </button>
-                <button class="witness-arrow" id="next-arrow">
-                    <i class="fa fa-caret-right" aria-hidden="true"></i>
-                </button>
-                <div class="witness-container">
-
-                    <div class="witness-item">
-                        <div class="witness-image">
-                            <img src="/img/partner1.jpg" alt="">
+    <div style="width: 85%; margin: 0 auto">
+        <div class="container witness-list" data-aos="fade-up">
+            <div class="row">
+                <div class="col-md-11 mx-auto">
+                    <button class="witness-arrow" id="prev-arrow">
+                        <i class="fa fa-caret-left" aria-hidden="true"></i>
+                    </button>
+                    <button class="witness-arrow" id="next-arrow">
+                        <i class="fa fa-caret-right" aria-hidden="true"></i>
+                    </button>
+                    <div class="witness-container">
+    
+                        <div class="witness-item">
+                            <div class="witness-image">
+                                <img src="/img/partner1.jpg" alt="">
+                            </div>
+                            {{-- <div class="withess-info">
+                                統一企業股份有限公司
+                                <br>
+                                <span>Uni-President Enterprises Corporation</span>
+                            </div> --}}
                         </div>
-                        {{-- <div class="withess-info">
-                            統一企業股份有限公司
-                            <br>
-                            <span>Uni-President Enterprises Corporation</span>
-                        </div> --}}
-                    </div>
-                    
-                    <div class="witness-item">
-                        <div class="witness-image">
-                            <img src="/img/partner2.png" alt="">
-                        </div>
-                        {{-- <div class="withess-info">
-                            金車股份有限公司
-                            <br>
-                            <span>King Car Industrial Co., Ltd</span>
-                        </div> --}}
-                    </div>
                         
-                    <div class="witness-item">
-                        <div class="witness-image">
-                            <img src="/img/partner3.jpg" alt="">
+                        <div class="witness-item">
+                            <div class="witness-image">
+                                <img src="/img/partner2.png" alt="">
+                            </div>
+                            {{-- <div class="withess-info">
+                                金車股份有限公司
+                                <br>
+                                <span>King Car Industrial Co., Ltd</span>
+                            </div> --}}
                         </div>
-                        {{-- <div class="withess-info">
-                            黑松股份有限公司
-                            <br>
-                            <span>HeySong Corporation</span>
-                        </div> --}}
-                    </div>
-                        
-                    <div class="witness-item">
-                        <div class="witness-image">
-                            <img src="/img/partner4.jpg" alt="">
+                            
+                        <div class="witness-item">
+                            <div class="witness-image">
+                                <img src="/img/partner3.jpg" alt="">
+                            </div>
+                            {{-- <div class="withess-info">
+                                黑松股份有限公司
+                                <br>
+                                <span>HeySong Corporation</span>
+                            </div> --}}
                         </div>
-                        {{-- <div class="withess-info">
-                            好市多股份有限公司
-                            <br>
-                            <span>Costco Wholesale Corporation</span>
-                        </div> --}}
-                    </div>
-                        
-                    <div class="witness-item">
-                        <div class="witness-image">
-                            <img src="/img/partner5.png" alt="">
+                            
+                        <div class="witness-item">
+                            <div class="witness-image">
+                                <img src="/img/partner4.jpg" alt="">
+                            </div>
+                            {{-- <div class="withess-info">
+                                好市多股份有限公司
+                                <br>
+                                <span>Costco Wholesale Corporation</span>
+                            </div> --}}
                         </div>
-                        {{-- <div class="withess-info">
-                            鼎泰豐小吃店股份有限公司
-                            <br>
-                            <span>Din Tai Fung</span>
-                        </div> --}}
-                    </div>
-                        
-                    <div class="witness-item">
-                        <div class="witness-image">
-                            <img src="/img/partner6.png" alt="">
+                            
+                        <div class="witness-item">
+                            <div class="witness-image">
+                                <img src="/img/partner5.png" alt="">
+                            </div>
+                            {{-- <div class="withess-info">
+                                鼎泰豐小吃店股份有限公司
+                                <br>
+                                <span>Din Tai Fung</span>
+                            </div> --}}
                         </div>
-                        {{-- <div class="withess-info">
-                            東京牛角股份有限公司
-                            <br>
-                            <span>REINS International</span>
-                        </div> --}}
+                            
+                        <div class="witness-item">
+                            <div class="witness-image">
+                                <img src="/img/partner6.png" alt="">
+                            </div>
+                            {{-- <div class="withess-info">
+                                東京牛角股份有限公司
+                                <br>
+                                <span>REINS International</span>
+                            </div> --}}
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    
 
 @endsection

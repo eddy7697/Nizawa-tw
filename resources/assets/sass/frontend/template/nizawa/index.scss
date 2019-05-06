@@ -412,6 +412,7 @@
             .swiper-slide {
                 background-repeat: no-repeat;
                 background-size: cover;
+                background-position: center;
                 
                 .slide-item {
                     padding: 40px;
@@ -522,6 +523,30 @@
     .product-list {
         margin: 15px auto 20px;
 
+        &.mobile {
+            display: none;
+        }
+        .product-arrow {
+            width: 40px;
+            height: 40px;
+            border: none;
+            border-radius: 50%;
+            color: #fff;
+            background-color: $main-color;
+            position: absolute;
+            display: block !important;
+            top: 35%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+            box-shadow: 2px 2px 12px -2px rgba($color: #000000, $alpha: 0.5);
+
+            &#product-prev-arrow {
+                left: 25px;
+            }
+            &#product-next-arrow {
+                right: -15px;
+            }
+        }
         .product-content {
             padding: 25px;
 
@@ -566,6 +591,7 @@
                         overflow : hidden;
                         text-overflow : ellipsis;
                         white-space : nowrap;
+                        width: 100%;
 
                         h3 {
                             margin: 0;
@@ -924,10 +950,10 @@
             transform: translate(-50%, -50%);
 
             &#prev-arrow {
-                left: -10px;
+                left: 0px;
             }
             &#next-arrow {
-                right: -50px;
+                right: -40px;
             }
         }
         .witness-container {
@@ -1790,7 +1816,86 @@
     }
 }
 
+@media (max-width: 916px) {
+    .site-content {
+        .swiper-container {
+            width: 100%;
+            padding-bottom: 0px;
+            .scrollDown {
+                display: none;
+            }
+            /* z-index: -1; */
+            .swiper-wrapper {
+                position: relative;
+                
+                .swiper-slide {
+                    
+                    .slide-item {
+                        position: relative;
+                        margin: 20px auto;
+                        right: inherit;
+                        width: 85%;
+
+    
+                        h2 {
+                        }
+                        .slide-info {
+                        }
+                        a.slide-btn {
+                        }
+                    }
+                }
+            }
+          }
+        .new-tabs {
+            margin-top: 20px;
+    
+            ul.nav-tabs {
+                border-bottom: none;
+    
+                li.nav-item {
+                    padding: 5px;
+                    display: flex;
+                    width: 50%;
+                    flex-direction: cloumn;
+                    
+                    a.nav-link {
+                        background-color: rgba($color: #FFF, $alpha: 0.6);
+                        padding: 15px 10px;
+                        border-radius: 10px;
+                        color: #333;
+                        font-size: 15px;
+                        text-align: center;
+                        border: #ccc solid thin;
+                        flex: 1;
+                        transition: all .2s ease;
+    
+                        &.active, &:hover {
+                            background-color: #efefef;
+                            padding: 15px 10px;
+                        }
+                    }
+                }
+            }
+        }
+        .new-list {
+            margin-top: 20px;
+        }
+    }
+}
+
 @media (max-width: 768px) {
+    .site-content {
+        .product-list {
+            margin: 15px auto 20px;
+            display: none;
+    
+            &.mobile {
+                display: block;
+            }
+            
+        }
+    }
     .site-footer .site-footer-content .footer-section {
         .footer-logo {
             left: 50%;
@@ -1813,6 +1918,10 @@
 }
 
 @media (max-width: 579px) {
+    .mobile-site-header .header-logo {
+        width: 45%;
+        height: auto;
+    }
     .site-footer .site-footer-content {
         padding: 0 10px;
 
