@@ -285,12 +285,17 @@
             background: url('/img/icon/burger-open.svg');
         }
     }
-    .header-logo {
+    a.header-logo {
         position: absolute;
-        height: 60px;
+        // height: 60px;
+        width: 250px;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
+        
+        img {
+            width: 100%;
+        }
     }
 }
 .mobile-site-menu {
@@ -829,6 +834,9 @@
     .new-list {
         margin-top: 80px;
 
+        &.mobile {
+            display: none;
+        }
         .news-search-form {
 
             .search-input {
@@ -1895,6 +1903,13 @@
             }
             
         }
+        .new-list {
+            display: none;
+            
+            &.mobile {
+                display: block;
+            }
+        }
     }
     .site-footer .site-footer-content .footer-section {
         .footer-logo {
@@ -1918,7 +1933,7 @@
 }
 
 @media (max-width: 579px) {
-    .mobile-site-header .header-logo {
+    .mobile-site-header a.header-logo {
         width: 45%;
         height: auto;
     }

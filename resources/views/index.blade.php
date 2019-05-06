@@ -405,6 +405,57 @@
             </div>
         </div>
     </div>
+    <div class="container new-list mobile">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                        <div class="card-columns">
+                            @foreach (PostView::allasc(3) as $item)
+                                <a href="" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+                                    <div class="card">
+                                        <div class="featureImage" style="background-image: url('{{$item->featureImage}}');"></div>
+                                        {{-- <img class="card-img-top" src="{{$item->featureImage}}" alt="{{$item->postTitle}}"> --}}
+                                        <div class="card-body">
+                                            <h4 class="card-title">{{$item->postTitle}}</h4>
+                                            <p><i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;&nbsp;{{Carbon::parse($item->created_at)->format('Y.m.d')}}</p>
+                                            <div class="card-info">
+                                                <p class="card-text">{{mb_strimwidth(preg_replace('#<[^>]+>#', ' ', $item->content), 0, 300, "...")}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>                        
+                            @endforeach
+                        </div>
+                    </div>
+                    @foreach (CategoryView::post() as $value)
+                        <div class="tab-pane fade" id="{{$value->categoryGuid}}" role="tabpanel" aria-labelledby="{{$value->categoryGuid}}-tab">
+                            <div class="card-columns">
+                                @foreach (PostView::getByCategory($value->categoryGuid, 3) as $item)
+                                    <a href="" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+                                        <div class="card">
+                                            <div class="featureImage" style="background-image: url('{{$item->featureImage}}');"></div>
+                                            {{-- <img class="card-img-top" src="{{$item->featureImage}}" alt="{{$item->postTitle}}"> --}}
+                                            <div class="card-body">
+                                                <h4 class="card-title">{{$item->postTitle}}</h4>
+                                                <p><i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;&nbsp;{{Carbon::parse($item->created_at)->format('Y.m.d')}}</p>
+                                                <div class="card-info">
+                                                    <p class="card-text">{{mb_strimwidth(preg_replace('#<[^>]+>#', ' ', $item->content), 0, 300, "...")}}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>                        
+                                @endforeach
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+            <div class="col-md-12 btn-section">
+                <a href="" class="learn-more-btn">檢視更多歷史訊息</a>
+            </div>
+        </div>
+    </div>
 
     {{-- Witness --}}
     <div class="index-banner-divider witness">

@@ -7,5 +7,10 @@
     <polyline class="cls-3" points="95.66 83.41 150 110.58 204.34 83.41"/>
     <line class="cls-3" x1="150" y1="176.6" x2="150" y2="110.58"/>
     <line class="cls-3" x1="121.93" y1="68.48" x2="178.07" y2="96.55"/>
-    <text class="cls-2" transform="translate(75.18 238.89)" font-weight="bold">製程品管</text>
+    @if (App::getLocale() == 'en')
+    <text class="cls-2" transform="translate(10 238.89)" font-weight="bold">{{$title}}</text>    
+    @else
+    <text class="cls-2" transform="translate(75.18 238.89)" font-weight="bold">{{$title}}</text>
+    @endif
+    
 </svg>

@@ -42,7 +42,7 @@
                     <li class="col-md-2 mx-auto category-btn-section nav-item">
                     <a class="nav-link category-btn {{$rootLayer->categoryGuid == $item->categoryGuid ? 'active' : ''}}" href="/product?main={{$item->categoryGuid}}">
                         {{-- <a class="nav-link category-btn {{$rootLayer->categoryGuid == $item->categoryGuid ? 'active' : ''}}" data-toggle="tab" href="#main-tab-{{$key}}"> --}}
-                            @include('components.icon.type'.($key + 1))
+                            @include('components.icon.type'.($key + 1), ['title' => json_decode($item->categoryTitle, true)[App::getLocale()]])
                         </a>
                     </li>
                 @endforeach
@@ -64,7 +64,7 @@
                         <li class="nav-item">
                             <a class="nav-link {{ $activeGuid == $item->categoryGuid ? 'active' : ''}}" href="/product?sub={{$item->categoryGuid}}">
                             {{-- <a class="nav-link {{ $activeGuid == $item->categoryGuid ? 'active' : ''}}" data-toggle="tab" href="#tab-{{$index}}-{{$key}}"> --}}
-                                {{$item->categoryTitle}}
+                                {{json_decode($item->categoryTitle, true)[App::getLocale()]}}
                                 <div class="bar"></div>
                             </a>
                         </li>
@@ -81,7 +81,7 @@
                             <ul class="sub-category-list">
                                 @foreach ($child as $elm)
                                     <li>
-                                        <a class="{{$category->categoryGuid == $elm->categoryGuid ? 'active' : ''}}" href="/product/category/{{$elm->categoryGuid}}">{{$elm->categoryTitle}}</a>
+                                        <a class="{{$category->categoryGuid == $elm->categoryGuid ? 'active' : ''}}" href="/product/category/{{$elm->categoryGuid}}">{{json_decode($elm->categoryTitle, true)[App::getLocale()]}}</a>
                                     </li>
                                 @endforeach
                             </ul>

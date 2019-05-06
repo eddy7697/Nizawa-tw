@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Input;
 use Illuminate\Auth\Events\Registered;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Redirect;
+use Google\Cloud\Translate\TranslateClient;
 use App\Product;
 use App\User;
 use App\Bonus;
@@ -246,5 +247,20 @@ class HomeController extends Controller
         
         imagepng($captcha_image);
         imagedestroy($captcha_image);
+    }
+
+    public function translate($lang, $target)
+    {
+        $translate = new TranslateClient([
+            'key' => 'AIzaSyDS-llQqhTGnPLh36N-ZfyJIi4jfEBmohQ'
+        ]);
+        
+        // Translate text from english to french.
+        $result = $translate->translate($target, [
+            'target' => $lang
+        ]);
+        
+        echo $result['text'] . "\n";
+        
     }
 }

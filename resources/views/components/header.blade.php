@@ -186,7 +186,7 @@
 
 <section class="mobile-site-header">
     <div id="menu-btn" class="menu-btn"></div>
-    <img class="header-logo" src="/img/site-logo/logo_footer.png" alt="">
+    <a class="header-logo" href="/"><img src="/img/site-logo/logo_footer.png" alt=""></a>    
     <img src="/img/icon/burger-open.svg" style="display: none">
     <img src="/img/icon/burger-close.svg" style="display: none">
 </section>

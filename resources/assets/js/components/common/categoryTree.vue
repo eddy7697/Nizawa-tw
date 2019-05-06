@@ -362,9 +362,27 @@
                 });
             },
             translateTitle() {
-                console.log(this.editCategoryForm)
-                axios.get(`https://translation.googleapis.com/language/translate/v2?target=en&key=AIzaSyDS-llQqhTGnPLh36N-ZfyJIi4jfEBmohQ&q=${this.editCategoryForm.categoryName['zh-TW']}`, { 'headers': { 'Content-Type': 'application/x-www-form-urlencoded' } })
-                
+                let count = 0
+                $('.loading-bar').show()
+
+                axios.post(`/api/translate/zh-CN/${this.editCategoryForm.categoryName['zh-TW']}`)
+                    .then(res => {
+                        this.editCategoryForm.categoryName['zh-CN'] = res.data
+                        count += 1
+
+                        if (count > 1) {
+                            $('.loading-bar').hide()
+                        }
+                    })
+                axios.post(`/api/translate/en/${this.editCategoryForm.categoryName['zh-TW']}`)
+                    .then(res => {
+                        this.editCategoryForm.categoryName['en'] = res.data
+                        count += 1
+
+                        if (count > 1) {
+                            $('.loading-bar').hide()
+                        }
+                    })
             },
             generateTree(data) {
                 var self = this
