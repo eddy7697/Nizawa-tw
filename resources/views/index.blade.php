@@ -349,7 +349,9 @@
             </li>
             @foreach (CategoryView::post() as $item)
                 <li class="nav-item">
-                    <a class="nav-link" id="{{$item->categoryGuid}}-tab" data-toggle="tab" href="#{{$item->categoryGuid}}" role="tab" aria-controls="{{$item->categoryGuid}}" aria-selected="false">{{$item->categoryTitle}}</a>
+                    <a class="nav-link" id="{{$item->categoryGuid}}-tab" data-toggle="tab" href="#{{$item->categoryGuid}}" role="tab" aria-controls="{{$item->categoryGuid}}" aria-selected="false">
+                        {{json_decode($item->categoryTitle, true)[App::getLocale()]}}    
+                    </a>
                 </li>
             @endforeach
         </ul>
