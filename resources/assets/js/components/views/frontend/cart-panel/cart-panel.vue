@@ -64,13 +64,13 @@
 
 
 <script>
-    import ElementUI from 'element-ui';
-    import 'element-ui/lib/theme-chalk/index.css';
-    import lang from 'element-ui/lib/locale/lang/zh-TW'
-    import locale from 'element-ui/lib/locale'
+    // import ElementUI from 'element-ui';
+    // import 'element-ui/lib/theme-chalk/index.css';
+    // import lang from 'element-ui/lib/locale/lang/zh-TW'
+    // import locale from 'element-ui/lib/locale'
 
-    Vue.use(ElementUI);
-    locale.use(lang)
+    // Vue.use(ElementUI);
+    // locale.use(lang)
     $('.loading-bar').fadeOut('100');
     export default {
         data() {
@@ -246,9 +246,11 @@
 
                 axios.post(`/cart/add/single/${guid}`
                     ).then(res => {
-                        self.$message.success(this.i18n.add_success)
+                        toastr.success(this.i18n.add_success)
+                        // self.$message.success(this.i18n.add_success)
                     }).catch(err => {
-                        self.$message.error(this.i18n.add_fail)
+                        toastr.error(this.i18n.add_fail)
+                        // self.$message.error(this.i18n.add_fail)
                     }).then(arg => {
                         self.getCart()
                     })
