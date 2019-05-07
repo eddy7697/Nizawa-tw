@@ -57,7 +57,7 @@ return [
     'founded' => '成立於',
     'merchandise_quantity' => '產品數量',
     'customer_accumulation' => '客戶累積',
-    'return_rate' => '客戶回單綠',
+    'return_rate' => '客戶回單率',
 
     'content_construction' => '內容建置中',
 ];

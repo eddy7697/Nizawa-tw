@@ -47,17 +47,17 @@
                                 <h3>{{ trans('string.about') }}</h3>
                                 <ul class="site-map">
                                     <li><a href="/about">{{ trans('string.about2') }}</a></li>
-                                    <li><a href="">{{ trans('string.responsibility') }}</a></li>
+                                    <li><a href="/about/responsibility">{{ trans('string.responsibility') }}</a></li>
                                     <li><a href="/about/career">{{ trans('string.recruiting') }}</a></li>
-                                    <li><a href="">{{ trans('string.about4') }}</a></li>
+                                    <li><a href="/contact">{{ trans('string.about4') }}</a></li>
                                 </ul>
                             </div>
                             <div class="col-sm-6 col-md-3 site-map-container">
                                 <h3>{{ trans('string.support') }}</h3>
                                 <ul class="site-map">
-                                    <li><a href="">{{ trans('string.service') }}</a></li>
-                                    <li><a href="">{{ trans('string.faq') }}</a></li>
-                                    <li><a href="">{{ trans('string.download') }}</a></li>
+                                    <li><a href="/service">{{ trans('string.service') }}</a></li>
+                                    <li><a href="/qna">{{ trans('string.faq') }}</a></li>
+                                    <li><a href="/download">{{ trans('string.download') }}</a></li>
                                 </ul>
                             </div>
                             <div class="col-md-6 sub-form-container">

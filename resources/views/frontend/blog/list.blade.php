@@ -11,7 +11,7 @@
 <div class="sub-page-banner" style="background-image: url('/img/sub-banner.jpg');">
     <div>
         <h2>新聞中心</h2>
-        <h4>News & Informationa</h4>
+        <h4>News & Information</h4>
         <hr>
         <h5>我們將不定時更新關於日澤各種最新動態，歡迎您隨時關注我們</h5>
     </div>
@@ -26,7 +26,7 @@
     </div>
 </div>
 <div id="post-list">
-<post-list></post-list>
+<post-list locale="{{App::getLocale()}}"></post-list>
 </div>
 {{-- <div class="container">
     <div class="row">

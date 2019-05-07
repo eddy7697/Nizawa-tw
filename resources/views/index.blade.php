@@ -304,7 +304,7 @@
         </div>
         <div class="row">
             <div class="col-md-12 btn-section">
-                <a href="/product" class="learn-more-btn">{{ trans('learn_more_products') }}</a>
+                <a href="/product" class="learn-more-btn">{{ trans('string.learn_more_products') }}</a>
             </div>
         </div>
     </div>

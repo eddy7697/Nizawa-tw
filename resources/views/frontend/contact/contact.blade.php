@@ -111,10 +111,13 @@
                             <p>問題類型</p>
                         </div>
                         <div class="col-md-8 column">
-                            <select name="type" class="form-control">
-                                <option value="問題類型 1">問題類型 1</option>
-                                <option value="問題類型 2">問題類型 2</option>
-                                <option value="問題類型 3">問題類型 3</option>
+                            <select name="type" class="form-control" required>
+                                <option disabled>--請選擇問題類型--</option>
+                                <option value="產品諮詢">產品諮詢</option>
+                                <option value="詢價問題">詢價問題</option>
+                                <option value="訂單問題">訂單問題</option>
+                                <option value="服務支援">服務支援</option>
+                                <option value="其他諮詢">其他諮詢</option>
                             </select>
                         </div>
                     </div>

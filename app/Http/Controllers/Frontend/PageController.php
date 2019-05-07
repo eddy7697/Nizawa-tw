@@ -40,6 +40,31 @@ class PageController extends Controller
 
         return view('frontend.product.productAll', [
             'productAll' => $productAll,
+            'mode' => 'all',
+            'thumb' => '<a href="/">首頁</a>&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;系列商品'
+        ]);
+    }
+    
+    public function productMain($guid)
+    {
+        $productAll = Product::paginate(15);
+
+        return view('frontend.product.productAll', [
+            'productAll' => $productAll,
+            'guid' => $guid,
+            'mode' => 'main',
+            'thumb' => '<a href="/">首頁</a>&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;系列商品'
+        ]);
+    }
+
+    public function productSub($guid)
+    {
+        $productAll = Product::paginate(15);
+
+        return view('frontend.product.productAll', [
+            'productAll' => $productAll,
+            'guid' => $guid,
+            'mode' => 'sub',
             'thumb' => '<a href="/">首頁</a>&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;系列商品'
         ]);
     }

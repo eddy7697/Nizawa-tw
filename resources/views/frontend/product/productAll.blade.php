@@ -8,13 +8,12 @@
     $root = Category::where('type', 'product')->whereNull('parentId')->get();
     $rootFirst = Category::where('type', 'product')->whereNull('parentId')->first();
 
-    if (isset($_GET['main'])) {
-        Log::info($_GET['main']);
-        $rootFirst = Category::where('type', 'product')->where('categoryGuid', $_GET['main'])->first();
+    if ($mode == 'main') {
+        $rootFirst = Category::where('type', 'product')->where('categoryGuid', $guid)->first();
     }
 
-    if (isset($_GET['sub'])) {
-        $category = Category::where('type', 'product')->where('categoryGuid', $_GET['sub'])->first();
+    if ($mode == 'sub') {
+        $category = Category::where('type', 'product')->where('categoryGuid', $guid)->first();
         $rootFirst = Category::where('type', 'product')->where('categoryGuid',$category->parentId)->first();
     }
     
@@ -50,7 +49,7 @@
             <ul class="row nav nav-tabs">
                 @foreach ($root as $key => $item)
                     <li class="col-md-2 mx-auto category-btn-section nav-item">
-                        <a class="nav-link category-btn {{$rootFirst->categoryGuid == $item->categoryGuid ? 'active' : ''}}" href="/product?main={{$item->categoryGuid}}">
+                        <a class="nav-link category-btn {{$rootFirst->categoryGuid == $item->categoryGuid ? 'active' : ''}}" href="/product/main/{{$item->categoryGuid}}">
                         {{-- <a class="nav-link category-btn {{$rootFirst->categoryGuid == $item->categoryGuid ? 'active' : ''}}" data-toggle="tab" href="#main-tab-{{$key}}"> --}}
                             @include('components.icon.type'.($key + 1), ['title' => json_decode($item->categoryTitle, true)[App::getLocale()]])
                         </a>
@@ -72,13 +71,13 @@
                         
                         <li class="nav-item">
                             @php
-                                if (isset($_GET['sub'])) {
-                                    $active = $_GET['sub'] == $item->categoryGuid;
+                                if ($mode == 'sub') {
+                                    $active = $guid == $item->categoryGuid;
                                 } else {
                                     $active = $key == 0;
                                 }
                             @endphp
-                            <a class="nav-link {{ $active ? 'active' : ''}}" href="/product?sub={{$item->categoryGuid}}">
+                            <a class="nav-link {{ $active ? 'active' : ''}}" href="/product/sub/{{$item->categoryGuid}}">
                                 {{json_decode($item->categoryTitle, true)[App::getLocale()]}}
                                 <div class="bar"></div>
                             </a>
@@ -92,8 +91,8 @@
                         @php
                             $child = Category::where('parentId', $item->categoryGuid)->get();
 
-                            if (isset($_GET['sub'])) {
-                                $active = $_GET['sub'] == $item->categoryGuid;
+                            if ($mode == 'sub') {
+                                $active = $guid == $item->categoryGuid;
                             } else {
                                 $active = $key == 0;
                             }
@@ -117,11 +116,11 @@
             $pageCount = 9;
             $products = Product::show()->paginate($pageCount);
 
-            if (isset($_GET['main'])) {
-                $products = Product::show()->where('mainCategory', $_GET['main'])->paginate($pageCount);
+            if ($mode == 'main') {
+                $products = Product::show()->where('mainCategory', $guid)->paginate($pageCount);
             }
-            if (isset($_GET['sub'])) {
-                $products = Product::show()->where('subCategory', $_GET['sub'])->paginate($pageCount);
+            if ($mode == 'sub') {
+                $products = Product::show()->where('subCategory', $guid)->paginate($pageCount);
             }
         @endphp
         @foreach ($products as $item)
@@ -145,7 +144,58 @@
             </div>
         @endforeach
         <div class="col-md-12 pagination-section">
-            {{$products}}
+            @php
+                $page = json_decode(json_encode($products));
+                $breakPoint = 1;
+
+                function pageNumVisible($item, $current_page, $breakPoint) {	
+                    if ($item > $current_page + ($breakPoint - 1)) {
+                        return false;
+                    }
+                    if ($item + ($breakPoint + 1) < $current_page) {
+                        return false;
+                    }
+                    return true;
+                }
+            @endphp
+            <nav aria-label="Page navigation example">
+                <ul class="pagination justify-content-center">
+                    @if ($page->prev_page_url)
+                        <li class="page-item">
+                            <a class="page-link" href="{{$page->first_page_url}}" tabindex="-1">&#xAB;</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="{{$page->prev_page_url}}" tabindex="-1">&#8249;</a>
+                        </li>
+                    @endif
+                    @if ($breakPoint + 1 < $page->current_page)
+                        <li class="page-item">
+                            <a class="page-link" href="{{$page->path.'?page='.($page->current_page - $breakPoint - 1)}}">...</a>
+                        </li>
+                    @endif
+                    @for ($i = 0; $i < $page->last_page; $i++)                        
+                        @if (pageNumVisible($i, $page->current_page, $breakPoint))
+                            <li class="page-item {{$i + 1 == $page->current_page ? 'active' : ''}}">
+                                <a class="page-link" href="{{$page->path.'?page='.($i + 1)}}">{{$i + 1}}</a>
+                            </li>
+                        @endif                        
+                    @endfor
+                    @if ($page->last_page > $page->current_page + $breakPoint)
+                        <li class="page-item">
+                            <a class="page-link" href="{{$page->path.'?page='.($page->current_page + $breakPoint + 1)}}">...</a>
+                        </li>
+                    @endif
+                    @if ($page->next_page_url)
+                        <li class="page-item">
+                            <a class="page-link" href="{{$page->next_page_url}}">&#8250;</a>
+                        </li>    
+                        <li class="page-item">
+                            <a class="page-link" href="{{$page->last_page_url}}" tabindex="-1">&#xBB;</a>
+                        </li>
+                    @endif
+                    
+                </ul>
+            </nav>
         </div>
     </div>
 </div>

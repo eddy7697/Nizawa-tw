@@ -19,7 +19,7 @@
 					<button class="btn site-btn" 
 						v-for="(item, index) in categoryList.data" 
 						@click="selectedCategory = item.categoryGuid"
-						:key="index">{{item.categoryTitle}}</button>
+						:key="index">{{parseTitle(item.categoryTitle)}}</button>
 				</div>
 
 				<div class="col-md-12">
@@ -43,7 +43,7 @@
 					<div v-if="pageData.current_page == pageData.last_page" class="scrolldown-endpoint">
 						<img src="/img/findmore.png" alt="">
 						<h4>Oops...看起來你已經看完所有的消息！</h4>
-						<p>找不到你要的嗎？試著使用我們的搜尋功能或是聯絡我們看看吧！</p>
+						<p>找不到你要的嗎？試著使用我們的搜尋功能或是<a href="/contact">聯絡我們</a>看看吧！</p>
 					</div>
 					<img v-if="isLoadingLearnMore" width="50" src="/img/icon/loading-spinner.svg">
 				</div>
@@ -56,6 +56,7 @@
     export default {
         mounted () {
         },
+		props: ['locale'],
         data () {
             return {
 				pageLoaded: false,
@@ -141,6 +142,9 @@
 						})
 				}
                 
+			},
+			parseTitle(title) {
+				return JSON.parse(title)[this.locale]
 			},
 			scrollMore(){
                 let timer;

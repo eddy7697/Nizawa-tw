@@ -28,7 +28,7 @@
 <div class="sub-page-banner" style="background-image: url('/img/sub-banner.jpg');">
     <div>
         <h2>{{ trans('string.about') }}</h2>
-        <h4>About KASAHARA</h4>
+        <h4>About NIZAWA</h4>
         <hr>
         <h5>{{ trans('string.aboutDesc') }}</h5>
     </div>

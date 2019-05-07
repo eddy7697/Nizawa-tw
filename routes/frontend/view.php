@@ -33,6 +33,8 @@ Route::get('/maintenance', function ()
 // Route::get('/product-detail/{id}/show', 'Frontend\ProductController@productDetailFromId');
 Route::get('/product-detail/{guid}', 'Frontend\ProductController@productDetailFromPath')->name('productDetail');
 Route::get('/product', 'Frontend\PageController@productAll');
+Route::get('/product/main/{guid}', 'Frontend\PageController@productMain');
+Route::get('/product/sub/{guid}', 'Frontend\PageController@productSub');
 Route::get('/product/category/{guid}', 'Frontend\ProductController@productCategory');
 
 /**
