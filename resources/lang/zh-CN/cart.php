@@ -7,6 +7,7 @@ return [
     'back_to_list' => '回到产品中心',
     'serial_number' => '型号',
     'my_cart' => '我的询价车',
+    'add_cart' => '加入询价车',
 
     'confirm_delete' => '确认要移除此产品?',
     'confirm_delete_all' => '确认要删除所有产品?',

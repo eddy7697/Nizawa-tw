@@ -20,6 +20,7 @@ return [
     'submit' => 'send',
     'privacy' => 'Privacy Policy',
     'notice' => 'Terms of Use',
+    'industrial_application' => 'Industry Application',
 
     'placeholder_sub1' => 'Please enter a name...',
     'placeholder_sub2' => 'Please enter email...',
@@ -32,11 +33,17 @@ return [
     'postcode' => 'Postal area code',
     'working' => 'service time',
 
-
     'count_create' => 'established in',
     'count_product' => 'Product quantity',
     'count_mem' => 'Customer accumulation',
     'count_retrun' => 'Customer return rate',
+
+    'product_center' => 'Product Center',
+    'learn_more_products' => 'View more products',
+    'news_center' => 'News Center',
+    'all_news' => 'all articles',
+    'learn_more_news' => 'View more history messages',
+    'our_customer' => 'our customer',
 
     'indu1' => 'Water industry',
     'indu2' => 'Electronics industry',
@@ -46,6 +53,11 @@ return [
     'indu6' => 'Food industry',
     'indu7' => 'Cosmeceutical industry',
     'indu8' => 'Industrial Engineering',
+
+    'founded' => 'Established in',
+    'merchandise_quantity' => 'Product quantity',
+    'customer_accumulation' => 'Customer accumulation',
+    'return_rate' => 'Customer returns single green',
 
     'content_construction' => 'Content construction',
 ];

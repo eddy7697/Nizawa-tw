@@ -34,13 +34,13 @@
                         </div>
                     </li>
                 </ul>
-                <ul class="site-menu">
-                    <li><a class="mega-btn" data-menu-target="about">關於日澤&nbsp;&nbsp;<i class="fa fa-caret-down mega-arrow" aria-hidden="true"></i></a></li>
-                    <li><a href="/product">產品中心</a></li>
-                    <li><a class="mega-btn" data-menu-target="industry">產業應用&nbsp;&nbsp;<i class="fa fa-caret-down mega-arrow" aria-hidden="true"></i></a></li>
-                    <li><a href="/blog">新聞中心</a></li>
-                    <li><a class="mega-btn" data-menu-target="support">服務支援&nbsp;&nbsp;<i class="fa fa-caret-down mega-arrow" aria-hidden="true"></i></a></li>
-                    <li><a href="/contact">聯絡我們</a></li>
+                <ul class="site-menu {{App::getLocale()}}">
+                    <li><a class="mega-btn" data-menu-target="about">{{ trans('string.about') }}&nbsp;&nbsp;<i class="fa fa-caret-down mega-arrow" aria-hidden="true"></i></a></li>
+                    <li><a href="/product">{{ trans('string.product_center') }}</a></li>
+                    <li><a class="mega-btn" data-menu-target="industry">{{ trans('string.industrial_application') }}&nbsp;&nbsp;<i class="fa fa-caret-down mega-arrow" aria-hidden="true"></i></a></li>
+                    <li><a href="/blog">{{ trans('string.news_center') }}</a></li>
+                    <li><a class="mega-btn" data-menu-target="support">{{trans('string.support')}}&nbsp;&nbsp;<i class="fa fa-caret-down mega-arrow" aria-hidden="true"></i></a></li>
+                    <li><a href="/contact">{{ trans('string.about4') }}</a></li>
                 </ul>
             </div>
         </div>
@@ -56,75 +56,84 @@
         <div class="row mega-nav-item" id="about">
             <div class="col-md-2 left-col">
                 <div class="menu-header">
-                    <h3>關於日澤</h3>
+                    <h3>{{ trans('string.about') }}</h3>
                     <hr>
-                    <p>About Nizawa</p>
+                    @unless (App::getLocale() == 'en')
+                        <p>About Nizawa</p>    
+                    @endunless
+                    
                 </div>
             </div>
             <div class="col-md-10 right-col">
                 <ul class="site-mega-menu-container">
                     <li class="site-mega-menu-item">
                         <a href="/about" class="site-mega-menu-link">
-                            <img src="/img/menu/about.jpg" alt="關於日澤">
-                            <p class="header-job-txt">關於日澤</p>
+                            <img src="/img/menu/about.jpg" alt="{{ trans('string.about') }}">
+                            <p class="header-job-txt">{{ trans('string.about') }}</p>
                         </a>
                     </li>
                     <li class="site-mega-menu-item">
                         <a href="/about/responsibility" class="site-mega-menu-link">
-                            <img src="/img/menu/res.jpg" alt="企業社會責任">
-                            <p class="header-job-txt">企業社會責任</p>
+                            <img src="/img/menu/res.jpg" alt="{{ trans('string.responsibility') }}">
+                            <p class="header-job-txt">{{ trans('string.responsibility') }}</p>
                         </a>
                     </li>
                     <li class="site-mega-menu-item">
                         <a href="/about/career" class="site-mega-menu-link">
-                            <img src="/img/menu/hr.jpg" alt="人才招募">
-                            <p class="header-job-txt">人才招募</p>
+                            <img src="/img/menu/hr.jpg" alt="{{ trans('string.recruiting') }}">
+                            <p class="header-job-txt">{{ trans('string.recruiting') }}</p>
                         </a>
                     </li>
                 </ul>
             </div>
         </div>
 
-        {{-- 服務支援 --}}
+        {{-- {{trans('string.support')}} --}}
         <div class="row mega-nav-item" id="support">
             <div class="col-md-2 left-col">
                 <div class="menu-header">
-                    <h3>服務支援</h3>
+                    <h3>{{ trans('string.support') }}</h3>
                     <hr>
-                    <p>Support</p>
+                    @unless (App::getLocale() == 'en')
+                    <p>Support</p>    
+                    @endunless
+                    
                 </div>
             </div>
             <div class="col-md-10 right-col">
                 <ul class="site-mega-menu-container">
                     <li class="site-mega-menu-item">
                         <a href="/service" class="site-mega-menu-link">
-                            <img src="/img/menu/service.jpg" alt="售後服務">
-                            <p class="header-job-txt">售後服務</p>
+                            <img src="/img/menu/service.jpg" alt="{{trans('string.service')}}">
+                            <p class="header-job-txt">{{trans('string.service')}}</p>
                         </a>
                     </li>
                     <li class="site-mega-menu-item">
                         <a href="/qna" class="site-mega-menu-link">
-                            <img src="/img/menu/qna.jpg" alt="常見問題">
-                            <p class="header-job-txt">常見問題</p>
+                            <img src="/img/menu/qna.jpg" alt="{{trans('string.faq')}}">
+                            <p class="header-job-txt">{{trans('string.faq')}}</p>
                         </a>
                     </li>
                     <li class="site-mega-menu-item">
                         <a href="/download" class="site-mega-menu-link">
-                            <img src="/img/menu/download.jpg" alt="資料下載">
-                            <p class="header-job-txt">資料下載</p>
+                            <img src="/img/menu/download.jpg" alt="{{trans('string.download')}}">
+                            <p class="header-job-txt">{{trans('string.download')}}</p>
                         </a>
                     </li>
                 </ul>
             </div>
         </div>
 
-        {{-- 產業應用 --}}
+        {{-- {{ trans('string.industrial_application') }} --}}
         <div class="row mega-nav-item" id="industry">
             <div class="col-md-2 left-col">
                 <div class="menu-header">
-                    <h3>產業應用</h3>
+                    <h3>{{ trans('string.industrial_application') }}</h3>
                     <hr>
-                    <p>Industrial application</p>
+                    @unless (App::getLocale() == 'en')
+                    <p>Industrial application</p>    
+                    @endunless
+                    
                     <a href="/industry" class="link-mask"></a>
                 </div>
             </div>
@@ -132,50 +141,50 @@
                 <ul class="site-mega-menu-container">
                     <li class="site-mega-menu-item">
                         <a href="/industry/water" class="site-mega-menu-link">
-                            <img src="/img/about/album/about-1.jpg" alt="自來水業">
-                            <p class="header-job-txt">自來水業</p>
+                            <img src="/img/about/album/about-1.jpg" alt="{{trans('string.indu1')}}">
+                            <p class="header-job-txt">{{trans('string.indu1')}}</p>
                         </a>
                     </li>
                     <li class="site-mega-menu-item">
                         <a href="/industry/electronics" class="site-mega-menu-link">
-                            <img src="/img/about/album/about-2.jpg" alt="電子行業">
-                            <p class="header-job-txt">電子行業</p>
+                            <img src="/img/about/album/about-2.jpg" alt="{{trans('string.indu2')}}">
+                            <p class="header-job-txt">{{trans('string.indu2')}}</p>
                         </a>
                     </li>
                     <li class="site-mega-menu-item">
                         <a href="/industry/life" class="site-mega-menu-link">
-                            <img src="/img/about/album/about-3.jpg" alt="生活污水">
-                            <p class="header-job-txt">生活污水</p>
+                            <img src="/img/about/album/about-3.jpg" alt="{{trans('string.indu3')}}">
+                            <p class="header-job-txt">{{trans('string.indu3')}}</p>
                         </a>
                     </li>
                     <li class="site-mega-menu-item">
                         <a href="/industry/industrial" class="site-mega-menu-link">
-                            <img src="/img/about/album/about-4.jpg" alt="工業污水">
-                            <p class="header-job-txt">工業污水</p>
+                            <img src="/img/about/album/about-4.jpg" alt="{{trans('string.indu4')}}">
+                            <p class="header-job-txt">{{trans('string.indu4')}}</p>
                         </a>
                     </li>
                     <li class="site-mega-menu-item">
                         <a href="/industry/fishery" class="site-mega-menu-link">
-                            <img src="/img/about/album/about-5.jpg" alt="養殖漁業">
-                            <p class="header-job-txt">養殖漁業</p>
+                            <img src="/img/about/album/about-5.jpg" alt="{{trans('string.indu5')}}">
+                            <p class="header-job-txt">{{trans('string.indu5')}}</p>
                         </a>
                     </li>
                     <li class="site-mega-menu-item">
                         <a href="/industry/food" class="site-mega-menu-link">
-                            <img src="/img/about/album/about-6.jpg" alt="食品行業">
-                            <p class="header-job-txt">食品行業</p>
+                            <img src="/img/about/album/about-6.jpg" alt="{{trans('string.indu6')}}">
+                            <p class="header-job-txt">{{trans('string.indu6')}}</p>
                         </a>
                     </li>
                     <li class="site-mega-menu-item">
                         <a href="/industry/cosmeceutical" class="site-mega-menu-link">
-                            <img src="/img/about/album/about-7.jpg" alt="藥妝行業">
-                            <p class="header-job-txt">藥妝行業</p>
+                            <img src="/img/about/album/about-7.jpg" alt="{{trans('string.indu7')}}">
+                            <p class="header-job-txt">{{trans('string.indu7')}}</p>
                         </a>
                     </li>
                     <li class="site-mega-menu-item">
                         <a href="/industry/industrialEngineering" class="site-mega-menu-link">
-                            <img src="/img/about/album/about-8.jpg" alt="工業工程">
-                            <p class="header-job-txt">工業工程</p>
+                            <img src="/img/about/album/about-8.jpg" alt="{{trans('string.indu8')}}">
+                            <p class="header-job-txt">{{trans('string.indu8')}}</p>
                         </a>
                     </li>
                 </ul>
@@ -192,11 +201,11 @@
 </section>
 <section class="mobile-site-menu hide">
     <ul class="menu-item">
-        <li><a href="">關於日澤</a></li>
-        <li><a href="/product">產品中心</a></li>
-        <li><a href="">產業應用</a></li>
-        <li><a href="/blog">新聞中心</a></li>
-        <li><a href="">服務支援</a></li>
-        <li><a href="/contact" class="active">聯絡我們</a></li>
+        <li><a href="">{{ trans('string.about') }}</a></li>
+        <li><a href="/product">{{ trans('string.product_center') }}</a></li>
+        <li><a href="">{{ trans('string.industrial_application') }}</a></li>
+        <li><a href="/blog">{{ trans('string.news_center') }}</a></li>
+        <li><a href="">{{trans('string.support')}}</a></li>
+        <li><a href="/contact" class="active">{{ trans('string.about4') }}</a></li>
     </ul>
 </section>

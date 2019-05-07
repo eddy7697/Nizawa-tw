@@ -222,7 +222,7 @@
                             0
                         </div>
                         <div class="text">
-                            成立於
+                            {{ trans('string.founded') }}
                         </div>
                     </div>
                 </div>
@@ -235,7 +235,7 @@
                             0
                         </div>
                         <div class="text">
-                            產品數量
+                            {{ trans('string.merchandise_quantity') }}
                         </div>
                     </div>
                 </div>
@@ -248,7 +248,7 @@
                             0
                         </div>
                         <div class="text">
-                            客戶累積
+                            {{ trans('string.customer_accumulation') }}
                         </div>
                     </div>
                 </div>
@@ -261,7 +261,7 @@
                             0
                         </div>
                         <div class="text">
-                            客戶回單率
+                            {{ trans('string.return_rate') }}
                         </div>
                     </div>
                 </div>
@@ -271,7 +271,7 @@
 
     {{-- Product --}}
     <div class="index-banner-divider product" data-aos="fade-in">
-        <h2>產品中心</h2>
+        <h2>{{ trans('string.product_center') }}</h2>
     </div>
     <div class="container product-list mobile">
         <button class="product-arrow" id="product-prev-arrow">
@@ -291,20 +291,20 @@
                             <div class="product-feature-image" style="background-image: url('{{$item->featureImage}}');"></div>
                             <div class="product-info">
                                 <h3 class="product-title">{{$item->productTitle}}</h3>
-                                <h4 class="product-type">型式：{{$item->serialNumber}}</h4>
+                                <h4 class="product-type">{{ trans('cart.serial_number') }}：{{$item->serialNumber}}</h4>
                                 <div class="product-text">
                                     {{mb_strimwidth(preg_replace('#<[^>]+>#', ' ', $content->intro), 0, 100, "...")}}
                                 </div>
                             </div>
                         </a>
-                        <a class="product-link" style="cursor: pointer" onclick="addSigleProduct('{{$item->productGuid}}')">加入詢價車</a>
+                        <a class="product-link" style="cursor: pointer" onclick="addSigleProduct('{{$item->productGuid}}')">{{ trans('cart.add_cart') }}</a>
                     </div>
                 </div>
             @endforeach
         </div>
         <div class="row">
             <div class="col-md-12 btn-section">
-                <a href="/product" class="learn-more-btn">檢視更多產品</a>
+                <a href="/product" class="learn-more-btn">{{ trans('learn_more_products') }}</a>
             </div>
         </div>
     </div>
@@ -320,32 +320,32 @@
                             <div class="product-feature-image" style="background-image: url('{{$item->featureImage}}');"></div>
                             <div class="product-info">
                                 <h3 class="product-title">{{$item->productTitle}}</h3>
-                                <h4 class="product-type">型式：{{$item->serialNumber}}</h4>
+                                <h4 class="product-type">{{ trans('cart.serial_number') }}：{{$item->serialNumber}}</h4>
                                 <div class="product-text">
                                     {{mb_strimwidth(preg_replace('#<[^>]+>#', ' ', $content->intro), 0, 100, "...")}}
                                 </div>
                             </div>
                         </a>
-                        <a class="product-link" style="cursor: pointer" onclick="addSigleProduct('{{$item->productGuid}}')">加入詢價車</a>
+                        <a class="product-link" style="cursor: pointer" onclick="addSigleProduct('{{$item->productGuid}}')">{{ trans('cart.add_cart') }}</a>
                     </div>
                 </div>
             @endforeach
         </div>
         <div class="row">
             <div class="col-md-12 btn-section">
-                <a href="/product" class="learn-more-btn">檢視更多產品</a>
+                <a href="/product" class="learn-more-btn">{{ trans('string.learn_more_products') }}</a>
             </div>
         </div>
     </div>
 
     {{-- News --}}
     <div class="index-banner-divider news" data-aos="fade-in">
-        <h2>新聞中心</h2>
+        <h2>{{ trans('string.news_center') }}</h2>
     </div>
     <div class="container new-tabs" data-aos="fade-in">
         <ul class="nav nav-tabs" id="myTab" role="tablist">
             <li class="nav-item">
-                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">全部文章</a>
+                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">{{ trans('string.all_news') }}</a>
             </li>
             @foreach (CategoryView::post() as $item)
                 <li class="nav-item">
@@ -403,7 +403,7 @@
                 </div>
             </div>
             <div class="col-md-12 btn-section">
-                <a href="" class="learn-more-btn">檢視更多歷史訊息</a>
+                <a href="" class="learn-more-btn">{{ trans('string.learn_more_news') }}</a>
             </div>
         </div>
     </div>
@@ -454,14 +454,14 @@
                 </div>
             </div>
             <div class="col-md-12 btn-section">
-                <a href="" class="learn-more-btn">檢視更多歷史訊息</a>
+                <a href="" class="learn-more-btn">{{ trans('string.learn_more_news') }}</a>
             </div>
         </div>
     </div>
 
     {{-- Witness --}}
     <div class="index-banner-divider witness">
-        <h2>我們的客戶</h2>
+        <h2>{{ trans('string.our_customer') }}</h2>
     </div>
     <div style="width: 85%; margin: 0 auto">
         <div class="container witness-list" data-aos="fade-up">

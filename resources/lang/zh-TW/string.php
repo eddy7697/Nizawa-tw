@@ -20,6 +20,7 @@ return [
     'submit' => '送出',
     'privacy' => '隱私權政策',
     'notice' => '使用條款',
+    'industrial_application' => '產業應用',
 
     'placeholder_sub1' => '請輸入姓名...',
     'placeholder_sub2' => '請輸入電子郵件...',
@@ -31,12 +32,18 @@ return [
     'fullAddress' => '台灣桃園市中壢區三光路60號3F之1',
     'postcode' => '郵遞區號',
     'working' => '服務時間',
-
     
     'count_create' => '成立於',
     'count_product' => '產品數量',
     'count_mem' => '客戶累積',
     'count_retrun' => '客戶回單率',
+
+    'product_center' => '產品中心',
+    'learn_more_products' => '檢視更多產品',
+    'news_center' => '新聞中心',
+    'all_news' => '全部文章',
+    'learn_more_news' => '檢視更多歷史訊息',
+    'our_customer' => '我們的客戶',
 
     'indu1' => '自來水業',
     'indu2' => '電子行業',
@@ -46,6 +53,11 @@ return [
     'indu6' => '食品行業',
     'indu7' => '藥妝行業',
     'indu8' => '工業工程',
+
+    'founded' => '成立於',
+    'merchandise_quantity' => '產品數量',
+    'customer_accumulation' => '客戶累積',
+    'return_rate' => '客戶回單綠',
 
     'content_construction' => '內容建置中',
 ];

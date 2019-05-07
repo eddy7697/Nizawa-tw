@@ -7,6 +7,7 @@ return [
     'back_to_list' => 'Back to the product center',
     'serial_number' => 'Model',
     'my_cart' => 'My Inquiry Cart',
+    'add_cart' => 'Join the inquiry car',
 
     'confirm_delete' => 'Are you sure you want to remove this product?',
     'delete_fail' => 'Remove product failed...',
