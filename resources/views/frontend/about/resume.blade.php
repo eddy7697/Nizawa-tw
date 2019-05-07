@@ -124,8 +124,8 @@
                     </div>
                 </div>
                 <div class="col-md-10 mx-auto contact-form-footer">
-                    <p class="info">我們不會將您輸入的任何個人資訊用於回答查詢以外的目的，您亦可<a href="">點選這裡</a>檢視更多關於天壬提供的隱私權保護政策。</p>
-                    <p class="info">* 請您務必將天壬的電子郵箱地址或域名設定為可接收的電子郵箱，以免錯過我們的回覆，您亦可直接與我們聯絡，<a href="">(點選這裡檢視聯絡資訊)</a>。</p>
+                    <p class="info">我們不會將您輸入的任何個人資訊用於回答查詢以外的目的，您亦可<a href="">點選這裡</a>檢視更多關於日澤提供的隱私權保護政策。</p>
+                    <p class="info">* 請您務必將日澤的電子郵箱地址或域名設定為可接收的電子郵箱，以免錯過我們的回覆，您亦可直接與我們聯絡，<a href="">(點選這裡檢視聯絡資訊)</a>。</p>
                     <div class="captcha-section">
                         <strong>確認碼</strong>
                         <img src="/captcha" id="captcha" alt="">
