@@ -13,6 +13,7 @@ use App\User;
 use App\Bonus;
 use App\Admin;
 use App\Address;
+use App\CustomField;
 use App\SocialProvider;
 use App\Services\PublicServiceProvider;
 use Auth;
@@ -262,5 +263,24 @@ class HomeController extends Controller
         
         echo $result['text'] . "\n";
         
+    }
+
+    /**
+     * subscribe
+     */
+    public function subscription(Request $request)
+    {
+        if (CustomField::where('customField1', $request->email)->exists()) {
+            abort(461);
+            return;
+        }
+        
+        $vo = [
+            'type' => 'subs',
+            'content' => $request->name,
+            'customField1' => $request->email
+        ];
+
+        return CustomField::create($vo);
     }
 }

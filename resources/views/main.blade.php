@@ -73,6 +73,20 @@
         $(window).resize(function (e) {
             updateFooterLayout();
         });
+
+        $('#subscribes-form').on('submit', function (e) {
+            e.preventDefault();
+            
+            axios.post('/subscription', {
+                _token: $('meta[name="csrf-token"]').attr('content'),
+                name: $('input[name="name"]').val(),
+                email: $('input[name="email"]').val(),
+            }).then(res => {
+                alert('訂閱成功!');
+            }).catch(err => {
+                alert('您已訂閱!');
+            });
+        });
         
     </script>
 

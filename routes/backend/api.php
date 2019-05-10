@@ -231,4 +231,13 @@ Route::group(['prefix' => 'admin'], function ()
         Route::post('/edit/{id}', 'Backend\DownloadController@editDownload');
         Route::post('/udpate/status/{id}', 'Backend\DownloadController@updateStatus');
     });
+
+    /**
+     * Qna
+     */
+    Route::group(['prefix' => 'subscribe'], function ()
+    {
+        Route::post('/get', 'Backend\SubscribeController@getQnas');
+        Route::get('/export', 'Backend\SubscribeController@export');
+    });
 });

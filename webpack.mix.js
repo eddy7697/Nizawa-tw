@@ -85,6 +85,8 @@ var LiveReloadPlugin = require('webpack-livereload-plugin');
     .js('resources/assets/js/components/views/backend/career/career-list/career-list.js', 'public/js/backend')
     .js('resources/assets/js/components/views/backend/career/resume-list/resume-list.js', 'public/js/backend');
 
+ mix.js('resources/assets/js/components/views/backend/subscribe/subscribe-list/subscribe-list.js', 'public/js/backend');
+
  // Page view
  mix.js('resources/assets/js/components/views/backend/page/page-managment/page-managment.js', 'public/js/backend')
     .js('resources/assets/js/components/views/backend/page/banner-managment/banner-managment.js', 'public/js/backend')

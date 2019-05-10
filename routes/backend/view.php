@@ -260,6 +260,19 @@ Route::group(['prefix' => 'career'], function ()
     });
 });
 
+/*****************
+    career
+*****************/
+Route::group(['prefix' => 'subscribe'], function ()
+{
+    Route::get('/list', function ()
+    {
+        return view('backend.subscribe.subscribeList', [
+            'panelTitle' => '訂閱列表',
+        ]);
+    });
+});
+
 /**
  * qna
  */

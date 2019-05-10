@@ -131,6 +131,11 @@
 												<li><a href="/cyberholic-system/download/list">檔案下載列表</a></li>
 											</ul>
 										</li>	
+										<li class=""><a><i class="fa fa-envelope-o"></i> 訂閱管理系統 <span class="fa fa-chevron-down"></span></a>
+											<ul class="nav child_menu" style="display: none;">
+												<li><a href="/cyberholic-system/subscribe/list">訂閱者列表</a></li>
+											</ul>
+										</li>	
 									</ul>
 								</div>
 			

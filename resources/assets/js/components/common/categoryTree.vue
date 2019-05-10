@@ -119,7 +119,7 @@
                 var tree = $('#tree').fancytree;
 
                 if (this.activatedNode == 'ALL') {
-                    return false
+                    return true
                 } else {
                     try {
                         if ($('#tree').fancytree('getActiveNode').getLevel() > 3) {
@@ -253,7 +253,11 @@
 
                 this.editMode = mode;
 
-                this.editCategoryForm.categoryName = mode ? JSON.parse(category.categoryTitle) : null;
+                this.editCategoryForm.categoryName = mode ? JSON.parse(category.categoryTitle) : {
+                    en: null,
+                    'zh-TW': null,
+                    'zh-CN': null
+                };
                 this.editCategoryForm.categoryParent = mode ? node.data.parentId : null;
                 // this.editCategoryForm.description = item.description;
                 this.editCategoryForm.guid = mode ? node.key : null;
