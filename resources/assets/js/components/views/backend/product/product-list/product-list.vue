@@ -88,7 +88,7 @@
                     label="類別">
                     <template slot-scope="scope">
                         <div v-if="scope.row.categoryTitle">
-                            {{scope.row.categoryTitle}}
+                            {{JSON.parse(scope.row.categoryTitle)['zh-TW']}}
                         </div>
                         <div v-else>
                             <strong style="color: #ccc">(未指定)</strong>
@@ -360,11 +360,11 @@
                 $('.loading-bar').fadeIn('100');
 
                 $.ajax({
-                    url: '/admin/product/update/' + item.productGuid,
+                    url: '/admin/product/update/' + item.id,
                     type: 'POST',
                     dataType: 'json',
                     data: {
-                        isPublish: item.isPublish
+                        isPublish: item.isPublish ? 1 : 0
                     },
                     beforeSend: function(xhr) {
                         xhr.setRequestHeader('X-CSRF-TOKEN', token);
@@ -372,7 +372,7 @@
                 })
                 .done(function() {
                     self.showMessage('success', '變更發布狀態成功');
-                    item.isPublish = !item.isPublish
+                    item.isPublish = item.isPublish
                 })
                 .fail(function() {
                     console.log(itemIndex);
@@ -600,6 +600,7 @@
 
                     result.data.data.forEach(item => {
                         let itemVO = {
+                            id: item.id,
                             productGuid: item.productGuid,
                             productTitle: item.productTitle,
                             authorName: item.authorName,

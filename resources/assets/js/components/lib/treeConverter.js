@@ -19,6 +19,7 @@ export default {
           expanded: false,
           title: item.name,
           data: item,
+          layer: 1,
           key: item.guid
         }
       }
@@ -33,6 +34,7 @@ export default {
               expanded: false,
               title: child.name,
               data: child,
+              layer: 2,
               key: child.guid
             }
           }
@@ -48,6 +50,7 @@ export default {
                 expanded: false,
                 title: child.name,
                 data: child,
+                layer: 3,
                 key: child.guid
               }
             }

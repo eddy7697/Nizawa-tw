@@ -100,37 +100,41 @@
         </div>
         <div class="col-md-11 mx-auto qna-container">
             <!-- Nav tabs -->
-            <ul class="nav nav-tabs qna-tabs" style="margin-bottom: 10px;">
-                <li class="nav-item">
-                    <a class="nav-link btn site-btn active" data-toggle="tab" href="#home">一般產品問題</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link btn site-btn" data-toggle="tab" href="#menu1">詢價問題</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link btn site-btn" data-toggle="tab" href="#menu2">服務支持</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link btn site-btn" data-toggle="tab" href="#menu3">運送相關</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link btn site-btn" data-toggle="tab" href="#menu4">支付相關</a>
-                </li>
-            </ul>
-            <ul class="nav nav-tabs qna-tabs">
-                <li class="nav-item">
-                    <a class="nav-link btn site-btn" data-toggle="tab" href="#menu5">水質檢測相關產品</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link btn site-btn" data-toggle="tab" href="#menu5">食品安全相關產品</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link btn site-btn" data-toggle="tab" href="#menu6">生技藥妝相關產品</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link btn site-btn" data-toggle="tab" href="#menu7">試劑相關產品</a>
-                </li>
-            </ul>
+            <div class="nav-tab-container">
+                <ul class="nav nav-tabs qna-tabs" style="margin-bottom: 10px;">
+                    <li class="nav-item">
+                        <a class="nav-link btn site-btn active" data-toggle="tab" href="#home">一般產品問題</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn site-btn" data-toggle="tab" href="#menu1">詢價問題</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn site-btn" data-toggle="tab" href="#menu2">服務支持</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn site-btn" data-toggle="tab" href="#menu3">運送相關</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn site-btn" data-toggle="tab" href="#menu4">支付相關</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn site-btn" data-toggle="tab" href="#menu5">水質檢測相關產品</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn site-btn" data-toggle="tab" href="#menu5">食品安全相關產品</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn site-btn" data-toggle="tab" href="#menu6">生技藥妝相關產品</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn site-btn" data-toggle="tab" href="#menu7">試劑相關產品</a>
+                    </li>
+                </ul>
+            </div>
+            
+            {{-- <ul class="nav nav-tabs qna-tabs">
+                
+            </ul> --}}
             
             <!-- Tab panes -->
             <div class="tab-content">

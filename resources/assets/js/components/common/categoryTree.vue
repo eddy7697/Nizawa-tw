@@ -122,7 +122,8 @@
                     return true
                 } else {
                     try {
-                        if ($('#tree').fancytree('getActiveNode').getLevel() > 3) {
+                        let node = $('#tree').fancytree('getActiveNode')
+                        if (node.getLevel() > 3) {
                             return true
                         } else {
                             return false
@@ -137,14 +138,32 @@
                 if (this.activatedNode == 'ALL') {
                     return true
                 } else {
-                    return false
+                    try {
+                        let node = $('#tree').fancytree('getActiveNode')
+                        if (node.data.layer < 2) {
+                            return true
+                        } else {
+                            return false
+                        }
+                    } catch (error) {
+                        return false
+                    }
                 }
             },
             deleteDisable() {
                 if (this.activatedNode == 'ALL') {
                     return true
                 } else {
-                    return false
+                    try {
+                        let node = $('#tree').fancytree('getActiveNode')
+                        if (node.data.layer < 2) {
+                            return true
+                        } else {
+                            return false
+                        }
+                    } catch (error) {
+                        return false
+                    }
                 }
             }
         },

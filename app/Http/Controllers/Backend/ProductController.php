@@ -569,10 +569,10 @@ class ProductController extends Controller
     {
         $body = $request->all();
 
-        return $body['isPublish'];
+        // return $body['isPublish'];
 
         try {
-            $data = Product::where('productGuid', $guid)->update([
+            $data = Product::where('id', $guid)->update([
                 'isPublish' => $body['isPublish']
             ]);
 
