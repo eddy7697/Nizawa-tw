@@ -22,7 +22,7 @@
             height: 100%;
             background: #fff;
             /* Center slide text vertically */
-            display: -webkit-box;
+            /* display: -webkit-box;
             display: -ms-flexbox;
             display: -webkit-flex;
             display: flex;
@@ -33,7 +33,7 @@
             -webkit-box-align: center;
             -ms-flex-align: center;
             -webkit-align-items: center;
-            align-items: center;
+            align-items: center; */
         }
         .swiper-pagination-bullet {
             width: 20px;

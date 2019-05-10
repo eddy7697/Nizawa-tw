@@ -7,6 +7,7 @@ Route::get('/test', 'Frontend\PostController@test');
  */
 Route::post('/checkAuth', 'HomeController@checkAuth');
 Route::get('/getAddress/{guid}', 'HomeController@getAddress')->middleware('auth');
+Route::post('/subscription', 'HomeController@subscription')->name('subscription');
 
 
 /**

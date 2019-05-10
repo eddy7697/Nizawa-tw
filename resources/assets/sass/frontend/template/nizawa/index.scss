@@ -441,7 +441,9 @@
                     border-radius: 10px;
                     max-width: 100%;
                     color: #FFF;
+                    top: 50%;
                     right: 11%;
+                    transform: translateY(-50%);
                     text-align: left;
 
                     h2 {

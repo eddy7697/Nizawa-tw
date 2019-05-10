@@ -62,17 +62,18 @@
                             </div>
                             <div class="col-md-6 sub-form-container">
                                 <h3>{{ trans('string.subscription') }}</h3>
-                                <form action="" method="POST">
+                                <form id="subscribes-form">
+                                    {{ csrf_field() }}
                                     <table class="sub-form">
                                         <tbody>
                                             <tr>
                                                 <td>
-                                                    <input class="sub-input" type="name" placeholder="{{trans('string.placeholder_sub1')}}" required>
+                                                    <input class="sub-input" name="name" type="text" placeholder="{{trans('string.placeholder_sub1')}}" required>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    <input class="sub-input" type="email" placeholder="{{trans('string.placeholder_sub2')}}" required>
+                                                    <input class="sub-input" name="email" type="email" placeholder="{{trans('string.placeholder_sub2')}}" required>
                                                 </td>
                                             </tr>
                                             <tr>
