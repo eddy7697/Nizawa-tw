@@ -35,6 +35,12 @@
     right: 0;
     bottom: 0;
 }
+%text-overflow {
+    display : inline-block;
+    overflow : hidden;
+    text-overflow : ellipsis;
+    white-space : nowrap;
+}
 
 .site-header {
     position: fixed;
@@ -611,9 +617,11 @@
                         }
                     }
                     .product-type {
+                        @extend %text-overflow;
                         color: $main-color;
                         margin: 10px 0;
                         font-size: 15px;
+                        width: 100%;
                     }
                     p {
                         margin-bottom: 0.2rem;

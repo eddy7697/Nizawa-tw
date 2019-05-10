@@ -165,7 +165,9 @@
     				<div class="panel-body">
                         <select class="form-control" v-model="postContent.postCategory">
                             <option value="null">--不指定--</option>
-                            <option v-for="(item, index) in categories" v-bind:value="item.guid" v-bind:key="index">{{item.name}}</option>
+                            <option v-for="(item, index) in categories" v-bind:value="item.guid" v-bind:key="index">
+                                {{JSON.parse(item.name)['zh-TW']}}
+                            </option>
                         </select>
     				</div>
     			</div>

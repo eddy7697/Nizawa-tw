@@ -52,6 +52,14 @@
                     </template>
                 </el-table-column>
             </el-table>
+            <el-pagination
+                style="margin-top: 10px"
+                layout="prev, pager, next"
+                :current-page.sync="pageData.current_page"
+                :page-size="pageData.per_page"
+                @current-change="gotoPage"
+                :total="pageData.total">
+            </el-pagination>
         </div>
     </div>
 </template>
@@ -74,6 +82,7 @@
             return {
                 type: '一般產品問題',
                 pageData: {},
+                urlPath: '/admin/qa/get'
             }
         },
         created() {
@@ -81,8 +90,23 @@
         },
         watch: {
             type() {
-                this.getData()
-            }
+                let checkPage = this.urlPath.match('page=')
+
+                if (checkPage) {
+                    let pageStrIndex = this.urlPath.split('?')
+                    
+                    this.urlPath = pageStrIndex[0]
+                }
+                this.$nextTick(() => {
+                    this.getData()
+                })
+                
+            },
+            urlPath: {
+                handler(urlPath, oldVal) {
+                    this.getData();
+                }
+            },
         },
         methods: {
             getData() {
@@ -90,7 +114,7 @@
                     type: this.type
                 }
                 $('.loading-bar').show()
-                axios.post(`/admin/qa/get`, vo)
+                axios.post(this.urlPath, vo)
                     .then(res => {
                         res.data.data.forEach(elm => {
                             elm.isTop = elm.isTop == 1
@@ -98,6 +122,30 @@
                         this.pageData = res.data
                         $('.loading-bar').hide()
                     })
+            },
+            gotoPage(page) {
+                let checkPage = this.urlPath.match('page=')
+
+                console.log(page)
+
+                if (checkPage) {
+                    let pathArray = this.urlPath.split('?')
+                    let pageStrIndex
+
+                    pathArray.forEach(elm => {
+                        if (elm.match('page=')) {
+                            pageStrIndex = pathArray.indexOf(elm)
+                        }
+                    })
+
+                    pathArray[pageStrIndex] = `page=${page}`
+                    
+                    this.urlPath = pathArray.join('?')
+                } else {
+                    const url = `${this.urlPath}?page=${page}`
+
+                    this.urlPath = url
+                }
             },
             handleClick(row) {
                 console.log(row)

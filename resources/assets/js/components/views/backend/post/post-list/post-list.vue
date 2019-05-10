@@ -7,6 +7,16 @@
                 @newKeyword="newKeyword($event)"
                 @searchPost="searchPost($event)"/>
         </div>
+        <div class="col-md-2">
+            <select class="form-control" v-model="selectedCategoryKey">
+                <option value="ALL">
+                    全部類別
+                </option>
+                <option v-for="(item, index) in categories" :key="index" :value="item.guid">
+                    {{JSON.parse(item.name)['zh-TW']}}
+                </option>
+            </select>
+        </div>
         <!-- <div class="col-md-3">
             <categoryList 
                 :btnTitle="'變更最新消息類別'"
@@ -143,6 +153,9 @@
 
                     this.allSelect = isAllSelected;
                 }
+            },
+            selectedCategoryKey(val) {
+                this.changeCategory(val)
             }
         },
         computed: {

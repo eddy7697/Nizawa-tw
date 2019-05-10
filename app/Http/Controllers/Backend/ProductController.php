@@ -569,9 +569,11 @@ class ProductController extends Controller
     {
         $body = $request->all();
 
+        return $body['isPublish'];
+
         try {
             $data = Product::where('productGuid', $guid)->update([
-                'isPublish' => $body['isPublish'] == 1 ? true : false,
+                'isPublish' => $body['isPublish']
             ]);
 
             $status = 200;

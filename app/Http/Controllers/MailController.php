@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Redirect;
 use Mail;
 
 class MailController extends Controller
@@ -12,24 +13,31 @@ class MailController extends Controller
     {
         $data = $request->all();
 
-        $validator = Validator::make($data, [
-            'g-recaptcha-response' => 'required|captcha'
-        ]);
+        session_start();
 
-        if ($validator->fails()) {
-            return redirect('/contact')
-                        ->withErrors($validator)
-                        ->withInput();
+        if ($_SESSION['captcha'] !== $request->captcha) {
+            return Redirect::back()->withErrors(array('captcha_error' => 'Captcha wrong'));
         }
+
+        // $validator = Validator::make($data, [
+        //     'g-recaptcha-response' => 'required|captcha'
+        // ]);
+
+        // if ($validator->fails()) {
+        //     return redirect('/contact')
+        //                 ->withErrors($validator)
+        //                 ->withInput();
+        // }
 
         Mail::send('mail.contact', [
             'name' => $data['name'],
             'email' => $data['email'],
-            'company' => $data['company'],
+            'type' => $data['type'],
+            'gender' => $data['gender'],
             'phone' => $data['phone'],
             'content' => $data['content']
         ], function($message) use ($data) {
-            $message->to([ $data['email'], env('MAIL_USERNAME'), '044555@gmail.com' ])->subject('易耕事業 客戶詢問');
+            $message->to([ $data['email'], env('MAIL_USERNAME'), 'vincent7697@gmail.com' ])->subject('日澤官方網站諮詢表單');
             $message->from(env('MAIL_USERNAME'), $name = env('APP_NAME'));
         });
 

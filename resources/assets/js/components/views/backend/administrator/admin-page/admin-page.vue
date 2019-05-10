@@ -79,7 +79,7 @@
                             <tr>
                                 <th>詢價單編號</th>
                                 <th>訂購人</th>                                
-                                <th style="text-align: right">總金額</th>
+                                <th style="text-align: right">詢價產品數量</th>
                                 <th style="text-align: right">詢價單狀態</th>
                                 <th style="text-align: right">下單日期</th>
                             </tr>
@@ -91,7 +91,7 @@
                                     {{item.shippingTarget.ReceiverName}}
                                 </td> 
                                 <td align="right" :class="{ urgent: item.isUrgent}">
-                                    {{item.amount}}
+                                    {{item.count}}
                                 </td>                               
                                 <td align="right">
                                     <span style="color: brown; font-weight: bold" v-if="item.orderStatus == 'undisposed'">未處理</span>
@@ -329,6 +329,7 @@
                             let isUrgent = new Date(elm.created_at).getTime() < new Date(`${moment().format('YYYY-MM-DD')} 14:00:00`).getTime()
 
                             return {
+                                count: JSON.parse(elm.content).length,
                                 amount: elm.amount,
                                 content: JSON.parse(elm.content),
                                 merchantID: elm.merchantID,

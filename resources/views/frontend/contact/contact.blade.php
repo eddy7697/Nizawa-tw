@@ -58,7 +58,8 @@
 <div class="container">
     <div class="row">
         <div class="col-md-9 mx-auto site-contact-container">
-            <form action="">
+            <form action="{{route('sendForm')}}" method="POST">
+                {{ csrf_field() }}
                 <div class="col-md-11 mx-auto contact-form-header">
                     <h1>聯絡我們</h1>
                     <hr>
@@ -139,6 +140,11 @@
                         <img src="/captcha" id="captcha" alt="">
                         <a href="#" id="refresh-captcha">更新確認碼</a>
                         <input type="text" class="form-control captcha" name="captcha" placeholder="請輸入上方的確認碼..." required title="請輸入驗證碼">
+                        @if ($errors->has('captcha_error'))
+                            <span class="help-block">
+                                <strong>驗證碼錯誤</strong>
+                            </span>
+                        @endif
                         <button class="submit-btn" type="submit">提交資訊</button>
                     </div>
                 </div>

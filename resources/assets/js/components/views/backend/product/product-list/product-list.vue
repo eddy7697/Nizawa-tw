@@ -364,7 +364,7 @@
                     type: 'POST',
                     dataType: 'json',
                     data: {
-                        isPublish: item.isPublish ? '0' : '1'
+                        isPublish: item.isPublish
                     },
                     beforeSend: function(xhr) {
                         xhr.setRequestHeader('X-CSRF-TOKEN', token);

@@ -5,8 +5,12 @@
 			<td>{{$name}}</td>
 		</tr>
 		<tr>
-			<td>公司</td>
-			<td>{{$company}}</td>
+			<td>性別</td>
+			<td>{{$gender}}</td>
+		</tr>
+		<tr>
+			<td>諮詢類型</td>
+			<td>{{$type}}</td>
 		</tr>
 		<tr>
 			<td>電子郵件</td>
