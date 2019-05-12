@@ -7,7 +7,7 @@
 @section('panel-content')
     <div class="row ch-post-form" id="notice">
         <div class="col-md-12">
-            <notice></notice>
+            <notice pagetype="notice"></notice>
         </div>
     </div>
 @endsection

@@ -11,7 +11,7 @@
             'link' => '/industry/water'
         ],[
             'image' => '/img/about/album/about-2.jpg',
-            'title' => '電子行業',
+            'title' => '電子產業',
             'link' => '/industry/electronics'
         ],[
             'image' => '/img/about/album/about-3.jpg',
@@ -27,11 +27,11 @@
             'link' => '/industry/fishery'
         ],[
             'image' => '/img/about/album/about-6.jpg',
-            'title' => '食品行業',
+            'title' => '食品產業',
             'link' => '/industry/food'
         ],[
             'image' => '/img/about/album/about-7.jpg',
-            'title' => '藥妝行業',
+            'title' => '藥妝產業',
             'link' => '/industry/cosmeceutical'
         ],[
             'image' => '/img/about/album/about-8.jpg',

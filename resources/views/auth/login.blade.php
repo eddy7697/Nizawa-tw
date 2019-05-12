@@ -61,7 +61,8 @@
 
                             @if ($errors->has('email'))
                                 <span class="help-block">
-                                    <strong>{{ $errors->first('email') }}</strong>
+                                    {{-- <strong>{{ $errors->first('email') }}</strong> --}}
+                                    <strong>帳號或密碼輸入錯誤。</strong>
                                 </span>
                             @endif
                         </div>
@@ -70,7 +71,8 @@
 
                             @if ($errors->has('password'))
                                 <span class="help-block">
-                                    <strong>{{ $errors->first('password') }}</strong>
+                                    {{-- <strong>{{ $errors->first('password') }}</strong> --}}
+                                    <strong>帳號或密碼輸入錯誤。</strong>
                                 </span>
                             @endif
                         </div>

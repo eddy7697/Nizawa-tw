@@ -79,7 +79,7 @@
         <div class="col-md-12">
             <a href="/">首頁</a>
             &nbsp;&nbsp;<a>></a>&nbsp;&nbsp;
-            <a>服務支持</a>
+            <a>服務支援</a>
             &nbsp;&nbsp;<a>></a>&nbsp;&nbsp;
             檔案下載
         </div>

@@ -379,7 +379,7 @@
                 </div>
             @endforeach
             <div class="col-md-12 btn-section">
-                <a href="" class="learn-more-btn">檢視更多產品</a>
+                <a href="/product" class="learn-more-btn">檢視更多產品</a>
             </div>
         </div>
     </div>

@@ -26,21 +26,21 @@
                         &nbsp;&nbsp;
                         <i class="fa fa-caret-down arrow-icon" aria-hidden="true"></i>
                         &nbsp;&nbsp;
-                        詢價車
+                        {{ trans('cart.inquery_car') }}
                     </li>
                     <li>
                         <img src="/img/icon/cart-02.svg" alt="">
                         &nbsp;&nbsp;
                         <i class="fa fa-caret-down arrow-icon" aria-hidden="true"></i>
                         &nbsp;&nbsp;
-                        結帳資訊
+                        {{ trans('cart.contact_info') }}
                     </li>
                     <li class="active">
                         <img src="/img/icon/cart-03.svg" alt="">
                         &nbsp;&nbsp;
                         <i class="fa fa-caret-down arrow-icon" aria-hidden="true"></i>
                         &nbsp;&nbsp;
-                        購買完成
+                        {{ trans('cart.complete_inquiry') }}
                     </li>
                 </ul>
             </div>

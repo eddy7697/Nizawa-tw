@@ -67,9 +67,9 @@
         <div class="col-md-12">
             <a href="/">首頁</a>
             &nbsp;&nbsp;<a>></a>&nbsp;&nbsp;
-            <a href="/">服務支持</a>
+            <a href="/">服務支援</a>
             &nbsp;&nbsp;<a>></a>&nbsp;&nbsp;
-            <a href="/qna">服務支持</a>
+            <a href="/qna">服務支援</a>
             &nbsp;&nbsp;<a>></a>&nbsp;&nbsp;
             搜尋結果 : {{$keyword}}
         </div>

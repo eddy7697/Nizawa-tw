@@ -5,7 +5,7 @@
                 <el-radio-group v-model="type" size="medium">
                     <el-radio-button label="一般產品問題" ></el-radio-button>
                     <el-radio-button label="詢價問題"></el-radio-button>
-                    <el-radio-button label="服務支持"></el-radio-button>
+                    <el-radio-button label="服務支援"></el-radio-button>
                     <el-radio-button label="運送相關"></el-radio-button>
                     <el-radio-button label="支付相關"></el-radio-button>
                     <el-radio-button label="水質檢測相關產品"></el-radio-button>

@@ -34,6 +34,17 @@ button.cart {
 
                 .cart-item-img {
                     width: 60px;
+                    height: 60px;
+
+                    img {
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        max-width: 95%;
+                        max-height: 95%;
+                    }
+                    
                 }
                 padding: 5px;
             }

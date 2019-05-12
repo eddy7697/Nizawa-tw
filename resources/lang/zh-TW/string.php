@@ -10,6 +10,7 @@ return [
     'about3' => '地理位置',
     'about4' => '聯絡我們',
     
+    'company_profile' => '公司介紹',
     'responsibility' => '社會責任',
     'recruiting' => '人才招募',
     'support' => '服務支援',
@@ -46,12 +47,12 @@ return [
     'our_customer' => '我們的客戶',
 
     'indu1' => '自來水業',
-    'indu2' => '電子行業',
+    'indu2' => '電子產業',
     'indu3' => '生活汙水',
     'indu4' => '工業汙水',
     'indu5' => '養殖漁業',
-    'indu6' => '食品行業',
-    'indu7' => '藥妝行業',
+    'indu6' => '食品產業',
+    'indu7' => '藥妝產業',
     'indu8' => '工業工程',
 
     'founded' => '成立於',
@@ -60,4 +61,13 @@ return [
     'return_rate' => '客戶回單率',
 
     'content_construction' => '內容建置中',
+
+    'recruiting' => '人才招募',
+    'job_list' => '熱門職缺',
+    'recruiting_banner' => '我們正在招募各種優秀人才，歡迎您加入日澤國際',
+    'recurit_department' => '職缺單位',
+    'number_of_recruits' => '招募人數',
+    'no_experience' => '經歷不拘',
+    'no_experience_qualifi' => '學歷不拘',
+    'monthly_salary' => '月薪',
 ];

@@ -49,27 +49,29 @@
 @section('content')
 <div class="sub-page-banner" style="background-image: url('/img/sub-banner.jpg');">
     <div>
-        <h2>人才招募</h2>
-        <h4>Recruiting</h4>
+        <h2>{{ trans('string.recruiting') }}</h2>
+        @if (App::getLocale() !== 'en')
+            <h4>Recruiting</h4>
+        @endif
         <hr>
-        <h5>我們正在招募各種優秀人才，歡迎您加入日澤國際</h5>
+        <h5>{{ trans('string.recruiting_banner') }}</h5>
     </div>
 </div>
 <div class="mg-site-thumbnail">
     <div class="container">
         <div class="col-md-12">
-            <a href="/">首頁</a>
+            <a href="/">{{ trans('string.home') }}</a>
             &nbsp;&nbsp;<a>></a>&nbsp;&nbsp;
-            <a href="/">關於日澤</a>
+            <a href="/">{{ trans('string.about') }}</a>
             &nbsp;&nbsp;<a>></a>&nbsp;&nbsp;
-            人才招募
+            {{ trans('string.recruiting') }}
         </div>
     </div>
 </div>
 <div class="container">
     <div class="row">
         <div class="col-md-12 about-content">
-            <h3 class="about-section-title">公司簡介</h3>
+            <h3 class="about-section-title">{{ trans('string.job_list') }}</h3>
             <div class="career-list">
                 @foreach ($careers as $item)
                     <div class="career-item">
@@ -77,18 +79,18 @@
                             <div class="col-md-10 career-info">
                                 <h5>{{$item->title}}</h5>
                                 <ul class="career-department">
-                                    <li>職缺單位：{{$item->department}}</li>
-                                    <li>應聘人數：{{$item->number}} 人</li>
+                                    <li>{{ trans('string.recurit_department') }}：{{$item->department}}</li>
+                                    <li>{{ trans('string.number_of_recruits') }}：{{$item->number}} 人</li>
                                 </ul>
                                 <ul class="career-location">
                                     <li>{{$item->location}}</li>
                                     @if (strlen($item->experience) == 0)
-                                        <li>經歷不拘</li>
+                                        <li>{{ trans('string.no_experience') }}</li>
                                     @else
                                         <li>{{$item->experience}}</li>
                                     @endif
                                     @if (strlen($item->education) == 0)
-                                        <li>學歷不拘</li>
+                                        <li>{{ trans('string.no_experience_qualifi') }}</li>
                                     @else
                                         <li>{{$item->education}}</li>
                                     @endif
@@ -99,7 +101,7 @@
                                 </div>
                                 <hr>
                                 <div class="career-pay">
-                                    月薪：{{$item->paymentRange}} 元
+                                    {{ trans('string.monthly_salary') }}：{{$item->paymentRange}} 元
                                 </div>
                             </div>
                             <div class="col-md-2 action-group">

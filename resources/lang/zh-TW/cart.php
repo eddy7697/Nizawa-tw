@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'inquery_car' => '詢價車',
     'cart_panel_empty' => '詢價車還是空的唷!',
     'delete_product' => '刪除產品',
     'view_cart' => '檢視詢價車',
@@ -8,10 +9,15 @@ return [
     'serial_number' => '型號',
     'my_cart' => '我的詢價車',
     'add_cart' => '加入詢價車',
+    'contact_info' => '聯繫資訊',
+    'complete_inquiry' => '完成詢價程序',
+    'cart_is_empty' => '詢價車裡面沒有產品，趕快去逛逛吧~',
 
     'confirm_delete' => '確認要移除此產品?',    
     'confirm_delete_all' => '確認要刪除所有產品?',
     'delete_fail' => '移除產品失敗...',
+    'complete_inquiry_desc_1' => '您已完成詢價單送出手續',
+    'complete_inquiry_desc_2' => '<p>我們已經正在處理您的詢價單並將於三個工作日內回覆給您，若您有任何進一步需求</p><p>歡迎您直接 <a href="/contact">聯絡我們</a>，我們將隨時以提供您更多支持。</p>',
 
     'add_success' => '成功加入詢價車！',
     'add_fail' => '加入詢價車失敗...',

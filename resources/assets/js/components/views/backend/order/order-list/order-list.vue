@@ -283,7 +283,7 @@
                                                 <td>{{itemShowed.shippingTarget.ReceiverTime}}</td>
                                             </tr>
                                             <tr>
-                                                <td>所屬行業別</td>
+                                                <td>所屬產業別</td>
                                                 <td>{{itemShowed.shippingTarget.ReceiverJob}}</td>
                                             </tr>
                                             <tr>

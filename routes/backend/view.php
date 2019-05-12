@@ -344,7 +344,7 @@ Route::get('/media/manager', function () {
 Route::get('/meta/notice', function ()
 {
     return view('backend.meta.notice', [
-        'panelTitle' => '購物須知'
+        'panelTitle' => '使用條款'
     ]);
 });
 Route::get('/meta/privacy', function ()

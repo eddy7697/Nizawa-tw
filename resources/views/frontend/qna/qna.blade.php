@@ -54,7 +54,7 @@
         <div class="col-md-12">
             <a href="/">首頁</a>
             &nbsp;&nbsp;<a>></a>&nbsp;&nbsp;
-            <a href="/">服務支持</a>
+            <a href="/">服務支援</a>
             &nbsp;&nbsp;<a>></a>&nbsp;&nbsp;
             常見問題
         </div>
@@ -109,7 +109,7 @@
                         <a class="nav-link btn site-btn" data-toggle="tab" href="#menu1">詢價問題</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link btn site-btn" data-toggle="tab" href="#menu2">服務支持</a>
+                        <a class="nav-link btn site-btn" data-toggle="tab" href="#menu2">服務支援</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link btn site-btn" data-toggle="tab" href="#menu3">運送相關</a>
@@ -183,7 +183,7 @@
                 </div>
                 <div class="tab-pane container fade" id="menu2">
                     <div class="collapse-container" id="accordion_2">
-                        @foreach (PageView::qna('服務支持') as $key => $item)
+                        @foreach (PageView::qna('服務支援') as $key => $item)
                             <div class="card">
                                 <div class="card-header" id="heading_3_{{$key}}">
                                     <h5 class="mb-0">

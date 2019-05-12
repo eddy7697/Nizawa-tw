@@ -48,7 +48,7 @@
     <div class="row">
         <div class="col-md-12 about-content">
             <img src="/img/about/logo.png" class="about-logo" alt="">
-            <h3 class="about-section-title">{{ trans('string.about2') }}</h3>
+            <h3 class="about-section-title">{{ trans('string.company_profile') }}</h3>
             <div class="about-text">
                 {!! trans('string.about1') !!}
             </div>
@@ -155,7 +155,7 @@
                     ]
                 );
             @endphp
-            <h3 class="about-section-title">{{ trans('string.about2') }}</h3>
+            <h3 class="about-section-title">{{ trans('string.industrial_application') }}</h3>
             <div class="about-album">
                 @foreach ($album as $item)
                     <div class="album-item">
@@ -175,7 +175,7 @@
         </div>
     </div>
 </div>
-<div class="container">
+<div class="container" id="about-map">
     <div class="row">
         <div class="col-md-12 about-content">
             <h3 class="about-section-title">{{ trans('string.about3') }}</h3>
@@ -192,7 +192,7 @@
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3617.1539186723194!2d121.20859441544611!3d24.96087734737173!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346823c9f9eda163%3A0x6f46857d42a84497!2z5pel5r6k5ZyL6Zqb6IKh5Lu95pyJ6ZmQ5YWs5Y-4!5e0!3m2!1szh-TW!2stw!4v1555439354866!5m2!1szh-TW!2stw" style="width: 100%; height: 300px" frameborder="0" style="border:0" allowfullscreen></iframe>
                 </div>
                 <div class="col-md-12 btn-section">
-                    <a class="learn-more-btn" href="">{{ trans('string.about4') }}</a>
+                    <a class="learn-more-btn" href="/contact">{{ trans('string.about4') }}</a>
                 </div>
             </div>
         </div>

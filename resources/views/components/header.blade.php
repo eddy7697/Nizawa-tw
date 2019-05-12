@@ -68,8 +68,8 @@
                 <ul class="site-mega-menu-container">
                     <li class="site-mega-menu-item">
                         <a href="/about" class="site-mega-menu-link">
-                            <img src="/img/menu/about.jpg" alt="{{ trans('string.about') }}">
-                            <p class="header-job-txt">{{ trans('string.about') }}</p>
+                            <img src="/img/menu/about.jpg" alt="{{ trans('string.company_profile') }}">
+                            <p class="header-job-txt">{{ trans('string.company_profile') }}</p>
                         </a>
                     </li>
                     <li class="site-mega-menu-item">

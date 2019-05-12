@@ -32,7 +32,14 @@
     {{-- Footer --}}
     @include('components.footer')
 
-    <textarea id="i18n-text" cols="30" rows="10">{{ json_encode(trans('cart')) }}</textarea>
+    @php
+        $string = json_encode(trans('string'));
+        $cart = json_encode(trans('cart'));
+
+        $res = array_merge(json_decode($string, true), json_decode($cart, true));
+    @endphp
+    
+    <textarea id="i18n-text" cols="30" rows="10">{{ json_encode($res) }}</textarea>
     <!-- Scripts -->
     <script src="/js/frontend.js"></script>
 

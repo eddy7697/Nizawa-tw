@@ -63,10 +63,13 @@
                 </button>
             </div>
             <div class="col-md-6">
-                <button
-                    class="btn btn-default btn-block btn-lg method-btn ask-for-more">
-                    詢問更多產品細節
-                </button>
+                <a href="/contact" style="text-decoration: none;">
+                    <button
+                        class="btn btn-default btn-block btn-lg method-btn ask-for-more">
+                        詢問更多產品細節
+                    </button>
+                </a>
+                
             </div>
         </div>
     </div>
@@ -89,7 +92,9 @@
             'guid'
         ],
         data () {
+            let i18n = JSON.parse(document.getElementById('i18n-text').value)
             return {
+                i18n: i18n,
                 isLoaded: false,
                 minQty: 1,
                 maxQty: 20,

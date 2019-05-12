@@ -1,21 +1,22 @@
 @extends('main')
 
 @section('content')
-    <div class="container mg-site-thumbnail">
+<div class="mg-site-thumbnail">
+    <div class="container">
         <div class="col-md-12">
-            <a href="/">首頁</a>
+            <a href="/">{{ trans('string.home') }}</a>
             &nbsp;&nbsp;<a>></a>&nbsp;&nbsp;
-            隱私權聲明
+            {{ trans('string.notice') }}
         </div>
     </div>
-    <div class="container" style="margin-bottom: 30px">
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 member-auth-form-table">
+</div>
+<div class="container" style="margin-bottom: 30px">
+    <div class="row">
+        <div class="col-md-10 mx-auto member-auth-form-table">
+            {!!json_decode(SiteMetaView::ecPrivacy(), true)[App::getLocale()]!!}
 
-                {!!SiteMetaView::ecPrivacy()!!}
-
-            </div>
         </div>
     </div>
+</div>
 
 @endsection

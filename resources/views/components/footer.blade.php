@@ -46,7 +46,7 @@
                             <div class="col-sm-6 col-md-3 site-map-container">
                                 <h3>{{ trans('string.about') }}</h3>
                                 <ul class="site-map">
-                                    <li><a href="/about">{{ trans('string.about2') }}</a></li>
+                                    <li><a href="/about">{{ trans('string.company_profile') }}</a></li>
                                     <li><a href="/about/responsibility">{{ trans('string.responsibility') }}</a></li>
                                     <li><a href="/about/career">{{ trans('string.recruiting') }}</a></li>
                                     <li><a href="/contact">{{ trans('string.about4') }}</a></li>
@@ -95,7 +95,7 @@
             {{-- copyright --}}
             <div class="row copyright">
                 <div class="col-md-4" style="text-align: left; padding-left: 50px;">
-                    <a href="">{{ trans('string.privacy') }}</a>&nbsp;|&nbsp;<a href="">{{ trans('string.notice') }}</a>
+                    <a href="/about/privacy">{{ trans('string.privacy') }}</a>&nbsp;|&nbsp;<a href="/about/notice">{{ trans('string.notice') }}</a>
                 </div>
                 <div class="col-md-4" style="text-align: center">
                     

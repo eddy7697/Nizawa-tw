@@ -12,17 +12,22 @@
 @endsection
 
 @section('content')
-    <div class="container mg-site-thumbnail">
+<div class="mg-site-thumbnail">
+    <div class="container">
         <div class="col-md-12">
-            <a href="/">首頁</a>
+            <a href="/">{{ trans('string.home') }}</a>
             &nbsp;&nbsp;<a>></a>&nbsp;&nbsp;
-            購物須知
+            {{ trans('string.notice') }}
         </div>
     </div>
-    <div class="container" style="margin-bottom: 30px">
-        <div class="row">
-            {!!SiteMetaView::ecNotice()!!}
+</div>
+
+<div class="container" style="margin-bottom: 30px">
+    <div class="row">
+        <div class="col-md-10 mx-auto member-auth-form-table">
+            {!!json_decode(SiteMetaView::ecNotice(), true)[App::getLocale()]!!}
         </div>
     </div>
+</div>
 
 @endsection

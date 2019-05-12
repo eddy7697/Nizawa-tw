@@ -403,7 +403,7 @@
                 </div>
             </div>
             <div class="col-md-12 btn-section">
-                <a href="" class="learn-more-btn">{{ trans('string.learn_more_news') }}</a>
+                <a href="/blog" class="learn-more-btn">{{ trans('string.learn_more_news') }}</a>
             </div>
         </div>
     </div>
@@ -454,7 +454,7 @@
                 </div>
             </div>
             <div class="col-md-12 btn-section">
-                <a href="" class="learn-more-btn">{{ trans('string.learn_more_news') }}</a>
+                <a href="/blog" class="learn-more-btn">{{ trans('string.learn_more_news') }}</a>
             </div>
         </div>
     </div>
@@ -464,7 +464,7 @@
         <h2>{{ trans('string.our_customer') }}</h2>
     </div>
     <div style="width: 85%; margin: 0 auto">
-        <div class="container witness-list" data-aos="fade-up">
+        <div class="container witness-list">
             <div class="row">
                 <div class="col-md-11 mx-auto">
                     <button class="witness-arrow" id="prev-arrow">

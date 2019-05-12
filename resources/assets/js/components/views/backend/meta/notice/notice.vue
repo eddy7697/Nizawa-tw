@@ -1,10 +1,16 @@
 <template>
     <div class="row" v-if="isLoaded">
         <div class="col-md-9">
+            <el-radio-group v-model="locale" size="medium" style="margin-bottom: 10px;">
+                <el-radio-button label="zh-TW">繁體中文</el-radio-button>
+                <el-radio-button label="zh-CN">简体中文</el-radio-button>
+                <el-radio-button label="en">英文</el-radio-button>
+            </el-radio-group>
             <ckeditor
+                v-if="editorShow"
                 class="ch-product-description"
                 :config="ckConfig"
-                v-model="pageContent.content">
+                v-model="pageContent.content[locale]">
             </ckeditor>
         </div>
 
@@ -32,20 +38,35 @@
 
 <script>
     import Ckeditor from 'vue-ckeditor2';
+    import ElementUI from 'element-ui';
+    import 'element-ui/lib/theme-chalk/index.css';
+    import lang from 'element-ui/lib/locale/lang/zh-TW'
+    import locale from 'element-ui/lib/locale'
+
+    Vue.use(ElementUI);
+    locale.use(lang)
+
 
     export default {
         components: {
             Ckeditor
         },
+        props: ['pagetype'],
         data() {
+            let pageType = this.pagetype == 'notice' ? 'ECNOTICE' : 'PRIVACY'
             return {
+                locale: 'zh-TW',
                 isLoaded: false,
                 isEdit: false,
                 guid: $('#row-guid').val(),
                 isNoticeExist: false,
                 pageContent: {
-                    type: 'ECNOTICE',
-                    content: null,
+                    type: pageType,
+                    content: {
+                        en: null,
+                        'zh-TW': null,
+                        'zh-CN': null 
+                    },
                     locale: 'zh-tw'
                 },
                 ckConfig: {
@@ -56,6 +77,7 @@
                     filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
                     filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token=' + $('meta[name="csrf-token"]').attr('content')
                 },
+                editorShow: true,
                 token: $('meta[name="csrf-token"]').attr('content'),
             }
         },
@@ -66,19 +88,30 @@
         },
         computed: {
         },
+        watch: {
+            locale() {
+                this.editorShow = false
+
+                setTimeout(() => {
+                    this.editorShow = true
+                }, 500);
+            }
+        },
         methods: {
             saveNotice: function () {
                 var self = this
-                var apiUrl = this.isNoticeExist ? '/admin/notice/update' : '/admin/notice/create'
+                var apiUrl = this.isNoticeExist ? `/admin/${this.pagetype}/update` : `/admin/${this.pagetype}/create`
+                let vo = JSON.parse(JSON.stringify(this.pageContent))
 
+                vo.content = JSON.stringify(vo.content)
                 $('.loading-bar').fadeIn('100')
 
-                axios.post(apiUrl, this.pageContent)
+                axios.post(apiUrl, vo)
                     .then(res => {
-                        console.log(res)
+                        this.$message.success('編輯完成')
                         self.getNotice()
                     }).catch(err => {
-                        console.log(err)
+                        this.$message.error('編輯失敗')
                     }).then(() => {
                         $('.loading-bar').fadeOut('100')
                     })
@@ -86,14 +119,14 @@
             getNotice: function (guid) {
                 var self = this;
 
-                axios.get('/admin/notice/get')
+                axios.get(`/admin/${this.pagetype}/get`)
                     .then(res => {
                         var result = res.data
                         console.log(res)
-                        if (res) {
+                        if (result) {
                             self.isNoticeExist = true
                             self.pageContent.type = result.type
-                            self.pageContent.content = result.content
+                            self.pageContent.content = JSON.parse(result.content)
                             self.pageContent.locale = result.locale
                         } else {
                             self.isNoticeExist = false

@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'home' => 'home',
+    'home' => 'Home',
     'about' => 'About NIZAWA',
     'aboutDesc' => 'Excellent product and professional sales and technical team strive to do your best',
 
@@ -10,6 +10,7 @@ return [
     'about3' => 'location',
     'about4' => 'Contact us',
 
+    'company_profile' => 'Company Profile',
     'responsibility' => 'social responsibility',
     'recruiting' => 'Talent recruitment',
     'support' => 'Service Support',
@@ -60,4 +61,13 @@ return [
     'return_rate' => 'Customer returns single green',
 
     'content_construction' => 'Content construction',
+
+    'recruiting' => 'Recruiting',
+    'job_list' => 'Job list',
+    'recruiting_banner' => 'We are recruiting a variety of talents and welcome you to join us.',
+    'recurit_department' => 'Department',
+    'number_of_recruits' => 'Number of recruits',
+    'no_experience' => 'No experience',
+    'no_experience_qualifi' => 'Unrestricted academic qualifications',
+    'monthly_salary' => 'Monthly salary',
 ];

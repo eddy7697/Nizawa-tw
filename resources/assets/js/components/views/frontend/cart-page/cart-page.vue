@@ -34,8 +34,8 @@
                         </td>
 
                         <td class="product-thumbnail">
-                            <a v-bind:href="productLink(item.id.guid)">
-                                <img width="100" v-bind:src="item.id.featureImage" >
+                            <a v-bind:href="productLink(item.id.guid)" class="product-thumbnail-link">
+                                <img v-bind:src="item.id.featureImage" >
                             </a>
                         </td>
 
@@ -312,6 +312,7 @@
                     .then(res => {
                         this.getCart();
                         this.showMessage('success', this.i18n.update_cart_success);
+                        updateCount()
                         $('.loading-bar').fadeOut('100');
                     })
             },

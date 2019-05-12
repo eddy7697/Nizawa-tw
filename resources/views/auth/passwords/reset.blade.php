@@ -1,5 +1,11 @@
 @extends('layouts.app')
 
+@section('custom-js-script')
+    <script>
+        $('.loading-bar').hide()
+    </script>
+@endsection
+
 @section('content')
 <div class="container">
     <div class="row" id="mainResetPassword">

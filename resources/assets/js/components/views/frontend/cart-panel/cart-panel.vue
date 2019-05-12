@@ -29,7 +29,9 @@
                             <button type="button" name="button" @click="removeProduct(item)">x</button>
                         </td> -->
                         <td rowspan="3">
-                            <img class="cart-item-img" v-bind:src="thumb(item.featureImage)" alt="">
+                            <div class="cart-item-img">
+                                <img v-bind:src="item.featureImage" alt="">
+                            </div>
                         </td>
                         <td align="right">
                             <strong>{{item.title}} x {{item.qty}}</strong><br>
@@ -55,7 +57,7 @@
                 <hr>
 
                 <button v-if="!isCartEmpty" type="button" class="btn btn-primary btn-block btn-lg" @click="goToCart()">{{i18n.view_cart}}</button>
-                <button type="button" class="btn btn-default btn-block btn-lg" @click="togglePanel()">{{i18n.back_to_list}}</button>
+                <button type="button" class="btn btn-default btn-block btn-lg" @click="goProductList">{{i18n.back_to_list}}</button>
             </div>
         </transition>
     </div>
@@ -256,21 +258,30 @@
                     })
             },
             thumb: function (url) {
-                var urlArray = url.split('/');
-                var newUrl = urlArray[0];
+                
+                try {
+                    var urlArray = url.split('/');
+                    var newUrl = urlArray[0];
 
-                for (var i = 1; i < (urlArray.length - 1); i++) {
-                    newUrl = newUrl + '/' + urlArray[i];
+                    for (var i = 1; i < (urlArray.length - 1); i++) {
+                        newUrl = newUrl + '/' + urlArray[i];
+                    }
+
+                    newUrl = newUrl + '/thumbs/' + urlArray[urlArray.length - 1];
+
+                    return newUrl;
+                } catch (error) {
+                    console.log(url)
+                    return url
                 }
-
-                newUrl = newUrl + '/thumbs/' + urlArray[urlArray.length - 1];
-
-                return newUrl;
             },
             togglePanel: function () {
                 if (this.displayPanel) {
                     this.displayPanel = this.displayPanel ? false : true;
                 }
+            },
+            goProductList() {
+                window.location.href = '/product'
             }
         }
     }

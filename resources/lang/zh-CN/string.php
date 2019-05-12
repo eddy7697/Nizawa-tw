@@ -10,6 +10,7 @@ return [
     'about3' => '地理位置',
     'about4' => '联系我们',
     
+    'company_profile' => '公司介绍',
     'responsibility' => '社会责任',
     'recruiting' => '人才招募',
     'support' => '服务支持',
@@ -39,10 +40,10 @@ return [
     'count_retrun' => '客户回单率',
 
     'product_center' => '产品中心',
-    'learn_more_products' => '视图更多产品',
+    'learn_more_products' => '检视更多产品',
     'news_center' => '新闻中心',
     'all_news' => '全部文章',
-    'learn_more_news' => '视图更多历史消息',
+    'learn_more_news' => '检视更多历史消息',
     'our_customer' => '我们的客户',
 
     'indu1' => '自来水业',
@@ -60,4 +61,13 @@ return [
     'return_rate' => '客户回单绿',
 
     'content_construction' => '内容建置中',
+
+    'recruiting' => '人才招募',
+    'job_list' => '热门职缺',
+    'recruiting_banner' => '我们正在招募各种优秀人才，欢迎您加入日泽国际',
+    'recurit_department' => '职缺单位',
+    'number_of_recruits' => '招募人数',
+    'no_experience' => '经历不拘',
+    'no_experience_qualifi' => '学历不拘',
+    'monthly_salary' => '月薪',
 ];

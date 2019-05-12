@@ -60,10 +60,11 @@
                         <span class="important">地址</span>
                     </div>
                     <div class="col-md-8 form-item">
-                        <select class="form-control" v-model="customerParametor.ReceiverCity" required>
+                        <input class="form-control" name="ReceiverCity" type="text" placeholder="省份/城鎮/城市/區" v-model="customerParametor.ReceiverCity" required>
+                        <!-- <select class="form-control" v-model="customerParametor.ReceiverCity" required>
                             <option :value="null">省份/城鎮/城市/區</option>
                             <option :value="'地址option1'">選項1</option>
-                        </select>
+                        </select> -->
                     </div>
                 </div>
             </div>
@@ -103,7 +104,11 @@
                     <div class="col-md-8 form-item">
                         <select class="form-control" v-model="customerParametor.ReceiverBudget" required>
                             <option :value="null" disabled>請選擇情況與您最相符的預算情況</option>
-                            <option :value="'預算情況option1'">選項1</option>
+                            <option value="已有購買產品的預算">已有購買產品的預算</option>
+                            <option value="只是諮詢產品功能">只是諮詢產品功能</option>
+                            <option value="只是諮詢產品價格">只是諮詢產品價格</option>
+                            <option value="已申報計畫">已申報計畫</option>
+                            <option value="準備申報計畫">準備申報計畫</option>
                         </select>
                     </div>
                 </div>
@@ -119,7 +124,11 @@
                     <div class="col-md-8 form-item">
                         <select class="form-control" v-model="customerParametor.ReceiverTime" required>
                             <option :value="null">請選擇您預計購買的時間</option>
-                            <option :value="'預計購買時間option1'">選項1</option>
+                            <option value="3個月內">3個月內</option>
+                            <option value="3-6個月">3-6個月</option>
+                            <option value="6-12個月">6-12個月</option>
+                            <option value="一年以上">一年以上</option>
+                            <option value="無法確定">無法確定</option>
                         </select>
                     </div>
                 </div>
@@ -130,12 +139,19 @@
             <div class="col-md-6">
                 <div class="row">
                     <div class="col-md-4 form-item">
-                        <span class="important">所屬行業別</span>
+                        <span class="important">所屬產業別</span>
                     </div>
                     <div class="col-md-8 form-item">
                         <select class="form-control" v-model="customerParametor.ReceiverJob" required>
-                            <option :value="null">請選擇您的的行業別</option>
-                            <option :value="'所屬行業別option1'">選項1</option>
+                            <option :value="null">請選擇您的的產業別</option>
+                            <option value="政府單位">政府單位</option>
+                            <option value="工業">工業</option>
+                            <option value="電子業">電子業</option>
+                            <option value="污水處理業">污水處理業</option>
+                            <option value="食品業">食品業</option>
+                            <option value="醫藥業">醫藥業</option>
+                            <option value="農業">農業</option>
+                            <option value="其他">其他</option>
                         </select>
                     </div>
                 </div>
@@ -232,7 +248,9 @@
     $('.loading-bar').fadeOut('100');
     export default {
         data() {
+            let i18n = JSON.parse(document.getElementById('i18n-text').value)
             return {
+                i18n: i18n,
                 token: $('meta[name="csrf-token"]').attr('content'),
                 // shippingMethod: $('#shipping_method').val(),
                 // shippingCosts: 60,

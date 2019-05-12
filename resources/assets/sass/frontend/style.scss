@@ -16,12 +16,12 @@ input::-webkit-inner-spin-button {
 }
 
 a {
-    color: #164358;  
+    color: $main-color;  
 }
 
 .btn.btn-primary {
-    background-color: #164358;
-    border-color: #164358;
+    background-color: $main-color;
+    border-color: $main-color;
 }
 
 .hide-overflow {

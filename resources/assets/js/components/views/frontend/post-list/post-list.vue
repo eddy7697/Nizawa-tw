@@ -58,7 +58,9 @@
         },
 		props: ['locale'],
         data () {
+			let i18n = JSON.parse(document.getElementById('i18n-text').value)
             return {
+				i18n: i18n,
 				pageLoaded: false,
 				isLoading: false,
 				isLoadingLearnMore: false,
