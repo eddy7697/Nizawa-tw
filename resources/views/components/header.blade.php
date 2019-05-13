@@ -231,11 +231,43 @@
 </section>
 <section class="mobile-site-menu hide">
     <ul class="menu-item">
-        <li><a href="">{{ trans('string.about') }}</a></li>
-        <li><a href="/product">{{ trans('string.product_center') }}</a></li>
-        <li><a href="">{{ trans('string.industrial_application') }}</a></li>
+        <li>
+            <a class="menu-item-dropdown">{{ trans('string.about') }}</a>
+            <ul id="about-menu">
+                <li><a href="/about">{{ trans('string.company_profile') }}</a></li>
+                <li><a href="/about/responsibility">{{ trans('string.responsibility') }}</a></li>
+                <li><a href="/about/career">{{ trans('string.recruiting') }}</a></li>
+            </ul>
+        </li>
+        <li>
+            <a class="menu-item-dropdown">{{ trans('string.product_center') }}</a>
+            <ul>
+                <li><a href="/product">{{ trans('string.product_center') }}</a></li>
+                <li><a href="/label">{{ trans('string.label_center') }}</a></li>
+            </ul>
+        </li>
+        <li>
+            <a class="menu-item-dropdown">{{ trans('string.industrial_application') }}</a>
+            <ul>
+                <li><a href="/industry/water">{{trans('string.indu1')}}</a></li>
+                <li><a href="/industry/electronics">{{trans('string.indu2')}}</a></li>
+                <li><a href="/industry/life">{{trans('string.indu3')}}</a></li>
+                <li><a href="/industry/industrial">{{trans('string.indu4')}}</a></li>
+                <li><a href="/industry/fishery">{{trans('string.indu5')}}</a></li>
+                <li><a href="/industry/food">{{trans('string.indu6')}}</a></li>
+                <li><a href="/industry/cosmeceutical">{{trans('string.indu7')}}</a></li>
+                <li><a href="/industry/industrialEngineering">{{trans('string.indu8')}}</a></li>
+            </ul>
+        </li>
         <li><a href="/blog">{{ trans('string.news_center') }}</a></li>
-        <li><a href="">{{trans('string.support')}}</a></li>
-        <li><a href="/contact" class="active">{{ trans('string.about4') }}</a></li>
+        <li>
+            <a class="menu-item-dropdown">{{trans('string.support')}}</a>
+            <ul>
+                <li><a href="/service">{{trans('string.service')}}</p></a></li>
+                <li><a href="/qna">{{trans('string.faq')}}</p></a></li>
+                <li><a href="/download">{{trans('string.download')}}</p></a></li>
+            </ul>
+        </li>
+        <li><a href="/contact">{{ trans('string.about4') }}</a></li>
     </ul>
 </section>

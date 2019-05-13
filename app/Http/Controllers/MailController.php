@@ -37,8 +37,8 @@ class MailController extends Controller
             'phone' => $data['phone'],
             'content' => $data['content']
         ], function($message) use ($data) {
-            $message->to([ $data['email'], env('MAIL_USERNAME'), 'vincent7697@gmail.com' ])->subject('日澤官方網站諮詢表單');
-            $message->from(env('MAIL_USERNAME'), $name = env('APP_NAME'));
+            $message->to(['info@nizawa-int.com.tw', 'vincent7697@gmail.com' ])->subject('日澤官方網站諮詢表單');
+            $message->from('info@nizawa-int.com.tw', $name = env('APP_NAME'));
         });
 
         return redirect('/');

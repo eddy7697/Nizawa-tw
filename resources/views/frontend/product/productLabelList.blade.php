@@ -1,22 +1,11 @@
 @extends('main')
 
 @php
-    use App\Category;
     use App\Product;
-    use Illuminate\Support\Facades\Log;
+    use App\Category;
 
-    $root = Category::where('type', 'product')->whereNull('parentId')->get();
-    $rootFirst = Category::where('type', 'product')->whereNull('parentId')->first();
-
-    if ($mode == 'main') {
-        $rootFirst = Category::where('type', 'product')->where('categoryGuid', $guid)->first();
-    }
-
-    if ($mode == 'sub') {
-        $category = Category::where('type', 'product')->where('categoryGuid', $guid)->first();
-        $rootFirst = Category::where('type', 'product')->where('categoryGuid',$category->parentId)->first();
-    }
-    
+    $category = Category::where('categoryGuid', $guid)->first();
+    $categoryTitle = json_decode($category->categoryTitle, true)[App::getLocale()]
 @endphp
 
 @section('custom-style')
@@ -28,100 +17,32 @@
 @section('content')
 <div class="sub-page-banner" style="background-image: url('/img/sub-banner.jpg');">
     <div>
-        <h2>產品中心</h2>
-        <h4>Product center</h4>
+        <h2>{{ trans('string.label_center') }}</h2>
+        @if (App::getLocale() !== 'en')
+            <h4>Label center</h4>
+        @endif
         <hr>
-        <h5>您可於此頁面查詢日澤相關產品，並透過介面完成詢價單填寫</h5>
+        <h5>{{ trans('string.label_banner_desc') }}</h5>
     </div>
 </div>
 <div class="mg-site-thumbnail">
     <div class="container">
         <div class="col-md-12">
-            <a href="/">首頁</a>
+            <a href="/">{{ trans('string.home') }}</a>
             &nbsp;&nbsp;<a>></a>&nbsp;&nbsp;
-            產品中心
+            <a href="/product">{{ trans('string.product_center') }}</a>
+            &nbsp;&nbsp;<a>></a>&nbsp;&nbsp;
+            <a href="/label">{{ trans('string.label_center') }}</a>
+            &nbsp;&nbsp;<a>></a>&nbsp;&nbsp;
+            {{$categoryTitle}}
         </div>
     </div>
 </div>
-<div class="container product-list">
-    <div class="row main-category">
-        <div class="col-md-10 mx-auto">
-            <ul class="row nav nav-tabs">
-                @foreach ($root as $key => $item)
-                    <li class="col-md-2 mx-auto category-btn-section nav-item">
-                        <a class="nav-link category-btn {{$rootFirst->categoryGuid == $item->categoryGuid ? 'active' : ''}}" href="/product/main/{{$item->categoryGuid}}">
-                        {{-- <a class="nav-link category-btn {{$rootFirst->categoryGuid == $item->categoryGuid ? 'active' : ''}}" data-toggle="tab" href="#main-tab-{{$key}}"> --}}
-                            @include('components.icon.type'.($key + 1), ['title' => json_decode($item->categoryTitle, true)[App::getLocale()]])
-                        </a>
-                    </li>
-                @endforeach
-            </ul>
-        </div>
-    </div>
-    
-    <div class="row sub-category tab-content">
-        @foreach ($root as $index => $element)
-            <div class="col-md-12 tab-pane {{$rootFirst->categoryGuid == $element->categoryGuid ? 'active' : 'fade'}}" id="main-tab-{{$index}}">
-                <!-- Nav tabs -->
-                @php
-                    $subCategory = Category::where('parentId', $element->categoryGuid)->get();
-                @endphp
-                <ul class="nav nav-tabs sub-category-tabs">
-                    @foreach ($subCategory as $key => $item)
-                        
-                        <li class="nav-item">
-                            @php
-                                if ($mode == 'sub') {
-                                    $active = $guid == $item->categoryGuid;
-                                } else {
-                                    $active = $key == 0;
-                                }
-                            @endphp
-                            <a class="nav-link {{ $active ? 'active' : ''}}" href="/product/sub/{{$item->categoryGuid}}">
-                                {{json_decode($item->categoryTitle, true)[App::getLocale()]}}
-                                <div class="bar"></div>
-                            </a>
-                        </li>
-                    @endforeach
-                </ul>
-                
-                <!-- Tab panes -->
-                <div class="tab-content sub-category-tabs-content">
-                    @foreach ($subCategory as $key => $item)
-                        @php
-                            $child = Category::where('parentId', $item->categoryGuid)->get();
-
-                            if ($mode == 'sub') {
-                                $active = $guid == $item->categoryGuid;
-                            } else {
-                                $active = $key == 0;
-                            }
-                        @endphp
-                        <div class="tab-pane container sub-category-panel {{ $active ? 'active' : 'fade'}}" id="tab-{{$index}}-{{$key}}">
-                            <ul class="sub-category-list">
-                                @foreach ($child as $elm)
-                                    <li>
-                                        <a href="/product/category/{{$elm->categoryGuid}}">{{json_decode($elm->categoryTitle, true)[App::getLocale()]}}</a>
-                                    </li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endforeach
-                </div>
-            </div>
-        @endforeach        
-    </div>
-    <div class="row">
+<div class="container product-list sub">
+        <div class="row">
         @php
             $pageCount = 9;
-            $products = Product::show()->paginate($pageCount);
-
-            if ($mode == 'main') {
-                $products = Product::show()->where('mainCategory', $guid)->paginate($pageCount);
-            }
-            if ($mode == 'sub') {
-                $products = Product::show()->where('subCategory', $guid)->paginate($pageCount);
-            }
+            $products = Product::show()->where('authorName', $guid)->paginate($pageCount);
         @endphp
         @foreach ($products as $item)
             @php
@@ -139,7 +60,7 @@
                             </div>
                         </div>
                     </a>
-                    <a class="product-link" style="cursor: pointer" onclick="addSigleProduct('{{$item->productGuid}}')">加入詢價車</a>
+                    <a class="product-link" style="cursor: pointer" onclick="addSigleProduct('{{$item->productGuid}}')">{{ trans('cart.add_cart') }}</a>
                 </div>
             </div>
         @endforeach

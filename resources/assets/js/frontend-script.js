@@ -134,6 +134,21 @@ $(function () {
             showMenu($(this));
         }
     })
+
+    $('.menu-item-dropdown').on('click', e => {
+        let self = $(e.target)
+        let subMenu = self.parent().find('ul')
+
+        if (self.hasClass('active')) {
+            self.removeClass('active', () => {
+                subMenu.slideUp()
+            })
+        } else {
+            self.addClass('active', () => {
+                subMenu.slideDown()
+            })
+        }
+    })
 });
 
 

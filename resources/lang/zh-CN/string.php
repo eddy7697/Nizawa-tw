@@ -71,4 +71,6 @@ return [
     'no_experience' => '经历不拘',
     'no_experience_qualifi' => '学历不拘',
     'monthly_salary' => '月薪',
+
+    'label_banner_desc' => '您可於此頁面查詢品牌相關產品，並透過介面完成詢價單填寫',
 ];

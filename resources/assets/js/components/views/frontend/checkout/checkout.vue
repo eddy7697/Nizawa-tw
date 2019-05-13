@@ -269,7 +269,7 @@
                 isCouponUse: false,
                 discountType: '',
                 couponAmount: null,
-                Temperature: null,
+                Temperature: 'null',
                 cart: [],
                 LastFiveChar: '',
                 antiFraudNoticeVisible: false,

@@ -55,11 +55,11 @@
                 <button
                     v-if="productType == 'variable' && choosedSubItem && parseInt(choosedSubItem.subQuantity) > 0" 
                     class="btn btn-default btn-block btn-lg method-btn add-cart" @click="addToCart()">
-                    加入詢價車
+                    {{i18n.add_cart}}
                 </button>
                 <button v-if="productType == 'simple' && maxQty > 0" 
                     class="btn btn-default btn-block btn-lg method-btn add-cart" @click="addToCart()">
-                    加入詢價車
+                    {{i18n.add_cart}}
                 </button>
             </div>
             <div class="col-md-6">

@@ -26,9 +26,11 @@
                                     <span>{{ parseTitle(item.name) }}</span>
                                 </td>
                                 <td align="center">
-                                    <span @click="openEditModal(item)" class="glyphicon glyphicon-pencil"></span>
+                                    <span style="cursor: pointer" @click="openEditModal(item)" class="glyphicon glyphicon-pencil"></span>
                                 </td>
-                                <td align="center"><span @click="deleteCategory(item.guid)" class="glyphicon glyphicon-trash"></span></td>
+                                <td align="center">
+                                    <span style="cursor: pointer" @click="deleteCategory(item.guid)" class="glyphicon glyphicon-trash"></span>
+                                </td>
                             </tr>
                         </tbody>
                     </table>
@@ -44,7 +46,7 @@
                     <h3 class="panel-title">
                         新增品牌
                     </h3>
-                    <button class="btn btn-primary" @click="translateTitle('addCategoryForm')">一鍵翻譯</button>
+                    <button style="margin-top: 10px;" class="btn btn-primary" @click="translateTitle('addCategoryForm')">一鍵翻譯</button> <span style="color: #73879C; position: absolute; top: 45px;">當前版本僅支援中翻英</span>
                 </div>
                 <div class="panel-body">
                     <div class="form-group">
@@ -53,7 +55,7 @@
                         </label>
                         <input type="email" class="form-control" v-model="addCategoryForm.name['zh-TW']"/>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" v-if="false">
                         <label for="exampleInputEmail1">
                             品牌名稱 (簡體)
                         </label>
@@ -86,7 +88,7 @@
                             <option v-for="item in categories" v-bind:value="item.guid"> {{ item.name }}</option>
                         </select>
                     </div> -->
-                    <div class="form-group">
+                    <div class="form-group" v-if="false">
                         <label for="exampleInputEmail1">
                             品牌描述
                         </label>
@@ -151,7 +153,7 @@
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                         <h4 class="modal-title">編輯品牌</h4>
-                        <button class="btn btn-primary" @click="translateTitle('editCategoryForm')">一鍵翻譯</button>
+                        <button style="margin-top: 10px;" class="btn btn-primary" @click="translateTitle('editCategoryForm')">一鍵翻譯</button> <span style="color: #73879C; position: absolute; top: 60px;">當前版本僅支援中翻英</span>
                     </div>
                     <div class="modal-body">
                         <div class="form-group">
@@ -160,7 +162,7 @@
                             </label>
                             <input type="email" class="form-control" v-model="editCategoryForm.name['zh-TW']"/>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group" v-if="false">
                             <label for="exampleInputEmail1">
                                 品牌名稱 (簡體)
                             </label>
@@ -181,7 +183,7 @@
                                 <option value="zh-TW">繁體中文</option>
                             </select>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group" v-if="false">
                             <label for="exampleInputEmail1">
                                 品牌描述
                             </label>
@@ -414,10 +416,10 @@
                         }
                     })
                     .done(function(result) {
-                        self.showMessage('success', result.message);
+                        self.showMessage('success', '刪除品牌成功');
                     })
                     .fail(function(errorData) {
-                        self.showMessage('error', errorData.responseJSON.message);
+                        self.showMessage('error', '刪除品牌失敗');
                     })
                     .always(function() {
                         self.getCategories();
@@ -496,7 +498,7 @@
                         this[form].name['zh-CN'] = res.data
                         count += 1
 
-                        if (count > 3) {
+                        if (count > 1) {
                             $('.loading-bar').hide()
                         }
                     })
@@ -505,33 +507,33 @@
                         this[form].name['en'] = res.data
                         count += 1
 
-                        if (count > 3) {
+                        if (count > 1) {
                             $('.loading-bar').hide()
                         }
                     })
-                axios.post(`/api/translate/zh-CN/${encodeURIComponent(this[form].description['zh-TW'])}`)
-                    .then(res => {
-                        this[form].description['zh-CN'] = res.data
-                        count += 1
+                // axios.post(`/api/translate/zh-CN/${encodeURIComponent(this[form].description['zh-TW'])}`)
+                //     .then(res => {
+                //         this[form].description['zh-CN'] = res.data
+                //         count += 1
 
-                        if (count > 3) {
-                            $('.loading-bar').hide()
-                        }
-                    })
-                axios.post(`/api/translate/en/${encodeURIComponent(this[form].description['zh-TW'])}`)
-                    .then(res => {
-                        this[form].description['en'] = res.data
-                        count += 1
+                //         if (count > 3) {
+                //             $('.loading-bar').hide()
+                //         }
+                //     })
+                // axios.post(`/api/translate/en/${encodeURIComponent(this[form].description['zh-TW'])}`)
+                //     .then(res => {
+                //         this[form].description['en'] = res.data
+                //         count += 1
 
-                        if (count > 3) {
-                            $('.loading-bar').hide()
-                        }
-                    })
+                //         if (count > 3) {
+                //             $('.loading-bar').hide()
+                //         }
+                //     })
             },
             parseTitle(str) {
                 let obj = JSON.parse(str)
 
-                return `${obj['zh-TW']} | ${obj['zh-CN']} | ${obj.en}`
+                return `${obj['zh-TW']} | ${obj.en}`
             },
             showMessage: function (type, string) {
                 toastr[type](string);

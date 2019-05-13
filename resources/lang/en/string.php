@@ -71,4 +71,6 @@ return [
     'no_experience' => 'No experience',
     'no_experience_qualifi' => 'Unrestricted academic qualifications',
     'monthly_salary' => 'Monthly salary',
+
+    'label_banner_desc' => 'You can check the brand related products on this page and complete the inquiry form through the interface.',
 ];

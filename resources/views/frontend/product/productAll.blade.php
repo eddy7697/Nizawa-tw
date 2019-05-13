@@ -43,7 +43,7 @@
         </div>
     </div>
 </div>
-<div class="container product-list">
+<div class="container product-list sub">
     <div class="row main-category">
         <div class="col-md-10 mx-auto">
             <ul class="row nav nav-tabs">
@@ -139,7 +139,7 @@
                             </div>
                         </div>
                     </a>
-                    <a class="product-link" style="cursor: pointer" onclick="addSigleProduct('{{$item->productGuid}}')">加入詢價車</a>
+                    <a class="product-link" style="cursor: pointer" onclick="addSigleProduct('{{$item->productGuid}}')">{{ trans('cart.add_cart') }}</a>
                 </div>
             </div>
         @endforeach

@@ -337,7 +337,7 @@ class CheckoutController extends Controller
             //Go to EcPay
             // echo "<h1 style='text-align: center; margin-top: 100px;'>交易信息传输中，请勿刷新或者关闭窗口，以免重复下订。</h1>";
 
-            if (env('APP_ENV') === 'prod') {
+            if (env('APP_ENV') === 'local') {
                 Mail::send('mail.orderNotice', [
                     'data' => $data,
                     'cartInfo' => $cartInfo,
@@ -345,24 +345,23 @@ class CheckoutController extends Controller
                     'merchantIdCache' => $merchantIdCache
                 ], function($message) use ($sender, $shippingTarget) {
                     $message->to([
-                        env('MAIL_USERNAME'),
-                        '044555@gmail.com'
-                    ])->subject('订单成立通知 - 来自 '.$shippingTarget['ReceiverName'].' 的订购');
-                    $message->from($sender, $name = env('APP_NAME'));
+                        'info@nizawa-int.com.tw', 'vincent7697@gmail.com'
+                    ])->subject('詢價單成立通知 - 來自 '.$shippingTarget['ReceiverName'].' 的詢價');
+                    $message->from('info@nizawa-int.com.tw', $name = env('APP_NAME'));
                 });
 
-                Mail::send('mail.notice', [
-                    'data' => $data,
-                    'cartInfo' => $cartInfo,
-                    'shippingTarget' => $shippingTarget,
-                    'merchantIdCache' => $merchantIdCache
-                ], function($message) use ($sender, $shippingTarget) {
-                    $message->to([
-                        $shippingTarget['ReceiverEmail'],
-                        $sender,
-                    ])->subject(env('APP_NAME').' 订单成立通知信');
-                    $message->from($sender, $name = env('APP_NAME'));
-                });
+                // Mail::send('mail.notice', [
+                //     'data' => $data,
+                //     'cartInfo' => $cartInfo,
+                //     'shippingTarget' => $shippingTarget,
+                //     'merchantIdCache' => $merchantIdCache
+                // ], function($message) use ($sender, $shippingTarget) {
+                //     $message->to([
+                //         $shippingTarget['ReceiverEmail'],
+                //         $sender,
+                //     ])->subject(env('APP_NAME').' 订单成立通知信');
+                //     $message->from($sender, $name = env('APP_NAME'));
+                // });
             }
 
             // echo Ecpay::instance()->CheckOutString();
@@ -547,23 +546,23 @@ class CheckoutController extends Controller
                         'merchantIdCache'   => $merchantIdCache
                     ], function($message) use ($sender, $shippingTarget) {
                         $message->to([
-                            env('MAIL_USERNAME'),
+                            'info@nizawa-int.com.tw', 'vincent7697@gmail.com'
                         ])->subject('订单成立通知 - 来自 '.$shippingTarget['ReceiverName'].' 的订购');
-                        $message->from($sender, $name = env('APP_NAME'));
+                        $message->from('info@nizawa-int.com.tw', $name = env('APP_NAME'));
                     });
 
-                    Mail::send('mail.notice', [
-                        'data'              => $data,
-                        'cartInfo'          => $cartInfo,
-                        'shippingTarget'    => $shippingTarget,
-                        'merchantIdCache'   => $merchantIdCache
-                    ], function($message) use ($sender, $shippingTarget) {
-                        $message->to([
-                            $shippingTarget['ReceiverEmail'],
-                            $sender,
-                        ])->subject(env('APP_NAME').' 订单成立通知信');
-                        $message->from($sender, $name = env('APP_NAME'));
-                    });
+                    // Mail::send('mail.notice', [
+                    //     'data'              => $data,
+                    //     'cartInfo'          => $cartInfo,
+                    //     'shippingTarget'    => $shippingTarget,
+                    //     'merchantIdCache'   => $merchantIdCache
+                    // ], function($message) use ($sender, $shippingTarget) {
+                    //     $message->to([
+                    //         $shippingTarget['ReceiverEmail'],
+                    //         $sender,
+                    //     ])->subject(env('APP_NAME').' 订单成立通知信');
+                    //     $message->from($sender, $name = env('APP_NAME'));
+                    // });
                 }
 
                 try {

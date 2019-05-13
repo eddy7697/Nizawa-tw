@@ -127,6 +127,13 @@
                         <div class="short-description">
                             <h4>型號：{{$product->serialNumber}}</h4>
                             <h4>貨號：{{$product->rule}}</h4>
+                            @if ($product->authorName)
+                                @php
+                                    $label = Category::where('categoryGuid', $product->authorName)->first();
+                                @endphp
+                                <h4>品牌：<a href="/label/{{$product->authorName}}">{{json_decode($label->categoryTitle, true)[App::getLocale()]}}</a></h4>    
+                            @endif
+                            
                         </div>
 
                         <hr>
@@ -374,7 +381,7 @@
                                 </div>
                             </div>
                         </a>
-                        <a class="product-link" style="cursor: pointer" onclick="addSigleProduct('{{$item->productGuid}}')">加入詢價車</a>
+                        <a class="product-link" style="cursor: pointer" onclick="addSigleProduct('{{$item->productGuid}}')">{{ trans('cart.add_cart') }}</a>
                     </div>
                 </div>
             @endforeach
