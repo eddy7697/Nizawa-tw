@@ -341,6 +341,30 @@
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <h3 class="panel-title">
+                                品牌選擇
+                            </h3>
+                        </div>
+                        <div class="panel-body">
+                            <table class="table field-table">
+                                <tr>
+                                    <td>
+                                        品牌名稱
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <select class="form-control" v-model="productContent[selectedLocale].authorName" required>
+                                            <option :value="null">--不指定--</option>
+                                            <option v-for="item in labels" v-bind:key="item.guid" v-bind:value="item.guid">{{parseTitle(item.name)}}</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">
                                 類別選擇
                             </h3>
                         </div>
@@ -355,7 +379,7 @@
                                     <td>
                                         <select class="form-control" v-model="productContent[selectedLocale].mainCategory" required>
                                             <option :value="null">--不指定--</option>
-                                            <option v-for="item in rootLayer" v-bind:key="item.guid" v-bind:value="item.guid">{{item.name}}</option>
+                                            <option v-for="item in rootLayer" v-bind:key="item.guid" v-bind:value="item.guid">{{parseTitle(item.name)}}</option>
                                         </select>
                                     </td>
                                 </tr>
@@ -368,7 +392,7 @@
                                     <td>
                                         <select class="form-control" v-model="productContent[selectedLocale].subCategory" required>
                                             <option :value="null">--不指定--</option>
-                                            <option v-for="item in secLayer" v-bind:key="item.guid" v-bind:value="item.guid">{{item.name}}</option>
+                                            <option v-for="item in secLayer" v-bind:key="item.guid" v-bind:value="item.guid">{{parseTitle(item.name)}}</option>
                                         </select>
                                     </td>
                                 </tr>
@@ -381,7 +405,7 @@
                                     <td>
                                         <select class="form-control" v-model="productContent[selectedLocale].productCategory">
                                             <option :value="null">--不指定--</option>
-                                            <option v-for="item in thirdLayer" v-bind:key="item.guid" v-bind:value="item.guid">{{item.name}}</option>
+                                            <option v-for="item in thirdLayer" v-bind:key="item.guid" v-bind:value="item.guid">{{parseTitle(item.name)}}</option>
                                         </select>
                                     </td>
                                 </tr>
@@ -461,6 +485,7 @@
                 isEdit: false,
                 guid: $('#row-guid').val(),                
                 categories:[],
+                labels: [],
                 selectedLocale: 'zh-TW',
                 config: {
                     minDate: moment()
@@ -477,11 +502,13 @@
             let self = this
             if (this.guid) {
                 this.getCategories().then(val => {
+                    self.getLabels()
                     self.getProduct();
                 })
                 this.isEdit = true;
             } else {
                 this.getCategories();
+                this.getLabels()
                 this.isLoaded = true;
 
             }
@@ -588,8 +615,6 @@
                     return
                 }
 
-                console.log(delete this.productContent.subProduct)
-
                 axios.post(this.isEdit ? '/admin/product/edit/' + this.guid : '/admin/product/add', this.productContent)
                     .then(res => {
                         if (this.isSubmit) {
@@ -621,6 +646,7 @@
                                         productDescription: JSON.stringify(self.productContent.productDescription),
                                         shortDescription: self.productContent.shortDescription,
                                         serialNumber: self.productContent.serialNumber,
+                                        authorName: self.productContent.authorName,
                                         rule: self.productContent.rule,
                                         quantity: self.productContent.quantity,
                                         productCategory: self.productContent.productCategory,
@@ -652,7 +678,7 @@
                                     if (self.isSubmit) {
                                         self.showMessage('success', '產品儲存成功')
                                         setTimeout(() => {
-                                            window.location.href="/cyberholic-system/product/list";
+                                            // window.location.href="/cyberholic-system/product/list";
                                         }, 1500)
                                     } else {
                                         self.isEdit = true
@@ -703,6 +729,7 @@
                         self.productContent[elm].rule = result[elm].rule;
                         self.productContent[elm].price = result[elm].price;
                         self.productContent[elm].discountedPrice = result[elm].discountedPrice;
+                        self.productContent[elm].authorName = result[elm].authorName;
                         self.productContent[elm].productCategory = result[elm].productCategory;
                         self.productContent[elm].mainCategory = result[elm].mainCategory;
                         self.productContent[elm].subCategory = result[elm].subCategory;
@@ -894,6 +921,34 @@
                 })
 
             },
+            getLabels() {
+                var self = this;
+                var token = this.token;
+
+                return new Promise(function (resolve, reject) {
+                    let vo = {
+                        type: 'label'
+                    }
+                    axios.post('/admin/category/get', vo)
+                        .then(res => {
+                            let arr = res.data.map(elm => {
+                                return {
+                                    'name': elm.categoryTitle,
+                                    'guid': elm.categoryGuid,
+                                    'parentId': elm.parentId
+                                }
+                            })
+                            console.log(arr)
+                            self.labels = arr
+                            self.$nextTick(() => {
+                                resolve(true)
+                            })
+                        }).catch(err => {
+                            reject(err)
+                        })
+                })
+
+            },
             clearString(s) {
                 var pattern = new RegExp("[`~!@#$^&*()=|{}':;',\\[\\].<>/?~！@#￥……&*（）&;|{}【】‘；：”“'。，、？]")
                 var rs = "";
@@ -903,6 +958,11 @@
                 }
 
                 return rs;
+            },
+            parseTitle(str) {
+                let obj = JSON.parse(str)
+
+                return `${obj['zh-TW']} | ${obj['zh-CN']} | ${obj.en}`
             },
             showMessage(type, string) {
                 toastr[type](string);

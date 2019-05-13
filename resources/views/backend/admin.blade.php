@@ -94,6 +94,7 @@
 												<li><a href="/cyberholic-system/product/add">新增產品</a></li>
 												<li><a href="/cyberholic-system/product/list">產品列表</a></li>
 												<li><a href="/cyberholic-system/product/category">產品類別管理</a></li>
+												<li><a href="/cyberholic-system/product/label">產品品牌管理</a></li>
 											</ul>
 										</li>
 										@if (false)

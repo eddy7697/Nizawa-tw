@@ -40,6 +40,7 @@ return [
     'count_retrun' => 'Customer return rate',
 
     'product_center' => 'Product Center',
+    'label_center' => 'Label Center',
     'learn_more_products' => 'View more products',
     'news_center' => 'News Center',
     'all_news' => 'all articles',

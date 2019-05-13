@@ -10,6 +10,7 @@ use App\Category;
 use App\CustomField;
 use App\SubProduct;
 use Auth;
+use Log;
 
 class ProductController extends Controller
 {
@@ -300,6 +301,7 @@ class ProductController extends Controller
                 $value['album'] = json_encode($value['album']);
                 $value['productDescription'] = json_encode($value['productDescription']);
                 $value['productInformation'] = json_encode($value['productInformation']);
+                Log::info($value['authorName']);
                 Product::create($value);
             }
 
@@ -346,7 +348,7 @@ class ProductController extends Controller
                     'serialNumber' => $data['serialNumber'],
                     'quantity' => $data['quantity'],
                     'author' => $creatorGuid,
-                    'authorName' => $creator,
+                    'authorName' => $data['authorName'],
                     'productCategory' => $category,
                     'mainCategory' => $data['mainCategory'],
                     'subCategory' => $data['subCategory'],
@@ -413,7 +415,7 @@ class ProductController extends Controller
                 Product::where('productGuid', $guid)->where('locale', $value)->update($data[$value]);
             }
 
-            return response()->json([ 'status' => 200, 'data' => '$createProduct', 'message' => 'create product success' ], 200);
+            return response()->json([ 'status' => 200, 'data' => '$updateProduct', 'message' => 'create product success' ], 200);
         } catch (\Throwable $th) {
             return response()->json([ 'status' => 500, 'data' => null, 'message' => $th->getMessage() ], 500);
         }
@@ -456,6 +458,7 @@ class ProductController extends Controller
                     'featureImage' => $data['featureImage'],
                     'mainCategory' => $data['mainCategory'],
                     'subCategory' => $data['subCategory'],
+                    'authorName' => $data['authorName'],
                     'album' => $data['album'],
                     'productStatus' => $data['productStatus'],
                     'rule' => $data['rule'],

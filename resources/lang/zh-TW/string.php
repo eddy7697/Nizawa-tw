@@ -40,6 +40,7 @@ return [
     'count_retrun' => '客戶回單率',
 
     'product_center' => '產品中心',
+    'label_center' => '品牌中心',
     'learn_more_products' => '檢視更多產品',
     'news_center' => '新聞中心',
     'all_news' => '全部文章',

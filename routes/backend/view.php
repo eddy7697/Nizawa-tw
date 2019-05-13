@@ -116,6 +116,13 @@ Route::get('/product/edit/{guid}', function ($guid) {
     ]);
 });
 
+Route::get('/product/label', function () {
+    return view('backend.page', [
+        'panelTitle' => '產品類別管理',
+        'source' => 'product-label'
+    ]);
+});
+
 
 /*****************
     BUSINESS

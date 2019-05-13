@@ -89,9 +89,9 @@
                 _token: $('meta[name="csrf-token"]').attr('content'),
                 name: $('input[name="name"]').val(),
                 email: $('input[name="email"]').val(),
-            }).then(res => {
+            }).then(function (res) {
                 alert('訂閱成功!');
-            }).catch(err => {
+            }).catch(function (err) {
                 alert('您已訂閱!');
             });
         });

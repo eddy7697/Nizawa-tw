@@ -44,12 +44,13 @@ class CategoryController extends Controller
             'categoryTitle' => $request->all()['name'],
             'parentId' => $request->all()['parentId'],
             'type' => $request->all()['type'],
+            'featureImage' => $request->featureImage,
             'categoryDescription' => $request->all()['description'],
         ];
 
-        $validator = Validator::make($data, [
-            'categoryTitle' => 'required|string|max:255',
-        ])->validate();
+        // $validator = Validator::make($data, [
+        //     'categoryTitle' => 'required|string|max:255',
+        // ])->validate();
 
         if ($data['parentId'] == 'null') {
             $data['parentId'] = null;
@@ -61,6 +62,7 @@ class CategoryController extends Controller
                 'categoryTitle' => $data['categoryTitle'],
                 'parentId' => $data['parentId'],
                 'type' => $data['type'],
+                'featureImage' => $data['featureImage'],
                 'categoryDescription' => $data['categoryDescription'],
             ]);
 
@@ -105,7 +107,12 @@ class CategoryController extends Controller
         $data = $request->all();
 
         return Category::where('categoryGuid', $data['category'])
-                ->update(['categoryTitle' => $data['name']]);
+                ->update([
+                    'categoryTitle' => $request->name,
+                    'parentId' => $request->parentId,
+                    'featureImage' => $request->featureImage,
+                    'categoryDescription' => $request->description
+                ]);
     }
 
     /**

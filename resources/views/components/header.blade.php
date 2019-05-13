@@ -36,7 +36,7 @@
                 </ul>
                 <ul class="site-menu {{App::getLocale()}}">
                     <li><a class="mega-btn" data-menu-target="about">{{ trans('string.about') }}&nbsp;&nbsp;<i class="fa fa-caret-down mega-arrow" aria-hidden="true"></i></a></li>
-                    <li><a href="/product">{{ trans('string.product_center') }}</a></li>
+                    <li><a class="mega-btn" data-menu-target="product">{{ trans('string.product_center') }}&nbsp;&nbsp;<i class="fa fa-caret-down mega-arrow" aria-hidden="true"></i></a></li>
                     <li><a class="mega-btn" data-menu-target="industry">{{ trans('string.industrial_application') }}&nbsp;&nbsp;<i class="fa fa-caret-down mega-arrow" aria-hidden="true"></i></a></li>
                     <li><a href="/blog">{{ trans('string.news_center') }}</a></li>
                     <li><a class="mega-btn" data-menu-target="support">{{trans('string.support')}}&nbsp;&nbsp;<i class="fa fa-caret-down mega-arrow" aria-hidden="true"></i></a></li>
@@ -82,6 +82,36 @@
                         <a href="/about/career" class="site-mega-menu-link">
                             <img src="/img/menu/hr.jpg" alt="{{ trans('string.recruiting') }}">
                             <p class="header-job-txt">{{ trans('string.recruiting') }}</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        {{-- product --}}
+        <div class="row mega-nav-item" id="product">
+            <div class="col-md-2 left-col">
+                <div class="menu-header">
+                    <h3>{{ trans('string.product_center') }}</h3>
+                    <hr>
+                    @unless (App::getLocale() == 'en')
+                        <p>Product center</p>    
+                    @endunless
+                    
+                </div>
+            </div>
+            <div class="col-md-10 right-col">
+                <ul class="site-mega-menu-container">
+                    <li class="site-mega-menu-item">
+                        <a href="/product" class="site-mega-menu-link">
+                            <img src="/img/menu/about.jpg" alt="{{ trans('string.product_center') }}">
+                            <p class="header-job-txt">{{ trans('string.product_center') }}</p>
+                        </a>
+                    </li>
+                    <li class="site-mega-menu-item">
+                        <a href="/label" class="site-mega-menu-link">
+                            <img src="/img/menu/res.jpg" alt="{{ trans('string.label_center') }}">
+                            <p class="header-job-txt">{{ trans('string.label_center') }}</p>
                         </a>
                     </li>
                 </ul>

@@ -20,6 +20,7 @@ export default {
                         industry: null
                     },
                     shortDescription: null,
+                    authorName: null,
                     price: 1,
                     isPublish: false,
                     locale: 'zh-TW',
@@ -63,6 +64,7 @@ export default {
                         industry: null
                     },
                     shortDescription: null,
+                    authorName: null,
                     price: 1,
                     isPublish: false,
                     locale: 'zh-CN',
@@ -106,6 +108,7 @@ export default {
                         industry: null
                     },
                     shortDescription: null,
+                    authorName: null,
                     price: 1,
                     isPublish: false,
                     locale: 'en',

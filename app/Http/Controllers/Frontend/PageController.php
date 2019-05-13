@@ -69,6 +69,18 @@ class PageController extends Controller
         ]);
     }
 
+    public function productLabel()
+    {
+        return view('frontend.product.productLabel');
+    }
+
+    public function productLabelList($guid)
+    {
+        return view('frontend.product.productLabelList', [
+            'guid' => $guid,
+        ]);
+    }
+
     public function login()
     {
         return view('frontend.authentication.login', [
