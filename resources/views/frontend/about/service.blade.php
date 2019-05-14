@@ -85,7 +85,7 @@
         <h2>售後服務</h2>
         <h4>After-sales Services</h4>
         <hr>
-        <h5>歡迎您選用日澤化工系列服務，您可於本頁面查詢任何您所需要的售後支援</h5>
+        <h5>歡迎您選用日澤系列服務，您可於本頁面查詢任何您所需要的售後支援</h5>
     </div>
 </div>
 <div class="mg-site-thumbnail">

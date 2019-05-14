@@ -21,7 +21,7 @@ return [
     'submit' => 'send',
     'privacy' => 'Privacy Policy',
     'notice' => 'Terms of Use',
-    'industrial_application' => 'Industry Application',
+    'industrial_application' => 'Industry scenario',
 
     'placeholder_sub1' => 'Please enter a name...',
     'placeholder_sub2' => 'Please enter email...',

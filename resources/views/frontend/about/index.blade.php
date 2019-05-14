@@ -5,6 +5,8 @@
 <script type="module">
     import { CountUp } from '/js/plugins/countup/countUp.min.js';
 
+    window.moduleUseable = true
+
     window.onload = function() {
         var countUpYear = new CountUp('count-year', 1987, {
             useGrouping: false
@@ -18,6 +20,34 @@
         countUpMem.start();
         countUpReturn.start();
     }
+</script>
+<script>
+$(function () {
+    setTimeout(function () {
+        if (window.moduleUseable) {
+            console.log('oh...yeah....')
+        } else {
+            $('.counter').each(function() {
+                var $this = $(this),
+                    countTo = $this.attr('data-count');
+                
+                $({ countNum: $this.text()}).animate({
+                    countNum: countTo
+                },{
+                    duration: 8000,
+                    easing:'linear',
+                    step: function() {
+                    $this.text(Math.floor(this.countNum));
+                    },
+                    complete: function() {
+                    $this.text(this.countNum);
+                    //alert('finished');
+                    }
+                }); 
+            });
+        }
+    }, 300); 
+});
 </script>
 @endsection
 
@@ -62,11 +92,11 @@
             <div class="count-down-box">
                 <div class="type-icon drop"></div>
                 <div class="flex-column">
-                    <div class="number" id="count-year">
+                    <div class="number counter" data-count="1987" id="count-year">
                         0
                     </div>
                     <div class="text">
-                        {{ trans('string.count_create') }}
+                        {{ trans('string.founded') }}
                     </div>
                 </div>
             </div>
@@ -75,11 +105,11 @@
             <div class="count-down-box">
                 <div class="type-icon box"></div>
                 <div class="flex-column">
-                    <div class="number" id="count-prod">
+                    <div class="number counter" data-count="108" id="count-prod">
                         0
                     </div>
                     <div class="text">
-                        {{ trans('string.count_product') }}
+                        {{ trans('string.merchandise_quantity') }}
                     </div>
                 </div>
             </div>
@@ -88,11 +118,11 @@
             <div class="count-down-box">
                 <div class="type-icon mem"></div>
                 <div class="flex-column">
-                    <div class="number" id="count-mem">
+                    <div class="number counter" data-count="9435" id="count-mem">
                         0
                     </div>
                     <div class="text">
-                        {{ trans('string.count_mem') }}
+                        {{ trans('string.customer_accumulation') }}
                     </div>
                 </div>
             </div>
@@ -101,11 +131,11 @@
             <div class="count-down-box">
                 <div class="type-icon back"></div>
                 <div class="flex-column">
-                    <div class="number" id="count-return">
+                    <div class="number counter" data-count="307" id="count-return">
                         0
                     </div>
                     <div class="text">
-                        {{ trans('string.count_retrun') }}
+                        {{ trans('string.return_rate') }}
                     </div>
                 </div>
             </div>
