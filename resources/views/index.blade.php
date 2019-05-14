@@ -86,11 +86,17 @@
             pagination: {
                 el: '.swiper-pagination',
                 clickable: true,
+                autoHeight: true,
+                autoplay: {
+                    delay: 4000
+                },
                 renderBullet: function (index, className) {
                 return '<span class="' + className + '"></span>';
                 },
             },
         });
+
+        swiper.autoplay.start();
 
         // console.log(navigator.appName)
         setTimeout(function () {
