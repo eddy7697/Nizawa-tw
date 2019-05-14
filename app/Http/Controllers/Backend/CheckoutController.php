@@ -337,7 +337,7 @@ class CheckoutController extends Controller
             //Go to EcPay
             // echo "<h1 style='text-align: center; margin-top: 100px;'>交易信息传输中，请勿刷新或者关闭窗口，以免重复下订。</h1>";
 
-            if (env('APP_ENV') === 'local') {
+            if (env('APP_ENV') === 'prod') {
                 Mail::send('mail.orderNotice', [
                     'data' => $data,
                     'cartInfo' => $cartInfo,
