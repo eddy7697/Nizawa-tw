@@ -9,6 +9,32 @@ return [
     'about2' => '公司簡介',
     'about3' => '地理位置',
     'about4' => '聯絡我們',
+
+    'contact1' => '姓名',
+    'contact2' => '性別',
+    'contact3' => '電子信箱',
+    'contact4' => '電話',
+    'contact5' => '問題類型',
+    'contact6' => '詢問內容',
+
+    'form_required' => '必填',
+    'male' => '男',
+    'female' => '女',
+    'inquery_type' => '請選擇問題類型',
+    'inquery_type1' => '產品諮詢',
+    'inquery_type2' => '詢價問題',
+    'inquery_type3' => '訂單問題',
+    'inquery_type4' => '服務支援',
+    'inquery_type5' => '其他諮詢',
+    'comment_remind' => '提醒您，若您填寫得越精準，越有利我們及時回覆給您資訊。',
+    'contact_remind1' => '我們不會將您輸入的任何個人資訊用於回答查詢以外的目的，您亦可<a href="/about/privacy">點選這裡</a>檢視更多關於日澤提供的隱私權保護政策。',
+    'contact_remind2' => '* 請您務必將日澤的電子郵箱地址或域名設定為可接收的電子郵箱，以免錯過我們的回覆，您亦可直接與我們聯絡，<a href="/about#about-map">(點選這裡檢視聯絡資訊)',
+    'captcha' => '驗證碼',
+    'captcha_refresh' => '更新驗證碼',
+    'captcha_enter' => '請輸入上方的驗證碼...',
+    'captcha_error' => '驗證碼錯誤',
+    'contact_submit' => '提交資訊',
+
     
     'company_profile' => '公司介紹',
     'responsibility' => '社會責任',
@@ -74,4 +100,9 @@ return [
 
     'label_banner_desc' => '您可於此頁面查詢品牌相關產品，並透過介面完成詢價單填寫',
     'product_banner_desc' => '您可於此頁面查詢日澤相關產品，並透過介面完成詢價單填寫',
+    'news_banner_desc' => '我們將不定時更新關於日澤各種最新動態，歡迎您隨時關注我們',
+    'service_overview_banner_desc' => '歡迎您選用日澤系列服務，您可於本頁面查詢任何您所需要的售後支援',
+    'faq_banner_desc' => '任何產品常見問題，或想了解詢價流程，都在這裡為您詳加介紹',
+    'download_banner_desc' => '歡迎您透過本頁面下載各種產品目錄、檢測標準或相關文件',
+    'contact_banner_desc' => '歡迎您透過連絡表單填寫與我們聯絡，我們將盡速回復給您',
 ];

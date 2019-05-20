@@ -68,20 +68,22 @@
 @section('content')
 <div class="sub-page-banner" style="background-image: url('/img/sub-banner.jpg');">
     <div>
-        <h2>資料下載</h2>
-        <h4>File Download</h4>
+        <h2>{{ trans('string.download') }}</h2>
+        @if (App::getLocale() !== 'en')
+        <h4>Data Download</h4>    
+        @endif
         <hr>
-        <h5>歡迎您透過本頁面下載各種產品目錄、檢測標準或相關文件</h5>
+        <h5>{{ trans('string.download_banner_desc') }}</h5>
     </div>
 </div>
 <div class="mg-site-thumbnail">
     <div class="container">
         <div class="col-md-12">
-            <a href="/">首頁</a>
+            <a href="/">{{ trans('string.home') }}</a>
             &nbsp;&nbsp;<a>></a>&nbsp;&nbsp;
-            <a>服務支援</a>
+            <a>{{ trans('string.support') }}</a>
             &nbsp;&nbsp;<a>></a>&nbsp;&nbsp;
-            檔案下載
+            {{ trans('string.download') }}
         </div>
     </div>
 </div>

@@ -10,18 +10,24 @@
 @section('content')
 <div class="sub-page-banner" style="background-image: url('/img/sub-banner.jpg');">
     <div>
-        <h2>新聞中心</h2>
+        <h2>{{ trans('string.news_center') }}</h2>
+        @if (App::getLocale() !== 'en')
+            <h4>News</h4>
+        @endif
+        <hr>
+        <h5>{{ trans('string.news_banner_desc') }}</h5>
+        {{-- <h2>新聞中心</h2>
         <h4>News & Information</h4>
         <hr>
-        <h5>我們將不定時更新關於日澤各種最新動態，歡迎您隨時關注我們</h5>
+        <h5>我們將不定時更新關於日澤各種最新動態，歡迎您隨時關注我們</h5> --}}
     </div>
 </div>
 <div class="mg-site-thumbnail">
     <div class="container">
         <div class="col-md-12">
-            <a href="/">首页</a>
+            <a href="/">{{ trans('string.home') }}</a>
             &nbsp;&nbsp;<a>></a>&nbsp;&nbsp;
-            新聞中心
+            {{ trans('string.news_center') }}
         </div>
     </div>
 </div>

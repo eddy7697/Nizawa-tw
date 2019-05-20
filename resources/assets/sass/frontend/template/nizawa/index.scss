@@ -1341,7 +1341,7 @@
                         position: absolute;
                         top: 18px;
                         right: 10px;
-                        content: '\5FC5\586B';
+                        content: attr(data-title);
                         border: red thin solid;
                         padding: 1px 7px;
                         border-radius: 5px;

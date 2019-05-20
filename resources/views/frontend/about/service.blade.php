@@ -82,20 +82,22 @@
 @section('content')
 <div class="sub-page-banner" style="background-image: url('/img/sub-banner.jpg');">
     <div>
-        <h2>售後服務</h2>
-        <h4>After-sales Services</h4>
+        <h2>{{ trans('string.support') }}</h2>
+        @if (App::getLocale() !== 'en')
+            <h4>Service</h4>
+        @endif
         <hr>
-        <h5>歡迎您選用日澤系列服務，您可於本頁面查詢任何您所需要的售後支援</h5>
+        <h5>{{ trans('string.service_overview_banner_desc') }}</h5>
     </div>
 </div>
 <div class="mg-site-thumbnail">
     <div class="container">
         <div class="col-md-12">
-            <a href="/">首頁</a>
+            <a href="/">{{ trans('string.home') }}</a>
             &nbsp;&nbsp;<a>></a>&nbsp;&nbsp;
-            <a>服務支援</a>
+            <a>{{ trans('string.support') }}</a>
             &nbsp;&nbsp;<a>></a>&nbsp;&nbsp;
-            售後服務
+            {{ trans('service') }}
         </div>
     </div>
 </div>

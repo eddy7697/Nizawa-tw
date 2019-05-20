@@ -39,18 +39,21 @@
 @section('content')
 <div class="sub-page-banner" style="background-image: url('/img/sub-banner.jpg');">
     <div>
-        <h2>聯絡我們</h2>
-        <h4>Contact Us</h4>
+        <h2>{{ trans('string.about4') }}</h2>
+        @if (App::getLocale() !== 'en')
+        <h4>Contact Us</h4>    
+        @endif
+        
         <hr>
-        <h5>歡迎您透過連絡表單填寫與我們聯絡，我們將盡速回復給您</h5>
+        <h5>{{ trans('string.contact_banner_desc') }}</h5>
     </div>
 </div>
 <div class="mg-site-thumbnail">
     <div class="container">
         <div class="col-md-12">
-            <a href="/">首頁</a>
+            <a href="/">{{ trans('string.home') }}</a>
             &nbsp;&nbsp;<a>></a>&nbsp;&nbsp;
-            聯絡我們
+            {{ trans('string.about4') }}
         </div>
     </div>
 </div>
@@ -61,71 +64,71 @@
             <form action="{{route('sendForm')}}" method="POST">
                 {{ csrf_field() }}
                 <div class="col-md-11 mx-auto contact-form-header">
-                    <h1>聯絡我們</h1>
+                    <h1>{{ trans('string.about4') }}</h1>
                     <hr>
-                    <p>請詳細填寫您的資訊及疑問，以便我們精準為您回覆，非常感謝您。</p>
+                    <p>{{ trans('string.contact_banner_desc') }}</p>
                 </div>
                 <div class="col-md-10 mx-auto contact-form-body">
                     <div class="row">
-                        <div class="col-md-4 column important">
-                            <p>姓名</p>
+                        <div class="col-md-4 column important" data-title="{{ trans('string.form_required') }}">
+                            <p>{{ trans('string.contact1') }}</p>
                         </div>
                         <div class="col-md-8 column">
                             <input class="form-control" type="text" name="name" required>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-4 column important">
-                            <p>性別</p>
+                        <div class="col-md-4 column important" data-title="{{ trans('string.form_required') }}">
+                            <p>{{ trans('string.contact2') }}</p>
                         </div>
                         <div class="col-md-8 column">
                             <div class="form-check-inline">
                                 <label class="form-check-label">
-                                    <input type="radio" class="form-check-input" name="gender" value="男" required>男
+                                    <input type="radio" class="form-check-input" name="gender" value="{{trans('string.male')}}" required>{{trans('string.male')}}
                                 </label>
                             </div>
                             <div class="form-check-inline">
                                 <label class="form-check-label">
-                                    <input type="radio" class="form-check-input" name="gender" value="女" required>女
+                                    <input type="radio" class="form-check-input" name="gender" value="{{trans('string.female')}}" required>{{trans('string.female')}}
                                 </label>
                             </div>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-4 column important">
-                            <p>電子郵箱</p>
+                        <div class="col-md-4 column important" data-title="{{ trans('string.form_required') }}">
+                            <p>{{ trans('string.contact3') }}</p>
                         </div>
                         <div class="col-md-8 column">
                             <input class="form-control" type="email" name="email" required>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-4 column important">
-                            <p>連絡電話</p>
+                        <div class="col-md-4 column important" data-title="{{ trans('string.form_required') }}">
+                            <p>{{ trans('string.contact4') }}</p>
                         </div>
                         <div class="col-md-8 column">
                             <input class="form-control" type="phone" name="phone" required>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-4 column">
-                            <p>問題類型</p>
+                        <div class="col-md-4 column important" data-title="{{ trans('string.form_required') }}">
+                            <p>{{ trans('string.contact5') }}</p>
                         </div>
                         <div class="col-md-8 column">
                             <select name="type" class="form-control" required>
-                                <option disabled>--請選擇問題類型--</option>
-                                <option value="產品諮詢">產品諮詢</option>
-                                <option value="詢價問題">詢價問題</option>
-                                <option value="訂單問題">訂單問題</option>
-                                <option value="服務支援">服務支援</option>
-                                <option value="其他諮詢">其他諮詢</option>
+                                <option disabled>--{{ trans('string.inquery_type') }}--</option>
+                                <option value="{{ trans('string.inquery_type1') }}">{{ trans('string.inquery_type1') }}</option>
+                                <option value="{{ trans('string.inquery_type2') }}">{{ trans('string.inquery_type2') }}</option>
+                                <option value="{{ trans('string.inquery_type3') }}">{{ trans('string.inquery_type3') }}</option>
+                                <option value="{{ trans('string.inquery_type4') }}">{{ trans('string.inquery_type4') }}</option>
+                                <option value="{{ trans('string.inquery_type5') }}">{{ trans('string.inquery_type5') }}</option>
                             </select>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-4 column important">
-                            <p>詢問內容</p>
-                            <p class="text">提醒您，若您填寫得越精準，越有利我們及時回覆給您資訊。</p>
+                        <div class="col-md-4 column important" data-title="{{ trans('string.form_required') }}">
+                            <p>{{ trans('string.contact6') }}</p>
+                            <p class="text">{{ trans('string.comment_remind') }}</p>
                         </div>
                         <div class="col-md-8 column">
                             <textarea name="content" class="form-control content" required></textarea>
@@ -133,19 +136,19 @@
                     </div>
                 </div>
                 <div class="col-md-10 mx-auto contact-form-footer">
-                    <p class="info">我們不會將您輸入的任何個人資訊用於回答查詢以外的目的，您亦可<a href="/about/privacy">點選這裡</a>檢視更多關於日澤提供的隱私權保護政策。</p>
-                    <p class="info">* 請您務必將日澤的電子郵箱地址或域名設定為可接收的電子郵箱，以免錯過我們的回覆，您亦可直接與我們聯絡，<a href="/about#about-map">(點選這裡檢視聯絡資訊)</a>。</p>
+                    <p class="info">{!! trans('string.contact_remind1') !!}</p>
+                    <p class="info">{!! trans('string.contact_remind2') !!}</p>
                     <div class="captcha-section">
-                        <strong>確認碼</strong>
+                        <strong>{{ trans('string.captcha') }}</strong>
                         <img src="/captcha" id="captcha" alt="">
-                        <a href="#" id="refresh-captcha">更新確認碼</a>
-                        <input type="text" class="form-control captcha" name="captcha" placeholder="請輸入上方的確認碼..." required title="請輸入驗證碼">
+                        <a href="#" id="refresh-captcha">{{ trans('string.captcha_refresh') }}</a>
+                        <input type="text" class="form-control captcha" name="captcha" placeholder="{{trans('string.captcha_enter')}}" required title="{{trans('string.captcha_enter')}}">
                         @if ($errors->has('captcha_error'))
                             <span class="help-block">
-                                <strong>驗證碼錯誤</strong>
+                                <strong>{{ trans('string.captcha_error') }}</strong>
                             </span>
                         @endif
-                        <button class="submit-btn" type="submit">提交資訊</button>
+                        <button class="submit-btn" type="submit">{{ trans('string.contact_submit') }}</button>
                     </div>
                 </div>
             </form>
