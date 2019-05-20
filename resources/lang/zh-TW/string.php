@@ -73,4 +73,5 @@ return [
     'monthly_salary' => '月薪',
 
     'label_banner_desc' => '您可於此頁面查詢品牌相關產品，並透過介面完成詢價單填寫',
+    'product_banner_desc' => '您可於此頁面查詢日澤相關產品，並透過介面完成詢價單填寫',
 ];

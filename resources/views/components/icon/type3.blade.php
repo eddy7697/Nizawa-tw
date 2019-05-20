@@ -8,7 +8,7 @@
     <line class="cls-3" x1="150" y1="176.6" x2="150" y2="110.58"/>
     <line class="cls-3" x1="121.93" y1="68.48" x2="178.07" y2="96.55"/>
     @if (App::getLocale() == 'en')
-    <text class="cls-2" transform="translate(10 238.89)" font-weight="bold">{{$title}}</text>    
+    <text class="cls-2" transform="translate(45 238.89)" font-weight="bold">{{$title}}</text>    
     @else
     <text class="cls-2" transform="translate(75.18 238.89)" font-weight="bold">{{$title}}</text>
     @endif

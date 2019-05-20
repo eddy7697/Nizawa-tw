@@ -5,7 +5,7 @@
     <title>icon-01-05</title>
     <!-- <rect class="cls-1" width="300" height="300" rx="13.5" ry="13.5"/> -->
     @if (App::getLocale() == 'en')
-    <text class="cls-2" transform="translate(5 238.89)">{{$title}}</text>    
+    <text class="cls-2" transform="translate(40 238.89)">{{$title}}</text>    
     @else
     <text class="cls-2" transform="translate(75.18 238.89)">{{$title}}</text>
     @endif

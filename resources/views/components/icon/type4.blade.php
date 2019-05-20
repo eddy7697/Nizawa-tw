@@ -4,7 +4,7 @@
     </defs>
     <title>icon-01-04</title>
     @if (App::getLocale() == 'en')
-    <text class="cls-2" transform="translate(5 238.89)">{{$title}}</text>    
+    <text class="cls-2" transform="translate(50 238.89)">{{$title}}</text>    
     @else
     <text class="cls-2" transform="translate(75.18 238.89)">{{$title}}</text>
     @endif

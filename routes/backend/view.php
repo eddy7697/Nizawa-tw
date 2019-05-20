@@ -380,3 +380,20 @@ Route::group(['prefix' => 'job'], function ()
 {
     Route::get('/add');
 });
+
+/**
+ * industry
+ */
+Route::get('/industry/list', function ()
+{
+    return view('backend.industry.industry', [
+        'panelTitle' => '應用列表'
+    ]);
+});
+
+Route::get('/industry/add', function ()
+{
+    return view('backend.industry.addIndustry', [
+        'panelTitle' => '新增'
+    ]);
+});

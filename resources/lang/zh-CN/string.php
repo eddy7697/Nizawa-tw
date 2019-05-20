@@ -72,5 +72,6 @@ return [
     'no_experience_qualifi' => '学历不拘',
     'monthly_salary' => '月薪',
 
-    'label_banner_desc' => '您可於此頁面查詢品牌相關產品，並透過介面完成詢價單填寫',
+    'label_banner_desc' => '您可于此页面查找品牌相关产品，并透过界面完成询价单填写',
+    'product_banner_desc' => '您可于此页面查找日泽相关产品，并透过界面完成询价单填写',
 ];

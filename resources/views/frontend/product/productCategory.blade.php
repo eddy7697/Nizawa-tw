@@ -19,18 +19,20 @@
 @section('content')
 <div class="sub-page-banner" style="background-image: url('/img/sub-banner.jpg');">
     <div>
-        <h2>產品中心</h2>
-        <h4>Product center</h4>
+        <h2>{{ trans('string.product_center') }}</h2>
+        @if (App::getLocale() !== 'en')
+            <h4>{{ trans('string.product_center') }}</h4>
+        @endif
         <hr>
-        <h5>您可於此頁面查詢日澤相關產品，並透過介面完成詢價單填寫</h5>
+        <h5>{{ trans('string.product_banner_desc') }}</h5>
     </div>
 </div>
 <div class="mg-site-thumbnail">
     <div class="container">
         <div class="col-md-12">
-            <a href="/">首頁</a>
+            <a href="/">{{ trans('string.home') }}</a>
             &nbsp;&nbsp;<a>></a>&nbsp;&nbsp;
-            產品中心
+            {{ trans('string.product_center') }}
         </div>
     </div>
 </div>

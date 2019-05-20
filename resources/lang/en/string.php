@@ -2,7 +2,7 @@
 
 return [
     'home' => 'Home',
-    'about' => 'About NIZAWA',
+    'about' => 'About Nizawa',
     'aboutDesc' => 'Excellent product and professional sales and technical team strive to do your best',
 
     'about1' => "<p class='title'>Excellent Customer Relationships Deep Peer Analysis and Testing</p><p>NIZAWA International Co., Ltd. was established in 1987 as an avant-garde supplier of environmental sanitation analysis solutions for Taiwan. </p><p>With more than 30 years of experience, we uphold the enthusiasm of 'professionalism, integrity, innovation' to provide customers with a full range of services, together with the security of Taiwan's sanitation. </p><p class='title'>Representing a rich and diverse product portfolio of world-renowned brands</p><p>Introducing agents for many European, American, Japanese and leading brands, currently focusing on environmental protection, work safety, food , biochemical and other related analytical instruments, testing equipment, test consumables and other products. </p><p>In order to be closer to the needs of Taiwanese users and assist in solving problems encountered in testing, we have established a professional and strong technical service team to actively provide customers with the most complete products and consulting services. </p><p class='title'>International level product certification for users at all levels</p><p>In addition to providing customers with high-quality products and expert services, it also focuses on product technology innovation. Many products have certifications such as USEPA, JIS, AOAC, MicroVal, etc., and comply with domestic regulations on water quality testing, food safety and biotechnology. </p>",
@@ -11,7 +11,7 @@ return [
     'about4' => 'Contact us',
 
     'company_profile' => 'Company Profile',
-    'responsibility' => 'social responsibility',
+    'responsibility' => 'CSR',
     'recruiting' => 'Talent recruitment',
     'support' => 'Service Support',
     'service' => 'After-sales service',
@@ -21,7 +21,7 @@ return [
     'submit' => 'send',
     'privacy' => 'Privacy Policy',
     'notice' => 'Terms of Use',
-    'industrial_application' => 'Industry scenario',
+    'industrial_application' => 'Industries',
 
     'placeholder_sub1' => 'Please enter a name...',
     'placeholder_sub2' => 'Please enter email...',
@@ -39,19 +39,19 @@ return [
     'count_mem' => 'Customer accumulation',
     'count_retrun' => 'Customer return rate',
 
-    'product_center' => 'Product Center',
-    'label_center' => 'Label Center',
+    'product_center' => 'Products',
+    'label_center' => 'Brands',
     'learn_more_products' => 'View more products',
-    'news_center' => 'News Center',
+    'news_center' => 'News',
     'all_news' => 'all articles',
     'learn_more_news' => 'View more history messages',
     'our_customer' => 'our customer',
 
-    'indu1' => 'Water industry',
-    'indu2' => 'Electronics industry',
-    'indu3' => 'Household sewage',
-    'indu4' => 'Industrial sewage',
-    'indu5' => 'farming fishery',
+    'indu1' => 'Municipal Drinking Water',
+    'indu2' => 'Electroplating Sewage',
+    'indu3' => 'Municipal Wastewater',
+    'indu4' => 'Industrial Wastewater',
+    'indu5' => 'Farming fishery',
     'indu6' => 'Food industry',
     'indu7' => 'Cosmeceutical industry',
     'indu8' => 'Industrial Engineering',
@@ -63,7 +63,7 @@ return [
 
     'content_construction' => 'Content construction',
 
-    'recruiting' => 'Recruiting',
+    'recruiting' => 'Careers',
     'job_list' => 'Job list',
     'recruiting_banner' => 'We are recruiting a variety of talents and welcome you to join us.',
     'recurit_department' => 'Department',
@@ -73,4 +73,5 @@ return [
     'monthly_salary' => 'Monthly salary',
 
     'label_banner_desc' => 'You can check the brand related products on this page and complete the inquiry form through the interface.',
+    'product_banner_desc' => 'Nizawa offers the most complete series of measuring instrumentation as well as accessories for the measurement and monitoring of water and food safety.',
 ];

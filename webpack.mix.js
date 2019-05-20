@@ -98,7 +98,9 @@ var LiveReloadPlugin = require('webpack-livereload-plugin');
  mix.js('resources/assets/js/components/views/backend/meta/notice/notice.js', 'public/js/backend')
     .js('resources/assets/js/components/views/backend/meta/privacy/privacy.js', 'public/js/backend')
     .js('resources/assets/js/components/views/backend/meta/remind/remind.js', 'public/js/backend')
-    .js('resources/assets/js/components/views/backend/meta/other/other.js', 'public/js/backend');
+    .js('resources/assets/js/components/views/backend/meta/other/other.js', 'public/js/backend')
+    .js('resources/assets/js/components/views/backend/industry/industry-list/industry-list.js', 'public/js/backend')
+    .js('resources/assets/js/components/views/backend/industry/add-industry/add-industry.js', 'public/js/backend');
 
 
  // frontend

@@ -240,4 +240,16 @@ Route::group(['prefix' => 'admin'], function ()
         Route::post('/get', 'Backend\SubscribeController@getQnas');
         Route::get('/export', 'Backend\SubscribeController@export');
     });
+
+    /**
+     * Custom field
+     */
+    Route::group(['prefix' => 'custom'], function ()
+    {
+        Route::post('/add', 'Backend\CustomController@addCustomField');
+        Route::post('/get/{type}', 'Backend\CustomController@getCustomFieldByType');
+        Route::get('/getByid/{id}', 'Backend\CustomController@getCustomFieldById');
+        Route::post('/update/{id}', 'Backend\CustomController@updateCustomField');
+        Route::post('/delete/{id}', 'Backend\CustomController@deleteCustomField');
+    });
 });

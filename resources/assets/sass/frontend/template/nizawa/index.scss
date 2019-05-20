@@ -722,6 +722,7 @@
                     box-shadow: 2px 2px 12px -2px rgba($color: #000000, $alpha: .3);
                     display: inline-block;
                     transition: all .2s ease; 
+                    margin-bottom: 20px;
     
                     &.active, &:hover {
                         background-color: $main-color;
@@ -2036,6 +2037,33 @@
                 .label-item {
                     width: 33.33%;
                 }            
+            }
+            .main-category {
+
+                .category-btn-section {
+                    width: 50%;
+                }
+            }
+            .sub-category {
+
+                .sub-category-tabs {
+
+                    .nav-item {
+                        width: 100%;
+                    }
+                }
+                .sub-category-tabs-content {
+
+                    .sub-category-panel {
+
+                        ul.sub-category-list {
+
+                            li {
+                                width: 49%;
+                            }
+                        }
+                    }
+                }
             }
         }
         .new-list {
