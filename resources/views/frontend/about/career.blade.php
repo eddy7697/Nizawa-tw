@@ -51,7 +51,7 @@
     <div>
         <h2>{{ trans('string.recruiting') }}</h2>
         @if (App::getLocale() !== 'en')
-            <h4>Recruiting</h4>
+            <h4>Careers</h4>
         @endif
         <hr>
         <h5>{{ trans('string.recruiting_banner') }}</h5>
@@ -80,7 +80,7 @@
                                 <h5>{{$item->title}}</h5>
                                 <ul class="career-department">
                                     <li>{{ trans('string.recurit_department') }}：{{$item->department}}</li>
-                                    <li>{{ trans('string.number_of_recruits') }}：{{$item->number}} 人</li>
+                                    <li>{{ trans('string.number_of_recruits') }}：{{$item->number}} {{ trans('string.people') }}</li>
                                 </ul>
                                 <ul class="career-location">
                                     <li>{{$item->location}}</li>
@@ -101,20 +101,20 @@
                                 </div>
                                 <hr>
                                 <div class="career-pay">
-                                    {{ trans('string.monthly_salary') }}：{{$item->paymentRange}} 元
+                                    {{ trans('string.monthly_salary') }}：{{$item->paymentRange}}
                                 </div>
                             </div>
                             <div class="col-md-2 action-group">
                                 <div class="action-group-content">
                                     @if ($item->status)
                                         <a onclick="openResumeModal('{{$item->id}}')">
-                                            <button class="btn btn-block btn-resume">我要應徵</button>
+                                            <button class="btn btn-block btn-resume">{{ trans('string.careers_apply') }}</button>
                                         </a>
                                     @else
-                                        <button class="btn btn-block btn-resume off">暫不開放</button>
+                                        <button class="btn btn-block btn-resume off">{{ trans('string.careers_not_open') }}</button>
                                     @endif
                                     @if ($item->isTop)
-                                        <span class="hot-tag">最火職缺</span>    
+                                        <span class="hot-tag">{{ trans('string.careers_hot') }}</span>    
                                     @endif
                                 </div>
                             </div>
@@ -132,7 +132,7 @@
             <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLongTitle">履歷投遞</h5>
+                        <h5 class="modal-title" id="exampleModalLongTitle">{{ trans('string.careers_resume_delive') }}</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -142,7 +142,7 @@
                             <div class="container-fluid contact-form-body"> 
                                 <div class="row">
                                     <div class="col-md-4 column important">
-                                        <p>姓名</p>
+                                        <p>{{ trans('string.careers_name') }}</p>
                                     </div>
                                     <div class="col-md-8 column">
                                         <input class="form-control" type="text" name="fullName" required>
@@ -150,7 +150,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-4 column important">
-                                        <p>電子信箱</p>
+                                        <p>{{ trans('string.email') }}</p>
                                     </div>
                                     <div class="col-md-8 column">
                                         <input class="form-control" type="email" name="email" required>
@@ -158,7 +158,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-4 column important">
-                                        <p>行動電話</p>
+                                        <p>{{ trans('string.careers_mobile') }}</p>
                                     </div>
                                     <div class="col-md-8 column">
                                         <input class="form-control" type="text" name="mobile" required>
@@ -166,7 +166,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-4 column important">
-                                        <p>地址</p>
+                                        <p>{{ trans('string.address') }}</p>
                                     </div>
                                     <div class="col-md-8 column">
                                         <input class="form-control" type="text" name="address" required>
@@ -174,7 +174,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-4 column important">
-                                        <p>郵遞區號</p>
+                                        <p>{{ trans('string.postcode') }}</p>
                                     </div>
                                     <div class="col-md-8 column">
                                         <input class="form-control" type="text" name="postalCode" required>
@@ -182,7 +182,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-4 column ">
-                                        <p>個人網址</p>
+                                        <p>{{ trans('string.careers_website') }}</p>
                                     </div>
                                     <div class="col-md-8 column">
                                         <input class="form-control" type="text" name="website" >
@@ -190,7 +190,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-4 column important">
-                                        <p>個人簡歷檔案</p>
+                                        <p>{{ trans('string.careers_resume_file') }}</p>
                                     </div>
                                     <div class="col-md-8 column">
                                         <input type="file" name="resumeFile" id="resume-file" accept=".doc,.docx,.xls,.xlsx,.pdf" required>
@@ -201,8 +201,8 @@
                             
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn" data-dismiss="modal">關閉視窗</button>
-                            <button type="submit" class="btn btn-custom">投遞履歷</button>
+                            <button type="button" class="btn" data-dismiss="modal">{{ trans('string.close_window') }}</button>
+                            <button type="submit" class="btn btn-custom">{{ trans('string.careers_resume_delive') }}</button>
                         </div>
                     </form>
                 </div>

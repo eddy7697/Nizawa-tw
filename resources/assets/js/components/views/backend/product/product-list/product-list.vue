@@ -8,6 +8,9 @@
                 @searchPost="searchPost($event)"/>
         </div>
         <div class="col-md-3">
+            <featureList />
+        </div>
+        <div class="col-md-3">
             <categoryList 
                 v-if="false"
                 :btnTitle="'變更產品類別'"
@@ -214,6 +217,7 @@
     var itemList = require('../../../../common/itemList.vue');
     var categoryList = require('../../../../common/categoryList.vue');
     var searchBar = require('../../../../common/searchBar.vue');
+    var featureList = require('../../../../common/featureList.vue');
 
     Vue.use(ToggleButton);
     Vue.use(ElementUI);
@@ -268,7 +272,8 @@
         components: {
             itemList,
             searchBar,
-            categoryList
+            categoryList,
+            featureList
         },
         created: function () {
             var self = this;

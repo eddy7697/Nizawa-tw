@@ -315,8 +315,9 @@
             <i class="fa fa-caret-right" aria-hidden="true"></i>
         </button>
         <div class="row product-list-container">
-            @foreach (ProductView::getPopularProductsByCount(3) as $item)
+            @for ($i = 0; $i < 3; $i++)
                 @php
+                    $item = FeatureView::get('feature_'.($i + 1));
                     $content = json_decode($item->productDescription);
                 @endphp
                 <div class="col-md-4 product-content" data-aos="fade-up">
@@ -334,7 +335,7 @@
                         <a class="product-link" style="cursor: pointer" onclick="addSigleProduct('{{$item->productGuid}}')">{{ trans('cart.add_cart') }}</a>
                     </div>
                 </div>
-            @endforeach
+            @endfor
         </div>
         <div class="row">
             <div class="col-md-12 btn-section">
@@ -344,8 +345,9 @@
     </div>
     <div class="container product-list">
         <div class="row">
-            @foreach (ProductView::getPopularProductsByCount(3) as $item)
+            @for ($i = 0; $i < 3; $i++)
                 @php
+                    $item = FeatureView::get('feature_'.($i + 1));
                     $content = json_decode($item->productDescription);
                 @endphp
                 <div class="col-md-4 product-content" data-aos="fade-up">
@@ -363,7 +365,7 @@
                         <a class="product-link" style="cursor: pointer" onclick="addSigleProduct('{{$item->productGuid}}')">{{ trans('cart.add_cart') }}</a>
                     </div>
                 </div>
-            @endforeach
+            @endfor
         </div>
         <div class="row">
             <div class="col-md-12 btn-section">
@@ -508,72 +510,13 @@
                         <i class="fa fa-caret-right" aria-hidden="true"></i>
                     </button>
                     <div class="witness-container">
-    
-                        <div class="witness-item">
-                            <div class="witness-image">
-                                <img src="/img/partner1.jpg" alt="">
+                        @foreach (SiteMetaView::pageTopContent() as $item)
+                            <div class="witness-item">
+                                <div class="witness-image">
+                                    <img src="{{$item->url}}" alt="">
+                                </div>
                             </div>
-                            {{-- <div class="withess-info">
-                                統一企業股份有限公司
-                                <br>
-                                <span>Uni-President Enterprises Corporation</span>
-                            </div> --}}
-                        </div>
-                        
-                        <div class="witness-item">
-                            <div class="witness-image">
-                                <img src="/img/partner2.png" alt="">
-                            </div>
-                            {{-- <div class="withess-info">
-                                金車股份有限公司
-                                <br>
-                                <span>King Car Industrial Co., Ltd</span>
-                            </div> --}}
-                        </div>
-                            
-                        <div class="witness-item">
-                            <div class="witness-image">
-                                <img src="/img/partner3.jpg" alt="">
-                            </div>
-                            {{-- <div class="withess-info">
-                                黑松股份有限公司
-                                <br>
-                                <span>HeySong Corporation</span>
-                            </div> --}}
-                        </div>
-                            
-                        <div class="witness-item">
-                            <div class="witness-image">
-                                <img src="/img/partner4.jpg" alt="">
-                            </div>
-                            {{-- <div class="withess-info">
-                                好市多股份有限公司
-                                <br>
-                                <span>Costco Wholesale Corporation</span>
-                            </div> --}}
-                        </div>
-                            
-                        <div class="witness-item">
-                            <div class="witness-image">
-                                <img src="/img/partner5.png" alt="">
-                            </div>
-                            {{-- <div class="withess-info">
-                                鼎泰豐小吃店股份有限公司
-                                <br>
-                                <span>Din Tai Fung</span>
-                            </div> --}}
-                        </div>
-                            
-                        <div class="witness-item">
-                            <div class="witness-image">
-                                <img src="/img/partner6.png" alt="">
-                            </div>
-                            {{-- <div class="withess-info">
-                                東京牛角股份有限公司
-                                <br>
-                                <span>REINS International</span>
-                            </div> --}}
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>

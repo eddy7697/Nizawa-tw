@@ -11,6 +11,7 @@ use App\CustomField;
 use App\SubProduct;
 use Auth;
 use Log;
+use App;
 
 class ProductController extends Controller
 {
@@ -89,6 +90,7 @@ class ProductController extends Controller
         if (Auth::user()->role == 'ADMIN') {
 
             $products = DB::table('products')
+                            ->where('locale', 'zh-TW')
                             ->where('productTitle', 'like', '%'.$keyword.'%')
                             ->where(function ($query) use ($qty, $type)
                             {

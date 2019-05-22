@@ -5,6 +5,23 @@ return [
     'about' => 'About Nizawa',
     'aboutDesc' => 'Excellent product and professional sales and technical team strive to do your best',
 
+    'brand' => 'Brand',
+    'feature_product' => 'Feature of product',
+    'product_description' => 'Product description',
+    'detection_step' => 'Detection step',
+    'test_item' => 'Test items',
+    'Instrument_specifications' => 'Instrument specifications',
+    'other_product' => 'Other related products',
+
+    'legal_reseller' => 'Legal reseller',
+    'reseller_banner_desc' => 'Welcome to find KRK authorized dealers around the world through the industry.',
+
+    'forget_password' => 'Forget password',
+    'forget_password_q' => 'Forgot your password?',
+    'forget_password_remind' => 'Please enter the email address you used to register, we will send you a letter to reset your password, thank you.',
+    'not_validate' => 'Login must be verified.',
+    'send_valid_letter' => 'Send verification letter',
+
     'about1' => "<p class='title'>Excellent Customer Relationships Deep Peer Analysis and Testing</p><p>NIZAWA International Co., Ltd. was established in 1987 as an avant-garde supplier of environmental sanitation analysis solutions for Taiwan. </p><p>With more than 30 years of experience, we uphold the enthusiasm of 'professionalism, integrity, innovation' to provide customers with a full range of services, together with the security of Taiwan's sanitation. </p><p class='title'>Representing a rich and diverse product portfolio of world-renowned brands</p><p>Introducing agents for many European, American, Japanese and leading brands, currently focusing on environmental protection, work safety, food , biochemical and other related analytical instruments, testing equipment, test consumables and other products. </p><p>In order to be closer to the needs of Taiwanese users and assist in solving problems encountered in testing, we have established a professional and strong technical service team to actively provide customers with the most complete products and consulting services. </p><p class='title'>International level product certification for users at all levels</p><p>In addition to providing customers with high-quality products and expert services, it also focuses on product technology innovation. Many products have certifications such as USEPA, JIS, AOAC, MicroVal, etc., and comply with domestic regulations on water quality testing, food safety and biotechnology. </p>",
     'about2' => 'Company Profile',
     'about3' => 'location',
@@ -43,10 +60,12 @@ return [
     'faq' => 'Frequently Asked Questions',
     'download' => 'Data Download',
     'subscription' => 'Subscribe to the newsletter',
-    'submit' => 'send',
+    'submit' => 'Send',
     'privacy' => 'Privacy Policy',
     'notice' => 'Terms of Use',
     'industrial_application' => 'Industries',
+    'close_window' => 'Close window',
+    'people' => 'people',
 
     'placeholder_sub1' => 'Please enter a name...',
     'placeholder_sub2' => 'Please enter email...',
@@ -71,6 +90,9 @@ return [
     'all_news' => 'all articles',
     'learn_more_news' => 'View more history messages',
     'our_customer' => 'our customer',
+    'return_to_prev' => 'Return to the previous',
+    'view_preivous' => 'View previous',
+    'view_next' => 'View next',
 
     'indu1' => 'Municipal Drinking Water',
     'indu2' => 'Electroplating Sewage',
@@ -103,5 +125,56 @@ return [
     'service_overview_banner_desc' => 'Outstanding Products. Expert Support.',
     'faq_banner_desc' => "We're here to help.",
     'download_banner_desc' => 'Many materials, user aids and information are ready for you to view or download on these pages.',
-    'contact_banner_desc' => 'To contact us via e-mail, please complete the form below.'
+    'contact_banner_desc' => 'To contact us via e-mail, please complete the form below.',
+    
+    'careers_apply' => 'I want to apply',
+    'careers_not_open' => 'Not open yet',
+    'careers_hot' => 'Hotest Job',
+    'careers_resume_delive' => 'Resume delivery',
+    'careers_name' => 'Name',
+    'careers_mobile' => 'Mobile',
+    'careers_website' => 'Personal Website',
+    'careers_resume_file' => 'Personal resume file',
+    
+    'download_area' => 'Data download area',
+    'product_menu' => 'Product list',
+    'file_download' => 'File download',
+    'download_license' => 'Qualification certificate',
+
+    'download_sharp' => '#',
+    'download_file_name' => 'File name',
+    'download_file_type' => 'File Type',
+    'download_file_size' => 'Size',
+    'download_link' => 'Link',
+    'download_no_data' => 'There is currently no data available.',
+    'download_get_file' => 'Download file',
+    
+    'csr_banner_desc' => 'You can learn about the concept of social responsibility of Nissawa here, and we look forward to making greater efforts to contribute to society.',
+    'csr_title_1' => 'Corporate Social Responsibility',
+    'csr_desc_1' => "The company has three strategic platforms, namely water quality testing, food safety and bio-pharmaceutical makeup, and together with many partners around the world, it is responsible for the environmental sanitation of Greater China. The company's main management and technology Nize takes corporate social responsibility as the core of the company's sustainable development, based on the background and trend of macro environment and industrial development, and determines social responsibility strategy based on meeting social and industrial needs and combining its own advantages. Nippon deepens corporate social responsibility into corporate commitment, environmental protection and social participation, and continues to provide innovative, high-quality products, while taking into account the environment, employee health and human rights, and actively protect the interests of stakeholders.",
+    'csr_title_2' => 'Social responsibility management system',
+    'csr_desc_2' => "<p>There are more than 30 years in the field of deep-cultivation and sanitation in Rize, and we value not only the governance and operation of the company, but also the social responsibility of the company. </p><p>We continue to deepen corporate commitment, environmental protection and social participation with the company's sustainable development as the core, and continue to provide innovative, high-quality products, while taking into account the environment, employee health and human rights, and actively Maintain the rights and interests of stakeholders. </p><p>In order to fully integrate the concept of corporate social responsibility into business philosophy and organizational culture, Nissawa has established a corporate social responsibility team within the company, with the chairman as the general convener and the general manager as the deputy convener. Responsible for company-wide social responsibility strategy formulation and performance supervision. </p><p>In addition, the General Manager's Office and other relevant management departments actively promote and implement corporate governance, environmental protection, employee care and other related businesses, and strive to implement social responsibility. </p>",
+    'csr_desc_3' => '<p>With rich industry experience and professional technical team, Nissawa is very aware of the needs and development of Taiwanese users in the field of sanitation and food safety. Therefore, we are striving to meet the needs of our customers and hope to provide the most complete testing products for the promotion. The quality of Chinese food and sanitation is hard work. </p><p>"Green Energy, Environmental Protection, and Sustainability" is our corporate social responsibility philosophy. In addition to being the leader in sanitation food safety testing products, we hope to achieve through continuous efforts. A beautiful society. </p>',
+
+    'indu_banner_desc' => 'Whether you belong to all walks of life, we can provide you with the best industrial application scenarios.',
+    'indu_desc1' => 'Since its establishment, Nippon International Co., Ltd. has served many companies and provided them with the best solutions for inspection products. Over the years, we have accumulated rich experience and technology, and also integrated the best solutions for each industry category. You can rely on the industries we provide. Application examples, fully understand the various indicators and processes related to testing, and Nippon International can also tailor-made solutions tailored to your needs.',
+
+    'product_info' => 'Products Information',
+    'solution' => 'Solution',
+    'partners' => 'Partners',
+    'review_news' => 'Click me to review more news',
+
+    'product_info_sub' => 'Find your security products.',
+    'solution_sub' => 'Exclusive solution.',
+    'partners_sub' => 'Check out our partners.',
+    'learn_more' => 'Learn more',
+
+    'how_to_buy' => 'How to buy.',
+    'you_can_call' => 'You can make a call',
+    'commissioner_contact' => 'We will have a commissioner to contact you. Thank you.',
+    'related_products' => 'Related Products',
+
+    'partner_finder' => "I'm looking for a",
+    'partner_finder_choose' => 'Choose',
+    'partner_finder_country' => 'By Country',
 ];

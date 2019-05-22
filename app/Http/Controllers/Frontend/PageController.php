@@ -7,6 +7,9 @@ use App\Http\Controllers\Controller;
 use App\SiteMeta;
 use App\Product;
 use App\Career;
+use App\Partner;
+use App\Category;
+use App;
 
 class PageController extends Controller
 {
@@ -25,6 +28,35 @@ class PageController extends Controller
             'isThumbShow' => false,
             'thumb' => null
         ]);
+    }
+
+    public function getCategory(Request $request)
+    {
+        $data = $request->all();
+
+        return Category::where('type', $data['type'])->get();
+    }
+
+    public function getPartners(Request $request)
+    {
+        $data = $request->all();
+
+        return Partner::where(function ($q) use ($request)
+                        {
+                            if (isset($request->partnerType)) {
+                                if ($request->partnerType !== null) {
+                                    $q->where('partnerType', $request->partnerType);
+                                }
+                            }
+
+                            if (isset($request->partnerLocation)) {
+                                if ($request->partnerLocation !== null) {
+                                    $q->where('partnerLocation', $request->partnerLocation);
+                                }
+                            }
+
+                            $q->where('locale', App::getLocale());
+                        })->get();
     }
 
     public function productDetail()

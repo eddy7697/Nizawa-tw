@@ -38,9 +38,9 @@
 <div class="mg-site-thumbnail">
     <div class="container">
         <div class="col-md-12">
-            <a href="/">首页</a>
+            <a href="/">{{ trans('string.home') }}</a>
             &nbsp;&nbsp;<a>></a>&nbsp;&nbsp;
-            <a href="/blog">新聞中心</a>
+            <a href="/blog">{{ trans('string.news_center') }}</a>
             &nbsp;&nbsp;<a>></a>&nbsp;&nbsp;
             {{$post->postTitle}}
         </div>
@@ -76,12 +76,12 @@
             </div>
             <hr>
             <div class="post-detail-methods">
-                <a class="btn" href="/blog">返回上一層</a>
+                <a class="btn" href="/blog">{{ trans('string.return_to_prev') }}</a>
                 @if ($previous)
-                    <a class="btn" href="/blog/{{$previous->customPath}}">查看上一則</a>
+                    <a class="btn" href="/blog/{{$previous->customPath}}">{{ trans('string.view_preivous') }}</a>
                 @endif
                 @if ($next)
-                    <a class="btn" href="/blog/{{$next->customPath}}">查看下一則</a>
+                    <a class="btn" href="/blog/{{$next->customPath}}">{{ trans('string.view_next') }}</a>
                 @endif
             </div>
         </div>

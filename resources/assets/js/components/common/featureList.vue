@@ -28,11 +28,11 @@
                                 <strong v-if="feature.third">{{feature.third.productTitle}}</strong>
                                 <button class="btn btn-primary pull-right" style="margin-top: -5px;" @click="openProductModal('feature_3')">編輯</button>
                             </div>
-                            <div class="alert alert-info" role="alert">
+                            <!-- <div class="alert alert-info" role="alert">
                                 第四排序：
                                 <strong v-if="feature.fourth">{{feature.fourth.productTitle}}</strong>
                                 <button class="btn btn-primary pull-right" style="margin-top: -5px;" @click="openProductModal('feature_4')">編輯</button>
-                            </div>
+                            </div> -->
                         </div>
 
                         <div class="modal-footer">

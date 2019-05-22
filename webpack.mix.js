@@ -102,13 +102,17 @@ var LiveReloadPlugin = require('webpack-livereload-plugin');
     .js('resources/assets/js/components/views/backend/industry/industry-list/industry-list.js', 'public/js/backend')
     .js('resources/assets/js/components/views/backend/industry/add-industry/add-industry.js', 'public/js/backend');
 
+ // video view
+ mix.js('resources/assets/js/components/views/backend/partner/partner-category/partner-category.js', 'public/js/backend')
+    .js('resources/assets/js/components/views/backend/partner/partner-location/partner-location.js', 'public/js/backend');
+
 
  // frontend
  mix.js('resources/assets/js/components/views/frontend/index/index.js', 'public/js')
     .js('resources/assets/js/components/views/frontend/cart-page/cart-page.js', 'public/js')
     .js('resources/assets/js/components/views/frontend/product-methods/product-methods.js', 'public/js')
     .js('resources/assets/js/components/views/frontend/checkout/checkout.js', 'public/js')
-    .js('resources/assets/js/components/views/frontend/partner/partner.js', 'public/js')
+    .js('resources/assets/js/components/views/frontend/partner/partner-map.js', 'public/js')
     .js('resources/assets/js/components/views/frontend/cart-panel/cart-panel.js', 'public/js')
     .js('resources/assets/js/components/views/frontend/post-list/post-list.js', 'public/js');
 

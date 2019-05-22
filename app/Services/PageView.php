@@ -5,6 +5,8 @@ namespace App\Services;
 use App\Page;
 use App\Qna;
 use App\Download;
+use App\CustomField;
+use Log;
 
 class PageView
 {
@@ -58,5 +60,11 @@ class PageView
                         $q->where('qatitle', 'like', '%'.$keyword.'%');
                     })
                     ->get();
+    }
+    
+    public static function industry($id)
+    {
+        $content = CustomField::where('id', (int)$id)->first();
+        return json_decode($content->content);
     }
 }

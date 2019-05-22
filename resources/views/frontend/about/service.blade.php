@@ -97,7 +97,7 @@
             &nbsp;&nbsp;<a>></a>&nbsp;&nbsp;
             <a>{{ trans('string.support') }}</a>
             &nbsp;&nbsp;<a>></a>&nbsp;&nbsp;
-            {{ trans('service') }}
+            {{ trans('string.service') }}
         </div>
     </div>
 </div>
@@ -105,80 +105,80 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12 about-content">
-            <h3 class="about-section-title">準確、可靠 - 日澤的專業售後服務</h3>
+            <h3 class="about-section-title">{{ trans('service.service_title_1') }}</h3>
             <div class="about-text">
-                <p>日澤作為水質與食安檢測儀器的高端企業，不僅提供高質量的儀器，同時還提供專業、可靠的售後服務和技術支持。目前，日澤於國內有數個售後服務據點，數名技術專業、經驗豐富的售後服務工程師。同時利用全面、先進的檢測工具，依拖高效的專家系統，秉持客戶至上的服務理念，為廣大客戶提供方便與高效的服務。</p>
+                <p>{{ trans('service.service_desc_1') }}</p>
             </div>
         </div>
         <div class="col-md-12 about-content">
-            <h3 class="about-section-title">給客戶帶來的價值</h3>
+            <h3 class="about-section-title">{{ trans('service.service_title_2') }}</h3>
             <div class="about-text">
                 <table class="service-table">
                     <tr>
                         <td colspan="2">
-                            服務類型合約
+                            {{ trans('service.service_1') }}
                         </td>
                         <td class="sn-number">
                             #
                         </td>
                         <td>
-                            服務合約價值
+                            {{ trans('service.service_2') }}
                         </td>
                     </tr>
                     <tr>
                         <td rowspan="10">
                             <div class="fake-border"></div>
-                            售後服務方案
+                            {{ trans('service.service_3') }}
                         </td>
                         <td rowspan="6">
                             <div class="fake-border"></div>
-                            基礎保養校準服務
+                            {{ trans('service.service_4') }}
                         </td>
                         <td class="sn-number">1</td>
-                        <td>完整的教育訓練，專業指導產品應用</td>
+                        <td>{{ trans('service.service_5') }}</td>
                     </tr>
                     <tr>
                         <td class="sn-number">2</td>
-                        <td>被動性升級為預防性，更低的儀器生命週期成本</td>
+                        <td>{{ trans('service.service_6') }}</td>
                     </tr>
                     <tr>
                         <td class="sn-number">3</td>
-                        <td>儀器生命週期更常，更低的儀器生命週期成本</td>
+                        <td>{{ trans('service.service_7') }}</td>
                     </tr>
                     <tr>
                         <td class="sn-number">4</td>
-                        <td>減少故障次數和維修時間，降低故障時間</td>
+                        <td>{{ trans('service.service_8') }}</td>
                     </tr>
                     <tr>
                         <td class="sn-number">5</td>
-                        <td>延長正常使用時間和故障間隔時間</td>
+                        <td>{{ trans('service.service_9') }}</td>
                     </tr>
                     <tr>
                         <td class="sn-number">6</td>
-                        <td>制定預防性保養計畫</td>
+                        <td>{{ trans('service.service_10') }}</td>
                     </tr>
                     <tr>
-                        <td rowspan="4">卓越獨享服務</td>
+                        <td rowspan="4">{{ trans('service.service_11') }}</td>
                         <td class="sn-number">1</td>
-                        <td>完整的教育訓練，專業指導產品應用</td>
+                        <td>{{ trans('service.service_12') }}</td>
                     </tr>
                     <tr>
                         <td class="sn-number">2</td>
-                        <td>預防性升級為預測性，合約期內服務預算固定</td>
+                        <td>{{ trans('service.service_13') }}</td>
                     </tr>
                     <tr>
                         <td class="sn-number">3</td>
-                        <td>享受原廠多級專家團隊技術支持</td>
+                        <td>{{ trans('service.service_14') }}</td>
                     </tr>
                     <tr>
                         <td class="sn-number">4</td>
-                        <td>根據客戶應用情況優化預防性保養計畫</td>
+                        <td>{{ trans('service.service_15') }}</td>
                     </tr>
                 </table>
             </div>
         </div>
         <div class="col-md-12 about-content">
-            <h3 class="about-section-title">相關文件下載</h3>
+            <h3 class="about-section-title">{{ trans('service.service_16') }}</h3>
             <ul class="support-download">
                 @foreach (PageView::downloadAll() as $key => $item)
                     @php

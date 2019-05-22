@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App;
 use App\CustomField;
 use App\Product;
 
@@ -19,7 +20,7 @@ class FeatureView
     {
         try {
             $productGuid = CustomField::where('type', $type)->first()['customField1'];
-            $product = Product::where('productGuid', $productGuid)->first();
+            $product = Product::where('productGuid', $productGuid)->where('locale', App::getLocale())->first();
         } catch (\Exception $e) {
             $product = Product::orderBy('created_at', 'desc')->inRandomOrder()->take(1)->get();
         }        

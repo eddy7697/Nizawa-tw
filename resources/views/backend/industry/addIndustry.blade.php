@@ -7,7 +7,12 @@
 @section('panel-content')
 <div class="row" id="add-industry">
     <div class="col-md-12">
-        <add-industry></add-industry>
+        @if ($mode == 'add')
+            <add-industry editmode="add"></add-industry>
+        @else
+            <add-industry editmode="edit" id="{{$id}}"></add-industry>
+        @endif
+        
     </div>
 </div>
 @endsection

@@ -293,7 +293,8 @@ return [
         'PageView' => App\Services\PageView::class,
         'FeatureView' => App\Services\FeatureView::class,
         'Curl' => Ixudra\Curl\Facades\Curl::class,
-        'Excel' => Maatwebsite\Excel\Facades\Excel::class,
+        'Excel' => Maatwebsite\Excel\Facades\Excel::class,        
+        'PartnerView' => App\Services\PartnerView::class,
     ],
 
 ];

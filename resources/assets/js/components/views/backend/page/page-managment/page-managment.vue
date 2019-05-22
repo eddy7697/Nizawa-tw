@@ -45,12 +45,34 @@
                 </tr>
             </table>
         </div>
-
+        <div class="col-md-6">
+            <table class="table field-table">
+                <tr>
+                    <td><label>合作夥伴</label></td>
+                    <td style="text-align: right">
+                        <button class="btn btn-primary" @click="addAlbum"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <draggable class="row" v-model="siteMeta.pageTopContent">
+                            <div class="col-sm-3 partners-box" v-for="(item, index) in siteMeta.pageTopContent" :key="index">
+                                <img width="100%" :src="item.url" alt="">
+                            </div>
+                        </draggable>
+                    </td>
+                </tr>
+            </table>
+        </div>
     </div>
 </template>
 
 <script>
+    import draggable from 'vuedraggable'
     export default {
+        components: {
+            draggable
+        },
         data() {
             return {
                 siteMeta: {
@@ -58,7 +80,7 @@
                     keyword: null,
                     description: null,
                     shortcut: null,
-                    pageTopContent: null,
+                    pageTopContent: [],
                     pageTopLink: null,
                     pageTopButton: null,
                     index_album: []
@@ -99,7 +121,7 @@
                     self.siteMeta.keyword = result.data.keyword;
                     self.siteMeta.description = result.data.description;
                     self.siteMeta.shortcut = result.data.shortcut;
-                    self.siteMeta.pageTopContent = result.data.pageTopContent;
+                    self.siteMeta.pageTopContent = JSON.parse(result.data.pageTopContent);
                     self.siteMeta.pageTopButton = result.data.pageTopButton;
                     self.siteMeta.pageTopLink = result.data.pageTopLink;
                     self.siteMeta.index_album = JSON.parse(result.data.index_album);
@@ -163,7 +185,7 @@
                         shortcut: self.siteMeta.shortcut,
                         pageTopLink: self.siteMeta.pageTopLink,
                         pageTopButton: self.siteMeta.pageTopButton,
-                        pageTopContent: self.siteMeta.pageTopContent,
+                        pageTopContent: JSON.stringify(self.siteMeta.pageTopContent),
                         index_album: JSON.stringify(self.siteMeta.index_album)
                     },
                     beforeSend: function(xhr) {
@@ -199,7 +221,7 @@
                         shortcut: self.siteMeta.shortcut,
                         pageTopLink: self.siteMeta.pageTopLink,
                         pageTopButton: self.siteMeta.pageTopButton,
-                        pageTopContent: self.siteMeta.pageTopContent,
+                        pageTopContent: JSON.stringify(self.siteMeta.pageTopContent),
                         index_album: JSON.stringify(self.siteMeta.index_album)
                     },
                     beforeSend: function(xhr) {
@@ -216,7 +238,35 @@
                     $('.loading-bar').fadeOut('fast');
                     // console.log("complete");
                 });
-            }
+            },
+            addAlbum() {
+                let self = this
+
+                window.open('/laravel-filemanager' + '?type=Images', 'FileManager', 'width=900,height=600');
+                window.SetUrl = function (url, file_path) {
+                    console.log(self.siteMeta.pageTopContent)
+                    self.siteMeta.pageTopContent.push({
+                        url: file_path
+                    }) 
+                };
+            },
         }
     }
 </script>
+<style lang="scss">
+
+.partners-box {
+    position: relative;
+    padding-bottom: 25%;
+
+    img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        max-width: 90%;
+        max-height: 90%;
+        width: auto;
+    }
+}
+</style>

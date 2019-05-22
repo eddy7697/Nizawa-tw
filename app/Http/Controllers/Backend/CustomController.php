@@ -18,20 +18,22 @@ class CustomController extends Controller
         return CustomField::where('type', $type)
                             ->where(function ($q) use ($request)
                             {
-                                if ($request->keyword !== null) {
-                                    $q->orWhere('locale', 'like', '%'.$request->keyword.'%');
-                                    $q->orWhere('content', 'like', '%'.$request->keyword.'%');
-                                    $q->orWhere('customField1', 'like', '%'.$request->keyword.'%');
-                                    $q->orWhere('customField2', 'like', '%'.$request->keyword.'%');
-                                    $q->orWhere('customField3', 'like', '%'.$request->keyword.'%');
-                                    $q->orWhere('customField4', 'like', '%'.$request->keyword.'%');
-                                    $q->orWhere('customField5', 'like', '%'.$request->keyword.'%');
-                                    $q->orWhere('customField6', 'like', '%'.$request->keyword.'%');
-                                    $q->orWhere('customField7', 'like', '%'.$request->keyword.'%');
-                                    $q->orWhere('customField8', 'like', '%'.$request->keyword.'%');
+                                if (isset($request->keywor)) {
+                                    if ($request->keyword !== null) {
+                                        $q->orWhere('locale', 'like', '%'.$request->keyword.'%');
+                                        $q->orWhere('content', 'like', '%'.$request->keyword.'%');
+                                        $q->orWhere('customField1', 'like', '%'.$request->keyword.'%');
+                                        $q->orWhere('customField2', 'like', '%'.$request->keyword.'%');
+                                        $q->orWhere('customField3', 'like', '%'.$request->keyword.'%');
+                                        $q->orWhere('customField4', 'like', '%'.$request->keyword.'%');
+                                        $q->orWhere('customField5', 'like', '%'.$request->keyword.'%');
+                                        $q->orWhere('customField6', 'like', '%'.$request->keyword.'%');
+                                        $q->orWhere('customField7', 'like', '%'.$request->keyword.'%');
+                                        $q->orWhere('customField8', 'like', '%'.$request->keyword.'%');
+                                    }
                                 }
                             })
-                            ->orderBy('sortIndex', 'asc')
+                            // ->orderBy('sortIndex', 'asc')
                             ->paginate(12);
     }
 
@@ -45,16 +47,7 @@ class CustomController extends Controller
         $update = CustomField::where('id', $id)
                           ->update($request->all());
 
-        $record = CustomField::where('type', $request->type)->orderBy('sortIndex', 'asc')->get();
-
-        // return $record;
-        foreach ($record as $key => $value) {
-            CustomField::where('id', $value->id)->update([
-                'sortIndex' => ($key + 1) * 10
-            ]);
-        }
-
-        return CustomField::where('type', $request->type)->orderBy('sortIndex', 'asc')->get();
+        return CustomField::where('type', $request->type)->get();
     }
 
     public function deleteCustomField($id)

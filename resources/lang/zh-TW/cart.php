@@ -6,12 +6,16 @@ return [
     'delete_product' => '刪除產品',
     'view_cart' => '檢視詢價車',
     'back_to_list' => '回到產品中心',
-    'serial_number' => '型號',
     'my_cart' => '我的詢價車',
     'add_cart' => '加入詢價車',
     'contact_info' => '聯繫資訊',
     'complete_inquiry' => '完成詢價程序',
     'cart_is_empty' => '詢價車裡面沒有產品，趕快去逛逛吧~',
+
+    'recommand_price' => '建議售價',
+    'discount_price' => '特價',
+    'out_of_stock' => '缺貨中',
+    'more_detail' => '詢問更多產品細節',
 
     'confirm_delete' => '確認要移除此產品?',    
     'confirm_delete_all' => '確認要刪除所有產品?',

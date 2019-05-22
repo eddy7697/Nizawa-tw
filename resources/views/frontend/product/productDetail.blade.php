@@ -55,9 +55,9 @@
     <div class="mg-site-thumbnail">
         <div class="container">
             <div class="col-md-12">
-                <a href="/">首頁</a>
+                <a href="/">{{ trans('string.home') }}</a>
                 &nbsp;&nbsp;<a>></a>&nbsp;&nbsp;
-                <a href="/product">產品中心</a>
+                <a href="/product">{{ trans('string.product_center') }}</a>
                 &nbsp;&nbsp;<a>></a>&nbsp;&nbsp;
                 {{-- <a href="/product?main={{$mainCate->categoryGuid}}">{{$mainCate->categoryTitle}}</a>
                 &nbsp;&nbsp;<a>></a>&nbsp;&nbsp;
@@ -125,13 +125,13 @@
 
                         {{--簡短說明--}}
                         <div class="short-description">
-                            <h4>型號：{{$product->serialNumber}}</h4>
-                            <h4>貨號：{{$product->rule}}</h4>
+                            <h4>{{ trans('cart.model') }}：{{$product->serialNumber}}</h4>
+                            <h4>{{ trans('cart.serial_number') }}：{{$product->rule}}</h4>
                             @if ($product->authorName)
                                 @php
                                     $label = Category::where('categoryGuid', $product->authorName)->first();
                                 @endphp
-                                <h4>品牌：<a href="/label/{{$product->authorName}}">{{json_decode($label->categoryTitle, true)[App::getLocale()]}}</a></h4>    
+                                <h4>{{ trans('string.brand') }}：<a href="/label/{{$product->authorName}}">{{json_decode($label->categoryTitle, true)[App::getLocale()]}}</a></h4>    
                             @endif
                             
                         </div>
@@ -139,7 +139,7 @@
                         <hr>
 
                         {{--簡短說明--}}
-                        <h4 style="color: #000; font-weight: bolder">產品特色</h4>
+                        <h4 style="color: #000; font-weight: bolder">{{ trans('string.feature_product') }}</h4>
                         <div class="short-description">
                             {!!$product->shortDescription!!}
                         </div>
@@ -147,7 +147,7 @@
                         <hr>
 
                         {{--簡短說明--}}
-                        <h4 style="color: #000; font-weight: bolder">產業應用</h4>
+                        <h4 style="color: #000; font-weight: bolder">{{ trans('string.industrial_application') }}</h4>
                         <div class="short-description">
                             {!!$content->industry!!}
                         </div>
@@ -172,16 +172,16 @@
                     <div class="col-md-12 product-description">
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                             <li class="nav-item">
-                                <a class="nav-link active" id="intro-tab" data-toggle="tab" href="#intro" role="tab" aria-controls="intro" aria-selected="true">產品介紹</a>
+                                <a class="nav-link active" id="intro-tab" data-toggle="tab" href="#intro" role="tab" aria-controls="intro" aria-selected="true">{{ trans('string.product_description') }}</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">檢測步驟</a>
+                                <a class="nav-link" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">{{ trans('string.detection_step') }}</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">檢測項目</a>
+                                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">{{ trans('string.test_item') }}</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">儀器規格</a>
+                                <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">{{ trans('string.Instrument_specifications') }}</a>
                             </li>
                         </ul>
                         <div class="tab-content" id="myTabContent">
@@ -360,7 +360,7 @@
     <div class="container product-list">
         <div class="row">
             <div class="col-md-12">
-                <h3 style="text-align: center">其他相關產品</h3>
+                <h3 style="text-align: center">{{ trans('string.other_product') }}</h3>
                 <hr>
             </div>
         </div>
@@ -375,7 +375,7 @@
                             <div class="product-feature-image" style="background-image: url('{{$item->featureImage}}');"></div>
                             <div class="product-info">
                                 <h3 class="product-title">{{$item->productTitle}}</h3>
-                                <h4 class="product-type">型式：{{$item->serialNumber}}</h4>
+                                <h4 class="product-type">{{ trans('string.serial_number') }}：{{$item->serialNumber}}</h4>
                                 <div class="product-text">
                                     {{mb_strimwidth(preg_replace('#<[^>]+>#', ' ', $content->intro), 0, 100, "...")}}
                                 </div>
@@ -386,7 +386,7 @@
                 </div>
             @endforeach
             <div class="col-md-12 btn-section">
-                <a href="/product" class="learn-more-btn">檢視更多產品</a>
+                <a href="/product" class="learn-more-btn">{{ trans('string.learn_more_products') }}</a>
             </div>
         </div>
     </div>

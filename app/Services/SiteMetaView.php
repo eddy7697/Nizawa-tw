@@ -73,7 +73,7 @@ class SiteMetaView
     public static function pageTopContent()
     {
         try {
-            return SiteMeta::all()->first()['pageTopContent'];
+            return json_decode(SiteMeta::all()->first()['pageTopContent']);
         } catch (\Exception $e) {
             return json_decode(array());
         }

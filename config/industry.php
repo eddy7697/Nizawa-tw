@@ -6,6 +6,7 @@ return [
     'drinking_flow' => [
         [
             'title' => '鹼度',
+            'id' => str_random(6),
             'product' => [
                 [
                     'title' => 'MD610',
@@ -21,6 +22,7 @@ return [
         ],
         [
             'title' => '鋁',
+            'id' => str_random(6),
             'product' => [
                 [
                     'title' => 'MD610',
@@ -36,6 +38,7 @@ return [
         ],
         [
             'title' => '氟化物',
+            'id' => str_random(6),
             'product' => [
                 [
                     'title' => 'MD610',
@@ -51,6 +54,7 @@ return [
         ],
         [
             'title' => '鈣',
+            'id' => str_random(6),
             'product' => [
                 [
                     'title' => 'MD610',
@@ -66,6 +70,7 @@ return [
         ],
         [
             'title' => '鐵',
+            'id' => str_random(6),
             'product' => [
                 [
                     'title' => 'MD610',
@@ -81,6 +86,7 @@ return [
         ],
         [
             'title' => '亞硝酸',
+            'id' => str_random(6),
             'product' => [
                 [
                     'title' => 'MD610',
@@ -96,6 +102,7 @@ return [
         ],
         [
             'title' => '臭氧',
+            'id' => str_random(6),
             'product' => [
                 [
                     'title' => 'MD610',
@@ -111,6 +118,7 @@ return [
         ],
         [
             'title' => '懸浮固體',
+            'id' => str_random(6),
             'product' => [
                 [
                     'title' => 'MD610',
@@ -126,6 +134,7 @@ return [
         ],
         [
             'title' => '濁度',
+            'id' => str_random(6),
             'product' => [
                 [
                     'title' => 'MD610',
@@ -141,6 +150,7 @@ return [
         ],
         [
             'title' => 'TOC',
+            'id' => str_random(6),
             'product' => [
                 [
                     'title' => 'MD610',
@@ -160,6 +170,7 @@ return [
     'drinking_mix' => [
         [
             'title' => 'PH',
+            'id' => str_random(6),
             'product' => [
                 [
                     'title' => 'SD300pH',
@@ -175,6 +186,7 @@ return [
         ],
         [
             'title' => '濁度',
+            'id' => str_random(6),
             'product' => [
                 [
                     'title' => 'TB系列',
@@ -194,6 +206,7 @@ return [
     'drinking_precipitation' => [
         [
             'title' => 'PH',
+            'id' => str_random(6),
             'product' => [
                 [
                     'title' => 'SD300pH',
@@ -209,6 +222,7 @@ return [
         ],
         [
             'title' => '鹼度',
+            'id' => str_random(6),
             'product' => [
                 [
                     'title' => 'MD610',
@@ -228,6 +242,7 @@ return [
     'drinking_filter' => [
         [
             'title' => '濁度',
+            'id' => str_random(6),
             'product' => [
                 [
                     'title' => 'TB系列',
@@ -256,6 +271,7 @@ return [
     'drinking_disinfection' => [
         [
             'title' => '殘餘氯',
+            'id' => str_random(6),
             'product' => [
                 [
                     'title' => 'SD300pH',
@@ -271,6 +287,7 @@ return [
         ],
         [
             'title' => '銅',
+            'id' => str_random(6),
             'product' => [
                 [
                     'title' => 'SD300pH',
@@ -286,6 +303,7 @@ return [
         ],
         [
             'title' => '鈣',
+            'id' => str_random(6),
             'product' => [
                 [
                     'title' => 'SD300pH',
@@ -301,6 +319,7 @@ return [
         ],
         [
             'title' => 'PH',
+            'id' => str_random(6),
             'product' => [
                 [
                     'title' => 'SD300pH',
@@ -316,6 +335,7 @@ return [
         ],
         [
             'title' => '磷酸',
+            'id' => str_random(6),
             'product' => [
                 [
                     'title' => 'SD300pH',
@@ -331,6 +351,7 @@ return [
         ],
         [
             'title' => '濁度',
+            'id' => str_random(6),
             'product' => [
                 [
                     'title' => 'SD300pH',

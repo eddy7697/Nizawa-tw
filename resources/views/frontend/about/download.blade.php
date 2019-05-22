@@ -91,19 +91,19 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12 about-content">
-            <h3 class="about-section-title">資料下載專區</h3>
+            <h3 class="about-section-title">{{ trans('string.download_area') }}</h3>
         </div>
         <div class="col-md-11 mx-auto download-container">
             <!-- Nav tabs -->
             <ul class="nav nav-tabs download-tabs">
                 <li class="nav-item">
-                    <a class="nav-link active" data-toggle="tab" href="#home"><i class="fa fa-file-text-o" aria-hidden="true"></i>&nbsp;&nbsp;產品目錄</a>
+                    <a class="nav-link active" data-toggle="tab" href="#home"><i class="fa fa-file-text-o" aria-hidden="true"></i>&nbsp;&nbsp;{{ trans('string.product_menu') }}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#menu1"><i class="fa fa-id-card-o" aria-hidden="true"></i>&nbsp;&nbsp;文件下載</a>
+                    <a class="nav-link" data-toggle="tab" href="#menu1"><i class="fa fa-id-card-o" aria-hidden="true"></i>&nbsp;&nbsp;{{ trans('string.file_download') }}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#menu2"><i class="fa fa-files-o" aria-hidden="true"></i>&nbsp;&nbsp;資質證明</a>
+                    <a class="nav-link" data-toggle="tab" href="#menu2"><i class="fa fa-files-o" aria-hidden="true"></i>&nbsp;&nbsp;{{ trans('string.download_license') }}</a>
                 </li>
             </ul>
             
@@ -113,17 +113,17 @@
                     <table class="table download-table">
                         <thead>
                             <tr>
-                                <th style="width: 60px;">編號</th>
-                                <th style="text-align: left">名稱</th>
-                                <th style="width: 100px;">檔案類型</th>
-                                <th style="width: 150px;">檔案大小</th>
-                                <th style="width: 150px;">下載連結</th>
+                                <th style="width: 60px;">{{ trans('string.download_sharp') }}</th>
+                                <th style="text-align: left">{{ trans('string.download_file_name') }}</th>
+                                <th style="width: 100px;">{{ trans('string.download_file_type') }}</th>
+                                <th style="width: 150px;">{{ trans('string.download_file_size') }}</th>
+                                <th style="width: 150px;">{{ trans('string.download_link') }}</th>
                             </tr>
                         </thead>
                         <tbody>
                             @if (count(PageView::download('產品目錄')) < 1)
                                 <tr>
-                                    <td colspan="5">目前尚無資料</td>
+                                    <td colspan="5">{{ trans('string.download_no_data') }}</td>
                                 </tr>
                             @endif
                             @foreach (PageView::download('產品目錄') as $key => $item)
@@ -139,7 +139,7 @@
                                     <td style="text-align: left">{{$title}}</td>
                                     <td style="text-align: left">{!!$typeString!!}</td>
                                     <td>{{$filesize}}</td>
-                                    <td><a class="btn site-btn" href="{{$content}}"><i class="fa fa-download" aria-hidden="true"></i>&nbsp;下載檔案</a></td>
+                                    <td><a class="btn site-btn" href="{{$content}}"><i class="fa fa-download" aria-hidden="true"></i>&nbsp;{{ trans('string.download_get_file') }}</a></td>
                                 </tr>
                             @endforeach
                         </tbody>
@@ -150,17 +150,17 @@
                     <table class="table download-table">
                         <thead>
                             <tr>
-                                <th style="width: 60px;">編號</th>
-                                <th style="text-align: left">名稱</th>
-                                <th style="width: 100px;">檔案類型</th>
-                                <th style="width: 150px;">檔案大小</th>
-                                <th style="width: 150px;">下載連結</th>
+                                <th style="width: 60px;">{{ trans('string.download_sharp') }}</th>
+                                <th style="text-align: left">{{ trans('string.download_file_name') }}</th>
+                                <th style="width: 100px;">{{ trans('string.download_file_type') }}</th>
+                                <th style="width: 150px;">{{ trans('string.download_file_size') }}</th>
+                                <th style="width: 150px;">{{ trans('string.download_link') }}</th>
                             </tr>
                         </thead>
                         <tbody>
                             @if (count(PageView::download('文件下載')) < 1)
                                 <tr>
-                                    <td colspan="5">目前尚無資料</td>
+                                    <td colspan="5">{{ trans('string.download_no_data') }}</td>
                                 </tr>
                             @endif
                             @foreach (PageView::download('文件下載') as $key => $item)
@@ -176,7 +176,7 @@
                                     <td style="text-align: left">{{$title}}</td>
                                     <td style="text-align: left">{!!$typeString!!}</td>
                                     <td>{{$filesize}}</td>
-                                    <td><a class="btn site-btn" href="{{$content}}"><i class="fa fa-download" aria-hidden="true"></i>&nbsp;下載檔案</a></td>
+                                    <td><a class="btn site-btn" href="{{$content}}"><i class="fa fa-download" aria-hidden="true"></i>&nbsp;{{ trans('string.download_get_file') }}</a></td>
                                 </tr>
                             @endforeach
                         </tbody>
@@ -186,17 +186,17 @@
                     <table class="table download-table">
                         <thead>
                             <tr>
-                                <th style="width: 60px;">編號</th>
-                                <th style="text-align: left">名稱</th>
-                                <th style="width: 100px;">檔案類型</th>
-                                <th style="width: 150px;">檔案大小</th>
-                                <th style="width: 150px;">下載連結</th>
+                                <th style="width: 60px;">{{ trans('string.download_sharp') }}</th>
+                                <th style="text-align: left">{{ trans('string.download_file_name') }}</th>
+                                <th style="width: 100px;">{{ trans('string.download_file_type') }}</th>
+                                <th style="width: 150px;">{{ trans('string.download_file_size') }}</th>
+                                <th style="width: 150px;">{{ trans('string.download_link') }}</th>
                             </tr>
                         </thead>
                         <tbody>
                             @if (count(PageView::download('資質證明')) < 1)
                                 <tr>
-                                    <td colspan="5">目前尚無資料</td>
+                                    <td colspan="5">{{ trans('string.download_no_data') }}</td>
                                 </tr>
                             @endif
                             @foreach (PageView::download('資質證明') as $key => $item)
@@ -212,7 +212,7 @@
                                     <td style="text-align: left">{{$title}}</td>
                                     <td style="text-align: left">{!!$typeString!!}</td>
                                     <td>{{$filesize}}</td>
-                                    <td><a class="btn site-btn" href="{{$content}}"><i class="fa fa-download" aria-hidden="true"></i>&nbsp;下載檔案</a></td>
+                                    <td><a class="btn site-btn" href="{{$content}}"><i class="fa fa-download" aria-hidden="true"></i>&nbsp;{{ trans('string.download_get_file') }}</a></td>
                                 </tr>
                             @endforeach
                         </tbody>

@@ -6,12 +6,16 @@ return [
     'delete_product' => 'Delete product',
     'view_cart' => 'View Inquiry Car',
     'back_to_list' => 'Back to the product center',
-    'serial_number' => 'Model',
     'my_cart' => 'My Inquiry Cart',
     'add_cart' => 'Join the inquiry car',
     'contact_info' => 'Contact information',
     'complete_inquiry' => 'Complete the inquiry process',
     'cart_is_empty' => 'There is no product in the inquiry car.',
+    
+    'recommand_price' => 'Price',
+    'discount_price' => 'Discount',
+    'out_of_stock' => 'Out of stock',
+    'more_detail' => 'More detail',
 
     'confirm_delete' => 'Are you sure you want to remove this product?',
     'confirm_delete_all' => 'Are you sure you want to delete all products?',

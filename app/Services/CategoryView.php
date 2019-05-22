@@ -54,4 +54,14 @@ class CategoryView
                        ->orderBy('id', 'asc')
                        ->get();
     }
+
+    public static function type($type)
+    {
+        return Category::where('type', $type)->get();
+    }
+
+    public static function type2($type)
+    {
+        return Category::where('type', $type)->get();
+    }
 }

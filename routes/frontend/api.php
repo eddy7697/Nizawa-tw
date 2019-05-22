@@ -85,3 +85,9 @@ Route::get('/esun_callback', 'Backend\OrderController@esunCheckOrder');
  */
 Route::get('/career/get/{id}', 'Frontend\CareerController@getCareer');
 Route::post('/resume/new/{id}', 'Frontend\CareerController@newResume');
+
+/**
+ * Partner
+ */
+Route::post('/partner/get', 'Frontend\PageController@getPartners');
+Route::post('/category/get', 'Frontend\PageController@getCategory');

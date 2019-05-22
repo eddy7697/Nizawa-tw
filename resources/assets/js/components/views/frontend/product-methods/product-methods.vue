@@ -4,16 +4,16 @@
     </div>
     <div v-else>
         <div v-if="false">
-            <strong v-if="choosedSubItem">貨號：{{choosedSubItem.subSerialNumber}}</strong>
+            <strong v-if="choosedSubItem">{{i18n.serial_number}}：{{choosedSubItem.subSerialNumber}}</strong>
             <br v-if="choosedSubItem">
-            <strong v-if="choosedSubItem" :class="{ 'del-line': choosedSubItem.subDiscountPrice }">建議售價：<span style="color: red">{{choosedSubItem.subPrice}}元</span></strong>
-            <strong v-if="choosedSubItem && choosedSubItem.subDiscountPrice" style="font-size: 20px;">特價：<span style="color: red">{{choosedSubItem.subDiscountPrice}}元</span></strong>
+            <strong v-if="choosedSubItem" :class="{ 'del-line': choosedSubItem.subDiscountPrice }">{{i18n.recommand_price}}：<span style="color: red">{{choosedSubItem.subPrice}}元</span></strong>
+            <strong v-if="choosedSubItem && choosedSubItem.subDiscountPrice" style="font-size: 20px;">{{i18n.discount_price}}：<span style="color: red">{{choosedSubItem.subDiscountPrice}}元</span></strong>
         </div>
         <div v-if="false">
-            <strong v-if="serialNumber">貨號：{{serialNumber}}</strong>
+            <strong v-if="serialNumber">{{i18n.serial_number}}：{{serialNumber}}</strong>
             <br>
-            <strong v-if="price" :class="{ 'del-line': discountedPrice }">建議售價：<span style="color: red">{{price}}元</span></strong>
-            <strong v-if="discountedPrice && discountedPrice" style="font-size: 20px;">特價：<span style="color: red">{{discountedPrice}}元</span></strong>
+            <strong v-if="price" :class="{ 'del-line': discountedPrice }">{{i18n.recommand_price}}：<span style="color: red">{{price}}</span></strong>
+            <strong v-if="discountedPrice && discountedPrice" style="font-size: 20px;">{{i18n.discount_price}}：<span style="color: red">{{discountedPrice}}</span></strong>
         </div>
         <!-- <br> -->
         <el-radio-group 
@@ -30,7 +30,7 @@
         <table class="counter-table">
             <tr>
                 <td>
-                    數量
+                    {{i18n.quantity}}
                 </td>
                 <td>
                     <el-input-number 
@@ -42,7 +42,7 @@
             </tr>
         </table>
         
-        <strong v-if="productType == 'simple' && maxQty < 1" ><span style="color: red">缺貨中</span></strong>
+        <strong v-if="productType == 'simple' && maxQty < 1" ><span style="color: red">{{i18n.out_of_stock}}</span></strong>
         <el-input-number 
             v-if="productType == 'variable' && choosedSubItem && parseInt(choosedSubItem.subQuantity) > 0" 
             v-model="subQuantity" 
@@ -66,7 +66,7 @@
                 <a href="/contact" style="text-decoration: none;">
                     <button
                         class="btn btn-default btn-block btn-lg method-btn ask-for-more">
-                        詢問更多產品細節
+                        {{i18n.more_detail}}
                     </button>
                 </a>
                 

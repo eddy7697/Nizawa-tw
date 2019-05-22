@@ -4,23 +4,42 @@
             <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-position="top" label-width="100px" class="demo-ruleForm">
                 <div class="row">
                     <div class="col-md-9">
-                        <el-card class="box-card" v-for="(item, index) in ruleForm.content" :key="index">
+                        <ul class="nav nav-tabs">
+                            <li :class="{active: activedTab == item.id}" v-for="(item, index) in ruleForm.content" :key="index">
+                                <a href="#" @click="activedTab = item.id">{{item.title['zh-TW']}}</a>
+                            </li>
+                            <li>
+                                <a href="#" @click="addFlow"><i class="fa fa-plus" aria-hidden="true"></i></a>
+                            </li>
+                        </ul>
+                        <el-card class="box-card" v-for="(item, index) in ruleForm.content" :key="index" :class="{hidden: activedTab !== item.id}">
                             <div slot="header" class="clearfix">
-                                <span>{{item.title}}</span>
-                                <el-button style="float: right; padding: 3px 0" type="text">操作按钮</el-button>
+                                <div style="width: calc(100% - 103px); display: inline-block">
+                                    <el-input v-model="item.title['zh-TW']" style="width: 33%" placeholder="繁中"></el-input>
+                                    <el-input v-model="item.title['zh-CN']" style="width: 33%" placeholder="簡中"></el-input>
+                                    <el-input v-model="item.title.en" style="width: 33%" placeholder="英文"></el-input>
+                                </div>
+                                
+                                <el-button @click="translateTitle(item.title)">一鍵翻譯</el-button>
                             </div>
-                            <div class="row content-box" v-for="(elm, id) in item.flow" :key="id">
+                            <div class="row content-box outter" v-for="(elm, id) in item.flow" :key="id">
                                 <div class="col-md-12">
                                     <label>項目標題</label>
                                 </div>
                                 <div class="col-md-12">
-                                    <el-input v-model="elm.title"></el-input>
+                                    <div style="width: calc(100% - 103px); display: inline-block">
+                                        <el-input v-model="elm.title['zh-TW']" style="width: 32.8%" placeholder="繁中"></el-input>
+                                        <el-input v-model="elm.title['zh-CN']" style="width: 32.8%" placeholder="簡中"></el-input>
+                                        <el-input v-model="elm.title.en" style="width: 32.8%" placeholder="英文"></el-input>
+                                    </div>
+                                    
+                                    <el-button @click="translateTitle(elm.title)">一鍵翻譯</el-button>
                                 </div>
                                 <div class="col-md-12">
                                     <label>項目產品</label>
                                 </div>
                                 <div class="col-md-12">
-                                    <div class="content-box">
+                                    <div class="content-box inner">
                                         <el-button class="button-position-fixed" type="primary" @click="addProduct(index, id)" circle icon="el-icon-plus" size="mini"></el-button>
                                         <el-table
                                             :data="elm.product"
@@ -38,13 +57,14 @@
                                             <el-table-column
                                                 width="50">
                                                 <template slot-scope="scope">
-                                                    <el-button type="danger" circle icon="el-icon-delete" @click="deleteProduct(index, id, scope.row)" size="mini"></el-button>
+                                                    <el-button type="danger" circle icon="el-icon-delete" @click="deleteProduct(elm, scope.row)" size="mini"></el-button>
                                                 </template>
                                             </el-table-column>
                                         </el-table>
                                     </div>
                                 </div>
                             </div>
+                            <button class="btn btn-default btn-block" @click="addOption(item.flow)">新增項目</button>
                         </el-card>
                     </div>
                     <div class="col-md-3">
@@ -59,6 +79,7 @@
                         </el-form-item>
                         <el-form-item>
                             <el-button type="primary" @click="submitForm('ruleForm')">儲存</el-button>
+                            <el-button @click="translateTitle(ruleForm.locale)">一鍵翻譯應用標題</el-button>
                         </el-form-item>
                     </div>
                 </div>
@@ -99,8 +120,10 @@
         mounted () {
             $('.loading-bar').hide()
         },
+        props: ['editmode', 'id'],
         data () {
             return {
+                activedTab: null,
                 dialogVisible: false,
                 urlPath: '',
                 rules: {},
@@ -119,39 +142,46 @@
                         'zh-CN': null,
                         en: null
                     },
-                    content: [
-                        {
-                            title: '原廢水',
-                            flow: [{
-                                title: '鹼度',
-                                product: [
-                                    {
-                                        'title': 'MD610',
-                                        'id': 'MD610'
-                                    },{
-                                        'title': 'MultiDirect',
-                                        'id': 'MD610'
-                                    },{
-                                        'title': 'XD分光光度計',
-                                        'id': 'MD610'
-                                    }
-                                ]
-                            }]
-                        }                        
-                    ]
+                    content: []
                 }
+            }
+        },
+        created() {
+            if (this.editmode == 'edit') {
+                this.getIndustry()
             }
         },
         methods: {
             submitForm(formName) {
                 this.$refs[formName].validate((valid) => {
-                if (valid) {
-                    alert('submit!');
-                } else {
-                    console.log('error submit!!');
-                    return false;
-                }
+                    if (valid) {
+                        this.saveIndustry();
+                    } else {
+                        console.log('error submit!!');
+                        return false;
+                    }
                 });
+            },
+            saveIndustry() {
+                let vo = JSON.parse(JSON.stringify(this.ruleForm))
+                let url = this.editmode == 'add' ? '/admin/custom/add' : `/admin/custom/update/${this.id}`
+
+                vo.locale = JSON.stringify(vo.locale)
+                vo.content = JSON.stringify(vo.content)
+
+                axios.post(url, vo)
+                    .then(res => {
+                        this.$message.success('儲存成功')
+                    })
+            },
+            getIndustry() {
+                axios.get(`/admin/custom/getByid/${this.id}`)
+                    .then(res => {
+                        this.ruleForm.locale = JSON.parse(res.data.locale)
+                        this.ruleForm.content = JSON.parse(res.data.content)
+
+                        this.activedTab = this.ruleForm.content[0].id
+                    })
             },
             searchProduct(e) {
                 this.urlPath = `/admin/product/search/${this.keyword}`
@@ -191,7 +221,8 @@
                         title: this.selectedProductItem.productTitle,
                     })
                 } else {
-
+                    this.selectedRow.id = this.selectedProductItem.productGuid
+                    this.selectedRow.title = this.selectedProductItem.productTitle
                 }
 
                 this.$nextTick(() => {
@@ -215,11 +246,71 @@
                     this.dialogVisible = true
                 })
             },
-            deleteProduct(index, id, row) {
-                
+            deleteProduct(elm, row) {
+                let check = confirm('確認要刪除此商品?')
+
+                if (check) {
+                    elm.product.splice(elm.product.indexOf(row), 1)
+                }
+            },
+            addFlow() {
+                let newID = this.makeid(6)
+
+                this.ruleForm.content.push({
+                    title: {
+                        'zh-TW': '',
+                        'zh-CN': '',
+                        en: ''
+                    },
+                    id: newID,
+                    flow: []
+                })
+                this.activedTab = newID
+            },
+            addOption(row) {
+                row.push({
+                    title: {
+                        'zh-TW': '',
+                        'zh-CN': '',
+                        en: ''
+                    },
+                    product: []
+                })
+            },
+            translateTitle(form) {
+                let count = 0
+                $('.loading-bar').show()
+
+                axios.post(`/api/translate/zh-CN/${form['zh-TW']}`)
+                    .then(res => {
+                        form['zh-CN'] = res.data
+                        count += 1
+
+                        if (count > 1) {
+                            $('.loading-bar').hide()
+                        }
+                    })
+                axios.post(`/api/translate/en/${form['zh-TW']}`)
+                    .then(res => {
+                        form['en'] = res.data
+                        count += 1
+
+                        if (count > 1) {
+                            $('.loading-bar').hide()
+                        }
+                    })
             },
             handleClose() {
                 this.dialogVisible = false
+            },
+            makeid(length) {
+                var result           = '';
+                var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+                var charactersLength = characters.length;
+                for ( var i = 0; i < length; i++ ) {
+                    result += characters.charAt(Math.floor(Math.random() * charactersLength));
+                }
+                return result;
             }
         }
     }
@@ -227,13 +318,23 @@
 
 <style lang="scss">
 .content-box {
-    border: #ccc solid thin;
+    border: #ddd solid thin;
+    border-radius: 5px;
     padding: 10px;
+
+    &.outter {
+        margin: 0px 0 10px
+    }
+    &.inner {
+        border: none;
+        margin: 0;
+        padding: 10px 0;
+    }
 }
 .button-position-fixed {
     position: absolute;
     top: 20px;
-    right: 32px;
+    right: 23px;
     z-index: 1;
 }
 .selected-product-list {
@@ -243,5 +344,8 @@
         padding: 10px;
         border: #eee solid thin;
     }
+}
+.hidden {
+    display: none;
 }
 </style>

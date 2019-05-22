@@ -6,12 +6,16 @@ return [
     'delete_product' => '删除产品',
     'view_cart' => '检视询价车',
     'back_to_list' => '回到产品中心',
-    'serial_number' => '型号',
     'my_cart' => '我的询价车',
     'add_cart' => '加入询价车',
     'contact_info' => '联系信息',
     'complete_inquiry' => '完成询价进程',
     'cart_is_empty' => '询价车里面没有产品，赶快去逛逛吧~',
+
+    'recommand_price' => '建議售價',
+    'discount_price' => '特價',
+    'out_of_stock' => '缺貨中',
+    'more_detail' => '詢問更多產品細節',
 
     'confirm_delete' => '确认要移除此产品?',
     'confirm_delete_all' => '确认要删除所有产品?',

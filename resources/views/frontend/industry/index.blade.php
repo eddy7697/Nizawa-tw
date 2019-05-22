@@ -9,20 +9,23 @@
 @section('content')
 <div class="sub-page-banner" style="background-image: url('/img/sub-banner.jpg');">
     <div>
-        <h2>產業應用</h2>
-        <h4>Industry scenario</h4>
+        <h2>{{ trans('string.industrial_application') }}</h2>
+        @if (App::getLocale() !== 'en')
+        <h4>Industries</h4>
+        @endif
+        
         <hr>
-        <h5>無論您屬於各行各業，我們均可為您提供最佳產業應用情境</h5>
+        <h5>{{ trans('string.indu_banner_desc') }}</h5>
     </div>
 </div>
 <div class="mg-site-thumbnail">
     <div class="container">
         <div class="col-md-12">
-            <a href="/">首頁</a>
+            <a href="/">{{ trans('string.about2') }}</a>
             &nbsp;&nbsp;<a>></a>&nbsp;&nbsp;
-            <a href="/">產業應用</a>
+            <a href="/">{{ trans('string.industrial_application') }}</a>
             &nbsp;&nbsp;<a>></a>&nbsp;&nbsp;
-            公司簡介
+            {{ trans('string.about2') }}
         </div>
     </div>
 </div>
@@ -30,9 +33,9 @@
 <div class="container">
     <div class="row">
         <div class="col-md-10 mx-auto about-content">
-            <h3 class="about-section-title">產業應用</h3>
+            <h3 class="about-section-title">{{ trans('string.industrial_application') }}</h3>
             <div class="about-text">
-                <p>日澤國際股份有限公司成立至今服務眾多企業，為其提供檢驗產品最佳解決方案，多年來秉持豐富的經驗與技術，亦彙整各產業類別適用之最佳解決方案，您可依據我們提供的產業應用範例，充分了解檢測相關各項指標與流程，而日澤國際亦可依據您的需求為您量身打造專屬解決方案</p>
+                <p>{{ trans('string.indu_desc1') }}</p>
             </div>
             @php
                 $albumPath = public_path('img/about/album');
@@ -41,35 +44,35 @@
                 $album = array(
                     [
                         'image' => '/img/about/album/about-1.jpg',
-                        'title' => '自來水業',
+                        'title' => trans('string.indu1'),
                         'link' => '/industry/water'
                     ],[
                         'image' => '/img/about/album/about-2.jpg',
-                        'title' => '電子產業',
+                        'title' => trans('string.indu2'),
                         'link' => '/industry/electronics'
                     ],[
                         'image' => '/img/about/album/about-3.jpg',
-                        'title' => '生活汙水',
+                        'title' => trans('string.indu3'),
                         'link' => '/industry/life'
                     ],[
                         'image' => '/img/about/album/about-4.jpg',
-                        'title' => '工業汙水',
+                        'title' => trans('string.indu4'),
                         'link' => '/industry/industrial'
                     ],[
                         'image' => '/img/about/album/about-5.jpg',
-                        'title' => '養殖漁業',
+                        'title' => trans('string.indu5'),
                         'link' => '/industry/fishery'
                     ],[
                         'image' => '/img/about/album/about-6.jpg',
-                        'title' => '食品產業',
+                        'title' => trans('string.indu6'),
                         'link' => '/industry/food'
                     ],[
                         'image' => '/img/about/album/about-7.jpg',
-                        'title' => '藥妝產業',
+                        'title' => trans('string.indu7'),
                         'link' => '/industry/cosmeceutical'
                     ],[
                         'image' => '/img/about/album/about-8.jpg',
-                        'title' => '工業工程',
+                        'title' => trans('string.indu8'),
                         'link' => '/industry/industrialEngineering'
                     ]
                 );
@@ -92,7 +95,7 @@
                 @endforeach
             </div>
             <div class="btn-section industry">
-                <a class="learn-more-btn" href="/product">查看其他產品</a>
+                <a class="learn-more-btn" href="/product">{{ trans('string.learn_more_products') }}</a>
             </div>
         </div>
     </div>

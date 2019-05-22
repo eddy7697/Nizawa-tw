@@ -10,11 +10,11 @@
 <div class="mg-site-thumbnail">
     <div class="container">
         <div class="col-md-12">
-            <a href="/">首頁</a>
+            <a href="/">{{ trans('string.home') }}</a>
             &nbsp;&nbsp;<a>></a>&nbsp;&nbsp;
-            <a href="/">產業應用</a>
+            <a href="/">{{ trans('string.industrial_application') }}</a>
             &nbsp;&nbsp;<a>></a>&nbsp;&nbsp;
-            食品產業
+            {{ trans('string.indu6') }}
         </div>
     </div>
 </div>

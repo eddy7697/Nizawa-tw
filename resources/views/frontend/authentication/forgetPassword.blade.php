@@ -3,9 +3,9 @@
 @section('content')
     <div class="container mg-site-thumbnail">
         <div class="col-md-12">
-            <a href="/">首頁</a>
+            <a href="/">{{ trans('string.home') }}</a>
             &nbsp;&nbsp;<a>></a>&nbsp;&nbsp;
-            忘記密碼
+            {{ trans('string.forget_password') }}
         </div>
     </div>
     <div class="container" style="margin-bottom: 30px">
@@ -13,8 +13,8 @@
             <div class="col-md-6 col-md-offset-3 member-auth-form-table">
                 <form class="form-horizontal" action="{{ route('sendResetPasswordMail') }}" method="post">
                     {{ csrf_field() }}
-                    <h3>忘記密碼了嗎?</h3>
-                    <p>請輸入您註冊時所使用的信箱，我們將會發送一則重置密碼的信件給您，謝謝。</p>
+                    <h3>{{ trans('string.forget_password_q') }}</h3>
+                    <p>{{ trans('string.forget_password_remind') }}</p>
                     <hr>
                     <table class="sign-form">
                         <tr>
@@ -33,14 +33,14 @@
                                 </div>
                                 @if ($errors->has('g-recaptcha-response'))
                                     <span class="help-block">
-                                        <strong>登入必須通過驗證</strong>
+                                        <strong>{{ trans('string.not_validate') }}</strong>
                                     </span>
                                 @endif
                             </td>
                         </tr>
                         <tr>
                             <td style="padding: 5px;">
-                                <button type="submit" class="btn btn-primary">寄送驗證信</button>
+                                <button type="submit" class="btn btn-primary">{{ trans('string.send_valid_letter') }}</button>
                             </td>
                         </tr>
                     </table>

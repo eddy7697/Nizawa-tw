@@ -7,35 +7,35 @@
     $album = array(
         [
             'image' => '/img/about/album/about-1.jpg',
-            'title' => '自來水業',
+            'title' => trans('string.indu1'),
             'link' => '/industry/water'
         ],[
             'image' => '/img/about/album/about-2.jpg',
-            'title' => '電子產業',
+            'title' => trans('string.indu2'),
             'link' => '/industry/electronics'
         ],[
             'image' => '/img/about/album/about-3.jpg',
-            'title' => '生活汙水',
+            'title' => trans('string.indu3'),
             'link' => '/industry/life'
         ],[
             'image' => '/img/about/album/about-4.jpg',
-            'title' => '工業汙水',
+            'title' => trans('string.indu4'),
             'link' => '/industry/industrial'
         ],[
             'image' => '/img/about/album/about-5.jpg',
-            'title' => '養殖漁業',
+            'title' => trans('string.indu5'),
             'link' => '/industry/fishery'
         ],[
             'image' => '/img/about/album/about-6.jpg',
-            'title' => '食品產業',
+            'title' => trans('string.indu6'),
             'link' => '/industry/food'
         ],[
             'image' => '/img/about/album/about-7.jpg',
-            'title' => '藥妝產業',
+            'title' => trans('string.indu7'),
             'link' => '/industry/cosmeceutical'
         ],[
             'image' => '/img/about/album/about-8.jpg',
-            'title' => '工業工程',
+            'title' => trans('string.indu8'),
             'link' => '/industry/industrialEngineering'
         ]
     );
@@ -100,11 +100,11 @@
 <div class="mg-site-thumbnail">
     <div class="container">
         <div class="col-md-12">
-            <a href="/">首頁</a>
+            <a href="/">{{ trans('string.home') }}</a>
             &nbsp;&nbsp;<a>></a>&nbsp;&nbsp;
-            <a href="/">產業應用</a>
+            <a href="/">{{ trans('string.industrial_application') }}</a>
             &nbsp;&nbsp;<a>></a>&nbsp;&nbsp;
-            自來水業
+            {{ trans('string.indu1') }}
         </div>
     </div>
 </div>
@@ -118,8 +118,16 @@
                     <a class="nav-link active" data-toggle="tab" href="#home">
                         <div class="industry-tab-item">
                             <i class="fa fa-caret-down"></i>
-                            <h3>飲用水處理</h3>
-                            <p>Drink water treatment</p>
+                            @php
+                                use App\CustomField;
+                                $indu = CustomField::where('id', 7)->first();
+                                $title = json_decode($indu->locale)->{App::getLocale()};
+                                $enTitle = json_decode($indu->locale)->en;
+                            @endphp
+                            <h3>{{$title}}</h3>
+                            @if (App::getLocale() !== 'en')
+                                <p>{{$enTitle}}</p>    
+                            @endif
                         </div>
                     </a>
                 </li>
@@ -127,8 +135,15 @@
                     <a class="nav-link" data-toggle="tab" href="#menu1">
                         <div class="industry-tab-item">
                             <i class="fa fa-caret-down"></i>
-                            <h3>純水</h3>
-                            <p>Pure water</p>
+                            @php
+                                $indu_ = CustomField::where('id', 8)->first();
+                                $title_ = json_decode($indu_->locale)->{App::getLocale()};
+                                $enTitle_ = json_decode($indu_->locale)->en;
+                            @endphp
+                            <h3>{{$title_}}</h3>
+                            @if (App::getLocale() !== 'en')
+                                <p>{{$enTitle_}}</p>    
+                            @endif
                         </div>
                     </a>
                 </li>
@@ -149,31 +164,7 @@
         <section class="industry-map">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-2 mx-auto">
-                        <h3>進流</h3>
-                        <hr>
-                        @include('components.industryMap', ['data' => config('industry.drinking_flow')])                        
-                    </div>
-                    <div class="col-md-2 mx-auto">
-                        <h3>混和</h3>
-                        <hr>
-                        @include('components.industryMap', ['data' => config('industry.drinking_mix')])                        
-                    </div>
-                    <div class="col-md-2 mx-auto">
-                        <h3>沉澱</h3>
-                        <hr>
-                        @include('components.industryMap', ['data' => config('industry.drinking_precipitation')])                        
-                    </div>
-                    <div class="col-md-2 mx-auto">
-                        <h3>過濾</h3>
-                        <hr>
-                        @include('components.industryMap', ['data' => config('industry.drinking_filter')])                        
-                    </div>
-                    <div class="col-md-2 mx-auto">
-                        <h3>消毒</h3>
-                        <hr>
-                        @include('components.industryMap', ['data' => config('industry.drinking_disinfection')])                        
-                    </div>
+                    @include('components.industryMap', ['id' => 7])
                 </div>
             </div>
         </section>
@@ -187,31 +178,7 @@
         <section class="industry-map">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-2 mx-auto">
-                        <h3>進流</h3>
-                        <hr>
-                        @include('components.industryMap', ['data' => config('industry.drinking_flow')])                        
-                    </div>
-                    <div class="col-md-2 mx-auto">
-                        <h3>混和</h3>
-                        <hr>
-                        @include('components.industryMap', ['data' => config('industry.drinking_mix')])                        
-                    </div>
-                    <div class="col-md-2 mx-auto">
-                        <h3>沉澱</h3>
-                        <hr>
-                        @include('components.industryMap', ['data' => config('industry.drinking_precipitation')])                        
-                    </div>
-                    <div class="col-md-2 mx-auto">
-                        <h3>過濾</h3>
-                        <hr>
-                        @include('components.industryMap', ['data' => config('industry.drinking_filter')])                        
-                    </div>
-                    <div class="col-md-2 mx-auto">
-                        <h3>消毒</h3>
-                        <hr>
-                        @include('components.industryMap', ['data' => config('industry.drinking_disinfection')])                        
-                    </div>
+                    @include('components.industryMap', ['id' => 8])
                 </div>
             </div>
         </section>
@@ -221,7 +188,7 @@
     <div class="row">
         <div class="col-md-10 mx-auto about-content">
             <div class="btn-section industry" style="padding: 50px 0;">
-                <a class="learn-more-btn" href="/product">查看其他產品</a>
+                <a class="learn-more-btn" href="/product">{{ trans('string.learn_more_products') }}</a>
             </div>
         </div>
     </div>

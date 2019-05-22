@@ -394,6 +394,55 @@ Route::get('/industry/list', function ()
 Route::get('/industry/add', function ()
 {
     return view('backend.industry.addIndustry', [
+        'mode' => 'add',
         'panelTitle' => '新增'
+    ]);
+});
+
+Route::get('/industry/edit/{id}', function ($id)
+{
+    return view('backend.industry.addIndustry', [
+        'mode' => 'edit',
+        'id' => $id,
+        'panelTitle' => '編輯產業應用'
+    ]);
+});
+
+/**
+ * Partners
+ */
+
+Route::get('/partner/add', function()
+{
+    return view('backend.partner.addPartner', [
+        'panelTitle' => '新增合作夥伴',
+        'mode' => 'add',
+    ]);
+});
+Route::get('/partner/edit/{guid}', function($guid)
+{
+    return view('backend.partner.addPartner', [
+        'panelTitle' => '編輯合作夥伴',
+        'mode' => 'edit',
+        'guid' => $guid,
+        'partner' => PartnerView::get($guid)
+    ]);
+});
+Route::get('/partner/managment', function()
+{
+    return view('backend.partner.partnerManagment', [
+        'panelTitle' => '合作夥伴管理',
+    ]);
+});
+Route::get('/partner/category', function ()
+{
+    return view('backend.partner.partnerCategory', [
+        'panelTitle' => '合作夥伴分類管理',
+    ]);
+});
+Route::get('/partner/location', function ()
+{
+    return view('backend.partner.partnerLocation', [
+        'panelTitle' => '合作夥伴區域管理',
     ]);
 });

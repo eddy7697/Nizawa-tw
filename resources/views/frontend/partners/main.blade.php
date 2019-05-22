@@ -11,20 +11,22 @@
 
 <div class="sub-page-banner" style="background-image: url('/img/banner-2-1.jpg');">
     <div>
-        <h2>授權經銷商</h2>
-        <h4>Legal reseller</h4>
+        <h2>{{ trans('string.legal_reseller') }}</h2>
+        @if (App::getLocale() !== 'en')
+        <h4>Legal reseller</h4>    
+        @endif
         <hr>
-        <h5>歡迎透過本業查詢笠原化工於全球各地的授權經銷商</h5>
+        <h5>{{ trans('string.reseller_banner_desc') }}</h5>
     </div>
 </div>
 <div class="mg-site-thumbnail">
     <div class="container">
         <div class="col-md-12">
-            <a href="/">首页</a>
+            <a href="/">{{ trans('string.home') }}</a>
             &nbsp;&nbsp;<a>></a>&nbsp;&nbsp;
-            <a href="/contact">联系我们</a> 
+            <a href="/contact">{{ trans('string.about4') }}</a> 
             &nbsp;&nbsp;<a>></a>&nbsp;&nbsp;
-            授權經銷商
+            {{ trans('string.legal_reseller') }}
         </div>
     </div>
 </div>

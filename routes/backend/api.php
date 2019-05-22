@@ -252,4 +252,11 @@ Route::group(['prefix' => 'admin'], function ()
         Route::post('/update/{id}', 'Backend\CustomController@updateCustomField');
         Route::post('/delete/{id}', 'Backend\CustomController@deleteCustomField');
     });
+
+    /**
+     * 合作夥伴管理
+     */
+    Route::post('/partner/add', 'Backend\PartnerController@addPartner');
+    Route::post('/partner/edit/{guid}', 'Backend\PartnerController@updatePartner');
+    Route::get('/partner/delete/{guid}', 'Backend\PartnerController@deletePartner');
 });
