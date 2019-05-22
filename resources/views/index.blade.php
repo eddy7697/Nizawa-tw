@@ -214,7 +214,9 @@
                 // settings: "unslick"
                 // instead of a settings object
             ]
-        });
+        });        
+
+        $('.swiper-slide').height($('.swiper-wrapper').height());
     </script>
 @endsection
 

@@ -2056,13 +2056,13 @@
                 position: relative;
                 
                 .swiper-slide {
+                    padding: 20px 0;
                     
                     .slide-item {
                         position: relative;
-                        margin: 20px auto;
+                        margin: 0px auto;
                         right: inherit;
                         width: 85%;
-
     
                         h2 {
                         }
@@ -2073,7 +2073,7 @@
                     }
                 }
             }
-          }
+        }
         .new-tabs {
             margin-top: 20px;
     
