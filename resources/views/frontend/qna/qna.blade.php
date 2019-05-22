@@ -33,10 +33,13 @@
 @section('content')
 <div class="sub-page-banner" style="background-image: url('/img/sub-banner.jpg');">
     <div>
-        <h2>常見問題</h2>
+        <h2>{{ trans('string.faq') }}</h2>
+        @if (App::getLocale() !== 'en')
         <h4>FAQ</h4>
+        @endif
+        
         <hr>
-        <h5>任何產品常見問題，或想了解詢價流程，都在這裡為您詳加介紹</h5>
+        <h5>{{ trans('string.faq_banner_desc') }}</h5>
     </div>
 </div>
 @if (App::getLocale() == 'en')
@@ -52,11 +55,11 @@
 <div class="mg-site-thumbnail">
     <div class="container">
         <div class="col-md-12">
-            <a href="/">首頁</a>
+            <a href="/">{{ trans('string.home') }}</a>
             &nbsp;&nbsp;<a>></a>&nbsp;&nbsp;
-            <a href="/">服務支援</a>
+            <a href="/">{{ trans('string.support') }}</a>
             &nbsp;&nbsp;<a>></a>&nbsp;&nbsp;
-            常見問題
+            {{ trans('string.faq') }}
         </div>
     </div>
 </div>
@@ -64,7 +67,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12 about-content">
-            <h3 class="about-section-title">最常見的{{count(PageView::qnaTop())}}個問題</h3>
+            <h3 class="about-section-title">{{ trans('string.most_faq_1') }}{{count(PageView::qnaTop())}}{{ trans('string.most_faq_2') }}</h3>
             <div class="collapse-container top" id="accordion-top">
                 @foreach (PageView::qnaTop() as $key => $item)
                     <div class="card">
@@ -86,14 +89,14 @@
             </div>
         </div>
         <div class="col-md-12 about-content">
-            <h3 class="about-section-title">常見問題查詢</h3>
+            <h3 class="about-section-title">{{ trans('string.search_faq') }}</h3>
         </div>
         <div class="col-md-7 mx-auto news-search-form">
             <form method="GET" action="/qna/search">
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control search-input shadow-none" name="keyword" placeholder="輸入問題關鍵字搜尋...">
+                    <input type="text" class="form-control search-input shadow-none" name="keyword" placeholder="{{trans('string.search_placeholder')}}">
                     <div class="input-group-append">
-                        <button class="btn btn-search" type="submit">搜尋</button> 
+                        <button class="btn btn-search" type="submit">{{ trans('string.search') }}</button> 
                     </div>
                 </div>
             </form>
@@ -103,31 +106,31 @@
             <div class="nav-tab-container">
                 <ul class="nav nav-tabs qna-tabs" style="margin-bottom: 10px;">
                     <li class="nav-item">
-                        <a class="nav-link btn site-btn active" data-toggle="tab" href="#home">一般產品問題</a>
+                        <a class="nav-link btn site-btn active" data-toggle="tab" href="#home">{{ trans('string.faq_1') }}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link btn site-btn" data-toggle="tab" href="#menu1">詢價問題</a>
+                        <a class="nav-link btn site-btn" data-toggle="tab" href="#menu1">{{ trans('string.faq_2') }}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link btn site-btn" data-toggle="tab" href="#menu2">服務支援</a>
+                        <a class="nav-link btn site-btn" data-toggle="tab" href="#menu2">{{ trans('string.faq_3') }}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link btn site-btn" data-toggle="tab" href="#menu3">運送相關</a>
+                        <a class="nav-link btn site-btn" data-toggle="tab" href="#menu3">{{ trans('string.faq_4') }}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link btn site-btn" data-toggle="tab" href="#menu4">支付相關</a>
+                        <a class="nav-link btn site-btn" data-toggle="tab" href="#menu4">{{ trans('string.faq_5') }}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link btn site-btn" data-toggle="tab" href="#menu5">水質檢測相關產品</a>
+                        <a class="nav-link btn site-btn" data-toggle="tab" href="#menu5">{{ trans('string.faq_6') }}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link btn site-btn" data-toggle="tab" href="#menu5">食品安全相關產品</a>
+                        <a class="nav-link btn site-btn" data-toggle="tab" href="#menu6">{{ trans('string.faq_7') }}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link btn site-btn" data-toggle="tab" href="#menu6">生技藥妝相關產品</a>
+                        <a class="nav-link btn site-btn" data-toggle="tab" href="#menu7">{{ trans('string.faq_8') }}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link btn site-btn" data-toggle="tab" href="#menu7">試劑相關產品</a>
+                        <a class="nav-link btn site-btn" data-toggle="tab" href="#menu8">{{ trans('string.faq_9') }}</a>
                     </li>
                 </ul>
             </div>

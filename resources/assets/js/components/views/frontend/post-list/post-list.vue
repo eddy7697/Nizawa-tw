@@ -6,16 +6,16 @@
 				<div class="col-md-7 mx-auto news-search-form">
 					<form v-on:submit.prevent="searchPost">
 						<div class="input-group mb-3">
-							<input type="text" class="form-control search-input shadow-none" v-model="keyword" placeholder="輸入新聞關鍵字搜尋...">
+							<input type="text" class="form-control search-input shadow-none" v-model="keyword" :placeholder="i18n.search_placeholder">
 							<div class="input-group-append">
-								<button class="btn btn-search" type="submit">搜尋</button> 
+								<button class="btn btn-search" type="submit">{{i18n.search}}</button> 
 							</div>
 						</div>
 					</form>
 				</div>
 				
 				<div class="col-md-12 news-list-category">
-					<button class="btn site-btn" @click="selectedCategory = null">全部文章</button>
+					<button class="btn site-btn" @click="selectedCategory = null">{{i18n.all_news}}</button>
 					<button class="btn site-btn" 
 						v-for="(item, index) in categoryList.data" 
 						@click="selectedCategory = item.categoryGuid"
@@ -42,8 +42,8 @@
 				<div class="col-md-12 btn-section" v-if="pageLoaded">
 					<div v-if="pageData.current_page == pageData.last_page" class="scrolldown-endpoint">
 						<img src="/img/findmore.png" alt="">
-						<h4>Oops...看起來你已經看完所有的消息！</h4>
-						<p>找不到你要的嗎？試著使用我們的搜尋功能或是<a href="/contact">聯絡我們</a>看看吧！</p>
+						<h4>{{i18n.post_out}}</h4>
+						<p v-html="i18n.post_find_contact"></p>
 					</div>
 					<img v-if="isLoadingLearnMore" width="50" src="/img/icon/loading-spinner.svg">
 				</div>
