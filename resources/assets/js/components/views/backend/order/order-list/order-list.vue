@@ -145,9 +145,9 @@
                                         <span v-if="itemShowed.paymentMethod === 'Remit'">轉帳付款</span>
                                     </td>
                                 </tr> -->
-                                <!-- <tr>
+                                <tr>
                                     <td>
-                                        付款狀態
+                                        詢價單狀態
                                     </td>
                                     <td>
                                         <div v-if="itemShowed.patmentStatusModify">
@@ -168,7 +168,7 @@
                                             <button class="btn btn-primary btn-sm" v-if="itemShowed.paymentMethod == 'Remit'" type="button" name="button" @click="togglePaymentStatusModify()">更改狀態</button>
                                         </div>
                                         
-                                        <button
+                                        <!-- <button
                                             type="button"
                                             style="margin-left: 10px;"
                                             class="btn btn-primary btn-xs"
@@ -196,11 +196,11 @@
                                             style="margin-left: 10px;"
                                             v-if="itemShowed.paymentMethod === 'cod'"
                                             class="btn btn-primary btn-xs"
-                                            @click="generateSheet()">已產生貨到付款物流單，點我列印繳費單</button>
+                                            @click="generateSheet()">已產生貨到付款物流單，點我列印繳費單</button> -->
                                     </td>
-                                </tr> -->
+                                </tr>
                                 <tr>
-                                    <td>詢價單狀態</td>
+                                    <td>操作狀態</td>
                                     <td>
                                         <div v-if="itemShowed.statusModify">
                                             <select v-model="itemShowed.orderStatus">

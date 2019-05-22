@@ -31,6 +31,25 @@
                 focusOnSelect: true
             });
         });
+        
+        function lineShare(url, text) {
+            var link = "http://line.naver.jp/R/msg/text/?";
+            link += encodeURIComponent(text);
+            link += "%0D%0A";
+            link += encodeURIComponent(url);
+            window.open(link);
+            return false;
+        }
+        function facebookShare(url, text) {
+            var text;
+
+            text += encodeURIComponent(text);
+            text += "%0D%0A";
+            text += encodeURIComponent(url);
+
+            window.open("https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(url) + '&src=sdkpreparse');
+            return false;
+        }
     </script>
 @endsection
 
@@ -162,8 +181,8 @@
                         <hr>
                         <div class="share-section">
                             <span>share this products</span>
-                            <img src="/img/icon/fb.svg" alt="">
-                            <img src="/img/icon/line.svg" alt="">
+                            <img onclick="facebookShare('{{env('APP_URL')}}/product-detail/{{$product->productGuid}}', '{{$product->productTitle}}')" src="/img/icon/fb.svg" alt="">
+                            <img onclick="lineShare('{{env('APP_URL')}}/product-detail/{{$product->productGuid}}', '{{$product->productTitle}}')" src="/img/icon/line.svg" alt="">
                         </div>
                         {{-- 需要協助嗎? <a href="#" data-toggle="modal" data-target="#myModal-01">聯絡我們</a> --}}
                     </div>

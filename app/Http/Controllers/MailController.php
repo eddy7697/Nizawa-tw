@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Redirect;
+use PublicServiceProvider;
 use Mail;
 
 class MailController extends Controller
@@ -41,6 +42,6 @@ class MailController extends Controller
             $message->from('info@nizawa-int.com.tw', $name = env('APP_NAME'));
         });
 
-        return redirect('/');
+        return PublicServiceProvider::exception(trans('string.send_success'));
     }
 }

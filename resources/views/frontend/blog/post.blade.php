@@ -28,6 +28,25 @@
     jQuery('#facebook-share').on('click', function() {
       window.open("https://www.facebook.com/sharer/sharer.php?u=" + window.location.href + '&src=sdkpreparse');
     });
+
+    function lineShare(url, text) {
+        var link = "http://line.naver.jp/R/msg/text/?";
+        link += encodeURIComponent(text);
+        link += "%0D%0A";
+        link += encodeURIComponent(url);
+        window.open(link);
+        return false;
+    }
+    function facebookShare(url, text) {
+        var text;
+
+        text += encodeURIComponent(text);
+        text += "%0D%0A";
+        text += encodeURIComponent(url);
+
+        window.open("https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(url) + '&src=sdkpreparse');
+        return false;
+    }
     </script>
 @endsection
 
@@ -58,8 +77,8 @@
                 <div class="col-md-3">
                     <div class="share-section">
                         <span>share this posts</span>
-                        <img src="/img/icon/fb.svg" alt="">
-                        <img src="/img/icon/line.svg" alt="">
+                        <img onclick="facebookShare('{{env('APP_URL')}}/blog/{{$post->customPath}}', '{{$post->postTitle}}')" src="/img/icon/fb.svg" alt="">
+                        <img onclick="lineShare('{{env('APP_URL')}}/blog/{{$post->customPath}}', '{{$post->postTitle}}')" src="/img/icon/line.svg" alt="">
                     </div>
                     {{-- <table style="width: 80px;">
                         <tr>

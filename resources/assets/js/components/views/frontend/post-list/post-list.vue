@@ -15,10 +15,11 @@
 				</div>
 				
 				<div class="col-md-12 news-list-category">
-					<button class="btn site-btn" @click="selectedCategory = null">{{i18n.all_news}}</button>
+					<button class="btn site-btn" @click="selectedCategory = null" :class="{active: selectedCategory == null}">{{i18n.all_news}}</button>
 					<button class="btn site-btn" 
 						v-for="(item, index) in categoryList.data" 
 						@click="selectedCategory = item.categoryGuid"
+						:class="{active: selectedCategory == item.categoryGuid}"
 						:key="index">{{parseTitle(item.categoryTitle)}}</button>
 				</div>
 

@@ -5,6 +5,8 @@ return [
     'about' => 'About Nizawa',
     'aboutDesc' => 'Excellent product and professional sales and technical team strive to do your best',
 
+    'send_success' => 'Thank you for your letter, we will reply you as soon as possible.',
+
     'search' => 'Search',
     'search_result' => 'Search result',
     'search_placeholder' => 'Enter news keyword search...',

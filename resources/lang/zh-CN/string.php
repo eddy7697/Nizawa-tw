@@ -5,6 +5,8 @@ return [
     'about' => '关于日泽',
     'aboutDesc' => '优秀的产品与专业的销售和技术团队 努力为您做到最好',
 
+    'send_success' => '感谢您的来信，我们会尽快回复您',
+
     'search' => '搜索',
     'search_result' => '搜索结果',
     'search_placeholder' => '输入新闻关键字搜索...',

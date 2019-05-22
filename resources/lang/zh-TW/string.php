@@ -5,6 +5,8 @@ return [
     'about' => '關於日澤',
     'aboutDesc' => '優秀的產品與專業的銷售和技術團隊 努力為您做到最好',
 
+    'send_success' => '感謝您的來信，我們會盡快回覆您',
+
     'search' => '搜尋',
     'search_result' => '搜尋結果',
     'search_placeholder' => '輸入新聞關鍵字搜尋...',

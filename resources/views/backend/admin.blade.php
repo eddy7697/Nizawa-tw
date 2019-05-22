@@ -25,7 +25,7 @@
             {{--  left start  --}}
 			<div class="col-md-3 left_col menu_fixed mCustomScrollbar _mCS_1 mCS-autoHide" style="overflow: visible;">
 				<button id="center-btn"><i class="fa fa-angle-left" aria-hidden="true"></i></button>
-				<div id="mCSB_1" class="mCustomScrollBox mCS-minimal mCSB_vertical mCSB_outside" style="max-height: none;" tabindex="0">
+				<div id="mCSB_1" class="mCustomScrollBox mCS-minimal mCSB_vertical mCSB_outside" style="max-height: none; overflow-y: auto;" tabindex="0">
 					<div id="mCSB_1_container" class="mCSB_container" style="position:relative; top:0; left:0;" dir="ltr">
 						<div class="left_col scroll-view">
 							<div class="navbar nav_title" style="border: 0;">

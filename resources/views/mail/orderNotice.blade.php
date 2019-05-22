@@ -9,7 +9,7 @@
             {{-- <h2>感謝您的訂購</h2>
             <hr /> --}}
             <h2>親愛的顧客 {{$shippingTarget['ReceiverName']}} 先生/小姐 您好：</h2>            
-            <p>您的訂單編號：{{$merchantIdCache['MerchantTradeNo']}}
+            <p>您的詢價單編號：{{$merchantIdCache['MerchantTradeNo']}}
             <br>詢價日期：{{date("Y-m-d H:i", time())}}
             <p>&nbsp;</p>
             <p>&nbsp;</p>

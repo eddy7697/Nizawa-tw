@@ -1,6 +1,15 @@
 <?php
 
 return [
+    'deer_1' => 'Dear',
+    'deer_2' => 'Mr./Miss, Hello.',
+    'cart_sn' => 'Your inquiry number',
+    'cart_date' => 'Inquiry date',
+    'company_name' => 'NIZAWA INTERNATIONAL HI-TECH CORP',
+    'thank' => 'Thank you for your patronage!',
+    'contact_phone' => 'Customer service contact number',
+    'range' => 'Monday to Friday',
+
     'service_title_1' => 'Accurate and reliable - Professional after-sales service',
     'service_desc_1' => 'As a high-end enterprise of water quality and food safety testing equipment, Yoneze not only provides high-quality instruments, but also provides professional and reliable after-sales service and technical support. At present, Nissawa has several after-sales service bases in China, and several technical professional and experienced after-sales service engineers. At the same time, we use comprehensive and advanced testing tools, relying on efficient expert systems, and uphold the customer-oriented service concept to provide convenient and efficient services for our customers.',
 
