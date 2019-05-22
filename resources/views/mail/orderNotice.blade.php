@@ -8,13 +8,13 @@
         <td colspan="4" style="padding: 10px; border: #ccc 10px solid">
             {{-- <h2>感謝您的訂購</h2>
             <hr /> --}}
-            <h2>親愛的顧客 {{$shippingTarget['ReceiverName']}} 先生/小姐 您好：</h2>            
-            <p>您的詢價單編號：{{$merchantIdCache['MerchantTradeNo']}}
-            <br>詢價日期：{{date("Y-m-d H:i", time())}}
+            <h2>{{ trans('service.deer_1') }} {{$shippingTarget['ReceiverName']}}：</h2>            
+            <p>{{ trans('service.cart_sn') }} ：{{$merchantIdCache['MerchantTradeNo']}}
+            <br>{{ trans('service.cart_date') }} ：{{date("Y-m-d H:i", time())}}
             <p>&nbsp;</p>
             <p>&nbsp;</p>
-            <p><a href="{{env('APP_URL')}}">日澤國際股份有限公司</a>感謝您的惠顧！
-            <br>客服聯絡電話：+886-3-4935921 / +886-3-4935900 (週一~週五 09:00~18:00)</p>
+            <p><a href="{{env('APP_URL')}}">{{ trans('service.company_name') }}</a>{{ trans('service.thank') }}
+            <br>{{ trans('service.contact_phone') }} ：+886-3-4935921 / +886-3-4935900 ({{ trans('service.range') }} 09:00~18:00)</p>
         </td>
     </tr>
     {{-- <tr>
