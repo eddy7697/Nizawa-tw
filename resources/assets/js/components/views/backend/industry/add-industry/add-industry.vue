@@ -90,8 +90,13 @@
                 width="600px"
                 :before-close="handleClose">
                 <form v-on:submit.prevent="searchProduct">
-                    <input class="form-control" v-model="keyword" placeholder="請輸入產品名稱" required/>
-                    
+                    <div class="input-group">
+                        <input type="keyword" class="form-control" v-model="keyword" placeholder="請輸入產品名稱" required>
+                        <span class="input-group-btn">
+                        <button class="btn btn-primary" type="button"><span class="glyphicon glyphicon-search" aria-hidden="true">
+                        </span> 搜尋產品</button>
+                        </span>
+                    </div>
                 </form>
                 <div class="selected-product-list">
                     <label v-for="(item, index) in productData.data" :key="index">

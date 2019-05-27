@@ -139,10 +139,11 @@
 										</li>	
 										<li class=""><a><i class="fa fa-industry" aria-hidden="true"></i> 產業應用管理系統 <span class="fa fa-chevron-down"></span></a>
 											<ul class="nav child_menu" style="display: none;">
-												<li><a href="/cyberholic-system/industry/add">新增</a></li>
+												{{-- <li><a href="/cyberholic-system/industry/add">新增</a></li> --}}
 												<li><a href="/cyberholic-system/industry/list">應用列表</a></li>
 											</ul>
-										</li>												
+										</li>
+										@if (false)
 										<li class=""><a><i class="fa fa-download"></i> 合作夥伴管理系統 <span class="fa fa-chevron-down"></span></a>
 											<ul class="nav child_menu" style="display: none;">
 												<li><a href="/cyberholic-system/partner/add">新增合作夥伴位置</a></li>
@@ -150,7 +151,9 @@
 												<li><a href="/cyberholic-system/partner/category">合作夥伴分類管理</a></li>
 												<li><a href="/cyberholic-system/partner/location">合作夥伴區域管理</a></li>
 											</ul>
-										</li>	
+										</li>		
+										@endif												
+										
 									</ul>
 								</div>
 			
