@@ -36,7 +36,7 @@
         </div>
     </div>
 </div>
-<div class="container product-list">
+<div class="container product-list sub">
     <div class="row main-category">
         <div class="col-md-10 mx-auto">
             <ul class="row nav nav-tabs">
