@@ -75,6 +75,19 @@ class PostController extends Controller
         $data = $request->all();
         $creator = Auth::user()->name;
         $creatorGuid = Auth::user()->guid;
+        $postGuid = str_random(6);
+
+        try {
+            foreach ($data as $key => $value) {
+                $value['postGuid'] = $postGuid;
+                Log::info($value['authorName']);
+                Post::create($value);
+            }
+
+            return response()->json([ 'status' => 200, 'data' => '$createProduct', 'message' => 'create product success' ], 200);
+        } catch (\Throwable $th) {
+            return response()->json([ 'status' => 500, 'data' => null, 'message' => $th->getMessage() ], 500);
+        }
 
         // return $data;
         if (Auth::user()->role == 'ADMIN') {
@@ -154,7 +167,29 @@ class PostController extends Controller
 
     public function getPost($guid)
     {
-        return Post::where('postGuid', $guid)->first();
+        $localtArr = array('zh-TW', 'zh-CN', 'en');
+        $result = array();
+
+        foreach ($localtArr as $key => $value) {
+            $result[$value] = Post::where('postGuid', $guid)->where('locale', $value)->first();
+        }
+
+        return $result;
+        return Post::where('postGuid', $guid)->get();
+    }
+
+    /**
+     * checkPrivatePath
+     */
+    public function checkPrivatePath($path)
+    {
+        // return '123';
+        if (Post::where('privatePath', $path)->exists()) {
+            abort(431);
+            return 'exist';
+        } else {
+            return 'allow';
+        }
     }
 
     /**
@@ -168,6 +203,21 @@ class PostController extends Controller
     {
         $data = $request->all();
         $postRow = Post::where('postGuid', $guid);
+
+        $localtArr = array('zh-TW', 'zh-CN', 'en');
+
+        // return $data;
+        
+
+        try {
+            foreach ($localtArr as $key => $value) {
+                Post::where('postGuid', $guid)->where('locale', $value)->update($data[$value]);
+            }
+
+            return response()->json([ 'status' => 200, 'data' => '$updateProduct', 'message' => 'create product success' ], 200);
+        } catch (\Throwable $th) {
+            return response()->json([ 'status' => 500, 'data' => null, 'message' => $th->getMessage() ], 500);
+        }
 
         // return $data;
         if (Auth::user()->role == 'ADMIN') {

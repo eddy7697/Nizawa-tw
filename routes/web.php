@@ -40,12 +40,13 @@ Route::get('/test_prod', function ()
 {
     $post = Post::all();
 
-    foreach ($post as $key => $value) {
-        Post::where('id', $value->id)
-                ->update([
-                    'featureImage' => 'https://picsum.photos/800/600/?image='.rand(1, 500),
-                ]);
-    }
+    // foreach ($post as $key => $value) {
+    //     $post = Post::where('id', $value->id)->first();
+    //     Post::where('id', $value->id)
+    //             ->update([
+    //                 'featureImage' => 'https://picsum.photos/800/600/?image='.rand(1, 500),
+    //             ]);
+    // }
 
     // return $post->update([
         

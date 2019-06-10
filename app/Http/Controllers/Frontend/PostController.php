@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Post;
 use Log;
+use App;
 
 class PostController extends Controller
 {
@@ -37,6 +38,7 @@ class PostController extends Controller
                                 $q->where('postCategory', $request->cate);
                             }
                         })
+                        ->where('locale', App::getLocale())
                         ->paginate(6);
 
         if ($data) {

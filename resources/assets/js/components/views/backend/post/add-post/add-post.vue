@@ -1,15 +1,32 @@
 <template>
     <div class="row" v-if="isLoaded">
         <div class="col-md-9">
-            <input type="text" class="form-control ch-product-title" name="title" value="" placeholder="最新消息標題" v-model="postContent.postTitle">
-            <!-- <div class="form-group">
+            <div class="row">
+                <div class="col-md-8">
+                    <el-radio-group v-model="selectedLocale" size="medium" style="margin-bottom: 10px;">
+                        <el-radio-button label="zh-TW">繁體中文</el-radio-button>
+                        <el-radio-button label="zh-CN">简体中文</el-radio-button>
+                        <el-radio-button label="en">英文</el-radio-button>
+                    </el-radio-group>
+                </div>
+                <div class="col-md-4" style="text-align: right">
+                    <el-button size="medium" type="primary" @click="duplicateContent">
+                        複製內容
+                    </el-button>
+                </div>
+            </div>
+            <input type="text" class="form-control ch-product-title" name="title" value="" placeholder="最新消息標題" v-model="postContent[selectedLocale].postTitle">
+            <div class="form-group">
                 <label for="">{{currentPath}}/blog/</label>
-                <input type="text" class="form-control" v-model="postContent.customPath" style="width: fit-content; display:inline-block">
-            </div> -->
+                <input type="text" class="form-control" v-model="postContent[selectedLocale].privatePath" style="width: fit-content; display:inline-block">
+                <label v-if="pathUsable">可使用</label>
+                <label v-else>已存在</label>
+            </div>
             <ckeditor
+                v-if="editorShow"
                 class="ch-product-description"
                 :config="ckConfig"
-                v-model="postContent.content">
+                v-model="postContent[selectedLocale].content">
             </ckeditor>
             <div class="panel panel-default">
                 <div class="panel-heading">
@@ -32,7 +49,7 @@
                                             <label for="seoTitle">網站標題</label>
                                         </td>
                                         <td>
-                                            <input type="text" name="seoTitle" class="form-control" v-model="postContent.seoTitle">
+                                            <input type="text" name="seoTitle" class="form-control" v-model="postContent[selectedLocale].seoTitle">
                                         </td>
                                     </tr>
                                     <tr>
@@ -40,7 +57,7 @@
                                             <label for="seoKeyword">關鍵字 (*以 , 分隔)</label>
                                         </td>
                                         <td>
-                                            <input type="text" name="seoKeyword" class="form-control" v-model="postContent.seoKeyword">
+                                            <input type="text" name="seoKeyword" class="form-control" v-model="postContent[selectedLocale].seoKeyword">
                                         </td>
                                     </tr>
                                     <tr>
@@ -48,13 +65,13 @@
                                             <label>社群圖片</label>
                                         </td>
                                         <td>
-                                            <button class="btn btn-primary" type="button" v-if="(postContent.socialImage === null) || (postContent.socialImage === '')" @click="addSeoImage()">
+                                            <button class="btn btn-primary" type="button" v-if="(postContent[selectedLocale].socialImage === null) || (postContent[selectedLocale].socialImage === '')" @click="addSeoImage()">
                                                 <i class="fa fa-plus" aria-hidden="true"></i>
                                             </button>
                                             <div v-else class="ch-social-image">
-                                                <img v-bind:src="postContent.socialImage" width="50%">
+                                                <img v-bind:src="postContent[selectedLocale].socialImage" width="50%">
                                                 <button type="button" class="btn btn-primary" @click="addSeoImage()"><i class="fa fa-pencil" aria-hidden="true"></i></button>
-                                                <button type="button" class="btn btn-danger" @click="postContent.socialImage = null"><i class="fa fa-times" aria-hidden="true"></i></button>
+                                                <button type="button" class="btn btn-danger" @click="postContent[selectedLocale].socialImage = null"><i class="fa fa-times" aria-hidden="true"></i></button>
                                             </div>
                                         </td>
                                     </tr>
@@ -63,7 +80,7 @@
                                             <label for="seoDescription">社群描述</label>
                                         </td>
                                         <td>
-                                            <textarea type="text" name="seoDescription" class="form-control" style="resize: vertical;" v-model="postContent.seoDescription"></textarea>
+                                            <textarea type="text" name="seoDescription" class="form-control" style="resize: vertical;" v-model="postContent[selectedLocale].seoDescription"></textarea>
                                         </td>
                                     </tr>
                                 </table>
@@ -89,7 +106,7 @@
                                     <label for="isPublish">最新消息狀態</label>
                                 </td>
                                 <td align="right">
-                                    <toggle-button v-model="postContent.isPublish"/>
+                                    <toggle-button v-model="postContent[selectedLocale].isPublish"/>
                                 </td>
                             </tr>
                         </table>
@@ -107,7 +124,7 @@
                                                 <label for="isPublish">最新消息狀態</label>
                                             </td>
                                             <td align="right">
-                                                <toggle-button v-model="postContent.isPublish"/>
+                                                <toggle-button v-model="postContent[selectedLocale].isPublish"/>
                                             </td>
                                         </tr>
                                         <tr>
@@ -115,14 +132,14 @@
                                             <td width="30" align="right">
                                                 <i  class="fa fa-times"
                                                     aria-hidden="true"
-                                                    @click="postContent.schedulePost = null"
-                                                    v-if="postContent.schedulePost != null"></i>
+                                                    @click="postContent[selectedLocale].schedulePost = null"
+                                                    v-if="postContent[selectedLocale].schedulePost != null"></i>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td colspan="2">
                                                 <date-picker
-                                                    v-model="postContent.schedulePost"
+                                                    v-model="postContent[selectedLocale].schedulePost"
                                                     placeholder="選擇最新消息發布時間"
                                                     :config="config">
                                                 </date-picker>
@@ -133,14 +150,14 @@
                                             <td align="right">
                                                 <i  class="fa fa-times"
                                                     aria-hidden="true"
-                                                    @click="postContent.scheduleDelete = null"
-                                                    v-if="postContent.scheduleDelete != null"></i>
+                                                    @click="postContent[selectedLocale].scheduleDelete = null"
+                                                    v-if="postContent[selectedLocale].scheduleDelete != null"></i>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td colspan="2">
                                                 <date-picker
-                                                    v-model="postContent.scheduleDelete"
+                                                    v-model="postContent[selectedLocale].scheduleDelete"
                                                     placeholder="選擇最新消息下線時間"
                                                     :config="scheduleDeleteConfig">
                                                 </date-picker>
@@ -163,7 +180,7 @@
     					</h3>
     				</div>
     				<div class="panel-body">
-                        <select class="form-control" v-model="postContent.postCategory">
+                        <select class="form-control" v-model="postContent[selectedLocale].postCategory">
                             <option value="null">--不指定--</option>
                             <option v-for="(item, index) in categories" v-bind:value="item.guid" v-bind:key="index">
                                 {{JSON.parse(item.name)['zh-TW']}}
@@ -178,9 +195,9 @@
     					</h3>
     				</div>
     				<div class="panel-body">
-                        <a v-if="postContent.featureImage === null" @click="selectFeatureImg()">設定代表圖片</a>
+                        <a v-if="postContent[selectedLocale].featureImage === null" @click="selectFeatureImg()">設定代表圖片</a>
                         <div v-else class="">
-                            <img v-bind:src="thumb(postContent.featureImage)" id="featurePreview" style="width: 100%" @click="selectFeatureImg()">
+                            <img v-bind:src="thumb(postContent[selectedLocale].featureImage)" id="featurePreview" style="width: 100%" @click="selectFeatureImg()">
                             <p>點選圖片以編輯或更新</p>
                             <a @click="deleteFeatureImg()">刪除代表圖片</a>
                         </div>
@@ -197,8 +214,14 @@
     import Ckeditor from 'vue-ckeditor2';
     import datePicker from 'vue-bootstrap-datetimepicker';
     import ToggleButton from 'vue-js-toggle-button';
+    import ElementUI from 'element-ui';
+    import 'element-ui/lib/theme-chalk/index.css';
+    import lang from 'element-ui/lib/locale/lang/zh-TW'
+    import locale from 'element-ui/lib/locale'
 
     Vue.use(ToggleButton);
+    Vue.use(ElementUI);
+    locale.use(lang)
 
     export default {
         components: {
@@ -207,23 +230,55 @@
         },
         data() {
             return {
+                pathUsable: false,
+                selectedLocale: 'zh-TW',
                 isLoaded: false,
                 isEdit: false,
                 currentPath: window.location.origin,
                 guid: $('#row-guid').val(),
                 postContent: {
-                    postTitle: null,
-                    postCategory: 'null',
-                    content: null,
-                    featureImage: null,
-                    customPath: null,
-                    seoTitle: null,
-                    seoKeyword: null,
-                    socialImage: null,
-                    seoDescription: null,
-                    isPublish: true,
-                    schedulePost: null,
-                    scheduleDelete: null
+                    'zh-TW': {
+                        postTitle: null,
+                        postCategory: 'null',
+                        content: null,
+                        featureImage: null,
+                        customPath: null,
+                        seoTitle: null,
+                        seoKeyword: null,
+                        socialImage: null,
+                        seoDescription: null,
+                        isPublish: true,
+                        schedulePost: null,
+                        scheduleDelete: null
+                    },
+                    'zh-CN': {
+                        postTitle: null,
+                        postCategory: 'null',
+                        content: null,
+                        featureImage: null,
+                        customPath: null,
+                        seoTitle: null,
+                        seoKeyword: null,
+                        socialImage: null,
+                        seoDescription: null,
+                        isPublish: true,
+                        schedulePost: null,
+                        scheduleDelete: null
+                    },
+                    'en': {
+                        postTitle: null,
+                        postCategory: 'null',
+                        content: null,
+                        featureImage: null,
+                        customPath: null,
+                        seoTitle: null,
+                        seoKeyword: null,
+                        socialImage: null,
+                        seoDescription: null,
+                        isPublish: true,
+                        schedulePost: null,
+                        scheduleDelete: null
+                    }
                 },
                 ckConfig: {
                     height: 300,
@@ -237,6 +292,7 @@
                     minDate: moment()
                 },
                 isDirty: false,
+                editorShow: true,
                 token: $('meta[name="csrf-token"]').attr('content')
             }
         },
@@ -258,21 +314,33 @@
                     var self = this;
 
                     this.isDirty = true;
+
+                    if (postContent[this.selectedLocale].privatePath) {
+                        this.checkPathExist();
+                        console.log(postContent[this.selectedLocale].privatePath)
+                    }
                 },
                 deep: true
+            },
+            selectedLocale() {
+                this.editorShow = false
+
+                setTimeout(() => {
+                    this.editorShow = true
+                }, 500);
             }
         },
         computed: {
             schedulePostDate: function () {
-                if (this.postContent.schedulePost) {
-                    return moment(this.postContent.schedulePost).format();
+                if (this.postContent[this.selectedLocale].schedulePost) {
+                    return moment(this.postContent[this.selectedLocale].schedulePost).format();
                 } else {
                     return null;
                 }
             },
             scheduleDeleteDate: function () {
-                if (this.postContent.scheduleDelete) {
-                    return moment(this.postContent.scheduleDelete).format();
+                if (this.postContent[this.selectedLocale].scheduleDelete) {
+                    return moment(this.postContent[this.selectedLocale].scheduleDelete).format();
                 } else {
                     return null;
                 }
@@ -289,18 +357,18 @@
                 }
             },
             checkTitle: function () {
-                if (!this.postContent.postTitle) {
+                if (!this.postContent[this.selectedLocale].postTitle) {
                     return false;
-                } else if (this.postContent.postTitle.trim() === '') {
+                } else if (this.postContent[this.selectedLocale].postTitle.trim() === '') {
                     return false;
                 } else {
                     return true;
                 }
             },
             checkContent: function () {
-                if (!this.postContent.content) {
+                if (!this.postContent[this.selectedLocale].content) {
                     return false;
-                } else if (this.postContent.content.trim() === '') {
+                } else if (this.postContent[this.selectedLocale].content.trim() === '') {
                     return false;
                 } else {
                     return true;
@@ -336,18 +404,24 @@
                     cache: false
                 })
                 .done(function(result) {
-                    self.postContent.postTitle = result.postTitle;
-                    self.postContent.postCategory = result.postCategory;
-                    self.postContent.content = result.content;
-                    self.postContent.featureImage = result.featureImage;
-                    self.postContent.seoTitle = result.seoTitle;
-                    self.postContent.seoKeyword = result.seoKeyword;
-                    self.postContent.customPath = result.customPath;
-                    self.postContent.socialImage = result.socialImage;
-                    self.postContent.seoDescription = result.seoDescription;
-                    self.postContent.isPublish = Boolean(result.isPublish);
-                    self.postContent.schedulePost = (result.schedulePost != null) ? moment(result.schedulePost) : null;
-                    self.postContent.scheduleDelete = (result.scheduleDelete != null) ? moment(result.scheduleDelete) : null;
+                    console.log(result)
+                    let localeArr = Object.keys(result);
+
+                    localeArr.forEach(elm => {
+                        self.postContent[elm].postTitle = result[elm].postTitle;
+                        self.postContent[elm].postCategory = result[elm].postCategory;
+                        self.postContent[elm].content = result[elm].content;
+                        self.postContent[elm].featureImage = result[elm].featureImage;
+                        self.postContent[elm].seoTitle = result[elm].seoTitle;
+                        self.postContent[elm].seoKeyword = result[elm].seoKeyword;
+                        self.postContent[elm].customPath = result[elm].customPath;
+                        self.postContent[elm].socialImage = result[elm].socialImage;
+                        self.postContent[elm].seoDescription = result[elm].seoDescription;
+                        self.postContent[elm].isPublish = Boolean(result[elm].isPublish);
+                        self.postContent[elm].schedulePost = (result[elm].schedulePost != null) ? moment(result[elm].schedulePost) : null;
+                        self.postContent[elm].scheduleDelete = (result[elm].scheduleDelete != null) ? moment(result[elm].scheduleDelete) : null;
+                    });
+                    
 
                     self.isLoaded = true;
                     self.isDirty = false;
@@ -363,14 +437,34 @@
                 var self = this;
                 var token = this.token;
 
-                // if (!this.postContent.customPath) {
-                //     this.postContent.customPath = this.clearString(this.postContent.postTitle);
+                // if (!this.postContent[this.selectedLocale].customPath) {
+                //     this.postContent[this.selectedLocale].customPath = this.clearString(this.postContent[this.selectedLocale].postTitle);
                 // }
+
+                axios.post(self.isEdit ? '/admin/post/edit/' + self.guid : '/admin/post/add', this.postContent)
+                    .then(res => {
+                        this.showMessage('success', '文章儲存成功')
+                        setTimeout(() => {
+                            window.location.href="/cyberholic-system/post/list";
+                        }, 1500)
+                        // if (this.isSubmit) {
+                        //     this.showMessage('success', '文章儲存成功')
+                        //     setTimeout(() => {
+                        //         window.location.href="/cyberholic-system/post/list";
+                        //     }, 1500)
+                        // } else {
+                        //     this.isEdit = true
+                        //     this.guid = res.data.postGuid
+                        // }
+                    })
+                    
+                return
 
                 this.checkPathExist()
                     .then(function (isPath) {
                         if (true) {
                             if (self.isAllowToSave) {
+                                
                                 $.ajax({
                                     url: self.isEdit ? '/admin/post/edit/' + self.guid : '/admin/post/add',
                                     type: 'POST',
@@ -430,25 +524,67 @@
             checkPathExist: function () {
                 var self = this;
 
+                // axios.post('/admin/post/check/privatePath/' + self.postContent[self.selectedLocale].privatePath)
+
                 return new Promise(function (resolve, reject) {
-                    $.ajax({
-                        url: '/admin/post/checkPathExist/' + self.postContent.customPath,
-                        type: 'GET',
-                        dataType: 'json'
-                    })
-                    .done(function(response) {
-                        resolve(true);
-                    })
-                    .fail(function(xhr) {
-                        console.log(xhr.status);
-                        if (xhr.status === 431) {
-                            resolve(false);
-                        } else {
-                            reject(xhr);
-                        }
-                    });
+                    axios.post('/admin/post/check/privatePath/' + self.postContent[self.selectedLocale].privatePath)
+                        .then(res => {
+                            self.pathUsable = true
+                            resolve(true)
+                            
+                        }).catch(err => {
+                            let result = err.response
+                            if (result.status === 431) {
+                                self.pathUsable = false
+                                resolve(false);
+                            } else {
+                                reject(result);
+                            }
+                        })
+                    // $.ajax({
+                    //     url: '/admin/post/check/privatePath/' + self.postContent[self.selectedLocale].privatePath,
+                    //     type: 'POST',
+                    //     dataType: 'json'
+                    // })
+                    // .done(function(response) {
+                    //     resolve(true);
+                    // })
+                    // .fail(function(xhr) {
+                    //     console.log(xhr.status);
+                    //     if (xhr.status === 431) {
+                    //         resolve(false);
+                    //     } else {
+                    //         reject(xhr);
+                    //     }
+                    // });
                 });
 
+            },
+            duplicateContent() {
+                this.$confirm('確認要將此語系內容複製到其他語系?', '複製內容', {
+                    confirmButtonText: '確定',
+                    cancelButtonText: '取消',
+                    type: 'info'
+                }).then(() => {
+                    let contentEn = JSON.parse(JSON.stringify(this.postContent['zh-TW'])),
+                        contentCn = JSON.parse(JSON.stringify(this.postContent['zh-TW']))
+
+                    contentEn.locale = 'en'
+                    this.postContent['en'] = contentEn
+
+                    contentCn.locale = 'zh-CN'
+                    this.postContent['zh-CN'] = contentCn
+
+                    this.$message({
+                        type: 'success',
+                        message: '複製成功!'
+                    });
+                }).catch(() => {
+                    this.$message({
+                        type: 'info',
+                        message: '已取消複製'
+                    });          
+                });                
             },
             selectFeatureImg: function () {
                 var self = this;

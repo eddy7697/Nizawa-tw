@@ -19,7 +19,9 @@ class CreatePostTable extends Migration
             $table->string('author');
             $table->string('authorName');
             $table->string('customPath');
+            $table->string('privatePath')->nullable();
             $table->string('postTitle');
+            $table->string('locale')->nullable();
             $table->string('postCategory')->nullable();
             $table->longText('content');
             $table->string('featureImage')->nullable();

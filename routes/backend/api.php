@@ -98,7 +98,7 @@ Route::post('/admin/post/edit/{guid}', 'Backend\PostController@update');
 Route::post('/admin/post/delete', 'Backend\PostController@deletePosts');
 Route::post('/admin/post/update/{guid}', 'Backend\PostController@updatePublishStatus');
 Route::get('/admin/post/checkPathExist/{customPath}', 'Backend\PostController@checkPathExist');
-
+Route::post('/admin/post/check/privatePath/{path}', 'Backend\PostController@checkPrivatePath');
 
 /**
  * Product
