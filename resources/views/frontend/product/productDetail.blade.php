@@ -9,6 +9,7 @@
     <meta property="fb:app_id" content="1758202757809745" />
     <!--**************************-->
     <meta property="og:type" content="website" />
+    <meta name="keywords" content="{{$product->seoKeyword}}">
 @endsection
 
 @section('custom-script')

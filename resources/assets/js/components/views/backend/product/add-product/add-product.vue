@@ -18,10 +18,10 @@
                 </div>
                 
                 <input type="text" class="form-control ch-product-title" name="title" value="" placeholder="產品名稱" v-model="productContent[selectedLocale].productTitle" required>
-                <!-- <div class="form-group">
+                <div class="form-group">
                     <label for="">{{currentPath}}/product-detail/</label>
                     <input type="text" class="form-control" placeholder="" v-model="productContent[selectedLocale].customPath" style="width: fit-content; display:inline-block">
-                </div> -->
+                </div>
                 <div v-if="editorShow" style="padding-bottom: 10px;">
                     <el-tabs v-model="activeSheet" type="card">
                         <el-tab-pane label="產品介紹" name="first">

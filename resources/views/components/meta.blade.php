@@ -1,5 +1,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
+@unless (Route::current()->getName() == 'productDetail')
 <meta name="keywords" content="{{SiteMetaView::keyword()}}">
+@endunless
+
 <meta name="description" content="{{SiteMetaView::description()}}">
 {{--  <link rel="alternate" href="https://www.meansgood.com.tw/" hreflang="zh-TW" />  --}}
 <!-- CSRF Token -->
