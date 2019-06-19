@@ -1,7 +1,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
-@unless (Route::current()->getName() == 'productDetail')
-<meta name="keywords" content="{{SiteMetaView::keyword()}}">
-@endunless
+@if (Route::current() !== null)
+    @unless (Route::current()->getName() == 'productDetail')
+    <meta name="keywords" content="{{SiteMetaView::keyword()}}">
+    <title>{{ SiteMetaView::title() }}</title>
+    @endunless
+@endif
+
 
 <meta name="description" content="{{SiteMetaView::description()}}">
 {{--  <link rel="alternate" href="https://www.meansgood.com.tw/" hreflang="zh-TW" />  --}}
@@ -9,7 +13,7 @@
 <meta name="csrf-token" content="{{ csrf_token() }}">
 
 {{-- <title>{{ config('app.name', 'Laravel') }}</title> --}}
-<title>{{ SiteMetaView::title() }}</title>
+
 
 <link rel="shortcut icon" href="{{ SiteMetaView::shortcut() }}">
 

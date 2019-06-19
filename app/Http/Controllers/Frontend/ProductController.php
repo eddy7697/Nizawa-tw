@@ -68,6 +68,36 @@ class ProductController extends Controller
         ]);
     }
 
+    public function productPathFromPath($path)
+    {
+        $product = Product::show()->where('customPath', $path)->first();
+        $comentList = Comment::where('source', $product->productGuid)->get();
+        $productList = Product::show()->orderBy('id', 'desc')->take(5)->get();
+
+        $score = 0;
+
+        if (count($comentList)) {
+            foreach ($comentList as $item) {
+                $score = $score + $item->rate;
+            }
+
+            $score = round($score / count($comentList));
+        }
+
+        $album = json_decode($product->album);
+
+        return view('frontend.product.productDetail', [
+            'product' => $product,
+            'guid' => $product->productGuid,
+            'score' => $score,
+            'album' => $album,
+            'productList' => $productList,
+            'comentList' => $comentList,
+            'isThumbShow' => true,
+            'thumb' => '<a href="/">首頁</a>&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;<a href="/product">系列商品</a>&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;'.$product->title
+        ]);
+    }
+
     public function productDetailFromPath($guid)
     {
         $product = Product::show()->where('productGuid', $guid)->first();
@@ -85,6 +115,10 @@ class ProductController extends Controller
         }
 
         $album = json_decode($product->album);
+
+        if ($product->isPublish == 0) {
+            return view('frontend.errors.404');
+        }
 
         return view('frontend.product.productDetail', [
             'product' => $product,

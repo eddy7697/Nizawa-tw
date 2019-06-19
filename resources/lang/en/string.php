@@ -4,6 +4,7 @@ return [
     'home' => 'Home',
     'about' => 'About Nizawa',
     'aboutDesc' => 'Excellent product and professional sales and technical team strive to do your best',
+    '404' => '404',
 
     'send_success' => 'Thank you for your letter, we will reply you as soon as possible.',
 

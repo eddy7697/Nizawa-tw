@@ -10,6 +10,7 @@
     <!--**************************-->
     <meta property="og:type" content="website" />
     <meta name="keywords" content="{{$product->seoKeyword}}">
+    <title>{{ $product->productTitle }}</title>
 @endsection
 
 @section('custom-script')

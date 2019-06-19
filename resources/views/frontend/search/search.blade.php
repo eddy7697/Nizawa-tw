@@ -35,7 +35,7 @@
             @foreach ($product as $item)
                 <div class="col-sm-3 product-box">
                     <div class="product-image">
-                        <a href="/product-detail/{{$item->customPath}}">
+                        <a href="/product-detail/{{$item->productGuid}}">
                             <img src="{{Helper::thumb($item->featureImage)}}" alt="">
                         </a>
                         <div class="add-to-cart">
@@ -43,12 +43,12 @@
                             @if ($item->productType == 'simple')
                                 <a class="add-btn" onclick="addSigleProduct('{{$item->productGuid}}')"><span>{{ trans('cart.add_cart') }}</span></a>
                             @else
-                                <a class="add-btn" href="/product-detail/{{$item->customPath}}"><span>檢視產品</span></a>
+                                <a class="add-btn" href="/product-detail/{{$item->productGuid}}"><span>檢視產品</span></a>
                             @endif    
                         </div>
                     </div>
                     <div class="product-title">
-                        <a href="/product-detail/{{$item->customPath}}">{{$item->productTitle}}</a>
+                        <a href="/product-detail/{{$item->productGuid}}">{{$item->productTitle}}</a>
                         <span>貨號：{{$item->serialNumber}}</span>
                     </div>
                     <div class="product-price">

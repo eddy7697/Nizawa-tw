@@ -230,7 +230,7 @@
                     <div class="slide-item">
                         <h2>{{$item->title}}</h2>
                         <div class="slide-info">
-                            {!!$item->content!!}
+                            {!!nl2br($item->content)!!}
                         </div>
                         <a class="slide-btn" href="{{$item->link}}">{{$item->button}}</a>
                     </div>

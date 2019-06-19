@@ -19,8 +19,11 @@
                 
                 <input type="text" class="form-control ch-product-title" name="title" value="" placeholder="產品名稱" v-model="productContent[selectedLocale].productTitle" required>
                 <div class="form-group">
-                    <label for="">{{currentPath}}/product-detail/</label>
+                    <label for="">{{currentPath}}/product-path/</label>
                     <input type="text" class="form-control" placeholder="" v-model="productContent[selectedLocale].customPath" style="width: fit-content; display:inline-block">
+                    <el-button size="medium" type="primary" @click="copyVarString">
+                        複製自訂連結
+                    </el-button>
                 </div>
                 <div v-if="editorShow" style="padding-bottom: 10px;">
                     <el-tabs v-model="activeSheet" type="card">
@@ -963,6 +966,28 @@
                 let obj = JSON.parse(str)
 
                 return `${obj['zh-TW']} | ${obj['zh-CN']} | ${obj.en}`
+            },
+            copyVarString() {
+                
+                const el = document.createElement('textarea');  // Create a <textarea> element
+                el.value = `${this.currentPath}/product-path/${this.productContent[this.selectedLocale].customPath}`;                                 // Set its value to the string that you want copied
+                el.setAttribute('readonly', '');                // Make it readonly to be tamper-proof
+                el.style.position = 'absolute';                 
+                el.style.left = '-9999px';                      // Move outside the screen to make it invisible
+                document.body.appendChild(el);                  // Append the <textarea> element to the HTML document
+                const selected =            
+                    document.getSelection().rangeCount > 0        // Check if there is any content selected previously
+                    ? document.getSelection().getRangeAt(0)     // Store selection if found
+                    : false;                                    // Mark as false to know no selection existed before
+                el.select();                                    // Select the <textarea> content
+                document.execCommand('copy');                   // Copy - only works as a result of a user action (e.g. click events)
+                document.body.removeChild(el);                  // Remove the <textarea> element
+                if (selected) {                                 // If a selection existed before copying
+                    document.getSelection().removeAllRanges();    // Unselect everything on the HTML document
+                    document.getSelection().addRange(selected);   // Restore the original selection
+                }
+
+                this.$message.success(`複製參數 ${el.value} 成功`)
             },
             showMessage(type, string) {
                 toastr[type](string);
