@@ -8,26 +8,19 @@
 @endsection
 
 @section('content')
-<div class="mg-site-thumbnail">
-    <div class="container">
-        <div class="col-md-12">
-            <a href="/">{{ trans('string.home') }}</a>
-            &nbsp;&nbsp;<a>></a>&nbsp;&nbsp;
-            {{ trans('string.404') }}
-        </div>
-    </div>
-</div>
 <div class="container">
     <div class="row">
-        <div class="col-md-9 mx-auto">
-            <img style="max-width: 100%;" class="mx-auto d-block" src="/img/404--page.png" alt="">
+        <div class="col-md-9 mx-auto" style="text-align: center">
+            <img style="max-width: 100%; margin-top: 50px;" class="mx-auto d-block" src="/img/404-pic.jpg" alt="">
+            <p>&nbsp;</p>
+            <p style="font-size: 24px; font-weight: 900">{!! trans('string.resource_not_found') !!}</p>
         </div>
     </div>
 </div>
-<div class="container product-list"> 
+<div class="container product-list sub"> 
     <div class="row">
         <div class="col-md-12 btn-section">
-            <a href="/product" class="learn-more-btn">{{ trans('string.home') }}</a>
+            <a href="/product" class="learn-more-btn" style="padding: 10px 50px; margin-top: -12;">{{ trans('string.back_to_home') }}</a>
         </div>
     </div>
 </div>

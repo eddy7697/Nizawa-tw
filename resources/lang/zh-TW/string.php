@@ -7,6 +7,8 @@ return [
     '404' => '404',
 
     'send_success' => '感謝您的來信，我們會盡快回覆您',
+    'back_to_home' => '回到首頁',
+    'resource_not_found' => '您要查詢的資源可能已移除，若您需要查詢更多產品，請前往<a href="/product">產品中心</a>。',
 
     'search' => '搜尋',
     'search_result' => '搜尋結果',

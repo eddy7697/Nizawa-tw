@@ -7,6 +7,8 @@ return [
     '404' => '404',
 
     'send_success' => '感谢您的来信，我们会尽快回复您',
+    'back_to_home' => '回到首页',
+    'resource_not_found' => '您要查找的资源可能已移除，若您需要查找更多产品，请前往<a href="/product">产品中心</a>。',
 
     'search' => '搜索',
     'search_result' => '搜索结果',

@@ -7,6 +7,8 @@ return [
     '404' => '404',
 
     'send_success' => 'Thank you for your letter, we will reply you as soon as possible.',
+    'back_to_home' => 'Back to the homepage',
+    'resource_not_found' => 'The resources you are looking for may have been removed. If you need more products, please go to the <a href="/product">Product Center</a>.',
 
     'search' => 'Search',
     'search_result' => 'Search result',
