@@ -269,7 +269,7 @@
                 isCouponUse: false,
                 discountType: '',
                 couponAmount: null,
-                Temperature: 'null',
+                // Temperature: 'null',
                 cart: [],
                 LastFiveChar: '',
                 antiFraudNoticeVisible: false,
@@ -386,27 +386,27 @@
                 });
             });
 
-            var checkCartTempPromise = new Promise(function (resolve, reject) {
-                $.ajax({
-                    url: '/cart/checkTemp',
-                    type: 'GET',
-                    cache: false,
-                    dataType: 'json'
-                })
-                .done(function(response) {
-                    resolve(response);
-                })
-                .fail(function(error) {
-                    reject(error);
-                });
+            // var checkCartTempPromise = new Promise(function (resolve, reject) {
+            //     $.ajax({
+            //         url: '/cart/checkTemp',
+            //         type: 'GET',
+            //         cache: false,
+            //         dataType: 'json'
+            //     })
+            //     .done(function(response) {
+            //         resolve(response);
+            //     })
+            //     .fail(function(error) {
+            //         reject(error);
+            //     });
 
-            });
+            // });
 
             Promise.all([
                 checkAuthPromise,
                 getShippingMethodPromise,
                 getCartContentPromise,
-                checkCartTempPromise
+                // checkCartTempPromise
             ]).then(function (results) {
                 var authStatus = results[0];
                 var shippingMethods = results[1];
@@ -424,13 +424,13 @@
                 }
 
                 // 區分訂單溫層
-                self.Temperature = cartTemp.Temperature;
+                // self.Temperature = cartTemp.Temperature;
 
-                shippingMethods.forEach(function (item) {
-                    if (item.shippingTemperature === cartTemp.Temperature) {
-                        self.shippingMethods.push(item);
-                    }
-                });
+                // shippingMethods.forEach(function (item) {
+                //     if (item.shippingTemperature === cartTemp.Temperature) {
+                //         self.shippingMethods.push(item);
+                //     }
+                // });
 
                 self.amount = parseInt(cartContent.amount.replace(/,/g, ''));
                 // self.amountString = cartContent.amount;
@@ -535,7 +535,7 @@
                         freeShippingMininum: item.freeShippingMininum,
                         id: item.id,
                         shippingPrice: item.shippingPrice,
-                        shippingTemperature: item.shippingTemperature,
+                        // shippingTemperature: item.shippingTemperature,
                         shippingTitle: item.shippingTitle,
                         shippingType: item.shippingType
                     });
@@ -757,7 +757,7 @@
                 var shippingTarget = document.createElement("textArea");
                 var addNewMember = document.createElement("input");
                 var password = document.createElement("input");
-                var Temperature = document.createElement("input");
+                // var Temperature = document.createElement("input");
                 var taxId = document.createElement("input");
                 var receipt = document.createElement("input");
                 var pointCount = document.createElement("input");
@@ -801,9 +801,9 @@
                 ChoosePayment.name = "ChoosePayment";
                 form.appendChild(ChoosePayment);
 
-                Temperature.value = this.Temperature;
-                Temperature.name = "Temperature";
-                form.appendChild(Temperature);
+                // Temperature.value = this.Temperature;
+                // Temperature.name = "Temperature";
+                // form.appendChild(Temperature);
 
                 pointUsage.value = this.pointUsage;
                 pointUsage.name = "pointUsage";
@@ -927,7 +927,7 @@
                 // 移除暫存的超商資訊
                 localStorage.removeItem('logistic_cache');
                 localStorage.setItem('shipping_address', JSON.stringify(this.customerParametorForShipping))
-                // console.log(form)
+                console.log(form)
                 // return;
                 
                 form.submit();
@@ -953,7 +953,7 @@
                 var _token = document.createElement("input");
                 var addNewMember = document.createElement("input");
                 var password = document.createElement("input");
-                var Temperature = document.createElement("input");
+                // var Temperature = document.createElement("input");
                 var taxId = document.createElement("input");
                 var receipt = document.createElement("input");
                 var pointCount = document.createElement("input");
@@ -996,9 +996,9 @@
                 LogisticsSubType.name = "LogisticsSubType";
                 form.appendChild(LogisticsSubType);
 
-                Temperature.value = this.Temperature;
-                Temperature.name = "Temperature";
-                form.appendChild(Temperature);
+                // Temperature.value = this.Temperature;
+                // Temperature.name = "Temperature";
+                // form.appendChild(Temperature);
 
                 IsCollection.value = 'Y';
                 IsCollection.name = "IsCollection";
