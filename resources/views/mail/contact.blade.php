@@ -5,6 +5,10 @@
 			<td>{{$name}}</td>
 		</tr>
 		<tr>
+			<td>公司/單位名稱</td>
+			<td>{{$company}}</td>
+		</tr>
+		<tr>
 			<td>性別</td>
 			<td>{{$gender}}</td>
 		</tr>

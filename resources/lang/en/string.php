@@ -50,6 +50,7 @@ return [
     'about3' => 'location',
     'about4' => 'Contact Us',
 
+    'form_company' => 'Company',
     'contact1' => 'Name',
     'contact2' => 'Gender',
     'contact3' => 'E-mail',

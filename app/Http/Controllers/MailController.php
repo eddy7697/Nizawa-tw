@@ -33,6 +33,7 @@ class MailController extends Controller
         Mail::send('mail.contact', [
             'name' => $data['name'],
             'email' => $data['email'],
+            'company' => $data['company'],
             'type' => $data['type'],
             'gender' => $data['gender'],
             'phone' => $data['phone'],

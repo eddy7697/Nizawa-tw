@@ -51,6 +51,7 @@ return [
     'about3' => '地理位置',
     'about4' => '聯絡我們',
 
+    'form_company' => '公司/單位名稱',
     'contact1' => '姓名',
     'contact2' => '性別',
     'contact3' => '電子信箱',

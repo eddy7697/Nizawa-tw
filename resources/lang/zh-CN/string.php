@@ -50,6 +50,7 @@ return [
     'about3' => '地理位置',
     'about4' => '联系我们',
 
+    'form_company' => '公司/单位名称',
     'contact1' => '姓名',
     'contact2' => '性别',
     'contact3' => '电子信箱',
@@ -72,8 +73,8 @@ return [
     'captcha' => '验证码',
     'captcha_refresh' => '更新验证码',
     'captcha_enter' => '请输入上方的验证码...',    
-    'captcha_error' => '驗證碼錯誤',
-    'contact_submit' => '提交資訊',
+    'captcha_error' => '验证码错误',
+    'contact_submit' => '提交信息',
 
     'company_profile' => '公司介绍',
     'responsibility' => '社会责任',
@@ -157,7 +158,7 @@ return [
     'careers_name' => '姓名',
     'careers_mobile' => '移动电话',
     'careers_website' => '个人网址',
-    'careers_resume_file' => '个人履历文件',
+    'careers_resume_file' => '个人履历文档',
     
     'download_area' => '数据下载专区',
     'product_menu' => '产品目录',
@@ -166,11 +167,11 @@ return [
 
     'download_sharp' => '编号',
     'download_file_name' => '名称',
-    'download_file_type' => '文件类型',
-    'download_file_size' => '文件大小',
+    'download_file_type' => '文档类型',
+    'download_file_size' => '文档大小',
     'download_link' => '下载链接',
     'download_no_data' => '目前尚无数据',
-    'download_get_file' => '下载文件',
+    'download_get_file' => '下载文档',
     
     'csr_banner_desc' => '您可于此处了解日泽企业社会责任理念，我们期待付出更大的努力为社会付出。',
     'csr_title_1' => '企业社会责任 CSR',

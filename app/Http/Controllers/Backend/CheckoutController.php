@@ -319,7 +319,7 @@ class CheckoutController extends Controller
                     'shippingMethod'    => $data['shippingMethod'],
                     'shippingTarget'    => $data['shippingTarget'],
                     'usedCoupon'        => $data['usedCoupon'],
-                    'Temperature'       => $data['Temperature'],
+                    // 'Temperature'       => $data['Temperature'],
                     'receipt'           => $data['receipt'],
                     'taxId'             => $data['taxId'],
                     'orderFlag'         => Hash::make($merchantIdCache['MerchantTradeNo']),
