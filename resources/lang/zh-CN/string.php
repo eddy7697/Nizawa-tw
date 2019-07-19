@@ -201,4 +201,6 @@ return [
     'partner_finder' => "寻找合作伙伴",
     'partner_finder_choose' => '选择',
     'partner_finder_country' => '地区',
+    
+    'search_result' => '搜索结果',
 ];

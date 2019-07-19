@@ -96,6 +96,9 @@
             });
         });
         
+        $('#toggle-search-btn').on('click', function () {
+            $('.header-search').toggleClass('active') 
+        });
     </script>
 
     {{-- Custom scripts --}}

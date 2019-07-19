@@ -45,6 +45,20 @@
         </div>
     </div>
 </div>
+<div class="container news-list">
+    <div class="row">
+        <div class="col-md-7 mx-auto news-search-form" style="margin: 50px 0 0 0">
+            <form method="GET" action="/product/search">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control search-input shadow-none" name="keyword" placeholder="{{ trans('string.search_placeholder') }}">
+                    <div class="input-group-append">
+                        <button class="btn btn-search" type="submit">{{ trans('string.search') }}</button> 
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 <div class="container product-list sub">
     <div class="row main-category">
         <div class="col-md-10 mx-auto">

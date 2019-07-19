@@ -201,4 +201,6 @@ return [
     'partner_finder' => "I'm looking for a",
     'partner_finder_choose' => 'Choose',
     'partner_finder_country' => 'By Country',
+
+    'search_result' => 'Search result',
 ];

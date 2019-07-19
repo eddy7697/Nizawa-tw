@@ -16,6 +16,12 @@
                     <a href="/"><img src="/img/site-logo/logo_header.png" alt=""></a>
                 </div>
                 <ul class="site-func">
+                    <li>
+                        <form action="/product/search" method="get">
+                            <i class="fa fa-search" id="toggle-search-btn" aria-hidden="true" style="cursor: pointer"></i>&nbsp;&nbsp;
+                            <input type="text" class="header-search" name="keyword">
+                        </form>
+                    </li>
                     <li id="cart-panel">
                         <cart-panel />
                     </li>

@@ -34,6 +34,7 @@ Route::get('/maintenance', function ()
 Route::get('/product-detail/{guid}', 'Frontend\ProductController@productDetailFromPath')->name('productDetail');
 Route::get('/product-path/{guid}', 'Frontend\ProductController@productPathFromPath')->name('productPath');
 Route::get('/product', 'Frontend\PageController@productAll');
+Route::get('/product/search', 'Frontend\PageController@productSearch');
 Route::get('/label', 'Frontend\PageController@productLabel');
 Route::get('/label/{guid}', 'Frontend\PageController@productLabelList');
 Route::get('/product/main/{guid}', 'Frontend\PageController@productMain');

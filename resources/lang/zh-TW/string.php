@@ -202,4 +202,6 @@ return [
     'partner_finder' => "尋找合作夥伴",
     'partner_finder_choose' => '選擇',
     'partner_finder_country' => '地區',
+    
+    'search_result' => '搜尋結果',
 ];

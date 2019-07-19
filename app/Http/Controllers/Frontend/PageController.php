@@ -77,6 +77,13 @@ class PageController extends Controller
         ]);
     }
     
+    public function productSearch()
+    {
+        return view('frontend.product.productSearchResult', [
+            'thumb' => '<a href="/">首頁</a>&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;系列商品'
+        ]);
+    }
+    
     public function productMain($guid)
     {
         $productAll = Product::paginate(15);
