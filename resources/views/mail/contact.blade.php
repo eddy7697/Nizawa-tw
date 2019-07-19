@@ -25,6 +25,10 @@
 			<td>{{$phone}}</td>
 		</tr>
 		<tr>
+			<td>行動裝置</td>
+			<td>{{$mobile}}</td>
+		</tr>
+		<tr>
 			<td>內容</td>
 			<td>{!!nl2br($content)!!}</td>
 		</tr>

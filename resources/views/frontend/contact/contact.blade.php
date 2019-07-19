@@ -120,6 +120,14 @@
                     </div>
                     <div class="row">
                         <div class="col-md-4 column important" data-title="{{ trans('string.form_required') }}">
+                            <p>{{ trans('string.careers_mobile') }}</p>
+                        </div>
+                        <div class="col-md-8 column">
+                            <input class="form-control" type="mobile" name="mobile" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 column important" data-title="{{ trans('string.form_required') }}">
                             <p>{{ trans('string.contact5') }}</p>
                         </div>
                         <div class="col-md-8 column">

@@ -37,6 +37,7 @@ class MailController extends Controller
             'type' => $data['type'],
             'gender' => $data['gender'],
             'phone' => $data['phone'],
+            'mobile' => $data['mobile'],
             'content' => $data['content']
         ], function($message) use ($data) {
             $message->to(['info@nizawa-int.com.tw', 'vincent7697@gmail.com' ])->subject('日澤官方網站諮詢表單');
