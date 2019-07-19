@@ -13,6 +13,7 @@ return [
     'search' => 'Search',
     'search_result' => 'Search result',
     'search_placeholder' => 'Enter news keyword search...',
+    'search_placeholder_product' => 'Enter products keyword search...',
     'post_out' => 'Oops... It looks like you have read all the news!',
     'post_find_contact' => "Can't find what you want? Try using our search function or <a href='/contact'>contact us</a> to see it!",
     'most_faq_1' => 'The most common ',

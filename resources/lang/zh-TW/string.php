@@ -13,6 +13,7 @@ return [
     'search' => '搜尋',
     'search_result' => '搜尋結果',
     'search_placeholder' => '輸入新聞關鍵字搜尋...',
+    'search_placeholder_product' => '輸入產品關鍵字搜尋...',
     'post_out' => 'Oops...看起來你已經看完所有的消息！',
     'post_find_contact' => '找不到你要的嗎？試著使用我們的搜尋功能或是<a href="/contact">聯絡我們</a>看看吧！',
     'most_faq_1' => '最常見的',

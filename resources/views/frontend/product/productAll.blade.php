@@ -50,7 +50,7 @@
         <div class="col-md-7 mx-auto news-search-form" style="margin: 50px 0 0 0">
             <form method="GET" action="/product/search">
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control search-input shadow-none" name="keyword" placeholder="{{ trans('string.search_placeholder') }}">
+                    <input type="text" class="form-control search-input shadow-none" name="keyword" placeholder="{{ trans('string.search_placeholder_product') }}">
                     <div class="input-group-append">
                         <button class="btn btn-search" type="submit">{{ trans('string.search') }}</button> 
                     </div>

@@ -13,6 +13,7 @@ return [
     'search' => '搜索',
     'search_result' => '搜索结果',
     'search_placeholder' => '输入新闻关键字搜索...',
+    'search_placeholder_product' => '输入产品关键字搜索...',
     'post_out' => 'Oops...看起来你已经看完所有的消息！',
     'post_find_contact' => '找不到你要的吗？试着使用我们的搜索功能或是<a href="/contact">联系我们</a>看看吧！',
     'most_faq_1' => '最常见的',
