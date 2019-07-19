@@ -11,6 +11,11 @@
             <h2>{{ trans('service.deer_1') }} {{$shippingTarget['ReceiverName']}}：</h2>            
             <p>{{ trans('service.cart_sn') }} ：{{$merchantIdCache['MerchantTradeNo']}}
             <br>{{ trans('service.cart_date') }} ：{{date("Y-m-d H:i", time())}}
+            <br>公司名稱 ：{{$shippingTarget['ReceiverCompany']}}
+            <br>連絡電話 ：{{$shippingTarget['ReceiverCellPhone']}}
+            <br>郵箱 ：{{$shippingTarget['ReceiverEmail']}}
+            <br>地址 ：{{$shippingTarget['ReceiverCity']}}
+            <br>詳細地址 ：{{$shippingTarget['ReceiverAddress']}}
             <br>購買需求/應用範疇 ：{{$shippingTarget['ReceiverUseage']}}
             <br>預算情況 ：{{$shippingTarget['ReceiverBudget']}}
             <br>預計購買時間 ：{{$shippingTarget['ReceiverTime']}}
