@@ -52,6 +52,12 @@ $(function () {
 @endsection
 
 @section('custom-style')
+<style>
+ul#location-tab {
+    margin-top: -20px;
+    margin-bottom: 30px;
+}
+</style>
 @endsection
 
 @section('content')
@@ -212,20 +218,62 @@ $(function () {
         <div class="col-md-12 about-content">
             <h3 class="about-section-title">{{ trans('string.about3') }}</h3>
             <div class="row">
-                <div class="col-md-4 about-text">
-                    <p>{{ trans('string.phone') }}：+886-3-4935921 / +886-3-4935900</p>
-                    <p>{{ trans('string.fax') }} ：+886-3-4928654</p>
-                    <p>{{ trans('string.email') }}：info@nizawa-int.com.tw</p>
-                    <p>{{ trans('string.address') }}：{{ trans('string.fullAddress') }}</p>
-                    <p>{{ trans('string.postcode') }}：32047</p>
-                    <p>{{ trans('string.working') }}：09:00 ~ 18:00 (Mon - Fri)</p>
+                <div class="col-md-12">
+                    <ul class="nav nav-tabs" id="location-tab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">{{ trans('string.office_title_tw') }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">{{ trans('string.office_title_kh') }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">{{ trans('string.office_title_china') }}</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="location-tab-Content">
+                        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                            <div class="row">
+                                <div class="col-md-4 about-text">
+                                    <p>{{ trans('string.phone') }}：+886-3-4935921 / +886-3-4935900</p>
+                                    <p>{{ trans('string.fax') }} ：+886-3-4928654</p>
+                                    <p>{{ trans('string.email') }}：info@nizawa-int.com.tw</p>
+                                    <p>{{ trans('string.address') }}：{{ trans('string.fullAddress') }}</p>
+                                    <p>{{ trans('string.postcode') }}：32047</p>
+                                    <p>{{ trans('string.working') }}：09:00 ~ 18:00 (Mon - Fri)</p>
+                                </div>
+                                <div class="col-md-8">
+                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3617.1539186723194!2d121.20859441544611!3d24.96087734737173!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346823c9f9eda163%3A0x6f46857d42a84497!2z5pel5r6k5ZyL6Zqb6IKh5Lu95pyJ6ZmQ5YWs5Y-4!5e0!3m2!1szh-TW!2stw!4v1555439354866!5m2!1szh-TW!2stw" style="width: 100%; height: 300px" frameborder="0" style="border:0" allowfullscreen></iframe>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                            <div class="row">
+                                <div class="col-md-4 about-text">
+                                    <p>{{ trans('string.phone') }}：+886-963051632</p>
+                                    <p>{{ trans('string.address') }}：{{ trans('string.address_kh') }}</p>
+                                </div>
+                                <div class="col-md-8">
+                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1439.4610038281712!2d120.28333312985153!3d22.729222088275215!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e0f12f10c18ad%3A0xf2479fead70ed8ae!2zODEx6auY6ZuE5biC5qWg5qKT5Y2A5aSn5a245LqM5Y2B6KGXMTHomZ8!5e0!3m2!1szh-TW!2stw!4v1564386393316!5m2!1szh-TW!2stw" style="width: 100%; height: 300px" frameborder="0" style="border:0" allowfullscreen></iframe>
+                                </div>
+                            </div>                            
+                        </div>
+                        <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                            <div class="row">
+                                <div class="col-md-4 about-text">
+                                    <p>{{ trans('string.phone') }}：+86-1561846507</p>
+                                    <p>{{ trans('string.address') }}：{{ trans('string.address_china') }}</p>
+                                </div>
+                                <div class="col-md-8">
+                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3412.828668010638!2d121.40424395097288!3d31.197763570030773!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35b26505e85eda4f%3A0xed37831163a3b9d!2z5Lit5ZyL5LiK5rW35biC6ZW_5a6B5Yy66Jm55qGl6LevMTM4Ni045Y-3IOmCruaUv-e8lueggTogMjAwMjMy!5e0!3m2!1szh-TW!2stw!4v1564386446657!5m2!1szh-TW!2stw" style="width: 100%; height: 300px" frameborder="0" style="border:0" allowfullscreen></iframe>
+                                </div>
+                            </div>                            
+                        </div>
+                    </div>
+                    <div class="col-md-12 btn-section">
+                        <a class="learn-more-btn" href="/contact">{{ trans('string.about4') }}</a>
+                    </div>
                 </div>
-                <div class="col-md-8">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3617.1539186723194!2d121.20859441544611!3d24.96087734737173!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346823c9f9eda163%3A0x6f46857d42a84497!2z5pel5r6k5ZyL6Zqb6IKh5Lu95pyJ6ZmQ5YWs5Y-4!5e0!3m2!1szh-TW!2stw!4v1555439354866!5m2!1szh-TW!2stw" style="width: 100%; height: 300px" frameborder="0" style="border:0" allowfullscreen></iframe>
-                </div>
-                <div class="col-md-12 btn-section">
-                    <a class="learn-more-btn" href="/contact">{{ trans('string.about4') }}</a>
-                </div>
+                
             </div>
         </div>
     </div>

@@ -6,6 +6,12 @@ return [
     'aboutDesc' => 'Excellent product and professional sales and technical team strive to do your best',
     '404' => '404',
 
+    'office_title_tw' => 'Head Office',
+    'office_title_kh' => 'Kaohsiung Office',
+    'office_title_china' => 'China Office',
+    'address_kh' => '811 19th Floor, No. 11, 20th Street, Nanxun District, Kaohsiung City',
+    'address_china' => '7th Floor, No. 1386, Hongqiao Road, Changning District, Shanghai',
+
     'send_success' => 'Thank you for your letter, we will reply you as soon as possible.',
     'back_to_home' => 'Back to the homepage',
     'resource_not_found' => 'The resources you are looking for may have been removed. If you need more products, please go to the <a href="/product">Product Center</a>.',

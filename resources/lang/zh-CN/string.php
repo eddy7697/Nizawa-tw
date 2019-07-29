@@ -6,6 +6,12 @@ return [
     'aboutDesc' => '优秀的产品与专业的销售和技术团队 努力为您做到最好',
     '404' => '404',
 
+    'office_title_tw' => '台湾总公司',
+    'office_title_kh' => '高雄办公室',
+    'office_title_china' => '中国办公室',
+    'address_kh' => '811高雄市楠梓区大学20街11号19楼',
+    'address_china' => '上海市长宁区虹桥路1386号7楼',
+    
     'send_success' => '感谢您的来信，我们会尽快回复您',
     'back_to_home' => '回到首页',
     'resource_not_found' => '您要查找的资源可能已移除，若您需要查找更多产品，请前往<a href="/product">产品中心</a>。',

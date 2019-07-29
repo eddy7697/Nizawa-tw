@@ -1635,6 +1635,23 @@
                 line-height: 30px;
             }
         }
+        #location-tab {
+            // border: none;
+
+            .nav-item {
+
+                .nav-link {
+                    color: #666;
+
+                    &.active {
+                        color: $main-color;
+                        a {
+                            color: $main-color;
+                        }
+                    }
+                }
+            }
+        }
     }
     .image-section {
         margin: 50px 0;
