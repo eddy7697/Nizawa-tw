@@ -16,7 +16,7 @@
                 </div>
             </div>
             <input type="text" class="form-control ch-product-title" name="title" value="" placeholder="最新消息標題" v-model="postContent[selectedLocale].postTitle">
-            <div class="form-group">
+            <div class="form-group" v-if="false">
                 <label for="">{{currentPath}}/blog/</label>
                 <input type="text" class="form-control" v-model="postContent[selectedLocale].privatePath" style="width: fit-content; display:inline-block">
                 <label v-if="pathUsable">可使用</label>
@@ -242,7 +242,7 @@
                         postCategory: 'null',
                         content: null,
                         featureImage: null,
-                        customPath: null,
+                        customPath: 'null',
                         seoTitle: null,
                         seoKeyword: null,
                         socialImage: null,
@@ -256,7 +256,7 @@
                         postCategory: 'null',
                         content: null,
                         featureImage: null,
-                        customPath: null,
+                        customPath: 'null',
                         seoTitle: null,
                         seoKeyword: null,
                         socialImage: null,
@@ -270,7 +270,7 @@
                         postCategory: 'null',
                         content: null,
                         featureImage: null,
-                        customPath: null,
+                        customPath: 'null',
                         seoTitle: null,
                         seoKeyword: null,
                         socialImage: null,
@@ -591,11 +591,11 @@
 
                 window.open('/laravel-filemanager' + '?type=Images', 'FileManager', 'width=900,height=600');
                 window.SetUrl = function (url, file_path) {
-                    self.postContent.featureImage = file_path;
+                    self.postContent[self.selectedLocale].featureImage = file_path;
                 };
             },
             deleteFeatureImg: function () {
-                this.postContent.featureImage = null;
+                this.postContent[this.selectedLocale].featureImage = null;
             },
             getCategories: function () {
                 var self = this;
@@ -635,7 +635,7 @@
 
                 window.open('/laravel-filemanager' + '?type=Images', 'FileManager', 'width=900,height=600');
                 window.SetUrl = function (url, file_path) {
-                    self.postContent.socialImage = file_path;
+                    self.postContent[self.selectedLocale].socialImage = file_path;
                 };
             },
             clearString: function (s) {

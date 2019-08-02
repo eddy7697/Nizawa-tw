@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use App\Post;
 use App\Category;
 use Auth;
+use Log;
 
 class PostController extends Controller
 {
@@ -80,7 +81,6 @@ class PostController extends Controller
         try {
             foreach ($data as $key => $value) {
                 $value['postGuid'] = $postGuid;
-                Log::info($value['authorName']);
                 Post::create($value);
             }
 
