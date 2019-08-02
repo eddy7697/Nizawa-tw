@@ -19,7 +19,7 @@
                     <li>
                         <form action="/product/search" method="get">
                             <i class="fa fa-search" id="toggle-search-btn" aria-hidden="true" style="cursor: pointer"></i>&nbsp;&nbsp;
-                            <input type="text" class="header-search" name="keyword">
+                            <input type="text" class="header-search" name="keyword" placeholder="{{ trans('string.search_placeholder_product') }}">
                         </form>
                     </li>
                     <li id="cart-panel">

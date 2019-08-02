@@ -11,9 +11,9 @@
         var countUpYear = new CountUp('count-year', 1987, {
             useGrouping: false
         });
-        var countUpProd = new CountUp('count-prod', 108);
-        var countUpMem = new CountUp('count-mem', 9435);
-        var countUpReturn = new CountUp('count-return', 307);
+        var countUpProd = new CountUp('count-prod', 500);
+        var countUpMem = new CountUp('count-mem', 16000);
+        var countUpReturn = new CountUp('count-return', 800);
 
         countUpYear.start();
         countUpProd.start();
@@ -113,7 +113,7 @@ ul#location-tab {
             <div class="count-down-box">
                 <div class="type-icon box"></div>
                 <div class="flex-column">
-                    <div class="number counter" data-count="108" id="count-prod">
+                    <div class="number counter" data-count="500" id="count-prod">
                         0
                     </div>
                     <div class="text">
@@ -126,7 +126,7 @@ ul#location-tab {
             <div class="count-down-box">
                 <div class="type-icon mem"></div>
                 <div class="flex-column">
-                    <div class="number counter" data-count="9435" id="count-mem">
+                    <div class="number counter" data-count="16000" id="count-mem">
                         0
                     </div>
                     <div class="text">
@@ -139,7 +139,7 @@ ul#location-tab {
             <div class="count-down-box">
                 <div class="type-icon back"></div>
                 <div class="flex-column">
-                    <div class="number counter" data-count="307" id="count-return">
+                    <div class="number counter" data-count="800" id="count-return">
                         0
                     </div>
                     <div class="text">

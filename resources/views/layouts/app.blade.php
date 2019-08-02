@@ -57,7 +57,7 @@
     </script>
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
-    <script src="https://d3js.org/d3.v3.min.js"></script>
+    <script src="/js/plugins/d3/d3.v3.min.js"></script>
     <script src="{{ asset('js/plugins/toastr/toastr.min.js') }}"></script>
     <script src="{{ asset('js/plugins/moment/moment-with-locales.min.js') }}"></script>
     <script src="{{ asset('js/plugins/bootstrap-datetimepicker/bootstrap-datetimepicker.min.js') }}"></script>
