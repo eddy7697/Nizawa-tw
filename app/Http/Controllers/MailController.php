@@ -40,7 +40,7 @@ class MailController extends Controller
             'mobile' => $data['mobile'],
             'content' => $data['content']
         ], function($message) use ($data) {
-            $message->to(['info@nizawa-int.com.tw', 'vincent7697@gmail.com' ])->subject('日澤官方網站諮詢表單');
+            $message->to(['info@nizawa-int.com.tw' ])->subject('日澤官方網站諮詢表單');
             $message->from('info@nizawa-int.com.tw', $name = env('APP_NAME'));
         });
 

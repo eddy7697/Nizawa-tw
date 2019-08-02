@@ -345,7 +345,7 @@ class CheckoutController extends Controller
                     'merchantIdCache' => $merchantIdCache
                 ], function($message) use ($sender, $shippingTarget) {
                     $message->to([
-                        'info@nizawa-int.com.tw', 'vincent7697@gmail.com'
+                        'info@nizawa-int.com.tw'
                     ])->subject('詢價單成立通知 - 來自 '.$shippingTarget['ReceiverName'].' 的詢價');
                     $message->from('info@nizawa-int.com.tw', $name = env('APP_NAME'));
                 });
@@ -546,7 +546,7 @@ class CheckoutController extends Controller
                         'merchantIdCache'   => $merchantIdCache
                     ], function($message) use ($sender, $shippingTarget) {
                         $message->to([
-                            'info@nizawa-int.com.tw', 'vincent7697@gmail.com'
+                            'info@nizawa-int.com.tw'
                         ])->subject('订单成立通知 - 来自 '.$shippingTarget['ReceiverName'].' 的订购');
                         $message->from('info@nizawa-int.com.tw', $name = env('APP_NAME'));
                     });
