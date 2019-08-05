@@ -243,6 +243,7 @@
                         content: null,
                         featureImage: null,
                         customPath: 'null',
+                        locale: 'zh-TW',
                         seoTitle: null,
                         seoKeyword: null,
                         socialImage: null,
@@ -408,6 +409,7 @@
                     let localeArr = Object.keys(result);
 
                     localeArr.forEach(elm => {
+                        console.log(elm)
                         self.postContent[elm].postTitle = result[elm].postTitle;
                         self.postContent[elm].postCategory = result[elm].postCategory;
                         self.postContent[elm].content = result[elm].content;
@@ -444,9 +446,9 @@
                 axios.post(self.isEdit ? '/admin/post/edit/' + self.guid : '/admin/post/add', this.postContent)
                     .then(res => {
                         this.showMessage('success', '文章儲存成功')
-                        setTimeout(() => {
-                            window.location.href="/cyberholic-system/post/list";
-                        }, 1500)
+                        // setTimeout(() => {
+                        //     window.location.href="/cyberholic-system/post/list";
+                        // }, 1500)
                         // if (this.isSubmit) {
                         //     this.showMessage('success', '文章儲存成功')
                         //     setTimeout(() => {

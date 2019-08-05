@@ -26,9 +26,9 @@ class PostController extends Controller
     {
         return $data = Post::where(function ($q) use ($request)
                         {
-                            $q->where('isPublish', 1)
-                              ->where('schedulePost', '<=', date('Y-m-d H:i:s'))
-                              ->where('scheduleDelete', '>=', date('Y-m-d H:i:s'));
+                            $q->where('isPublish', 1);
+                            //   ->where('schedulePost', '<=', date('Y-m-d H:i:s'))
+                            //   ->where('scheduleDelete', '>=', date('Y-m-d H:i:s'));
 
                             if ($request->keyword !== null) {
                                 $q->where('postTitle', 'like', '%'.$request->keyword.'%');
