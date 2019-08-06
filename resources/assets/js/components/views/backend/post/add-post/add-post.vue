@@ -318,7 +318,6 @@
 
                     if (postContent[this.selectedLocale].privatePath) {
                         this.checkPathExist();
-                        console.log(postContent[this.selectedLocale].privatePath)
                     }
                 },
                 deep: true
@@ -405,23 +404,38 @@
                     cache: false
                 })
                 .done(function(result) {
-                    console.log(result)
                     let localeArr = Object.keys(result);
 
                     localeArr.forEach(elm => {
-                        console.log(elm)
-                        self.postContent[elm].postTitle = result[elm].postTitle;
-                        self.postContent[elm].postCategory = result[elm].postCategory;
-                        self.postContent[elm].content = result[elm].content;
-                        self.postContent[elm].featureImage = result[elm].featureImage;
-                        self.postContent[elm].seoTitle = result[elm].seoTitle;
-                        self.postContent[elm].seoKeyword = result[elm].seoKeyword;
-                        self.postContent[elm].customPath = result[elm].customPath;
-                        self.postContent[elm].socialImage = result[elm].socialImage;
-                        self.postContent[elm].seoDescription = result[elm].seoDescription;
-                        self.postContent[elm].isPublish = Boolean(result[elm].isPublish);
-                        self.postContent[elm].schedulePost = (result[elm].schedulePost != null) ? moment(result[elm].schedulePost) : null;
-                        self.postContent[elm].scheduleDelete = (result[elm].scheduleDelete != null) ? moment(result[elm].scheduleDelete) : null;
+                        try {
+                            self.postContent[elm].postTitle = result[elm].postTitle;
+                            self.postContent[elm].postCategory = result[elm].postCategory;
+                            self.postContent[elm].content = result[elm].content;
+                            self.postContent[elm].featureImage = result[elm].featureImage;
+                            self.postContent[elm].seoTitle = result[elm].seoTitle;
+                            self.postContent[elm].seoKeyword = result[elm].seoKeyword;
+                            self.postContent[elm].customPath = result[elm].customPath;
+                            self.postContent[elm].socialImage = result[elm].socialImage;
+                            self.postContent[elm].seoDescription = result[elm].seoDescription;
+                            self.postContent[elm].isPublish = Boolean(result[elm].isPublish);
+                            self.postContent[elm].schedulePost = (result[elm].schedulePost != null) ? moment(result[elm].schedulePost) : null;
+                            self.postContent[elm].scheduleDelete = (result[elm].scheduleDelete != null) ? moment(result[elm].scheduleDelete) : null;
+                        } catch (error) {
+                            console.log(error.message)
+                            self.postContent[elm].postTitle = null;
+                            self.postContent[elm].postCategory = null;
+                            self.postContent[elm].content = null;
+                            self.postContent[elm].featureImage = null;
+                            self.postContent[elm].seoTitle = null;
+                            self.postContent[elm].seoKeyword = null;
+                            self.postContent[elm].customPath = 'null';
+                            self.postContent[elm].socialImage = null;
+                            self.postContent[elm].seoDescription = null;
+                            self.postContent[elm].isPublish = true;
+                            self.postContent[elm].schedulePost = null;
+                            self.postContent[elm].scheduleDelete = null;
+                        }
+                        
                     });
                     
 

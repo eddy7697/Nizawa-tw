@@ -79,12 +79,21 @@ class PostController extends Controller
         $postGuid = str_random(6);
 
         try {
+            $posts = array();
+
             foreach ($data as $key => $value) {
                 $value['postGuid'] = $postGuid;
-                Post::create($value);
+                
+                try {
+                    $post = Post::create($value);
+                } catch (\Throwable $th) {
+                    $post = null;
+                }
+                
+                array_push($posts, $post);
             }
 
-            return response()->json([ 'status' => 200, 'data' => '$createProduct', 'message' => 'create product success' ], 200);
+            return response()->json([ 'status' => 200, 'data' => $posts, 'message' => 'create product success' ], 200);
         } catch (\Throwable $th) {
             return response()->json([ 'status' => 500, 'data' => null, 'message' => $th->getMessage() ], 500);
         }
@@ -211,7 +220,19 @@ class PostController extends Controller
 
         try {
             foreach ($localtArr as $key => $value) {
-                Post::where('postGuid', $guid)->where('locale', $value)->update($data[$value]);
+                if (Post::where('postGuid', $guid)->where('locale', $value)->exists()) {
+                    Post::where('postGuid', $guid)->where('locale', $value)->update($data[$value]);
+                } else {
+                    $data[$value]['postGuid'] = $guid;
+                    $data[$value]['locale'] = $value;
+
+                    try {
+                        $post = Post::create($data[$value]);
+                    } catch (\Throwable $th) {
+                        $post = null;
+                        Log::info($th->getMessage());
+                    }
+                }
             }
 
             return response()->json([ 'status' => 200, 'data' => '$updateProduct', 'message' => 'create product success' ], 200);
