@@ -67,7 +67,7 @@ Route::get('/blog/{id}/detail', function ($id)
 Route::get('/blog/{path}', function ($path)
 {
     return view('frontend.blog.post', [
-        'post' => PostView::getByPath($path),
+        'post' => PostView::getById($path),
         'isThumbShow' => false,
     ]);
 });

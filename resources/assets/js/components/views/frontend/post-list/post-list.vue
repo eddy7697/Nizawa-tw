@@ -25,7 +25,7 @@
 
 				<div class="col-md-12">
 					<div class="card-columns">
-						<a :href="`/blog/${item.customPath}`" v-for="(item, index) in pageData.data" :key="index">
+						<a :href="`/blog/${item.id}`" v-for="(item, index) in pageData.data" :key="index">
 							<div class="card">
 								<div class="featureImage" :style="`background-image: url('${item.featureImage}');`" />
 								<!-- <img class="card-img-top" :src="item.featureImage" :alt="item.postTitle"> -->
