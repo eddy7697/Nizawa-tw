@@ -227,7 +227,7 @@
         <div class="swiper-wrapper">
             @foreach (SiteMetaView::album() as $item)
                 <div class="swiper-slide" style="background-image: url('{{$item->url}}')">
-                    <div class="slide-item">
+                    <div class="slide-item" style="display: none">
                         <h2>{{$item->title}}</h2>
                         <div class="slide-info">
                             {!!nl2br($item->content)!!}
