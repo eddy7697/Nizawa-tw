@@ -36,7 +36,7 @@ $('.loading-bar').hide()
                                 {{$item->latitude}}
                             </td>                            
                             <td><a href="/cyberholic-system/partner/edit/{{$item->guid}}" >編輯</a></td>
-                            <td><a href="/partner/delete/{{$item->guid}}" onclick="return confirm('確定要刪除此合作夥伴?')">刪除</a></td>
+                            <td><a href="/admin/partner/delete/{{$item->guid}}" onclick="return confirm('確定要刪除此合作夥伴?')">刪除</a></td>
                         </tr>
                     @endforeach
                 </tbody>

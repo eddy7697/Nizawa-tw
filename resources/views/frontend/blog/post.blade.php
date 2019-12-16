@@ -97,10 +97,10 @@
             <div class="post-detail-methods">
                 <a class="btn" href="/blog">{{ trans('string.return_to_prev') }}</a>
                 @if ($previous)
-                    <a class="btn" href="/blog/{{$previous->customPath}}">{{ trans('string.view_preivous') }}</a>
+                    <a class="btn" href="/blog/{{$previous->id}}">{{ trans('string.view_preivous') }}</a>
                 @endif
                 @if ($next)
-                    <a class="btn" href="/blog/{{$next->customPath}}">{{ trans('string.view_next') }}</a>
+                    <a class="btn" href="/blog/{{$next->id}}">{{ trans('string.view_next') }}</a>
                 @endif
             </div>
         </div>
