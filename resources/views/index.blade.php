@@ -234,6 +234,7 @@
                         </div>
                         <a class="slide-btn" href="{{$item->link}}">{{$item->button}}</a>
                     </div>
+                    <a href="{{$item->link}}" class="link-mask"></a>
                 </div>
             @endforeach
         </div>
