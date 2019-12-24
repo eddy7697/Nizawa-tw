@@ -401,7 +401,7 @@
                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                         <div class="card-columns">
                             @foreach (PostView::allasc(15) as $item)
-                                <a href="" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+                                <a href="/blog/{{$item->id}}" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
                                     <div class="card">
                                         <div class="featureImage" style="background-image: url('{{$item->featureImage}}');"></div>
                                         {{-- <img class="card-img-top" src="{{$item->featureImage}}" alt="{{$item->postTitle}}"> --}}
@@ -421,7 +421,7 @@
                         <div class="tab-pane fade" id="{{$value->categoryGuid}}" role="tabpanel" aria-labelledby="{{$value->categoryGuid}}-tab">
                             <div class="card-columns">
                                 @foreach (PostView::getByCategory($value->categoryGuid, 15) as $item)
-                                    <a href="" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+                                    <a href="/blog/{{$item->id}}" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
                                         <div class="card">
                                             <div class="featureImage" style="background-image: url('{{$item->featureImage}}');"></div>
                                             {{-- <img class="card-img-top" src="{{$item->featureImage}}" alt="{{$item->postTitle}}"> --}}
