@@ -82,14 +82,14 @@
                 <div class="col-md-3">
                     <div class="share-section">
                         <span>share this posts</span>
-                        <img onclick="facebookShare('{{env('APP_URL')}}/blog/{{$post->customPath}}', '{{$post->postTitle}}')" src="/img/icon/fb.svg" alt="">
-                        <img onclick="lineShare('{{env('APP_URL')}}/blog/{{$post->customPath}}', '{{$post->postTitle}}')" src="/img/icon/line.svg" alt="">
+                        <img onclick="facebookShare('{{env('APP_URL')}}/blog/{{$post->customPath}}', '{{$post->postTitle}}')" src="https://nizawa.shuo-guo.net/img/icon/fb.svg" alt="">
+                        <img onclick="lineShare('{{env('APP_URL')}}/blog/{{$post->customPath}}', '{{$post->postTitle}}')" src="https://nizawa.shuo-guo.net/img/icon/line.svg" alt="">
                     </div>
                     {{-- <table style="width: 80px;">
                         <tr>
 
-                            <td width="50%" align="left" style="border-bottom: none;"><img id="facebook-share" class="alignleft" src="/img/icon/facebook-icon.svg" alt="" width="80%" /></td>
-                            <td width="50%" align="left" style="border-bottom: none;"><img id="line-share" class="aligncenter" src="/img/icon/line-icon.svg" alt="" width="80%" /></td>
+                            <td width="50%" align="left" style="border-bottom: none;"><img id="facebook-share" class="alignleft" src="https://nizawa.shuo-guo.net/img/icon/facebook-icon.svg" alt="" width="80%" /></td>
+                            <td width="50%" align="left" style="border-bottom: none;"><img id="line-share" class="aligncenter" src="https://nizawa.shuo-guo.net/img/icon/line-icon.svg" alt="" width="80%" /></td>
                         </tr>
                     </table> --}}
                 </div>

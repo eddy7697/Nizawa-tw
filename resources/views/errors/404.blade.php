@@ -11,7 +11,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-9 mx-auto" style="text-align: center">
-            <img style="max-width: 100%; margin-top: 50px;" class="mx-auto d-block" src="/img/404-pic.jpg" alt="">
+            <img style="max-width: 100%; margin-top: 50px;" class="mx-auto d-block" src="https://nizawa.shuo-guo.net/img/404-pic.jpg" alt="">
             <p>&nbsp;</p>
             <p style="font-size: 24px; font-weight: 900">{!! trans('string.resource_not_found') !!}</p>
         </div>

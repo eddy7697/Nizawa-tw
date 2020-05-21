@@ -183,8 +183,8 @@
                         <hr>
                         <div class="share-section">
                             <span>share this products</span>
-                            <img onclick="facebookShare('{{env('APP_URL')}}/product-detail/{{$product->productGuid}}', '{{$product->productTitle}}')" src="/img/icon/fb.svg" alt="">
-                            <img onclick="lineShare('{{env('APP_URL')}}/product-detail/{{$product->productGuid}}', '{{$product->productTitle}}')" src="/img/icon/line.svg" alt="">
+                            <img onclick="facebookShare('{{env('APP_URL')}}/product-detail/{{$product->productGuid}}', '{{$product->productTitle}}')" src="https://nizawa.shuo-guo.net/img/icon/fb.svg" alt="">
+                            <img onclick="lineShare('{{env('APP_URL')}}/product-detail/{{$product->productGuid}}', '{{$product->productTitle}}')" src="https://nizawa.shuo-guo.net/img/icon/line.svg" alt="">
                         </div>
                         {{-- 需要協助嗎? <a href="#" data-toggle="modal" data-target="#myModal-01">聯絡我們</a> --}}
                     </div>

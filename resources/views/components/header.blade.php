@@ -13,7 +13,7 @@
         <div class="row">
             <div class="col-md-12 site-header-container">
                 <div class="site-logo">
-                    <a href="/"><img src="/img/site-logo/logo_header.png" alt=""></a>
+                    <a href="/"><img src="https://nizawa.shuo-guo.net/img/site-logo/logo_header.png" alt=""></a>
                 </div>
                 <ul class="site-func">
                     <li>
@@ -74,19 +74,19 @@
                 <ul class="site-mega-menu-container">
                     <li class="site-mega-menu-item">
                         <a href="/about" class="site-mega-menu-link">
-                            <img src="/img/menu/about.jpg" alt="{{ trans('string.company_profile') }}">
+                            <img src="https://nizawa.shuo-guo.net/img/menu/about.jpg" alt="{{ trans('string.company_profile') }}">
                             <p class="header-job-txt">{{ trans('string.company_profile') }}</p>
                         </a>
                     </li>
                     <li class="site-mega-menu-item">
                         <a href="/about/responsibility" class="site-mega-menu-link">
-                            <img src="/img/menu/res.jpg" alt="{{ trans('string.responsibility') }}">
+                            <img src="https://nizawa.shuo-guo.net/img/menu/res.jpg" alt="{{ trans('string.responsibility') }}">
                             <p class="header-job-txt">{{ trans('string.responsibility') }}</p>
                         </a>
                     </li>
                     <li class="site-mega-menu-item">
                         <a href="/about/career" class="site-mega-menu-link">
-                            <img src="/img/menu/hr.jpg" alt="{{ trans('string.recruiting') }}">
+                            <img src="https://nizawa.shuo-guo.net/img/menu/hr.jpg" alt="{{ trans('string.recruiting') }}">
                             <p class="header-job-txt">{{ trans('string.recruiting') }}</p>
                         </a>
                     </li>
@@ -110,13 +110,13 @@
                 <ul class="site-mega-menu-container">
                     <li class="site-mega-menu-item">
                         <a href="/product" class="site-mega-menu-link">
-                            <img src="/img/menu/about.jpg" alt="{{ trans('string.product_center') }}">
+                            <img src="https://nizawa.shuo-guo.net/img/menu/about.jpg" alt="{{ trans('string.product_center') }}">
                             <p class="header-job-txt">{{ trans('string.product_center') }}</p>
                         </a>
                     </li>
                     <li class="site-mega-menu-item">
                         <a href="/label" class="site-mega-menu-link">
-                            <img src="/img/menu/res.jpg" alt="{{ trans('string.label_center') }}">
+                            <img src="https://nizawa.shuo-guo.net/img/menu/res.jpg" alt="{{ trans('string.label_center') }}">
                             <p class="header-job-txt">{{ trans('string.label_center') }}</p>
                         </a>
                     </li>
@@ -140,19 +140,19 @@
                 <ul class="site-mega-menu-container">
                     <li class="site-mega-menu-item">
                         <a href="/service" class="site-mega-menu-link">
-                            <img src="/img/menu/service.jpg" alt="{{trans('string.service')}}">
+                            <img src="https://nizawa.shuo-guo.net/img/menu/service.jpg" alt="{{trans('string.service')}}">
                             <p class="header-job-txt">{{trans('string.service')}}</p>
                         </a>
                     </li>
                     <li class="site-mega-menu-item">
                         <a href="/qna" class="site-mega-menu-link">
-                            <img src="/img/menu/qna.jpg" alt="{{trans('string.faq')}}">
+                            <img src="https://nizawa.shuo-guo.net/img/menu/qna.jpg" alt="{{trans('string.faq')}}">
                             <p class="header-job-txt">{{trans('string.faq')}}</p>
                         </a>
                     </li>
                     <li class="site-mega-menu-item">
                         <a href="/download" class="site-mega-menu-link">
-                            <img src="/img/menu/download.jpg" alt="{{trans('string.download')}}">
+                            <img src="https://nizawa.shuo-guo.net/img/menu/download.jpg" alt="{{trans('string.download')}}">
                             <p class="header-job-txt">{{trans('string.download')}}</p>
                         </a>
                     </li>
@@ -177,49 +177,49 @@
                 <ul class="site-mega-menu-container">
                     <li class="site-mega-menu-item">
                         <a href="/industry/water" class="site-mega-menu-link">
-                            <img src="/img/about/album/about-1.jpg" alt="{{trans('string.indu1')}}">
+                            <img src="https://nizawa.shuo-guo.net/img/about/album/about-1.jpg" alt="{{trans('string.indu1')}}">
                             <p class="header-job-txt">{{trans('string.indu1')}}</p>
                         </a>
                     </li>
                     <li class="site-mega-menu-item">
                         <a href="/industry/electronics" class="site-mega-menu-link">
-                            <img src="/img/about/album/about-2.jpg" alt="{{trans('string.indu2')}}">
+                            <img src="https://nizawa.shuo-guo.net/img/about/album/about-2.jpg" alt="{{trans('string.indu2')}}">
                             <p class="header-job-txt">{{trans('string.indu2')}}</p>
                         </a>
                     </li>
                     <li class="site-mega-menu-item">
                         <a href="/industry/life" class="site-mega-menu-link">
-                            <img src="/img/about/album/about-3.jpg" alt="{{trans('string.indu3')}}">
+                            <img src="https://nizawa.shuo-guo.net/img/about/album/about-3.jpg" alt="{{trans('string.indu3')}}">
                             <p class="header-job-txt">{{trans('string.indu3')}}</p>
                         </a>
                     </li>
                     <li class="site-mega-menu-item">
                         <a href="/industry/industrial" class="site-mega-menu-link">
-                            <img src="/img/about/album/about-4.jpg" alt="{{trans('string.indu4')}}">
+                            <img src="https://nizawa.shuo-guo.net/img/about/album/about-4.jpg" alt="{{trans('string.indu4')}}">
                             <p class="header-job-txt">{{trans('string.indu4')}}</p>
                         </a>
                     </li>
                     <li class="site-mega-menu-item">
                         <a href="/industry/fishery" class="site-mega-menu-link">
-                            <img src="/img/about/album/about-5.jpg" alt="{{trans('string.indu5')}}">
+                            <img src="https://nizawa.shuo-guo.net/img/about/album/about-5.jpg" alt="{{trans('string.indu5')}}">
                             <p class="header-job-txt">{{trans('string.indu5')}}</p>
                         </a>
                     </li>
                     <li class="site-mega-menu-item">
                         <a href="/industry/food" class="site-mega-menu-link">
-                            <img src="/img/about/album/about-6.jpg" alt="{{trans('string.indu6')}}">
+                            <img src="https://nizawa.shuo-guo.net/img/about/album/about-6.jpg" alt="{{trans('string.indu6')}}">
                             <p class="header-job-txt">{{trans('string.indu6')}}</p>
                         </a>
                     </li>
                     <li class="site-mega-menu-item">
                         <a href="/industry/cosmeceutical" class="site-mega-menu-link">
-                            <img src="/img/about/album/about-7.jpg" alt="{{trans('string.indu7')}}">
+                            <img src="https://nizawa.shuo-guo.net/img/about/album/about-7.jpg" alt="{{trans('string.indu7')}}">
                             <p class="header-job-txt">{{trans('string.indu7')}}</p>
                         </a>
                     </li>
                     <li class="site-mega-menu-item">
                         <a href="/industry/industrialEngineering" class="site-mega-menu-link">
-                            <img src="/img/about/album/about-8.jpg" alt="{{trans('string.indu8')}}">
+                            <img src="https://nizawa.shuo-guo.net/img/about/album/about-8.jpg" alt="{{trans('string.indu8')}}">
                             <p class="header-job-txt">{{trans('string.indu8')}}</p>
                         </a>
                     </li>
@@ -231,9 +231,9 @@
 
 <section class="mobile-site-header">
     <div id="menu-btn" class="menu-btn"></div>
-    <a class="header-logo" href="/"><img src="/img/site-logo/logo_footer.png" alt=""></a>    
-    <img src="/img/icon/burger-open.svg" style="display: none">
-    <img src="/img/icon/burger-close.svg" style="display: none">
+    <a class="header-logo" href="/"><img src="https://nizawa.shuo-guo.net/img/site-logo/logo_footer.png" alt=""></a>    
+    <img src="https://nizawa.shuo-guo.net/img/icon/burger-open.svg" style="display: none">
+    <img src="https://nizawa.shuo-guo.net/img/icon/burger-close.svg" style="display: none">
 </section>
 <section class="mobile-site-menu hide">
     <ul class="menu-item">

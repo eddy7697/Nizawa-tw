@@ -337,10 +337,10 @@
                     if (response.cart.length === 0) {
                         $('button.cart').removeClass('full');
                         self.isCartEmpty = true;
-                        $('button.cart').find('img').attr('src', '/img/icon/cart-empty.svg');
+                        $('button.cart').find('img').attr('src', 'https://nizawa.shuo-guo.net/img/icon/cart-empty.svg');
                     } else {
                         self.isCartEmpty = false;
-                        $('button.cart').find('img').attr('src', '/img/icon/cart-full.svg');
+                        $('button.cart').find('img').attr('src', 'https://nizawa.shuo-guo.net/img/icon/cart-full.svg');
                     }
 
                     self.isLoaded = true

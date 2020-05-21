@@ -39,7 +39,7 @@
                             <img src="{{Helper::thumb($item->featureImage)}}" alt="">
                         </a>
                         <div class="add-to-cart">
-                            <img class="add-loading" src="/img/icon/loading.svg" width="15" alt="">
+                            <img class="add-loading" src="https://nizawa.shuo-guo.net/img/icon/loading.svg" width="15" alt="">
                             @if ($item->productType == 'simple')
                                 <a class="add-btn" onclick="addSigleProduct('{{$item->productGuid}}')"><span>{{ trans('cart.add_cart') }}</span></a>
                             @else
@@ -81,7 +81,7 @@
                                 <img src="{{Helper::thumb($item->featureImage)}}" alt="">
                             </a>
                             <div class="add-to-cart">
-                                <img class="add-loading" src="/img/icon/loading.svg" width="15" alt="">
+                                <img class="add-loading" src="https://nizawa.shuo-guo.net/img/icon/loading.svg" width="15" alt="">
                                 <a class="add-btn" onclick="addSingleProduct('{{$item->guid}}')"><span>{{ trans('cart.add_cart') }}</span></a>
                             </div>
                         </div>

@@ -8,7 +8,7 @@
 @endsection
 
 @section('content')
-<div class="sub-page-banner" style="background-image: url('/img/sub-banner.jpg');">
+<div class="sub-page-banner" style="background-image: url('https://nizawa.shuo-guo.net/img/sub-banner.jpg');">
     <div>
         <h2>{{ trans('string.news_center') }}</h2>
         @if (App::getLocale() !== 'en')
@@ -57,7 +57,7 @@
             @foreach (PostView::allasc(10) as $key => $value)
                 <div class="row blog-list-section" onclick="window.location.href = '/blog/{{$value->customPath}}'" style="cursor: pointer">
                     <div class="col-md-4 blog-feature-image" id="blog-{{$value->postGuid}}">
-                        <img src="/img/4x3.png" alt="">
+                        <img src="https://nizawa.shuo-guo.net/img/4x3.png" alt="">
                     </div>
                     <div class="col-md-8 blog-content">
                         <h3>{{$value->postTitle}}</h3>

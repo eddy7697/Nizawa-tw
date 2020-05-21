@@ -8,7 +8,7 @@
 @endsection
 
 @section('content')
-<div class="sub-page-banner" style="background-image: url('/img/sub-banner.jpg');">
+<div class="sub-page-banner" style="background-image: url('https://nizawa.shuo-guo.net/img/sub-banner.jpg');">
     <div>
         <h2>{{ trans('string.responsibility') }}</h2>
         @if (App::getLocale() !== 'en')
@@ -38,7 +38,7 @@
             </div>
         </div>
         <div class="col-md-11 mx-auto image-section">
-            <img src="/img/about/企業社會責任.jpg" alt="">
+            <img src="https://nizawa.shuo-guo.net/img/about/企業社會責任.jpg" alt="">
         </div>
         <div class="col-md-11 mx-auto about-content">
             <h3 class="about-section-title">{{ trans('string.csr_title_2') }}</h3>
@@ -49,7 +49,7 @@
             <div class="row cofounder-section">
                 <div class="col-md-6 cofounder">
                     <div class="image">
-                        <img src="/img/about/總召集人.png" alt="">
+                        <img src="https://nizawa.shuo-guo.net/img/about/總召集人.png" alt="">
                     </div>
                     <div class="job-title">
                         總召集人 董事長
@@ -60,7 +60,7 @@
                 </div>
                 <div class="col-md-6 cofounder">
                     <div class="image">
-                        <img src="/img/about/副召集人.png" alt="">
+                        <img src="https://nizawa.shuo-guo.net/img/about/副召集人.png" alt="">
                     </div>
                     <div class="job-title">
                         副總召集人 總經理

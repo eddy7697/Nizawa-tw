@@ -15,7 +15,7 @@
 @section('custom-style')
     <style media="screen">
         .feature-image {
-            background-image: url('/img/logo_grey.png');
+            background-image: url('https://nizawa.shuo-guo.net/img/logo_grey.png');
             background-position: center;
             background-size: cover;
             padding-bottom: 41.6%;
@@ -31,7 +31,7 @@
 @endsection
 
 @section('content')
-<div class="sub-page-banner" style="background-image: url('/img/sub-banner.jpg');">
+<div class="sub-page-banner" style="background-image: url('https://nizawa.shuo-guo.net/img/sub-banner.jpg');">
     <div>
         <h2>{{ trans('string.faq') }}</h2>
         @if (App::getLocale() !== 'en')
@@ -47,7 +47,7 @@
     <div class="row">
         <div class="col-md-12 about-content">
             <h3 style="text-align: center;margin-top: 50px;">{{ trans('string.content_construction') }}</h3>
-            <img src="/img/site-logo/findmore.png" style="max-width: 768px;margin-top: 0" class="about-logo" alt="">
+            <img src="https://nizawa.shuo-guo.net/img/site-logo/findmore.png" style="max-width: 768px;margin-top: 0" class="about-logo" alt="">
         </div>
     </div>
 </div>

@@ -1,6 +1,6 @@
 <template>
     <div v-if="!isLoaded" class="stage-loading">
-        <img src="/img/icon/loading-spinner.svg" alt="">
+        <img src="https://nizawa.shuo-guo.net/img/icon/loading-spinner.svg" alt="">
     </div>
     <div v-else>
         <div v-if="false">

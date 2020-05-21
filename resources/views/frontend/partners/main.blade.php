@@ -9,7 +9,7 @@
 
 @section('content')
 
-<div class="sub-page-banner" style="background-image: url('/img/banner-2-1.jpg');">
+<div class="sub-page-banner" style="background-image: url('https://nizawa.shuo-guo.net/img/banner-2-1.jpg');">
     <div>
         <h2>{{ trans('string.legal_reseller') }}</h2>
         @if (App::getLocale() !== 'en')

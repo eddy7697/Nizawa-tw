@@ -34,7 +34,7 @@
       <span class="glyphicon-bar"></span>
     </button>
     <a class="navbar-brand" href="#">
-      <img src="/img/cms_logo2.png" width="30">
+      <img src="https://nizawa.shuo-guo.net/img/cms_logo2.png" width="30">
       Launch Center Page Builder
       <span class="label label-default">BETA</span>
     </a>

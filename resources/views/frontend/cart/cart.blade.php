@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-<div class="sub-page-banner cart" style="background-image: url('/img/sub-banner.jpg');">
+<div class="sub-page-banner cart" style="background-image: url('https://nizawa.shuo-guo.net/img/sub-banner.jpg');">
     <div>
         <h2>{{ trans('cart.inquery_car') }}</h2>
         @if (App::getLocale() !== 'en')
@@ -19,21 +19,21 @@
             <div class="col-md-12 checkout-thumbnail">
                 <ul>
                     <li class="active">
-                        <img src="/img/icon/cart-01.svg" alt="">
+                        <img src="https://nizawa.shuo-guo.net/img/icon/cart-01.svg" alt="">
                         &nbsp;&nbsp;
                         <i class="fa fa-caret-down arrow-icon" aria-hidden="true"></i>
                         &nbsp;&nbsp;
                         {{ trans('cart.inquery_car') }}
                     </li>
                     <li>
-                        <img src="/img/icon/cart-02.svg" alt="">
+                        <img src="https://nizawa.shuo-guo.net/img/icon/cart-02.svg" alt="">
                         &nbsp;&nbsp;
                         <i class="fa fa-caret-down arrow-icon" aria-hidden="true"></i>
                         &nbsp;&nbsp;
                         {{ trans('cart.contact_info') }}
                     </li>
                     <li>
-                        <img src="/img/icon/cart-03.svg" alt="">
+                        <img src="https://nizawa.shuo-guo.net/img/icon/cart-03.svg" alt="">
                         &nbsp;&nbsp;
                         <i class="fa fa-caret-down arrow-icon" aria-hidden="true"></i>
                         &nbsp;&nbsp;

@@ -17,7 +17,7 @@
 
     {{-- Loading --}}
     <div class="loading-bar">
-        <img src="/img/icon/loading-spinner.svg">
+        <img src="https://nizawa.shuo-guo.net/img/icon/loading-spinner.svg">
     </div>
 
     {{-- Header --}}

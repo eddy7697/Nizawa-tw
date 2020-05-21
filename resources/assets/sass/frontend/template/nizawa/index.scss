@@ -293,10 +293,10 @@
         top: 10px;
         width: 60px;
         height: 60px;
-        background: url('/img/icon/burger-close.svg');
+        background: url('https://nizawa.shuo-guo.net/img/icon/burger-close.svg');
 
         &.active {
-            background: url('/img/icon/burger-open.svg');
+            background: url('https://nizawa.shuo-guo.net/img/icon/burger-open.svg');
         }
     }
     a.header-logo {
@@ -440,13 +440,13 @@
             }
         }
         &.product {
-            background-image: url('/img/banner-5-1.jpg');
+            background-image: url('https://nizawa.shuo-guo.net/img/banner-5-1.jpg');
         }
         &.news {
-            background-image: url('/img/banner-2-1.jpg');
+            background-image: url('https://nizawa.shuo-guo.net/img/banner-2-1.jpg');
         }
         &.witness {
-            background-image: url('/img/banner-3-1.jpg');
+            background-image: url('https://nizawa.shuo-guo.net/img/banner-3-1.jpg');
         }
         &::before {
             @extend %transparent-mask;
@@ -539,16 +539,16 @@
                     background-size: contain;
     
                     &.drop {
-                        background-image: url('/img/icon-1.svg');
+                        background-image: url('https://nizawa.shuo-guo.net/img/icon-1.svg');
                     }
                     &.box {
-                        background-image: url('/img/icon-2.svg');
+                        background-image: url('https://nizawa.shuo-guo.net/img/icon-2.svg');
                     }
                     &.mem {
-                        background-image: url('/img/icon-3.svg');
+                        background-image: url('https://nizawa.shuo-guo.net/img/icon-3.svg');
                     }
                     &.back {
-                        background-image: url('/img/icon-4.svg');
+                        background-image: url('https://nizawa.shuo-guo.net/img/icon-4.svg');
                     }
                 }
                 .flex-column {
@@ -1788,7 +1788,7 @@
         }
     }
     .partner-filter {
-        background-image: url('/img/partner_banner.jpg');
+        background-image: url('https://nizawa.shuo-guo.net/img/partner_banner.jpg');
         background-position: center;
         background-size: cover;
         text-align: center;
@@ -1884,7 +1884,7 @@
 
 
 .site-footer {
-    background-image: url('/img/footer-banner.jpg');
+    background-image: url('https://nizawa.shuo-guo.net/img/footer-banner.jpg');
     background-size: cover;
     background-position: center right;    
     min-height: 300px;

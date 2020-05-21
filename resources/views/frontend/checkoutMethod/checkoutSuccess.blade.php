@@ -9,21 +9,21 @@
             <div class="col-md-12 checkout-thumbnail">
                 <ul>
                     <li>
-                        <img src="/img/icon/cart-01.svg" alt="">
+                        <img src="https://nizawa.shuo-guo.net/img/icon/cart-01.svg" alt="">
                         &nbsp;&nbsp;
                         <i class="fa fa-caret-down arrow-icon" aria-hidden="true"></i>
                         &nbsp;&nbsp;
                         {{ trans('cart.inquery_car') }}
                     </li>
                     <li>
-                        <img src="/img/icon/cart-02.svg" alt="">
+                        <img src="https://nizawa.shuo-guo.net/img/icon/cart-02.svg" alt="">
                         &nbsp;&nbsp;
                         <i class="fa fa-caret-down arrow-icon" aria-hidden="true"></i>
                         &nbsp;&nbsp;
                         {{ trans('cart.contact_info') }}
                     </li>
                     <li class="active">
-                        <img src="/img/icon/cart-03.svg" alt="">
+                        <img src="https://nizawa.shuo-guo.net/img/icon/cart-03.svg" alt="">
                         &nbsp;&nbsp;
                         <i class="fa fa-caret-down arrow-icon" aria-hidden="true"></i>
                         &nbsp;&nbsp;
@@ -37,7 +37,7 @@
                 <div class="text">
                     {!! trans('cart.complete_inquiry_desc_2') !!}
                 </div>
-                <img src="/img/site-logo/findmore.png" class="find-more" alt="">
+                <img src="https://nizawa.shuo-guo.net/img/site-logo/findmore.png" class="find-more" alt="">
                 <br>
                 <a class="find-more-btn" href="/product">{{ trans('string.learn_more_products') }}</a>
             </div>

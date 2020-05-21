@@ -26,7 +26,7 @@
 @endsection
 
 @section('content')
-<div class="sub-page-banner" style="background-image: url('/img/sub-banner.jpg');">
+<div class="sub-page-banner" style="background-image: url('https://nizawa.shuo-guo.net/img/sub-banner.jpg');">
     <div>
         <h2>{{ trans('string.product_center') }}</h2>
         @if (App::getLocale() !== 'en')

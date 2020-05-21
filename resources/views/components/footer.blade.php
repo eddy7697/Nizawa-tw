@@ -13,7 +13,7 @@
         {{-- footer-section --}}
         <div class="col-md-12 footer-section">
             <div class="footer-logo">
-                <img src="/img/site-logo/logo_footer.png" alt="">
+                <img src="https://nizawa.shuo-guo.net/img/site-logo/logo_footer.png" alt="">
             </div>
             <div class="dropdown footer-language-bar">
                 <a href="#" data-toggle="dropdown"><i class="fa fa-globe" aria-hidden="true"></i>&nbsp;{{$language}}&nbsp;<i class="fa fa-caret-down" aria-hidden="true"></i></a>

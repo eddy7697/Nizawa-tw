@@ -44,7 +44,7 @@
 </head>
 <body class="nav-md">
     <div class="loading-bar">
-        <img class="loading-icon" src="/img/icon/Ripple.svg" alt="">
+        <img class="loading-icon" src="https://nizawa.shuo-guo.net/img/icon/Ripple.svg" alt="">
     </div>
     @yield('content')
     @yield('main-panel-script') 

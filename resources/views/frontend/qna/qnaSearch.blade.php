@@ -38,7 +38,7 @@
 @section('custom-style')
     <style media="screen">
         .feature-image {
-            background-image: url('/img/logo_grey.png');
+            background-image: url('https://nizawa.shuo-guo.net/img/logo_grey.png');
             background-position: center;
             background-size: cover;
             padding-bottom: 41.6%;
@@ -54,7 +54,7 @@
 @endsection
 
 @section('content')
-<div class="sub-page-banner" style="background-image: url('/img/sub-banner.jpg');">
+<div class="sub-page-banner" style="background-image: url('https://nizawa.shuo-guo.net/img/sub-banner.jpg');">
     <div>
         <h2>{{ trans('string.faq') }}</h2>
         @if (App::getLocale() !== 'en')

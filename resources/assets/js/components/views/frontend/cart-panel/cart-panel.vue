@@ -10,7 +10,7 @@
             <p>&nbsp;&nbsp;詢價車</p>
         </div> -->
         <!--<button class="cart pull-right" @click="getCart(true)">-->
-        <!--<img v-bind:src="(isCartEmpty ? '/img/icon/cart-empty.svg' : '/img/icon/cart-full.svg')" alt="" width="25" height="25">-->
+        <!--<img v-bind:src="(isCartEmpty ? 'https://nizawa.shuo-guo.net/img/icon/cart-empty.svg' : 'https://nizawa.shuo-guo.net/img/icon/cart-full.svg')" alt="" width="25" height="25">-->
         <!--&lt;!&ndash; <i class="fa fa-shopping-cart" aria-hidden="true"></i> &ndash;&gt;-->
         <!--</button>-->
         <transition name="fade">

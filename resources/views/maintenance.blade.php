@@ -13,12 +13,12 @@
 <body>
     <div id="mainten-info">
         <div class="site-logo">
-            <img src="/img/logo_grey.png" alt="" srcset="">
+            <img src="https://nizawa.shuo-guo.net/img/logo_grey.png" alt="" srcset="">
         </div>
         <br>
         <h2 style="letter-spacing: 5px;">全新網站上線倒數，造成不便敬請見諒</h2>
         <div class="point-wave">
-            <img src="/img/mainten-counting.svg" alt="">
+            <img src="https://nizawa.shuo-guo.net/img/mainten-counting.svg" alt="">
         </div>
         <br>
         <div class="datetime-countdown">

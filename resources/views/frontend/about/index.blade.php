@@ -61,7 +61,7 @@ ul#location-tab {
 @endsection
 
 @section('content')
-<div class="sub-page-banner" style="background-image: url('/img/sub-banner.jpg');">
+<div class="sub-page-banner" style="background-image: url('https://nizawa.shuo-guo.net/img/sub-banner.jpg');">
     <div>
         <h2>{{ trans('string.about') }}</h2>
         @if (App::getLocale() !== 'en')
@@ -85,7 +85,7 @@ ul#location-tab {
 <div class="container">
     <div class="row">
         <div class="col-md-12 about-content">
-            <img src="/img/about/logo.png" class="about-logo" alt="">
+            <img src="https://nizawa.shuo-guo.net/img/about/logo.png" class="about-logo" alt="">
             <h3 class="about-section-title">{{ trans('string.company_profile') }}</h3>
             <div class="about-text">
                 {!! trans('string.about1') !!}
@@ -159,35 +159,35 @@ ul#location-tab {
                 $album = preg_grep('~\.(jpeg|jpg|png)$~', scandir($albumPath));
                 $album = array(
                     [
-                        'image' => '/img/about/album/about-1.jpg',
+                        'image' => 'https://nizawa.shuo-guo.net/img/about/album/about-1.jpg',
                         'title' => trans('string.indu1'),
                         'link' => '/industry/water'
                     ],[
-                        'image' => '/img/about/album/about-2.jpg',
+                        'image' => 'https://nizawa.shuo-guo.net/img/about/album/about-2.jpg',
                         'title' => trans('string.indu2'),
                         'link' => '/industry/electronics'
                     ],[
-                        'image' => '/img/about/album/about-3.jpg',
+                        'image' => 'https://nizawa.shuo-guo.net/img/about/album/about-3.jpg',
                         'title' => trans('string.indu3'),
                         'link' => '/industry/life'
                     ],[
-                        'image' => '/img/about/album/about-4.jpg',
+                        'image' => 'https://nizawa.shuo-guo.net/img/about/album/about-4.jpg',
                         'title' => trans('string.indu4'),
                         'link' => '/industry/industrial'
                     ],[
-                        'image' => '/img/about/album/about-5.jpg',
+                        'image' => 'https://nizawa.shuo-guo.net/img/about/album/about-5.jpg',
                         'title' => trans('string.indu5'),
                         'link' => '/industry/fishery'
                     ],[
-                        'image' => '/img/about/album/about-6.jpg',
+                        'image' => 'https://nizawa.shuo-guo.net/img/about/album/about-6.jpg',
                         'title' => trans('string.indu6'),
                         'link' => '/industry/food'
                     ],[
-                        'image' => '/img/about/album/about-7.jpg',
+                        'image' => 'https://nizawa.shuo-guo.net/img/about/album/about-7.jpg',
                         'title' => trans('string.indu7'),
                         'link' => '/industry/cosmeceutical'
                     ],[
-                        'image' => '/img/about/album/about-8.jpg',
+                        'image' => 'https://nizawa.shuo-guo.net/img/about/album/about-8.jpg',
                         'title' => trans('string.indu8'),
                         'link' => '/industry/industrialEngineering'
                     ]
@@ -201,7 +201,7 @@ ul#location-tab {
                             <img class="feature" src="{{$item['image']}}" alt="">
                             <a class="link-mask" href="{{$item['link']}}">
                                 <div>
-                                    <img class="icon" src="/img/about/link_icon.svg" alt=""><br>
+                                    <img class="icon" src="https://nizawa.shuo-guo.net/img/about/link_icon.svg" alt=""><br>
                                     <span class="read-more">read more</span>
                                 </div>
                             </a>

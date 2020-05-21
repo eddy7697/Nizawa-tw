@@ -42,11 +42,11 @@
 				</div>
 				<div class="col-md-12 btn-section" v-if="pageLoaded">
 					<div v-if="pageData.current_page == pageData.last_page" class="scrolldown-endpoint">
-						<img src="/img/findmore.png" alt="">
+						<img src="https://nizawa.shuo-guo.net/img/findmore.png" alt="">
 						<h4>{{i18n.post_out}}</h4>
 						<p v-html="i18n.post_find_contact"></p>
 					</div>
-					<img v-if="isLoadingLearnMore" width="50" src="/img/icon/loading-spinner.svg">
+					<img v-if="isLoadingLearnMore" width="50" src="https://nizawa.shuo-guo.net/img/icon/loading-spinner.svg">
 				</div>
 			</div>
 		</div>

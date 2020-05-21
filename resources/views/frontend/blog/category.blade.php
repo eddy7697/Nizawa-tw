@@ -87,7 +87,7 @@
             @foreach (PostView::getByCategory($category, 10) as $key => $value)
                 <div class="row blog-list-section" onclick="window.location.href = '/blog/{{$value->customPath}}'" style="cursor: pointer">
                     <div class="col-md-4 blog-feature-image" id="blog-{{$value->postGuid}}">
-                        <img src="/img/4x3.png" alt="">
+                        <img src="https://nizawa.shuo-guo.net/img/4x3.png" alt="">
                     </div>
                     <div class="col-md-8 blog-content">
                         <h3>{{$value->postTitle}}</h3>

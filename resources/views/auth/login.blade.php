@@ -107,7 +107,7 @@
                             <br />
 
                             <div>
-                                <img src="/img/LanuchCenter_v2.png" width="100%" alt="碩果數位有限公司" title="碩果數位有限公司">
+                                <img src="https://nizawa.shuo-guo.net/img/LanuchCenter_v2.png" width="100%" alt="碩果數位有限公司" title="碩果數位有限公司">
                             </div>
                         </div>
                     </form>
