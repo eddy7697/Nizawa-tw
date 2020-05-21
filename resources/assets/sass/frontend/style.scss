@@ -8,6 +8,15 @@ body {
     overflow-x: hidden;
 }
 
+@mixin text-overflow( $line: 2 ) {
+    overflow : hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: $line;
+    word-break: break-all;
+    -webkit-box-orient: vertical;
+}
+
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     /* display: none; <- Crashes Chrome on hover */

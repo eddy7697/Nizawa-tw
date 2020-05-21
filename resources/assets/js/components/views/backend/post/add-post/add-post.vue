@@ -203,6 +203,22 @@
                         </div>
     				</div>
     			</div>
+                
+                <div class="panel panel-default">
+    				<div class="panel-heading">
+    					<h3 class="panel-title">
+    						Banner 圖片
+    					</h3>
+    				</div>
+    				<div class="panel-body">
+                        <a v-if="postContent[selectedLocale].banner === null" @click="selectBannerImg()">設定Banner</a>
+                        <div v-else class="">
+                            <img v-bind:src="postContent[selectedLocale].banner" id="featurePreview" style="width: 100%" @click="selectBannerImg()">
+                            <p>點選圖片以編輯或更新</p>
+                            <a @click="deleteBanner()">刪除Banner</a>
+                        </div>
+    				</div>
+    			</div>
             </div>
 
         </div>
@@ -244,6 +260,7 @@
                         featureImage: null,
                         customPath: 'null',
                         locale: 'zh-TW',
+                        banner: null,
                         seoTitle: null,
                         seoKeyword: null,
                         socialImage: null,
@@ -258,6 +275,7 @@
                         content: null,
                         featureImage: null,
                         customPath: 'null',
+                        banner: null,
                         seoTitle: null,
                         seoKeyword: null,
                         socialImage: null,
@@ -272,6 +290,7 @@
                         content: null,
                         featureImage: null,
                         customPath: 'null',
+                        banner: null,
                         seoTitle: null,
                         seoKeyword: null,
                         socialImage: null,
@@ -414,6 +433,7 @@
                             self.postContent[elm].featureImage = result[elm].featureImage;
                             self.postContent[elm].seoTitle = result[elm].seoTitle;
                             self.postContent[elm].seoKeyword = result[elm].seoKeyword;
+                            self.postContent[elm].banner = result[elm].banner;
                             self.postContent[elm].customPath = result[elm].customPath;
                             self.postContent[elm].socialImage = result[elm].socialImage;
                             self.postContent[elm].seoDescription = result[elm].seoDescription;
@@ -428,6 +448,7 @@
                             self.postContent[elm].featureImage = null;
                             self.postContent[elm].seoTitle = null;
                             self.postContent[elm].seoKeyword = null;
+                            self.postContent[elm].banner = null;
                             self.postContent[elm].customPath = 'null';
                             self.postContent[elm].socialImage = null;
                             self.postContent[elm].seoDescription = null;
@@ -609,6 +630,17 @@
                 window.SetUrl = function (url, file_path) {
                     self.postContent[self.selectedLocale].featureImage = file_path;
                 };
+            },
+            selectBannerImg() {
+                var self = this;
+
+                window.open('/laravel-filemanager' + '?type=Images', 'FileManager', 'width=900,height=600');
+                window.SetUrl = function (url, file_path) {
+                    self.postContent[self.selectedLocale].banner = file_path;
+                };
+            },
+            deleteBanner() {
+                this.postContent[this.selectedLocale].banner = null;
             },
             deleteFeatureImg: function () {
                 this.postContent[this.selectedLocale].featureImage = null;
