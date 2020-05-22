@@ -24,6 +24,27 @@ a.link-mask {
     bottom: 0;
 }
 
+.contact-btn {
+    display: inline-block;
+    width: 70px;
+    height: 70px;
+    background-color: white;
+    position: fixed;
+    z-index: 99;
+    bottom: 30%;
+    right: 10px;
+    border-radius: 50%;
+    box-shadow: 2px 2px 12px -2px rgba(0,0,0,.5);
+
+    img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 80%;
+        transform: translate(-50%, -50%);
+    }
+}
+
 .pagination-section {
 
     .pagination {

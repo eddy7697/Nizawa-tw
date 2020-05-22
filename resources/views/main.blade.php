@@ -28,7 +28,9 @@
         @yield('content')
     </section>
     
-
+    <a class="contact-btn" href="/contact">
+        <img src="https://nizawa.shuo-guo.net/img/site-logo/small-logo.png" alt="">
+    </a>
     {{-- Footer --}}
     @include('components.footer')
 
@@ -41,17 +43,17 @@
     
     <textarea id="i18n-text" cols="30" rows="10">{{ json_encode($res) }}</textarea>
     <!-- Scripts -->
-    <script src="/js/frontend.js"></script>
+    <script src="https://nizawa.shuo-guo.net/js/frontend.js"></script>
 
-    <script src="/js/plugins/popper/popper.min.js"></script>
+    <script src="https://nizawa.shuo-guo.net/js/plugins/popper/popper.min.js"></script>
 
-    <script src="/js/plugins/b4/js/bootstrap.min.js"></script>    
+    <script src="https://nizawa.shuo-guo.net/js/plugins/b4/js/bootstrap.min.js"></script>    
 
-    <script src="/js/cart-panel.js"></script>
+    <script src="https://nizawa.shuo-guo.net/js/cart-panel.js"></script>
     
-    <script src="/js/plugins/jquery-ui/jquery-ui.min.js"></script>
+    <script src="https://nizawa.shuo-guo.net/js/plugins/jquery-ui/jquery-ui.min.js"></script>
 
-    <script src="/js/plugins/AOS/aos.js" charset="utf-8"></script>
+    <script src="https://nizawa.shuo-guo.net/js/plugins/AOS/aos.js" charset="utf-8"></script>
 
     <script type="text/javascript">
         AOS.init();
