@@ -133,6 +133,7 @@ return [
     'indu6' => 'Food industry',
     'indu7' => 'Cosmeceutical industry',
     'indu8' => 'Industrial Engineering',
+    'indu9' => 'biotechnology',
 
     'founded' => 'Established in',
     'merchandise_quantity' => 'Product quantity',

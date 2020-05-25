@@ -40,6 +40,50 @@
 						</a>   
 					</div>
 				</div>
+				<div class="col-md-12 force-center" style="margin-top: 30px">
+					<nav aria-label="Page navigation example">
+						<ul class="pagination">
+							<li class="page-item" v-if="pageData.current_page !== 1"><a class="option page-link hidden-xs" @click="gotoPage(1)" >第一頁</a></li>
+							<li class="page-item" v-if="pageData.current_page !== 1"><a class="option page-link hidden-xs" @click="gotoPage(pageData.current_page - 1)" >上一頁</a></li>
+							<li class="page-item" v-if="breakPoint < this.pageData.current_page">
+								<a class="option page-link" 
+								@click="gotoPage(1)" >
+								1
+								</a>
+							</li>
+							<li class="page-item" v-if="breakPoint < this.pageData.current_page">
+								<a class="option page-link" 
+								@click="gotoPage(pageData.current_page - breakPoint)">
+								...
+								</a>
+							</li>
+							<li class="page-item" v-for="(item, index) in eachPage" 
+								:key="index" 
+								:class="{'hidden': !pageNumVisible(item)}">
+								<a class="option page-link" 
+								@click="gotoPage(item)"
+								:class="{active: item == pageData.current_page}">
+								{{item}}
+								</a>
+							</li>
+							<li class="page-item" v-if="pageData.last_page > this.pageData.current_page + (breakPoint - 1)">
+								<a class="option page-link" 
+								@click="gotoPage(pageData.current_page + breakPoint)">
+								...
+								</a>
+							</li>
+							<li class="page-item" v-if="pageData.last_page > this.pageData.current_page + (breakPoint - 1)">
+								<a class="option page-link" 
+								@click="gotoPage(pageData.last_page)" >
+								{{pageData.last_page}}
+								</a>
+							</li>
+							<li class="page-item" v-if="pageData.current_page !== pageData.last_page"><a class="option page-link hidden-xs" @click="gotoPage(pageData.current_page + 1)" >下一頁</a></li>
+							<li class="page-item" v-if="pageData.current_page !== pageData.last_page"><a class="option page-link hidden-xs" @click="gotoPage(pageData.last_page)" >最後一頁</a></li>
+						</ul>
+					</nav>
+					
+				</div>
 				<div class="col-md-12 btn-section" v-if="pageLoaded">
 					<div v-if="pageData.current_page == pageData.last_page" class="scrolldown-endpoint">
 						<img src="https://nizawa.shuo-guo.net/img/findmore.png" alt="">
@@ -70,7 +114,9 @@
 				pageData: {},
 				keyword: null,
 				urlPath: `/posts`,
-				actionLock: false
+				actionLock: false,
+				eachPage: [],
+				breakPoint: 3,
             }
 		},
 		created() {
@@ -79,6 +125,7 @@
 		},
 		watch: {
 			urlPath() {
+				console.log(123)
 				this.getData()
 			},
 			selectedCategory() {
@@ -94,22 +141,74 @@
 					})
 			},
 			getData() {
-				if (!this.pageLoaded) {
-					let vo = {
-						cate: this.selectedCategory,
-						keyword: this.keyword
-					}
+				let vo = {
+					cate: this.selectedCategory,
+					keyword: this.keyword
+				}
 
-					$('.loading-bar').show()
+				$('.loading-bar').show()
 
-					axios.post(this.urlPath, vo)
-						.then(res => {
-							this.pageData = res.data
-							this.pageLoaded = true
-							$('.loading-bar').hide()
-							this.scrollMore()
-						})
-				}				
+				axios.post(this.urlPath, vo)
+					.then(res => {
+						this.pageData = res.data
+						this.pageLoaded = true
+						this.eachPage = []
+						for (let index = 0; index < res.data.last_page; index++) {
+							this.eachPage.push(index + 1)
+						}
+						$('.loading-bar').hide()
+						// this.scrollMore()
+					})
+				// if (!this.pageLoaded) {
+				// 	let vo = {
+				// 		cate: this.selectedCategory,
+				// 		keyword: this.keyword
+				// 	}
+
+				// 	$('.loading-bar').show()
+
+				// 	axios.post(this.urlPath, vo)
+				// 		.then(res => {
+				// 			this.pageData = res.data
+				// 			this.pageLoaded = true
+				// 			for (let index = 0; index < res.data.last_page; index++) {
+				// 			this.eachPage.push(index + 1)
+				// 			}
+				// 			$('.loading-bar').hide()
+				// 			// this.scrollMore()
+				// 		})
+				// }				
+			},
+			gotoPage(page) {
+                let checkPage = this.urlPath.match('page=')
+
+                if (checkPage) {
+                    let pathArray = this.urlPath.split('?')
+                    let pageStrIndex
+
+                    pathArray.forEach(elm => {
+                        if (elm.match('page=')) {
+                            pageStrIndex = pathArray.indexOf(elm)
+                        }
+                    })
+
+                    pathArray[pageStrIndex] = `page=${page}`
+                    
+                    this.urlPath = pathArray.join('?')
+                } else {
+                    const url = `${this.urlPath}?page=${page}`
+
+                    this.urlPath = url
+                }
+			},
+			pageNumVisible(item) {	
+				if (item > this.pageData.current_page + (this.breakPoint - 1)) {
+					return false
+				}
+				if (item + (this.breakPoint - 1) < this.pageData.current_page) {
+					return false
+				}
+				return true
 			},
 			searchPost() {
 				this.pageLoaded = false

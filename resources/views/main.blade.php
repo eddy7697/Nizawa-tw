@@ -29,7 +29,11 @@
     </section>
     
     <a class="contact-btn" href="/contact">
-        <img src="https://nizawa.shuo-guo.net/img/site-logo/small-logo.png" alt="">
+        <div class="inner">
+            <img src="https://nizawa.shuo-guo.net/img/site-logo/small-logo.png" alt="">
+            <p>{{ trans('string.about4') }}</p>
+        </div>
+        
     </a>
     {{-- Footer --}}
     @include('components.footer')

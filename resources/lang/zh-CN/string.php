@@ -133,6 +133,7 @@ return [
     'indu6' => '食品行业',
     'indu7' => '药妆行业',
     'indu8' => '工业工程',
+    'indu9' => '生技制药',
 
     'founded' => '成立于',
     'merchandise_quantity' => '产品数量',

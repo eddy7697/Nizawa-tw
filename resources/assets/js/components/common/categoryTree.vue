@@ -396,6 +396,8 @@
                         if (count > 1) {
                             $('.loading-bar').hide()
                         }
+                    }).then(() => {
+                        $('.loading-bar').hide()
                     })
                 axios.post(`/api/translate/en/${this.editCategoryForm.categoryName['zh-TW']}`)
                     .then(res => {
@@ -405,6 +407,8 @@
                         if (count > 1) {
                             $('.loading-bar').hide()
                         }
+                    }).then(() => {
+                        $('.loading-bar').hide()
                     })
             },
             generateTree(data) {

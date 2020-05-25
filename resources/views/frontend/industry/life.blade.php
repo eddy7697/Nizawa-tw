@@ -22,10 +22,10 @@
             'title' => trans('string.indu4'),
             'link' => '/industry/industrial'
         ],[
-            'image' => 'https://nizawa.shuo-guo.net/img/about/album/about-5.jpg',
-            'title' => trans('string.indu5'),
-            'link' => '/industry/fishery'
-        ],[
+        //     'image' => 'https://nizawa.shuo-guo.net/img/about/album/about-5.jpg',
+        //     'title' => trans('string.indu5'),
+        //     'link' => '/industry/fishery'
+        // ],[
             'image' => 'https://nizawa.shuo-guo.net/img/about/album/about-6.jpg',
             'title' => trans('string.indu6'),
             'link' => '/industry/food'
@@ -33,10 +33,10 @@
             'image' => 'https://nizawa.shuo-guo.net/img/about/album/about-7.jpg',
             'title' => trans('string.indu7'),
             'link' => '/industry/cosmeceutical'
-        ],[
-            'image' => 'https://nizawa.shuo-guo.net/img/about/album/about-8.jpg',
-            'title' => trans('string.indu8'),
-            'link' => '/industry/industrialEngineering'
+        // ],[
+        //     'image' => 'https://nizawa.shuo-guo.net/img/about/album/about-8.jpg',
+        //     'title' => trans('string.indu8'),
+        //     'link' => '/industry/industrialEngineering'
         ]
     );
 @endphp

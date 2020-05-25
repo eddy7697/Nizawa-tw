@@ -177,6 +177,7 @@ Route::group(['prefix' => 'industry'], function ()
     Route::get('/life', 'Frontend\PageController@life');
     Route::get('/industrial', 'Frontend\PageController@industrial');
     Route::get('/electronics', 'Frontend\PageController@electronics');
+    Route::get('/biotechnology', 'Frontend\PageController@biotechnology');
     Route::get('/fishery', 'Frontend\PageController@fishery');
     Route::get('/food', 'Frontend\PageController@food');
     Route::get('/cosmeceutical', 'Frontend\PageController@cosmeceutical');

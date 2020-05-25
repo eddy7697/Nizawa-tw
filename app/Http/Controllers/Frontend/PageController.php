@@ -243,6 +243,11 @@ class PageController extends Controller
         return view('frontend.industry.electronics');
     }
 
+    public function biotechnology()
+    {
+        return view('frontend.industry.biotechnology');
+    }
+
     public function fishery()
     {
         return view('frontend.industry.fishery');

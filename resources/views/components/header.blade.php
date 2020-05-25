@@ -199,12 +199,12 @@
                             <p class="header-job-txt">{{trans('string.indu4')}}</p>
                         </a>
                     </li>
-                    <li class="site-mega-menu-item">
+                    {{-- <li class="site-mega-menu-item">
                         <a href="/industry/fishery" class="site-mega-menu-link">
                             <img src="https://nizawa.shuo-guo.net/img/about/album/about-5.jpg" alt="{{trans('string.indu5')}}">
                             <p class="header-job-txt">{{trans('string.indu5')}}</p>
                         </a>
-                    </li>
+                    </li> --}}
                     <li class="site-mega-menu-item">
                         <a href="/industry/food" class="site-mega-menu-link">
                             <img src="https://nizawa.shuo-guo.net/img/about/album/about-6.jpg" alt="{{trans('string.indu6')}}">
@@ -218,11 +218,17 @@
                         </a>
                     </li>
                     <li class="site-mega-menu-item">
+                        <a href="/industry/biotechnology" class="site-mega-menu-link">
+                            <img src="https://nizawa.shuo-guo.net/img/about/album/about-8.jpg" alt="{{trans('string.indu9')}}">
+                            <p class="header-job-txt">{{trans('string.indu9')}}</p>
+                        </a>
+                    </li>
+                    {{-- <li class="site-mega-menu-item">
                         <a href="/industry/industrialEngineering" class="site-mega-menu-link">
                             <img src="https://nizawa.shuo-guo.net/img/about/album/about-8.jpg" alt="{{trans('string.indu8')}}">
                             <p class="header-job-txt">{{trans('string.indu8')}}</p>
                         </a>
-                    </li>
+                    </li> --}}
                 </ul>
             </div>
         </div>
@@ -259,10 +265,11 @@
                 <li><a href="/industry/electronics">{{trans('string.indu2')}}</a></li>
                 <li><a href="/industry/life">{{trans('string.indu3')}}</a></li>
                 <li><a href="/industry/industrial">{{trans('string.indu4')}}</a></li>
-                <li><a href="/industry/fishery">{{trans('string.indu5')}}</a></li>
+                {{-- <li><a href="/industry/fishery">{{trans('string.indu5')}}</a></li> --}}
                 <li><a href="/industry/food">{{trans('string.indu6')}}</a></li>
                 <li><a href="/industry/cosmeceutical">{{trans('string.indu7')}}</a></li>
-                <li><a href="/industry/industrialEngineering">{{trans('string.indu8')}}</a></li>
+                <li><a href="/industry/biotechnology">{{trans('string.indu9')}}</a></li>
+                {{-- <li><a href="/industry/industrialEngineering">{{trans('string.indu8')}}</a></li> --}}
             </ul>
         </li>
         <li><a href="/blog">{{ trans('string.news_center') }}</a></li>

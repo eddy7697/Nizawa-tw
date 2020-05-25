@@ -42,6 +42,10 @@
     white-space : nowrap;
 }
 
+.mobile-to-show {
+    display: none !important;
+}
+
 .site-header {
     position: fixed;
     top: 0;
@@ -1091,41 +1095,48 @@
         .witness-container {
             margin: 60px auto 40px;
 
-            .witness-item {
-                display: inline-block;
-                width: 30%;
-                padding: 15px;
-                overflow : hidden;
-                text-overflow : ellipsis;
-                white-space : nowrap;
-                width : 240px;
-
-
-                .witness-image {
-                    padding-bottom: 100%;
-                    border: #eee 2px solid;
-
-                    img {
-                        position: absolute;
-                        top: 50%;
-                        left: 50%;
-                        transform: translate(-50%, -50%);
-                        max-width: 80%;
-                        max-height: 80%;
+            .witness-paginate {
+                width: 100%;
+                .witness-item {
+                    display: inline-block;
+                    width: calc(16% + 2px);
+                    padding: 15px;
+                    overflow : hidden;
+                    text-overflow : ellipsis;
+                    white-space : nowrap;
+                    // width : 240px;
+    
+    
+                    .witness-image {
+                        padding-bottom: 100%;
+                        border: #eee 2px solid;
+    
+                        img {
+                            position: absolute;
+                            top: 50%;
+                            left: 50%;
+                            transform: translate(-50%, -50%);
+                            max-width: 80%;
+                            max-height: 80%;
+                        }
                     }
-                }
-                .withess-info {
-                    text-align: center;
-                    font-size: 1rem;
-                    line-height: 18px;
-                    padding: 20px 0;
-                    color: #999;
-
-                    span {
-                        font-size: 0.3rem;
+                    .withess-info {
+                        text-align: center;
+                        font-size: 1rem;
+                        line-height: 18px;
+                        padding: 20px 0;
+                        color: #999;
+    
+                        span {
+                            font-size: 0.3rem;
+                        }
+                    }
+                    @media (max-width: 768px)  {
+                        width: 49%;
                     }
                 }
             }
+            
         }
     }
     .qna-container {
@@ -2134,6 +2145,13 @@
 }
 
 @media (max-width: 768px) {
+    .mobile-to-hide {
+        display: none !important;
+    }
+    .mobile-to-show {
+        display: block !important;
+    }
+    
     .site-content {
         .product-list {
             margin: 15px auto 20px;

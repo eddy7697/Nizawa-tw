@@ -39,7 +39,7 @@ class PostController extends Controller
                             }
                         })
                         ->where('locale', App::getLocale())
-                        ->paginate(6);
+                        ->paginate(9);
 
         if ($data) {
             $status = 200;

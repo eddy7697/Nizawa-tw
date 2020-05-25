@@ -137,15 +137,15 @@
             arrow: true,
             prevArrow: $('#prev-arrow'),
             nextArrow: $('#next-arrow'),
-            slidesToShow: 6,
+            slidesToShow: 1,
             slidesToScroll: 1,
-            autoplay: true,
-            autoplaySpeed: 2000,
+            autoplay: false,
+            // autoplaySpeed: 2000,
             responsive: [
                 {
                     breakpoint: 1024,
                     settings: {
-                        slidesToShow: 3,
+                        slidesToShow: 1,
                         slidesToScroll: 1,
                         arrow: true,
                         infinite: true
@@ -154,7 +154,7 @@
                 {
                     breakpoint: 600,
                     settings: {
-                        slidesToShow: 2,
+                        slidesToShow: 1,
                         slidesToScroll: 1,
                         arrow: true
                     }
@@ -512,12 +512,41 @@
                     <button class="witness-arrow" id="next-arrow">
                         <i class="fa fa-caret-right" aria-hidden="true"></i>
                     </button>
-                    <div class="witness-container">
-                        @foreach (SiteMetaView::pageTopContent() as $item)
-                            <div class="witness-item">
-                                <div class="witness-image">
-                                    <img src="{{$item->url}}" alt="">
-                                </div>
+                    @php
+                        $collection = collect(SiteMetaView::pageTopContent());
+
+                        $mobile = $collection->chunk(4);
+
+                        $mobile->toArray();
+
+                        $chunks = $collection->chunk(12);
+
+                        $chunks->toArray();
+
+                    @endphp 
+                    <div class="witness-container mobile-to-hide">
+                        @foreach ($chunks as $item)
+                            <div class="witness-paginate">
+                                @foreach ($item as $elm)
+                                    <div class="witness-item">
+                                        <div class="witness-image">
+                                            <img src="{{$elm->url}}" alt="">
+                                        </div>
+                                    </div>
+                                @endforeach
+                            </div>
+                        @endforeach
+                    </div>
+                    <div class="witness-container mobile-to-show">
+                        @foreach ($mobile as $item)
+                            <div class="witness-paginate">
+                                @foreach ($item as $elm)
+                                    <div class="witness-item">
+                                        <div class="witness-image">
+                                            <img src="{{$elm->url}}" alt="">
+                                        </div>
+                                    </div>
+                                @endforeach
                             </div>
                         @endforeach
                     </div>

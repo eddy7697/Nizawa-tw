@@ -33,10 +33,10 @@
             'image' => 'https://nizawa.shuo-guo.net/img/about/album/about-7.jpg',
             'title' => trans('string.indu7'),
             'link' => '/industry/cosmeceutical'
-        ],[
-            'image' => 'https://nizawa.shuo-guo.net/img/about/album/about-8.jpg',
-            'title' => trans('string.indu8'),
-            'link' => '/industry/industrialEngineering'
+        // ],[
+        //     'image' => 'https://nizawa.shuo-guo.net/img/about/album/about-8.jpg',
+        //     'title' => trans('string.indu8'),
+        //     'link' => '/industry/industrialEngineering'
         ]
     );
 @endphp

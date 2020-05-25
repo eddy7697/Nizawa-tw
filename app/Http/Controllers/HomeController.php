@@ -253,7 +253,7 @@ class HomeController extends Controller
     public function translate($lang, $target)
     {
         $translate = new TranslateClient([
-            'key' => 'AIzaSyDS-llQqhTGnPLh36N-ZfyJIi4jfEBmohQ'
+            'key' => 'AIzaSyDXnE-uUE49nH7tbpvUlZt7jQhbf5cNUAs'
         ]);
         
         // Translate text from english to french.

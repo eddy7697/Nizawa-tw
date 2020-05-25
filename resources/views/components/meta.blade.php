@@ -19,6 +19,8 @@
 
 <!-- Fonts -->
 <link rel="stylesheet" href="https://nizawa.shuo-guo.net/js/plugins/b4/css/bootstrap.min.css">
+
+{{-- <link href="/css/frontend.css" rel="stylesheet"> --}}
 <link href="https://nizawa.shuo-guo.net/css/frontend.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">

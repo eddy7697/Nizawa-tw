@@ -134,6 +134,7 @@ return [
     'indu6' => '食品產業',
     'indu7' => '藥妝產業',
     'indu8' => '工業工程',
+    'indu9' => '生技製藥',
 
     'founded' => '成立於',
     'merchandise_quantity' => '產品數量',
