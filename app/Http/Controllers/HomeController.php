@@ -253,7 +253,7 @@ class HomeController extends Controller
     public function translate($lang, $target)
     {
         $translate = new TranslateClient([
-            'key' => 'AIzaSyDXnE-uUE49nH7tbpvUlZt7jQhbf5cNUAs'
+            'key' => env('GOOGLE_API_KEY')
         ]);
         
         // Translate text from english to french.
