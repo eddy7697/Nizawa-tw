@@ -9,7 +9,7 @@
     <style>
         .swiper-container {
             width: 100%;
-            padding-bottom: 30.5%;
+            padding-bottom: 41.5%;
             /* z-index: -1; */
         }
         .swiper-container .swiper-wrapper {
