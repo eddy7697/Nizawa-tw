@@ -2079,31 +2079,31 @@
     .site-content {
         .swiper-container {
             width: 100%;
-            padding-bottom: 0px;
+            padding-bottom: 41.5%;
             .scrollDown {
                 display: none;
             }
             /* z-index: -1; */
             .swiper-wrapper {
-                position: relative;
+                // position: relative;
                 
-                .swiper-slide {
-                    padding: 20px 0;
+                // .swiper-slide {
+                //     padding: 20px 0;
                     
-                    .slide-item {
-                        position: relative;
-                        margin: 0px auto;
-                        right: inherit;
-                        width: 85%;
+                //     .slide-item {
+                //         position: relative;
+                //         margin: 0px auto;
+                //         right: inherit;
+                //         width: 85%;
     
-                        h2 {
-                        }
-                        .slide-info {
-                        }
-                        a.slide-btn {
-                        }
-                    }
-                }
+                //         h2 {
+                //         }
+                //         .slide-info {
+                //         }
+                //         a.slide-btn {
+                //         }
+                //     }
+                // }
             }
         }
         .new-tabs {

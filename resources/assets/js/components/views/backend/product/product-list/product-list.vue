@@ -282,11 +282,12 @@
                 this.productQtyStatus = localStorage.getItem('productQtyStatus')
             }
 
-            if (localStorage.getItem('pageCache')) {
-                this.getProductData(localStorage.getItem('pageCache'));
-            } else {
-                this.getProductData('/admin/product/get');
-            }
+            // if (localStorage.getItem('pageCache')) {
+            //     this.getProductData(localStorage.getItem('pageCache'));
+            // } else {
+            //     this.getProductData('/admin/product/get');
+            // }
+            this.getProductData('/admin/product/get');
             
             this.keyword = localStorage.getItem('keywordCache')
             // this.getProductData('/admin/product/get');
