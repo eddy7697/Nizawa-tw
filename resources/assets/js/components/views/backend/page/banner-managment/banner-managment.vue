@@ -68,24 +68,27 @@
         <div class="col-md-6">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="panel panel-default" v-for="(item, index) in siteMeta.index_album" v-bind:key="index">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">
-                                {{ item.title }}                                
-                                <a class="pull-right" @click="siteMeta.index_album.splice(index, 1)" style="margin-left: 10px;"><i class="fa fa-times" aria-hidden="true"></i></a>                                
-                                <a class="pull-right" @click="editBanner(index)" style="margin-left: 10px;"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-                            </h3>
-                        </div>
-                        <div class="panel-body">
-                            <img width="100%" v-bind:src="item.url">
-                            <textarea v-model="item.content" class="form-control" style="resize: vertical"></textarea>
-                        </div>
-                        <div class="panel-footer">
-                            <div class="form-control">
-                                <p>{{item.link}}</p>
+                    <draggable v-model="siteMeta.index_album">
+                        <div class="panel panel-default" v-for="(item, index) in siteMeta.index_album" v-bind:key="index">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">
+                                    {{ item.title }}                                
+                                    <a class="pull-right" @click="siteMeta.index_album.splice(index, 1)" style="margin-left: 10px;"><i class="fa fa-times" aria-hidden="true"></i></a>                                
+                                    <a class="pull-right" @click="editBanner(index)" style="margin-left: 10px;"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                                </h3>
+                            </div>
+                            <div class="panel-body">
+                                <img width="100%" v-bind:src="item.url">
+                                <textarea v-model="item.content" class="form-control" style="resize: vertical"></textarea>
+                            </div>
+                            <div class="panel-footer">
+                                <div class="form-control">
+                                    <p>{{item.link}}</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </draggable>
+                    
                 </div>
             </div>
             
@@ -94,7 +97,11 @@
 </template>
 
 <script>
+    import draggable from 'vuedraggable'
     export default {
+        components: {
+            draggable
+        },
         data() {
             return {
                 siteMeta: {
