@@ -58,6 +58,7 @@
                         <draggable class="row" v-model="siteMeta.pageTopContent">
                             <div class="col-sm-3 partners-box" v-for="(item, index) in siteMeta.pageTopContent" :key="index">
                                 <img width="100%" :src="item.url" alt="">
+                                <button class="delete-btn" @click="siteMeta.pageTopContent.splice(index, 1)">刪除</button>
                             </div>
                         </draggable>
                     </td>
@@ -267,6 +268,16 @@
         max-width: 90%;
         max-height: 90%;
         width: auto;
+    }
+    .delete-btn {
+        border: none;
+        position: absolute;
+        top: -5px;
+        right: -5px;
+        padding: 5px;
+        border-radius: 3px;
+        background-color: red;
+        color: white;
     }
 }
 </style>
