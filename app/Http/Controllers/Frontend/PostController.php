@@ -39,6 +39,7 @@ class PostController extends Controller
                             }
                         })
                         ->where('locale', App::getLocale())
+                        ->orderBy('id', 'desc')
                         ->paginate(9);
 
         if ($data) {
