@@ -50,4 +50,16 @@ class DownloadController extends Controller
             'isTop' => $qa->isTop == 1 ? 0 : 1
         ]);
     }
+
+    /**
+     * deleteDownload
+     */
+    public function deleteDownload($id)
+    {
+        $result = Download::find($id)->delete();
+
+        return response()->json([
+            'data' => $result
+        ], 200);
+    }
 }

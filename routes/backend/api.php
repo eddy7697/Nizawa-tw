@@ -229,6 +229,7 @@ Route::group(['prefix' => 'admin'], function ()
         Route::post('/get/{id}', 'Backend\DownloadController@getDownload');
         Route::post('/add', 'Backend\DownloadController@addDownload');
         Route::post('/edit/{id}', 'Backend\DownloadController@editDownload');
+        Route::delete('/delete/{id}', 'Backend\DownloadController@deleteDownload');
         Route::post('/udpate/status/{id}', 'Backend\DownloadController@updateStatus');
     });
 
